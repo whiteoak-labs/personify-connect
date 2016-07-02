@@ -1,0 +1,1 @@
+Ext.define("Personify.controller.event.events.SelectEventPanel",{extend:"Personify.base.Controller",control:{selectEventItem:true},config:{storeAllItem:null},setStore:function(a){this.setStoreAllItem(a)},getStore:function(){return this.getStoreAllItem()}});

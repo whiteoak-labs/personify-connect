@@ -1,0 +1,1 @@
+Ext.define("Ext.device.filesystem.Abstract",{config:{fileSystemType:1,fileSystemSize:0,readerType:"text",stringEncoding:"UTF8"},requestFileSystem:function(b){var a=Ext.device.filesystem.Abstract.prototype.config;b=Ext.applyIf(b,{type:a.fileSystemType,size:a.fileSystemSize,success:Ext.emptyFn,failure:Ext.emptyFn});return b}});

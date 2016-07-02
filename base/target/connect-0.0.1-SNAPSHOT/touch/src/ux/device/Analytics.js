@@ -1,0 +1,1 @@
+Ext.define("Ext.ux.device.Analytics",{singleton:true,requires:["Ext.device.Communicator","Ext.ux.device.analytics.Cordova"],constructor:function(){var a=Ext.browser.is;if(a.WebView&&a.Cordova){return Ext.create("Ext.ux.device.analytics.Cordova")}else{return Ext.create("Ext.ux.device.analytics.Abstract")}}});

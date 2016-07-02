@@ -1,0 +1,49 @@
+{
+    "menu": [
+        {
+            "name": "Sessions",
+            "view": "sessionsAndDetail",
+            "css": "scheduleButton menu-list-item-background"
+        },
+        {
+            "name": "Attendees",
+            "view": "attendees",
+            "css": "attendeesButton menu-list-item-background"
+        },
+        {
+            "name": "Exhibitors",
+            "view": "exhibitorAndDetail",
+            "css": "exhibitorsButton menu-list-item-background"
+        },
+        {
+            "name": "Map",
+            "view": "mapevent",
+            "css": "mapButton menu-list-item-background"
+        },
+        {
+            "name": "Materials",
+            "view": "materialPanel",
+            "css": "materialButton menu-list-item-background"
+        },
+        {
+            "name": "Notes",
+            "view": "notepanel",
+            "css": "notesButton menu-list-item-background"
+        },
+        {
+            "name": "Presenters",
+            "view": "presenterpanel",
+            "css": "presenterButton menu-list-item-background"
+        },
+        {
+            "name": "Event Description",
+            "view": "descriptioneventpanel",
+            "css": "descriptionButton menu-list-item-background"
+        },
+        {
+            "name": "Badge",
+            "view": "badgepanel",
+            "css": "badgeButton menu-list-item-background"
+        }
+    ]
+}

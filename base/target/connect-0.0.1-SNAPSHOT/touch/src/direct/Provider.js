@@ -1,0 +1,1 @@
+Ext.define("Ext.direct.Provider",{alias:"direct.provider",mixins:{observable:"Ext.mixin.Observable"},config:{id:undefined},isProvider:true,constructor:function(a){this.initConfig(a)},applyId:function(a){if(a===undefined){a=this.getUniqueId()}return a},isConnected:function(){return false},connect:Ext.emptyFn,disconnect:Ext.emptyFn});

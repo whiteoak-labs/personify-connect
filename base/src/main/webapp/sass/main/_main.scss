@@ -1,0 +1,141 @@
+@mixin main {
+  .p-image-iconheaderurl {
+    background-size: 30px;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+  }
+   .notification-template {
+    width: 100%;
+    margin-top: $p-margin-same-component;
+    margin-left: $p-margin-same-component;
+    padding-top: $p-padding-text;
+    padding-right: $p-padding-text;
+  }
+
+  .date-time-notification {
+    float: left;
+    width: 30%;
+  }
+
+  .date-notification {
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .time-notification {
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    color: #999;
+  }
+
+  .number-label-notification {
+    padding: 8px 10px;
+    border: 1px solid black;
+    height: 30px;
+    background: white;
+    color: red;
+    margin-left: 5%;
+    line-height: 13px;
+    border-radius: 7px;
+  }
+
+  .title-label-notification {
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    margin-top: 10px;
+    line-height: 13px;
+  }
+
+  .description-notification {
+    float: left;
+    margin-left: 10%;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .notification-view {
+    width: 50%;
+    height: 100%;
+    background: white;
+  }
+
+  .close-button-notification {
+    width: 40px;
+    background: #333;
+    border-radius: 0px;
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    .x-button-label {
+      color: white !important;
+    }
+  }
+
+  .tableNotification {
+    border-top: 1px solid #cc6600;
+    padding-top: 5px;
+  }
+  
+  .notification-detail {
+    width: 450px;
+    height: 300px;
+    background: white;
+    font-size: 15px;
+    z-index: 11;
+  }
+  
+  .notification-details-template {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 5px;
+  }
+  
+  .notification-details-template-item {
+    padding: 5px;
+    font-size: 13px;
+  }
+  
+  .notification-details-template-link {
+    text-decoration: underline;
+    color: blue;
+    margin: 15px 0px;
+  }
+  .notification-details-template-description-details {
+    border-top: 1px solid gray;
+    padding-top: 3px;
+  }
+  .notification-details-template-description {
+    padding-bottom: 3px;
+  }
+  .x-loading-spinner{
+    -webkit-animation-duration: 2s !important;
+  }
+  .p-body-class{
+  	background-color: black; 
+  	color: #ffffff;
+  }
+  .p-baseclass-clearstyle{
+  	background-color: transparent;
+  	box-shadow: none;
+  	border-radius: 0px;
+  	border: 0px;
+  }
+
+}

@@ -1,0 +1,190 @@
+@mixin field {
+  .p-search-field {
+    height: 30px;
+    border: solid 1px #999999;
+    font-size: $p-text-medium-size;
+    margin: $p-margin-same-component;
+    border-radius: 15px;
+    .x-clear-icon {
+      margin: 0px !important;
+      background-position: 6px 7px !important;
+      top: 0px !important;
+    }
+  }
+
+  .p-textbox-border {
+    height: 30px;
+    border: solid 1px #000;
+    font-size: $p-text-medium-size;
+    margin-top: $p-margin-same-component;
+    .x-clear-icon {
+      margin: -1px 5px 0px 0px !important;
+      top: 0px !important;
+    }
+  }
+
+  .p-textbox-hour-border {
+    height: 30px;
+    border: solid 1px #000;
+    font-size: $p-text-medium-size;
+    margin-right: $p-margin-same-component;
+  }
+
+  .p-textareafield-border, .p-textbox-border {
+    border: solid 1px #919191;
+    border-radius: 7px;
+  }
+  .p-search-field .x-field-input, .p-textbox-border .x-field-input,
+  .p-textareafield-border .x-field-input, .p-textbox-hour-border .x-field-input {
+    padding-left: 5px;
+  }
+  .p-search-field .x-field-input::before{
+    top: 0.7em;
+  }
+  .selectnewsfeedpanel{
+    .p-search-field .x-field-input::before{
+      top: 0.5em;
+    }
+  }
+
+  .p-text-viewing{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #fff;
+    margin-bottom: $p-margin-same-component;
+    margin-left: $p-margin-same-component;
+  }
+  .p-label-title-calendar {
+    margin-bottom: 5px;
+    padding-left: $p-margin-same-component;
+    height: 20px;
+    color: #ffffff;
+    font-size: $p-text-medium-size;
+  }
+
+  .p-selectfield-selectMonth {
+    margin-right: 0px !important;
+  }
+
+  .p-selectfield-selectMonth, .p-selectfield-selectYear {
+    font-size: $p-text-medium-size;
+    margin-bottom: $p-margin-same-component;
+    padding-left: 10px;
+    margin-left: $p-margin-same-component;
+    margin-right: $p-margin-same-component;
+  }
+
+  .x-list-label {
+    padding: 10px;
+  }
+
+  .p-label-title-nocolor {
+    margin-bottom: $p-margin-same-component;
+    font-size: $p-text-medium-size;
+  }
+
+  .extend-label-meetingTag-event {
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+  }
+
+  .p-label-soldOut {
+    @extend .extend-label-meetingTag-event;
+    background-color: #cf3424;
+  }
+
+  .p-label-cancelled {
+    @extend .extend-label-meetingTag-event;
+    background: #999 !important;
+  }
+
+  .p-label-waitlist {
+    @extend .extend-label-meetingTag-event;
+    background: #CC6600 !important;
+  }
+
+  .p-label-event-normal {
+    @extend .extend-label-meetingTag-event;
+    background: #cfcfcf !important;
+    color: black;
+  }
+
+  .p-simpleevent-header {
+    padding: 10px 10px 5px;
+    margin-bottom: 10px;
+  }
+
+  .p-text-value {
+    padding-left: 20px;
+  }
+
+  .p-label-description-datetime {
+    font-family: Arial Rounded MT Bold;
+    font-size: 18pt;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .p-label-description-location {
+    font-family: Arial Rounded MT Bold;
+    font-size: 14pt;
+    padding: 10px 0px;
+  }
+
+  .p-advertisingpanel-itemCls{
+    margin:0px 10px;
+  }
+  .p-label-Available{
+    background: green;
+    color: #ffffff;
+    padding: 3px;
+    text-align: center;
+  }
+  .emptyText {
+    text-align:center;
+    color: #ffffff;
+  }
+
+  .p-presenter-emptyText {
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  .p-img-description img {
+    height: 200px;
+    width: 200px;
+    margin: 0px 10px 10px 0px;
+    border: solid 1px #999;
+    background: #444;
+  }
+
+  .p-div-SubcodeList{
+    padding-left: 30px;
+  }
+  .p-label-already-registered *{
+    color: red;
+    font-size: 16px;
+    padding-top: 5px;
+    text-align: center;
+  }
+  .p-fieldset-picker{
+    margin-top: 10px;
+    .x-component-outer{
+      padding: 3px;
+    }
+    .x-field-select{
+      border-radius: 5px;
+      height: 44px;
+    }
+    .x-component-outer::before{
+      background: transparent;
+    }
+  }
+  .timeZoneSession {
+    text-align: right;
+    margin-right: 7px;
+  }
+}

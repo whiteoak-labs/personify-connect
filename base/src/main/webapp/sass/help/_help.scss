@@ -1,0 +1,106 @@
+@mixin help {
+  .helpPanel {
+    width: 50%;
+    height: 90%;
+    line-height: 25px;
+    font-size: 12pt;
+    color: white;
+    box-shadow: -10px 10px 10px black;
+  }
+
+  .helpHR {
+    width: 100%;
+    border-color: #919191;
+    marging-left: 0px;
+  }
+
+  .aboutAPAHeaders {
+    line-height: 15px;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+
+  .numberitemtemplate-item {
+  	float: left;
+  	width: 100%;
+  	height: 30px;
+  }
+  .numberitemtype {
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: italic;
+    text-decoration: none;
+    color: #868686;
+    float: left;
+    width: 90px;
+  }
+  .numberitemphone {
+    font-family: Arial;
+  	font-size: 15px;
+  	font-weight: normal;
+  	font-style: normal;
+  	text-decoration: none;
+  	color: black;
+  	float: left;
+  	width: 60%;
+  }
+  .addressitemhelp {
+  	font-size: 15px;
+  	font-weight: normal;
+  	font-style: normal;
+  	text-decoration: none;
+  	color: black;
+  	margin: 0px;
+  }
+  .addressitemtemplatehelp-item {
+  	float: left;
+  	width: 100%;
+  	margin:0px;
+  }
+  .websiteitemtemplatehelp-item {
+      width: 100%;
+      height: 30px;
+  }
+  .websiteitemhelptype {
+      font-size: $p-text-medium-size;
+      text-transform: lowercase;
+      text-align: left;
+      float: left;
+      width: 80px;
+      color: gray;
+  }
+  .websiteitemhelpvalue {
+      float: left;
+      font-size: $p-text-medium-size;
+      text-align: left;
+  }
+  .emailitemtemplatehelp-item {
+      width: 100%;
+      height: 30px;
+  }
+  .emailitemhelptype {
+      font-size: $p-text-medium-size;
+      text-transform: lowercase;
+      text-align: left;
+      float: left;
+      width: 80px;
+      color: gray;
+  }
+  .emailitemhelpvalue {
+      float: left;
+      font-size: $p-text-medium-size;
+      text-align: left;
+  }
+
+  .p-about-information {
+    padding: 0px 5px;
+  }
+
+
+  .p-phone-label-app47idsetting {
+    font-size: $p-phone-text-small-size;
+    padding-top: 18px;
+    font-weight: bold;
+  }
+}

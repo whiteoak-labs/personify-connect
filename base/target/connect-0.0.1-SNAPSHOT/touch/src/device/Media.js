@@ -1,0 +1,1 @@
+Ext.define("Ext.device.Media",{singleton:true,requires:["Ext.device.Communicator","Ext.device.media.Cordova"],constructor:function(){var a=Ext.browser.is;if(a.WebView&&a.Cordova){return Ext.create("Ext.device.media.Cordova")}return Ext.create("Ext.device.media.Abstract")}});

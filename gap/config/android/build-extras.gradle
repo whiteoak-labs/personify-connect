@@ -1,0 +1,30 @@
+android {   
+   packagingOptions {
+       exclude 'META-INF/DEPENDENCIES'
+       exclude 'META-INF/LICENSE'
+       exclude 'META-INF/NOTICE'
+       exclude 'META-INF/ASL2.0'
+   }
+   lintOptions {
+       checkReleaseBuilds false
+       // Or, if you prefer, you can continue to check for errors in release builds,
+       // but continue the build even when errors are found:
+       abortOnError false
+   }
+   dexOptions {
+       javaMaxHeapSize "2048M"
+   }
+   buildTypes {
+       debug {
+           minifyEnabled false
+           multiDexEnabled true
+       }
+       release {
+           minifyEnabled true
+           proguardFiles  'proguard.cfg'
+       }
+   }
+}
+dependencies {
+  compile 'com.android.support:multidex:1.0.0'
+}

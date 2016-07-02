@@ -1,0 +1,1 @@
+Ext.define("Personify.view.Container",{override:"Ext.Container",destroy:function(){var b=this.getScrollable();if(b){var a=b.getScroller();if(a){a.stopAnimation()}}this.callParent(arguments)}});

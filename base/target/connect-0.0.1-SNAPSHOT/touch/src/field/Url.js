@@ -1,0 +1,1 @@
+Ext.define("Ext.field.Url",{extend:"Ext.field.Text",xtype:"urlfield",alternateClassName:"Ext.form.Url",config:{autoCapitalize:false,component:{type:"url"}}});

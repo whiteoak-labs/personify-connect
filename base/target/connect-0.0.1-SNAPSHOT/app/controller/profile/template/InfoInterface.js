@@ -1,0 +1,1 @@
+Ext.define("Personify.controller.profile.template.InfoInterface",{extend:"Personify.base.Controller",control:{},config:{},setRecord:function(a){},updateEditMode:function(b,a){},validateData:function(){},updateParams:function(a){},setBioInfo:function(a){},setPresenterRecord:function(a){}});

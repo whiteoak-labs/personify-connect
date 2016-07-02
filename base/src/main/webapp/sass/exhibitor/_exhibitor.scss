@@ -1,0 +1,194 @@
+@mixin exhibitor {
+  .panelExhibitor {
+    height: 100%;
+    @extend .extend-list-exhibitor-material-presenter-attendees;
+  }
+
+  .allExhibitorList-container, .allSessionList-container {
+    padding-bottom: 130px;
+  }
+
+  .img-allExhibitorList {
+    display: block;
+  }
+
+  .cont-allExhibitorList {
+    padding: 0px 0px 0px 10px !important;
+  }
+
+
+
+  .descExhibitorItem {
+    width: 100%;
+    margin: 0px 0px 10px;
+    padding: 0px;
+    border: 0px;
+  }
+
+  .panelExDesc {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: transparent;
+  }
+
+  .extend-panelImgContEx {
+    width: 100%;
+    margin: 0px;
+    padding: 0px !important;
+    border: 0px;
+    background-color: transparent !important;
+    border-radius: 0px !important;
+    -webkit-box-shadow: transparent 0 0.2em 0.6em !important;
+  }
+
+  .extend-panelImgContEx .x-inner.x-panel-inner {
+    background-color: transparent;
+  }
+
+  .panelImgContExDesc {
+    @extend .extend-panelImgContEx;
+    padding-left: 10px !important;
+  }
+
+  .panelContentExDesc {
+    margin: 0px;
+    padding: 10px 10px 0px;
+    border: 0px;
+    background-color: transparent;
+    font-size: 11pt;
+  }
+
+  .detailDescExhibitorItem {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: transparent;
+  }
+
+  .panelContDetailDescExhibitorItem {
+    color: black;
+    background-color: transparent;
+  }
+
+  .productExhibitorItem {
+    margin: 0px;
+    padding: 10px;
+    border: 0px;
+    background-color: white;
+    .x-panel-inner {
+      padding: 10px;
+    }
+  }
+
+  .productListExItem {
+    background-color: transparent;
+  }
+
+  .productListExItem-item-pressed {
+    background-color: transparent;
+  }
+
+  .label-dot-relatedProductItem {
+    height: 15px;
+    font-weight: bold;
+    margin-right: 3px;
+    font-size: 20pt;
+    line-height: 4px;
+  }
+
+  .contactListExItem {
+    @extend .extend-list-exhibitor-material-presenter-attendees;
+  }
+
+  .p-phone-materiallistphone-container{
+    background-color: white;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 10pt;
+    color: black;
+    text-align: left;
+    margin-bottom: 51px;
+  }
+  .p-phone-information > div:first-child{
+    padding: 10px;
+  }
+  .p-phone-information{
+  @extend .exhibitorScreenPhone;
+  }
+  .exhibitorScreenPhone {
+    width: 100%;
+    background-color: white;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 10pt;
+    color: black;
+    text-align: left;
+    margin-bottom: 50px;
+  }
+
+  .productListExItemPhone-inner {
+    .x-list-item:nth-child(even) {
+      background: #eeeff3;
+    }
+    .x-list-item:nth-child(odd) {
+      background: #ffffff;
+    }
+  }
+
+  .p-text-filter-exhibitor-phone {
+    font-size: 11pt;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: right;
+    margin: 8px 0px 8px;
+  }
+
+  .nameProExItemDetailPhone {
+    font-size: 13pt;
+    background: transparent;
+    margin-bottom: 10px;
+  }
+
+  .panelContactExItemDetailPhone {
+    min-height: 32px;
+    line-height: 18px;
+    margin: 0px 0px 10px;
+    padding: 7px 10px;
+    border: 1px solid #BDBDBD;
+    border-radius: 7px;
+    background: transparent;
+    .x-inner {
+      text-overflow: ellipsis;
+      white-space: pre-wrap;
+      overflow: hidden;
+      word-wrap: break-word;
+    }
+  }
+
+  .panelContactFaxExItemDetailPhone {
+    @extend .panelContactExItemDetailPhone;
+    padding-left: 57px !important;
+  }
+
+  .productListExItemPhone-item-label {
+    padding: 5px;
+  }
+
+  .productListExItemPhone-item:nth-child(even) {
+    background: #eeeff3;
+  }
+
+  .productListExItemPhone-item:nth-child(odd) {
+    background: #ffffff;
+  }
+
+  .productListExItemPhone-item-pressed {
+    background-color: transparent;
+  }
+
+  .allExhibitorList-item-relative, .allSessionList-item-relative {
+    position: relative !important;
+  }
+}

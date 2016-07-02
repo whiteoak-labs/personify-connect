@@ -1,0 +1,60 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.personify.connect"
+        },
+        "cordova-plugin-legacy-whitelist": {
+            "PACKAGE_NAME": "com.personify.connect"
+        }
+    },
+    "dependent_plugins": {}
+}

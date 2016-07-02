@@ -1,0 +1,1 @@
+Ext.define("Ext.Spacer",{extend:"Ext.Component",alias:"widget.spacer",config:{},constructor:function(a){a=a||{};if(!a.width){a.flex=1}this.callParent([a])}});

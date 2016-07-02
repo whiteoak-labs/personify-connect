@@ -1,0 +1,1 @@
+Ext.define("Ext.data.identifier.Simple",{alias:"data.identifier.simple",statics:{AUTO_ID:1},config:{prefix:"ext-record-"},constructor:function(a){this.initConfig(a)},generate:function(a){return this._prefix+this.self.AUTO_ID++}});

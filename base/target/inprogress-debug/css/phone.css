@@ -1,0 +1,7 @@
+.x-panel {
+    -webkit-backface-visibility: hidden;
+}
+
+.x-container {
+    -webkit-backface-visibility: hidden;
+}

@@ -1,0 +1,136 @@
+{
+    "moduleconfiguration":
+    {
+        "tablet": [
+            {
+                "name": "Events",
+                "view": "Personify.view.EventAndEventDetail",
+                "css": "eventmenuitem menu-list-item-background",
+                "title": "Events",
+                "neededLogin": false,
+                "logged": true,
+                "notLogged": true,
+                "listeners": {
+                    "userlogin": "refresh"
+                }
+            },
+            {
+                "name": "My Schedule",
+                "view": "Personify.view.ScheduleAndEventDetail",
+                "css": "schedulemenuitem menu-list-item-background",
+                "title": "My Schedule",
+                "neededLogin": true,
+                "logged": true,
+                "notLogged": true
+            },
+            {
+                "name": "Store",
+                "view": "Personify.view.Store",
+                "css": "storemenuitem menu-list-item-background",
+                "title": "Store",
+                "neededLogin": false,
+                "logged": true,
+                "notLogged": true,
+                "listeners": {
+                    "userlogin": "refresh"
+                }
+            },
+            {
+                "name": "Directory",
+                "view": "Personify.view.Directory",
+                "css": "directormenuitem menu-list-item-background",
+                "title": "Directory",
+                "neededLogin": true,
+                "logged": true,
+                "notLogged": true
+            },
+            {
+                "name": "News",
+                "view": "Personify.view.News",
+                "css": "newsmenuitem menu-list-item-background",
+                "title": "News",
+                "neededLogin": false,
+                "logged": true,
+                "notLogged": true,
+                "listeners": {
+                    "userlogin": "refresh"
+                }
+            },
+            {
+                "name": "Discussion",
+                "css": "discussionmenuitem menu-list-item-background",
+                "title": "Discussion",
+                "neededLogin": true,
+                "logged": true,
+                "notLogged": true
+            }
+        ],
+        "phone": [
+            {
+                "name": "Events",
+                "view": "Personify.view.phone.Event",
+                "css": "eventmenuitem",
+                "title": "Events",
+                "neededLogin": false,
+                "logged": true,
+                "notLogged": true,
+                "listeners": {
+                    "userlogin": "refresh"
+                }
+            },
+            {
+                "name": "My Schedule",
+                "view": "Personify.view.phone.Schedule",
+                "css": "schedulemenuitem ",
+                "title": "My Schedule",
+                "neededLogin": true,
+                "logged": true,
+                "notLogged": true
+            },
+            {
+                "name": "Store",
+                "view": "Personify.view.phone.store.Store",
+                "css": "storemenuitem",
+                "title": "Store",
+                "neededLogin": false,
+                "logged": true,
+                "notLogged": true
+            },
+            {
+                "name": "Directory",
+                "view": "Personify.view.phone.directory.Directory",
+                "css": "directormenuitem",
+                "title": "Directory",
+                "neededLogin": true,
+                "logged": true,
+                "notLogged": true
+            },
+            {
+                "name": "News",
+                "view": "Personify.view.phone.news.News",
+                "css": "newsmenuitem",
+                "title": "News",
+                "neededLogin": false,
+                "logged": true,
+                "notLogged": true
+            },
+            {
+                "name": "Profile",
+                "view": "Personify.view.phone.profile.Profile",
+                "css": "profilemenuitem",
+                "title": "Profile",
+                "neededLogin": true,
+                "logged": true,
+                "notLogged": false
+            },
+            {
+                "name": "Discussion",
+                "css": "discussionmenuitem",
+                "title": "Discussion",
+                "neededLogin": true,
+                "logged": true,
+                "notLogged": true
+            }
+        ]
+    }
+}

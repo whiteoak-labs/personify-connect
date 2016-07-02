@@ -1,0 +1,1 @@
+Ext.define("Ext.field.Email",{extend:"Ext.field.Text",alternateClassName:"Ext.form.Email",xtype:"emailfield",config:{component:{type:"email"},autoCapitalize:false}});

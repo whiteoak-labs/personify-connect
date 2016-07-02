@@ -1,0 +1,402 @@
+@mixin directory {
+  .p-button-profile {
+    background-color: White;
+    background-image: None;
+    color : #CC6600;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    border-radius: 0px;
+  }
+  .p-button-viewMyProfile {
+    background:url("../icons/profile-icon.png") no-repeat center center;
+    color: White;
+    border: solid 1.5px Black;
+    border-radius: 0px;
+    max-width: 40px;
+    height: $p-height-button;
+    margin-top:3px;
+  }
+  .editRecordPanel {
+    background-color: White;
+    line-height: 45px;
+    color: #CC6600;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 45px;
+    border: 1px solid Gray;
+  }
+  .viewMyProfilePanel {
+    background-color: White;
+    line-height: 45px;
+    color: #CC6600;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 45px;
+  }
+  .p-text-briefEmployerName {
+    color: white;
+    font-size: $p-text-medium-size;
+    font-weight: bold;
+    padding-left: 15px;
+    line-height: 25px;
+  }
+  .p-text-briefAddress {
+    color: white;
+    padding-left: 15px;
+    font-size: $p-text-large-size;
+    line-height: 20px;
+  }
+  .p-text-contactName {
+    padding-left: 15px;
+    font-size: $p-text-large-size;
+    line-height: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  .p-image-imgDirectoryList {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    .x-innerhtml{
+      height: 60px;
+    }
+    img {
+      margin-top: 2px;
+    }
+  }
+  .p-searchField {
+    width: 92%;
+    border: 1px gray solid;
+    font-size: $p-text-medium-size;
+    height: 30px;
+    margin-bottom: $p-margin-bottom;
+  }
+  .p-searchField .x-input-text {
+    height: 30px;
+  }
+  .p-searchField.x-field-search .x-field-input .x-form-field {
+    margin-left: 20px;
+  }
+  .p-searchField .x-button-icon.search {
+    background-color: none;
+    background: url('../../images/directory/search-icon.png') top right no-repeat;
+  }
+
+  .p-list-directorylist {
+    @extend .extend-list-exhibitor-material-presenter-attendees;
+  }
+
+  .p-list-directorylist-item {
+    margin-bottom: 3px !important;
+    margin-right: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 5px;
+    border: 1px solid gray;
+    background: gray;
+    font-size: 9pt;
+  }
+
+  .p-list-directorylist-item-label {
+    min-height: 60px;
+    margin: 3px 0px;
+    padding: 0px;
+    border: none !important;
+    font-size: 9pt;
+    background-color: gray;
+  }
+
+  .x-item-pressed .p-list-directorylist-item-label, .p-list-directorylist-select .p-list-directorylist-item-label {
+    @extend .red-button-pressing-background;
+  }
+
+  .lblContactInfo {
+    border-bottom: solid 1.5px #919191;
+    text-align: left;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    width: 100%;
+    //color: #A5A5A5;
+    color: white;
+  }
+  .lblEditRecord {
+    border: none;
+    text-align: center;
+    vertical-align: center;
+    padding: 5px 0px 5px 0px;
+    background-color: White;
+    color: #c60;
+    height: $p-height-button-medium;
+    line-height: 22px;
+    font-size: $p-text-large-size;
+  }
+  
+  .btnEdit {
+    background: #c60 url("../icons/edit-white.png") no-repeat center center;
+    color: White;
+    border-radius: 0px;
+    max-width: 40px;
+    height: $p-height-button-medium;
+    width: 35px;
+  }
+  .btnEdit-pressed {
+    background: $p-buttonEdit-pressing-background-color url("../icons/edit-white.png") no-repeat center center;
+  }
+  .btnEditRecord {
+    background: #c60 url("../images/directory/edit-white.png") no-repeat center center;
+    color: White;
+    border: solid 1.5px Black;
+    border-radius: 0px;
+    max-width: 40px;
+    height: $p-height-button-medium;
+  }
+
+  .p-about-information .phonelist-inner {
+    width: 100%;
+    height: auto;
+    padding-left: 5px !important;
+  }
+
+  .p-about-information .addressList-inner {
+    width: 100%;
+    padding-left: 5px !important;
+    height: auto;
+  }
+
+  .phonelist .type {
+    text-align: left;
+    font-size: $p-text-medium-size;
+    text-transform: capitalize;
+    width: 70px;
+  }
+  .phonelist .value {
+    text-align: left;
+  }
+  
+  .primaryString {
+    color: #CC6600;
+    font-style: italic;
+    font-size: $p-text-medium-size;
+  }
+
+  .phonelist-item-label {
+    margin-bottom: 10px;
+  }
+
+  .phonelist.x-list-normal .x-list-item .x-list-item-label {
+    border: none;
+  }
+  .phonelist.x-list-normal .x-list-item:last-child .x-list-item-label {
+    border: none;
+  }  
+  .p-list-directorylist.x-list-normal .x-list-item .x-list-item-label {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 5px;
+    border: 1px solid gray;
+  }
+  .p-list-directorylist.x-list-normal .x-list-item:last-child .x-list-item-label {
+    border: 1px solid gray;
+  }  
+  .directoryitem {
+    background-color: gray;
+    color: white;
+    width: 100%;
+    margin-bottom: 2px !important;
+  }
+  .about-directoryitem-pressed{
+    @extend .red-button-background;
+    border: 0px !important;
+    border-shadow: none;
+    border-radius: 0px !important;
+  }
+
+  .p-list-directorylist-select {
+    @extend .red-button-pressing-background;
+  }
+
+  .about-directoryitem-selected{
+    @extend .red-button-pressing-background;
+  }
+  
+  .type {
+    font-style: italic;
+  }
+  .displayName {
+    font-size: $p-text-huge-size;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+  }
+  .displayTitle {
+    margin-bottom: 10px;
+    font-family: Arial;
+    font-size: $p-text-huge-size;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+  }
+  .displayCompany {
+    font-family: Arial;
+    font-size: $p-text-huge-size;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+  }
+  .editButton {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 0px;
+    font-weight: normal;
+  }
+  .editButton .x-button-label {
+    font-weight: normal;
+    font-size: p-text-huge-size;
+  }
+  .doneButton {
+    background:url("../images/directory/closeIcon.png") no-repeat center center;
+    background-size: 50% 50%;
+  }
+
+  .p-panel-photoAndRelated {
+    background-color: transparent !important;
+    margin-bottom: 0px !important;
+    padding: 10px;
+    padding-right: 10px;
+  }
+
+  .p-panel-photoAndRelated .x-form-fieldset .x-field {
+    border-radius: 0 !important;
+  }
+
+  .p-panel-photoAndRelated .x-form-fieldset .x-form-fieldset-inner {
+    border-radius: 0 !important;
+  }
+
+  .p-panel-photoAndRelated .x-form-fieldset .x-field:last-child {
+    border-bottom: 1px;
+  }
+
+  .p-button-AddToAddressBook {
+    width: 100%;
+    height: 25px;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid Gray;
+    border-radius: 0px;
+    text-align: center;
+    font-size: $p-text-medium-size;
+    color: black;
+    
+    .x-button-label {
+      font-weight: normal;
+      line-height: 22px;
+    }
+  }
+
+  .p-containerPanel {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .p-panel-directorylist {
+    margin-right: $p-margin-diff-component;
+  }
+
+  .p-panel-editToolBox {
+    margin-bottom: 10px;
+  }
+  
+
+
+  .addressList {
+    background-color: transparent;
+    font-size: 14px;
+  }
+
+  .fortmattedAddress {
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 165px;
+    overflow: hidden;
+  }
+
+  .p-panel-deleteandmainicon {
+    padding: 5px 0px;
+    padding-left: 10px;
+  }
+
+  .p-panel-nameandtitle {
+    background: transparent !important;
+    color: inherit;
+  }  
+
+  .p-panel-nameandtitle .x-form-label-nowrap .x-form-label {
+    white-space: normal;
+  }
+
+  .p-textbox-inquiryInfo,.nameAndTitleEditText, .p-selectfield-selectMonth, .p-selectfield-selectYear, .p-addressEditForm {
+    margin-left: 10px;
+    .x-form-label {
+      color: white !important;
+      background-color: transparent;
+    }
+    .x-component-outer::after{      
+      background-color: white;
+    }
+    .x-component-outer {
+      //border: 1px solid #848484;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .x-field-input {
+      color: black;
+      background-color: white;
+      border-radius: 7px;
+    }
+
+    .x-component-outer::before {
+      position: absolute;
+      width: 32px;
+      top: 0;
+      left: auto;
+      right: 0;
+      bottom: 0;
+      background: gray;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      z-index: 1;
+      border-left: 2px solid #364249;
+    }
+    .x-clear-icon {
+      margin: 0px 5px 0px 0px !important;
+      top: 0px !important;
+
+    }
+  } 
+  .p-fieldset-nameeditform{
+    background-color: transparent;
+    .x-field{
+      background-color: transparent;
+    }
+  }
+  .p-editformtemplate{
+    margin-left: 0px;
+  }
+  .addressList-item-label {
+    margin-bottom: 10px;
+  }
+  .addNewContactTrackingPanel > div:first-child {
+    padding-right: 10px;
+  }
+}

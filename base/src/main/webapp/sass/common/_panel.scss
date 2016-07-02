@@ -1,0 +1,126 @@
+@mixin panel {
+  .p-panel-main-content {
+    background: transparent;
+    font-size: 12pt;
+    font-family: $p-font-family;
+    color: $p-main-color;
+  }
+
+  .p-panel-component-left {
+    margin-right: 2px;
+  }
+
+  .p-panel-same-component-top {
+    margin-bottom: $p-margin-same-component;
+  }
+
+  .p-panel-content {
+    padding: $p-padding-text;
+  }
+
+  .x-list-emptytext {
+    text-align: center;
+  }
+  
+  .biographyText, .biographyText *{
+    background: none !important;
+    color: #fff !important;
+  }
+
+  .p-panel-description {
+    text-align: justify;
+    color: #000000;
+    background: #FFFFFF;
+    padding: 10px 10px 5px;
+  }
+
+  .p-segment-panel{
+    background: transparent;
+    margin: 0px 0px 10px;
+    height: 35px;
+  }
+  .p-contact-panel{
+    padding-top: 20px;
+  }
+
+  .p-panel-background-caltd {
+    background: #333333;
+  }
+
+  .p-text-bold-all * {
+    font-weight: bold !important;
+  }
+
+  .p-panel-notification-item{
+    padding: 0px;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .p-panel-notification-title{
+    padding-top: 10px;
+    border-top: solid 1px #919191;
+    line-height: 18px;
+    .x-innerhtml{
+      text-overflow: ellipsis !important;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 95%; 
+    }
+  }
+  .p-panel-notification-title-read {
+    color: white;
+    font-weight: normal;
+  }
+  
+  .p-panel-notification-title-noread {
+    color: $p-hyperlink-bluelight;
+    font-weight: bold;
+  }
+
+  .p-panel-calendar-box{
+    background: #333333;
+    margin: auto;
+    padding: 10px;
+  }
+
+  .p-list-have-indexbar {
+    .x-scroll-container {
+      margin-top: 30px;
+    }
+  }
+
+  .allExhibitorList .x-indexbar-alphabet {
+    width: 100%;
+    height: 35px !important;
+    margin: auto;
+    border: 0px;
+    padding: 5px 0px;
+    background-color: Gray;
+  }
+
+  .allExhibitorList .x-indexbar-alphabet div {
+    float: left;
+    margin: 0px 5px;
+    font-size: 10.87pt;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 25px;
+    cursor: pointer;
+  }
+
+  .allExhibitorList .x-indexbar-pressed {
+    border-radius: 0px;
+  }
+
+  .allExhibitorList .x-indexbar-wrapper {
+    -webkit-box-align: start !important;
+  }
+
+  .notification-details-template-date{
+    font-weight: bold;
+  }
+  
+  .p-hiddenCls{
+    display: none;
+  }
+}

@@ -1,0 +1,70 @@
+@mixin mapphone {
+    .prev-map-phone{
+        background-color: white;
+        background-image: none;
+        -webkit-transform: rotate(180deg);
+        background-position: 50%;
+    }
+    
+    .next-map-phone{
+        background-color: white;
+        background-image: none;
+        background-position: 50%;
+    }
+    
+    .prev-map-phone:HOVER, .next-map-phone:HOVER{
+        background-color: #E6E6E6;
+    }
+    .map-schema-phone{
+        background-color: white !important;
+        background-position-x: 700px;
+        width: 1700px;
+        height: 2200px;
+      }
+      
+    .x-zoompanel {
+        min-width: 100%;
+        min-height: 100%;
+    }
+    
+    .p-phone-list-menumap-item-label {
+      padding: 10px;
+      border-bottom: 1px solid rgb(155, 155, 155);
+      font-size: $p-phone-text-title-size;
+    }
+
+    .p-phone-list-menumap {
+       color: black;
+       .x-list-item:nth-child(even) {
+         padding: 10px;
+         border-bottom: 1px solid rgb(155, 155, 155);
+         font-size: $p-phone-text-title-size;
+         background: #eeeff3;
+       }
+      .x-list-item:nth-child(odd) {
+        padding: 10px;
+        border-bottom: 1px solid rgb(155, 155, 155);
+        font-size: $p-phone-text-title-size;
+        background: #ffffff;
+      }
+    }
+  
+    .p-phone-list-menumap-header {
+        @extend .background-item-header;
+        color: #ffffff;
+        font-size: $p-phone-text-small-size;
+        padding: 3px 10px;
+      }
+  
+    .p-phone-list-menumap-item:nth-child(even) {
+      background: #eeeff3;
+    }
+  
+    .p-phone-list-menumap-item:nth-child(odd) {
+      background: #ffffff;
+    }
+  
+    .p-phone-list-menumap-selected {
+      background: #cccccc !important;
+    }
+}

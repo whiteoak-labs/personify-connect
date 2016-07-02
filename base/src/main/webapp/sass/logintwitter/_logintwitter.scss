@@ -1,0 +1,171 @@
+@mixin twitterlogin{
+.connect-twitter-container {
+    background-color: white;
+    color: black;
+}
+.connect-twitter-container.x-container > .x-inner {
+  width: 100% !important; 
+}
+.container-connectTwitter{
+    background-color: #333;
+}
+
+.container-connectTwitter #image-container-connectTwitter{
+    background-repeat: no-repeat;
+    height: 24px !important;
+    width: 24px !important;
+    display: inline-block;
+    background-image: url(../images/twitterImage.png);
+    margin-top: 8px;
+    margin-bottom: 2px;
+    margin-left: 24px;
+}
+    
+.info-container {
+    width: 100%;
+    margin: 20px 20px 0px 20px;
+}
+.container-connectTwitter #text-container-connectTwitter{
+    display: inline-block;
+    margin-left: 10px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#text-title-twitter-login {
+    //display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline;
+    font-weight: bold;
+    float: left;
+    width: 100%;
+}
+#question-twitter-login{
+    font-size: 18px;
+    font-weight: normal;
+    display: inline;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: inline;
+    font-weight: bold;
+}
+#post-question-twitter-login{
+    display: inline-block;
+    color: #cf3424;    
+    font-weight: bold;
+}
+
+#content-twitter-login{
+    margin-left: 10px;
+    margin-top: 15px;
+    font-weight: normal;
+    font-size: 16px;
+
+}
+
+.user-name-label,
+.password-label{
+    font-size: 16px;
+    margin: 20px 20px 0px 20px;
+    font-weight: bold;
+  color: black;
+}
+.password-label{
+  margin-top: 0px!important;
+}
+
+.username-textfield,
+.password-field{
+    border: 2px solid #919191;
+    margin: 10px 20px;
+    height: 44px;
+    border-radius: 7px;
+    width: 50%;
+}
+
+.username-textfield .x-input-text,
+.password-field .x-input-password{
+    min-height: 10px;
+    height: 40px;
+    margin-left: $p-margin-same-component;
+    margin-right: $p-margin-same-component;
+}
+
+.login-twitter-container{
+    height: 44px;
+    padding-bottom: 15px;
+    margin: 20px;
+}
+.authorize-button{
+    @extend .blue-button-background;
+    margin-right: 20px;
+    height: 44px;
+    .x-button-label {
+    	font-size: $p-text-large-size;
+    	color: white;
+    }
+}
+.authorize-button.x-button-pressing{
+  @extend .blue-button-pressing-background;
+}
+.no-button{
+    @extend .gray-button-background;
+    margin-left: 20px;    
+    height: 44px;
+    .x-button-label {
+    	font-size: $p-text-large-size;
+    	color: white;
+    }
+}
+.no-button.x-button-pressing{
+  @extend .gray-button-pressing-background;
+}
+
+  .info-twitter-container-phone {
+    margin: 10px 20px 0px 20px;
+    color: black;
+    #text-title-twitter-login {
+      font-size: 16px;
+      font-weight: bold;
+      display: inline;
+      font-weight: bold;
+      float: left;
+      width: 100%;
+    }
+    #question-twitter-login {
+      font-size: 15px;
+    }
+    #post-question-twitter-login {
+      font-size: 15px;
+    }
+    #content-twitter-login {
+      font-size: 14px;
+    }
+  }
+
+  .user-name-label-phone,
+  .password-label-phone{
+    font-size: 14px;
+    margin: 5px 20px 0px 20px;
+    font-weight: bold;
+    color: black;
+  }
+
+  .username-textfield-phone,
+  .password-field-phone {
+    border: 2px solid #919191;
+    margin: 10px 20px;
+    height: 44px;
+    border-radius: 7px;
+  }
+
+  .username-textfield-phone .x-input-text,
+  .password-field-phone .x-input-password{
+    min-height: 10px;
+    height: 40px;
+    margin-left: $p-margin-same-component;
+    margin-right: $p-margin-same-component;
+  }
+}

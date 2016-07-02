@@ -1,0 +1,1 @@
+Ext.define("Ext.data.identifier.Sequential",{extend:"Ext.data.identifier.Simple",alias:"data.identifier.sequential",config:{prefix:"",seed:1},constructor:function(){var a=this;a.callParent(arguments);a.parts=[a.getPrefix(),""]},generate:function(b){var c=this,d=c.parts,a=c.getSeed()+1;c.setSeed(a);d[1]=a;return d.join("")}});

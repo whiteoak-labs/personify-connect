@@ -1,0 +1,1 @@
+Ext.define("Ext.layout.wrapper.Inner",{config:{sizeState:null,container:null},constructor:function(a){this.initConfig(a)},getElement:function(){return this.getContainer().bodyElement},setInnerWrapper:Ext.emptyFn,getInnerWrapper:Ext.emptyFn});

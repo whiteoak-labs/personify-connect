@@ -1,0 +1,1 @@
+Ext.define("Ext.ActionSheet",{extend:"Ext.Sheet",alias:"widget.actionsheet",requires:["Ext.Button"],config:{baseCls:Ext.baseCSSPrefix+"sheet-action",left:0,right:0,bottom:0,centered:false,height:"auto",defaultType:"button"},platformConfig:[{theme:["Windows"],top:0,bottom:null}]});

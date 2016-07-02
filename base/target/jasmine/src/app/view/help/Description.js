@@ -1,0 +1,1 @@
+Ext.define("Personify.view.help.Description",{extend:"Ext.Panel",xtype:"descriptionpanel",config:{title:"About TMA Resources Connect:",items:[{itemId:"descriptionTitle",html:'About TMA Resources Connect: <hr class="helpHR"/>',cls:"aboutAPAHeaders"}]},updateTitle:function(a){this.down("#descriptionTitle").setHtml(a+' <hr class="helpHR"/>')}});

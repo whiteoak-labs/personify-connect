@@ -1,0 +1,229 @@
+{
+    "maps": [
+        {
+            "mapId": "1",
+            "name": "Esplanade Lobby",
+            "image": "img/event/map/schema/esplanade.lobby.png"
+        }, {
+            "mapId": "2",
+            "name": "Exhibitor Hall",
+            "image": "img/event/map/schema/exhibitor.hall.png"
+        }, {
+            "mapId": "3",
+            "name": "Indy Marriott",
+            "image": "img/event/map/schema/indy.marriott.png"
+        }
+    ],
+    "locations": {
+        "EB301": {
+            "mapId": "1",
+            "coords": [
+                794,
+                982
+            ]
+        },
+        "EB302": {
+            "mapId": "1",
+            "coords": [
+                438,
+                982
+            ]
+        },
+        "EB303": {
+            "mapId": "1",
+            "coords": [
+                794,
+                848
+            ]
+        },
+        "EB304": {
+            "mapId": "1",
+            "coords": [
+                438,
+                827
+            ]
+        },
+        "EB305": {
+            "mapId": "1",
+            "coords": [
+                794,
+                677
+            ]
+        },
+        "1316": {
+            "mapId": "2",
+            "coords": [
+                761,
+                705
+            ]
+        },
+        "1416": {
+            "mapId": "2",
+            "coords": [
+                838,
+                696
+            ]
+        },
+        "1324": {
+            "mapId": "2",
+            "coords": [
+                761,
+                632
+            ]
+        },
+        "1533": {
+            "mapId": "2",
+            "coords": [
+                830,
+                552
+            ]
+        },
+        "1151": {
+            "mapId": "2",
+            "coords": [
+                688,
+                381
+            ]
+        },
+        "1725": {
+            "mapId": "2",
+            "coords": [
+                1005,
+                573
+            ]
+        },
+        "0101": {
+            "mapId": "3",
+            "coords": [
+                679,
+                561
+            ]
+        },
+        "0102": {
+            "mapId": "3",
+            "coords": [
+                610,
+                561
+            ]
+        },
+        "0103": {
+            "mapId": "3",
+            "coords": [
+                587,
+                561
+            ]
+        },
+        "0104": {
+            "mapId": "3",
+            "coords": [
+                565,
+                561
+            ]
+        },
+        "0105": {
+            "mapId": "3",
+            "coords": [
+                538,
+                561
+            ]
+        },
+        "0106": {
+            "mapId": "3",
+            "coords": [
+                513,
+                561
+            ]
+        },
+        "0107": {
+            "mapId": "3",
+            "coords": [
+                441,
+                561
+            ]
+        },
+        "0108": {
+            "mapId": "3",
+            "coords": [
+                439,
+                616
+            ]
+        },
+        "0109": {
+            "mapId": "3",
+            "coords": [
+                455,
+                638
+            ]
+        },
+        "0110": {
+            "mapId": "3",
+            "coords": [
+                479,
+                638
+            ]
+        },
+        "0111": {
+            "mapId": "3",
+            "coords": [
+                503,
+                638
+            ]
+        },
+        "0112": {
+            "mapId": "3",
+            "coords": [
+                528,
+                638
+            ]
+        },
+        "0113": {
+            "mapId": "3",
+            "coords": [
+                552,
+                638
+            ]
+        },
+        "0114": {
+            "mapId": "3",
+            "coords": [
+                577,
+                638
+            ]
+        },
+        "0115": {
+            "mapId": "3",
+            "coords": [
+                602,
+                638
+            ]
+        },
+        "0116": {
+            "mapId": "3",
+            "coords": [
+                627,
+                638
+            ]
+        },
+        "0117": {
+            "mapId": "3",
+            "coords": [
+                651,
+                638
+            ]
+        },
+        "PIT": {
+            "mapId": "3",
+            "coords": [
+                973,
+                587
+            ]
+        },
+        "0118": {
+            "mapId": "3",
+            "coords": [
+                675,
+                638
+            ]
+        }
+    }
+}

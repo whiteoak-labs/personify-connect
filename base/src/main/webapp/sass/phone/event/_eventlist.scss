@@ -1,0 +1,234 @@
+@mixin eventlistphone {
+    .p-phone-list-event-item-label{
+      background-image: url("../icons/phone/next-arrow-grey.png") !important;
+      background-size: 12px 15px!important;
+      background-repeat: no-repeat!important;
+      background-position: 98% center !important;
+    }
+    .p-phone-itemlist-eventcontent{
+       font-size: 11px;
+       padding: 7px 0px;
+       color: #484848;
+    }
+    .p-phone-itemlist-eventday{
+      font-size: 25px;
+      padding-left: 7px;
+      width: 50px;
+      color: black;
+      margin-top: 10px;
+    }
+    .p-phone-itemlist-eventday-personal-event{
+      font-size: 26px;
+      padding-left: 7px;
+      width: 50px;
+      color: white;
+    }
+    .p-phone-itemlist-eventday-ordinalsuffix{
+      font-size: 12px;
+      padding-right: 7px;
+      padding-top: 7px;
+    }
+    .p-phone-list-event-header{
+      color: #ffffff;
+      font-size : 16px;
+      padding: 14px 0px 10px 10px;
+      @extend .background-item-header;
+      min-height: 45px;
+    }
+
+    .p-phone-list-event-header::before {
+      content: "";
+      border-style: none;
+      background-image:url("../images/phone/news/trianglephone.png");
+      color: white;
+      font-size: 16px;
+      padding-left: 15px;
+      margin-right: 10px;
+      background-size: 12px 15px;
+      background-repeat: no-repeat;
+    }
+    .p-phone-list-event-header.p-list-expand::before{
+      content: "";
+      border-style: none;
+      background-image: url("../images/phone/news/trianglephone1.png");
+      background-repeat: no-repeat;
+      color: white;
+      font-size: 16px;
+      padding-left: 15px;
+      margin-right: 10px;
+      background-size: 15px 12px;
+    }
+    .p-phone-list-event-item-label{
+      border-bottom: solid 1px #e0e0e0;
+    }
+    .x-list-header-swap{
+       display: none !important;
+    }
+    .p-item-list-event:nth-child(even){
+        background-color: #eeeff3;
+    }
+    .p-item-list-event:nth-child(odd){
+        background-color: #ffffff;
+    }
+    .event-item-phone:nth-child(even){
+      background-color: #ffffff;
+    }
+    .event-item-phone:nth-child(odd){
+      background-color: #eeeff3;
+    }
+    .event-item-phone {
+      background-image: url("../icons/phone/next-arrow-grey.png") !important;
+      background-size: 12px 15px!important;
+      background-repeat: no-repeat!important;
+      background-position: 98% center !important;
+    }
+    .p-phone-event-list-filter-panel {
+        border-top: 1px solid #b7b7b7;
+        margin-bottom: 2px;
+    }
+    .p-phone-event-list-filter-left {
+        font-size:14px;
+        line-height: 50px;
+        margin-left: 10px!important;
+        color: black;
+
+    }
+
+    .p-phone-panel-sessionheader{
+      min-height: 63px;
+      background-color: white;
+    }
+    .p-phone-panel-sessiontmaresources{
+      background-color: $p-left-panel-background;
+      min-height: 30px;
+      font-size: 14px;
+      color: white;
+      line-height: 30px;
+      text-align: center;
+    }
+    .p-phone-panel-sessiontmaresources > div:first-child {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 10px;
+    }
+    .p-phone-lable-sessiondatetime{
+      padding-top: 15px;
+      font-size: 20px;
+      color: black;
+    }
+    .p-phone-lable-sessiontotalevent{
+      font-size: $p-phone-text-small-size;
+      color: black;
+    }
+    .p-phone-list-session-item-label{
+      background-image: url("../icons/phone/next-arrow-grey.png") !important;
+      background-size: 12px 15px!important;
+      background-repeat: no-repeat!important;
+      background-position: 98% center !important;
+    }
+    .p-phone-list-session-header{
+      color: #ffffff;
+      font-size : 16px;
+      padding: 14px 0px 10px 10px;
+      @extend .background-item-header;
+      min-height: 45px;
+    }
+    .p-phone-list-session-header-wrap{
+      color: #ffffff;
+      font-size : 16px;
+      padding: 14px 0px 10px 10px;
+      @extend .background-item-header;
+      min-height: 45px;
+      position: relative;
+    }
+    .p-phone-list-session-item-label{
+      border-bottom: solid 1px #e0e0e0;
+      font-size: 14px;
+      padding: 10px;
+    }
+    .p-item-list-session{
+      @extend .p-phone-list-session-item-label;
+    }
+    .p-item-list-session:nth-child(even) {
+        background-color: #eeeff3;
+    }
+    .p-item-list-session:nth-child(odd) {
+        background-color: #ffffff;
+    }
+    .p-phone-lable-sessionitem{
+      .x-innerhtml{
+        width: 285px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: black;
+      }
+    }
+    .p-list-event-new-item-label{
+      background-image: url("../icons/phone/next-arrow-grey.png") !important;
+      background-size: 12px 15px!important;
+      background-repeat: no-repeat!important;
+      background-position: 98% center !important;
+    }
+    .p-list-event-new-header{
+      color: #ffffff;
+      font-size : 16px;
+      padding: 14px 0px 10px 10px;
+      @extend .background-item-header;
+      min-height: 45px;
+      margin-top: -5px;
+    }
+    .p-list-event-new-header .eventItems{
+      margin-bottom: 0 !important;
+    }
+    .p-list-event-new-header::before {
+      content: "";
+      border-style: none;
+      background-image:url("../images/phone/news/trianglephone.png");
+      color: white;
+      font-size: 16px;
+      padding-left: 15px;
+      margin-right: 10px;
+      background-size: 12px 15px;
+      background-repeat: no-repeat;
+    }
+    .p-list-event-new-header.p-list-expand::before {
+      content: "";
+      border-style: none;
+      background-image: url("../images/phone/news/trianglephone1.png");
+      background-repeat: no-repeat;
+      color: white;
+      font-size: 16px;
+      padding-left: 15px;
+      margin-right: 10px;
+      background-size: 15px 12p
+    }
+
+    .p-phone-list-event-container {
+      float: left;
+      width: 100%;
+    }
+
+    .p-phone-list-event-item {
+      background-image: url("../icons/phone/next-arrow-grey.png") !important;
+      background-size: 12px 15px!important;
+      background-repeat: no-repeat!important;
+      background-position: 98% center !important;
+    }
+
+    .p-phone-titleEvent {
+      width: auto;
+      font-size: 14px;
+      padding: 0 10px 0 5px;
+      .x-innerhtml{
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .event-item-phone {
+      width: 100%;
+      float: left;
+    }
+}

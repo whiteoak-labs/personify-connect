@@ -1,0 +1,294 @@
+@mixin storephone {
+    .image-store-detail-fullscreen-phone {
+        background-size: 100%;
+    }
+    .p-phone-container-storetotalallproductandfilterbutton{
+      padding: 10px 10px 10px 10px;
+      font-size: $p-phone-text-title-size;
+    }
+
+  .p-phone-filterproductphone {
+    min-width: 50%;
+    height: 211px;
+    background-color: #E7E7E7 !important;
+    .x-dataview-item {
+      margin: 0px;
+      border-bottom: solid 1px #e0e0e0;
+      padding: 5px 10px;
+      color: black;
+      font-size: 12pt;
+    }
+
+    .x-dataview-item:nth-child(even) {
+      background-color: #eeeff3;
+    }
+
+    .x-dataview-item:nth-child(odd) {
+      background-color: white;
+    }
+  }
+
+    .p-phone-label-allproducts{
+      padding-right: 10px;
+    }
+  .store-carousel-feature-phone {
+    padding: 0px;
+    margin: 0px;
+    .x-carousel-indicator-horizontal {
+      top: 93px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      height: 20px;
+      width: 100%;
+      background: #666666;
+    }
+
+    .x-carousel-indicator-dark span {
+      background-color: #B2B2B2;
+    }
+
+    .x-carousel-indicator-dark span.x-carousel-indicator-active {
+      background-color: rgba(0,0,0,0.3);
+    }
+
+    .x-html {
+      padding: 0px;
+    }
+  }
+    .feature-item-template-item{
+      font-size: $p-phone-text-small-size;
+      color: white;
+    }
+    .image-feature-item-template{
+      height: 93px;
+      width: auto;
+      float: left;
+      margin-right: 10px;
+    }
+  .img-feature-item-template {
+    display: block;
+    padding: 0px !important;
+  }
+
+  .content-feature-item-template {
+    background-color: #31414A;
+    padding: 0px 0px 0px 10px !important;
+  }
+
+  .extent-content-feature-item-template {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 200px;
+    margin: 0px !important;
+  }
+
+  .title-feature-item-template {
+    @extend .extent-content-feature-item-template;
+    font-size: 12pt !important;
+  }
+
+  .list-price-feature-item-template {
+    color: #808181;
+    @extend .member-price-feature-item-template;
+  }
+
+  .member-price-feature-item-template {
+    @extend .extent-content-feature-item-template;
+    font-weight: normal !important;
+    font-size: 10pt !important;
+  }
+
+    .description-feature-item-template{
+      height: 36px;
+      line-height: 18px;
+      overflow: hidden;
+      width: 170px;
+    }
+    .title-store-detail-phone{
+      font-size: $p-phone-text-title-size !important;
+    }
+    .list-price-feature-item-template{
+      color: #848484;
+    }
+    .p-phone-template-storeitem{     
+      .x-html{
+        padding: 0px;
+      }
+    }
+    .content-parent-store-item-template-phone{
+      font-size: $p-phone-text-small-size;
+      border-bottom: 1px solid #848484;
+      padding:10px 0px;
+    }
+    .description-store-item-template-phone {
+      line-height: 18px;
+      height: 36px;
+      overflow: hidden;
+      width: 230px;
+    }
+    .title-store-item-template-phone{
+      font-weight: bold;
+      font-size: $p-phone-text-medium-size !important;
+      .x-innerhtml{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 235px;
+      }
+      
+    }
+    .member-price-store-item-template-phone, 
+    .list-price-store-item-template-phone{
+      font-size: $p-phone-text-small-size;
+      .x-innerhtml{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 235px;
+      }
+    }
+    .image-store-item-template{
+    margin-right: 5px;
+    height: 70px;
+    img{
+      height: 70px;
+      border-right: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
+    }
+  }
+    .p-phone-container-moredetail{
+      margin: 10px;
+      font-size: $p-phone-text-small-size;
+      color: black;
+    }
+    .p-phone-container-memberpricemoredetail{
+      font-weight: bold;
+    }
+    .p-panel-price-phone{
+      margin: 10px 0px;
+    }
+    .image-store-detail-phone{
+      margin: 10px;
+      img{
+        height: 150px;
+      }
+    }
+    .p-phone-container-orderpanel{
+      background-color: white;
+      max-width: 280px;
+      width: 280px;
+    }
+    .p-phone-panel-informationorderpanel *{
+      font-size: $p-phone-text-medium-size;
+      font-family: $p-font-family;
+      color: black;
+    }
+    .title-logout-phone{
+      background: #333333;
+      height: 50px;
+      text-align: center;
+      color: white;
+      line-height: 50px;
+      font-size: $p-text-event-title-size !important;
+      font-weight: bold;
+    }
+    .btn-close-content-panel-logout-phone{
+      background: url("../images/closeButton.png") 0px 0px no-repeat;
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      border: none;
+    }
+    .p-phone-container-buttonorderpanel{
+      padding:10px 10px;;
+    }
+    .p-phone-label-shippingaddress{
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .p-phone-panel-informationorderpanel{
+      padding: 5px;
+      .order-template{
+        padding: 0px !important;
+      }
+      .order-template-price,
+      .order-template-shipping,
+      .order-template-discount,
+      .order-template-total,
+      .order-template-title,
+      .order-template-shipaddress {
+          clear:both;
+          span {
+            width: 27%;
+            display: block;
+            float: left;
+          }
+      }
+    }
+    .p-phone-list-shippingaddress{
+      height:55px;
+      .x-list-item{
+        .x-list-item-label{
+          border-bottom: solid 1px #E0E0E0;
+          padding: 5px;
+        }
+      }
+      .x-list-item:nth-child(even) {
+        background-color: #eeeff3;
+      }
+      .x-list-item:nth-child(odd) {
+        background-color: #cfcfcf;
+      }
+      .x-list-item{
+        margin: 0px;
+      }
+    }
+    .p-phone-list-shippingaddress-selected{
+      background-color: #848484 !important;
+    }
+    .p-phone-storemanagementfeatureproductes{
+      height: 110px;
+    }
+    .p-phone-container-storefilter{
+      background-color: #E7E7E7;
+      width: 50%;
+      height: 55%;
+    }
+
+  .extend-storeitemtemplatephone-status {
+    float: right;
+    color: white;
+    font-size: 10pt;
+    font-weight: normal !important;
+    text-align: center;
+    width: 80px;
+    margin: 0px !important;
+    margin-top: 5px !important;
+    margin-right: 5px !important;
+  }
+
+  .member-only-feature-item-template {
+    @extend .extend-storeitemtemplatephone-status;
+    background: #1C6300;
+    width: 100px !important;
+  }
+
+  .soldout-storeitemtemplatephone {
+    @extend .extend-storeitemtemplatephone-status;
+    background: #f63400;
+    
+  }
+
+  .backorder-storeitemtemplatephone {
+    @extend .extend-storeitemtemplatephone-status;
+    background: black;
+  }
+
+  .member-price-moredetail-page-phone {
+    color: red;
+  }
+}

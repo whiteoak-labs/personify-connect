@@ -1,0 +1,1 @@
+Ext.define("Ext.Label",{extend:"Ext.Component",xtype:"label",config:{baseCls:Ext.baseCSSPrefix+"label"}});

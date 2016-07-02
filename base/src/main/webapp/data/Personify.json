@@ -1,0 +1,560 @@
+{
+    "about": {
+        "title": "TMA Resources Connect",
+        "version": "131025.0",
+        "logoUrl": "img/logo.png",
+        "description": "The TMA Resources Connect App allows customers and staff to interact with the Personify constituent management software maintained by TMA Resources for the express purpose of managing customer, staff, event and activity information. Its use is reserved exclusively for the customers and staff of TMA Resources.<br /><br />Key features of TMA Resources Connect app include:<br /><br />Profile management<br />Customer self-service notifications<br />Customer directory<br />Featured products and events<br />Searchable event calendar and detailed conference information<br />Conference planner with session floor maps<br />Exhibitor lists and floor plans<br />Industry news and social networking feeds<br />Offline support",
+        "appUrl": "http://www.tmaresources.com",
+        "appShareTitle": "TMA-R App",
+        "appShareText": "App URL: {appUrl}",
+        "numbers": [
+            {
+                "Type": "Main",
+                "Value": "703-564-5200"
+            },
+            {
+                "Type": "Fax",
+                "Value": "703-564-4412"
+            }
+        ],
+        "addresses": [
+            {
+                "StreetAddress": "1919 Gallows Rd",
+                "Address2": "Suite 400",
+                "Address3": "",
+                "Address4": "",
+                "Locality": "Vienna",
+                "Region": "VA",
+                "PostalCode": "22182",
+                "Country": "USA"
+            }
+        ],
+        "contacts": [
+        ],
+        "email": [
+            {
+                "Type": "Home",
+                "Value": "mobstaff@work.com"
+            },
+            {
+                "Type": "Work",
+                "Value": "mobstaff@work.com"
+            }
+        ],
+        "website": [
+            {
+                "Type": "",
+                "Value": "http://www.tmaresources.com"
+            }
+        ]
+    },
+    "news": {
+        "feeds": [
+            {
+                "title": "Top Stories",
+                "url": "http://rss.cbc.ca/lineup/topstories.xml",
+                "private": false,
+                "visible": true
+            },
+            {
+                "title": "Technology",
+                "url": "http://rss.cbc.ca/lineup/technology.xml",
+                "private": false,
+                "visible": true
+            },
+            {
+                "title": "Football",
+                "url": "http://rss.cbc.ca/lineup/sports-soccer.xml",
+                "private": false, "visible": true
+            }
+        ],
+        "twitterHashtag": "@tmaresources",
+        "refreshInterval": 120
+    },
+    "directory": {
+        "itemPerPage": "10",
+        "defaultSearchTerm": "",
+        "useAddToMyAddressBookButton": "Yes",
+        "listInfo": [
+            "photoAndRelated",
+            "phone",
+            "email",
+            "address",
+            "website"
+        ],
+        "listinfoPresenter": [
+            "photoAndRelated",
+            "email",
+            "website",
+            "bio",
+            "session"
+        ],
+        "listinfoAttendee": [
+            "photoAndRelated",
+            "phone",
+            "website",
+            "email"
+        ],
+        "nameandrelatededit": [
+            {
+                "fieldName": "honorificPrefix",
+                "description": "Prefix",
+                "enabled": true,
+                "type": "prefix",
+                "required": false,
+                "requestName": "HonorificPrefix"
+            },
+            {
+                "fieldName": "givenName",
+                "description": "First Name",
+                "enabled": true, "type": "text",
+                "required": false,
+                "requestName": "GivenName"
+            },
+            {
+                "fieldName": "middleName",
+                "description": "Middle Name",
+                "enabled": true,
+                "type": "text",
+                "required": false,
+                "requestName": "MiddleName"
+            },
+            {
+                "fieldName": "familyName",
+                "description": "Last Name",
+                "enabled": true,
+                "type": "text",
+                "required": true,
+                "requestName": "FamilyName"
+            },
+            {
+                "fieldName": "honorificSuffix",
+                "description": "Suffix",
+                "enabled": true,
+                "type": "suffix",
+                "required": false,
+                "requestName": "HonorificSuffix"
+            }
+        ],
+        "jobtitleedit": [
+            {
+                "fieldName": "jobTitle",
+                "description": "Job Title",
+                "enabled": true,
+                "type": "text",
+                "required": false,
+                "requestName": "JobTitle"
+            }
+        ]
+    },
+    "store": {
+    },
+    "profile": {
+        "forgotPasswordUrl": "http://www.tmaresources.com",
+        "goOnlineProfileUrl": "http://204.71.142.78/PersonifyEbiz/MyAccount.aspx"
+    },
+    "config": {
+        "defaultListingParams": {
+            "orgId": "NASE",
+            "orgUnitId": "NASE"
+        },
+        "currency": "USD",
+        "currencySymbol": "$"
+    },
+    "events": {
+        "mobileRegistration": true,
+        "rateTitleBar": "",
+        "conferenceImageWidth": 150,
+        "conferenceImageHeight": 50,
+        "types": {
+            "BADGE": "Badges",
+            "COURSE":"Course",
+            "EXAMPROCT": "Exam Proctored",
+            "EXAMPROD": "Exam Product",
+            "F": "Sponsorship/Other Fees",
+            "M": "Meeting",
+            "S": "Break-out Session"
+        },
+        "featuredEventsRotation": 15,
+        "featuredEvents": [
+            {
+                "TabletPortraitImageURL": "img/home/OpeningReceiption.jpg",
+                "TabletLandscapeImageURL": "img/home/OpeningReceiption.jpg",
+                "PhoneImageURL": "",
+                "ProductId": "965410"
+            },
+            {
+                "TabletPortraitImageURL": "img/home/OpeningReceiption.jpg",
+                "TabletLandscapeImageURL": "img/home/OpeningReceiption.jpg",
+                "PhoneImageURL": "",
+                "ProductId": "965410"
+            },
+            {
+                "TabletPortraitImageURL": "img/home/Desert_Botanical_Garden.png",
+                "TabletLandscapeImageURL": "img/home/Desert_Botanical_Garden.png",
+                "PhoneImageURL": "",
+                "ProductId": "965410"
+            },
+            {
+                "TabletPortraitImageURL": "img/home/Desert_Botanical_Garden.png",
+                "TabletLandscapeImageURL": "img/home/Desert_Botanical_Garden.png",
+                "PhoneImageURL": "",
+                "ProductId": "965410"
+            },
+            {
+                "TabletPortraitImageURL": "img/home/Desert_Botanical_Garden.png",
+                "TabletLandscapeImageURL": "img/home/Desert_Botanical_Garden.png",
+                "PhoneImageURL": "",
+                "ProductId": "965410"
+            },
+            {
+                "TabletPortraitImageURL": "img/home/taugSplash_tabletPortrait.png",
+                "TabletLandscapeImageURL": "img/home/taugSplash_tabletPortrait.png",
+                "PhoneImageURL": "",
+                "ProductId": "965410"
+            },
+            {
+                "TabletPortraitImageURL": "img/home/taugSplash_tabletPortrait.png",
+                "TabletLandscapeImageURL": "img/home/taugSplash_tabletPortrait.png",
+                "PhoneImageURL": "",
+                "ProductId": "965410"
+            }
+        ],
+        "sponsorRotation": 15,
+        "sponsorEvents": [
+            {
+                "ProductId": "965410",
+                "SponsorImageList": [
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                        "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 1"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965306.profile.png",
+                        "phoneImageURL": "http://www1.paho.org/Images/DD/PIN/whd08_banner3_eng.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 2"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/971677.profile.png",
+                        "phoneImageURL": "http://www.commissaries.com/press_room/images/marketing/comm/comm_banner_fullcolor.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 3"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                        "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 4"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965306.profile.png",
+                        "phoneImageURL": "http://www1.paho.org/Images/DD/PIN/whd08_banner3_eng.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 5"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/971677.profile.png",
+                        "phoneImageURL": "http://www.commissaries.com/press_room/images/marketing/comm/comm_banner_fullcolor.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 6"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                        "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 7"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965306.profile.png",
+                        "phoneImageURL": "http://www1.paho.org/Images/DD/PIN/whd08_banner3_eng.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 8"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/971677.profile.png",
+                        "phoneImageURL": "http://www.commissaries.com/press_room/images/marketing/comm/comm_banner_fullcolor.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 9"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                        "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 10"
+                    }
+                ]
+            },
+            {
+                "ProductId": "549814",
+                "SponsorImageList": [
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                        "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 1"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965306.profile.png",
+                        "phoneImageURL": "http://www1.paho.org/Images/DD/PIN/whd08_banner3_eng.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 2"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/971677.profile.png",
+                        "phoneImageURL": "http://www.commissaries.com/press_room/images/marketing/comm/comm_banner_fullcolor.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 3"
+                    },
+                    {
+                        "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                        "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                        "redirectURL": "http://www.google.com",
+                        "sponsorName": "Sponsor 4"
+                    }
+                ]
+            }
+        ],
+        "mapData": {
+            "maps": [
+                {
+                    "mapId": "1",
+                    "name": "Esplanade Lobby",
+                    "image": "img/event/map/schema/esplanade.lobby.png"
+                }, {
+                    "mapId": "2",
+                    "name": "Exhibitor Hall",
+                    "image": "img/event/map/schema/exhibitor.hall.png"
+                }, {
+                    "mapId": "3",
+                    "name": "Indy Marriott",
+                    "image": "img/event/map/schema/indy.marriott.png"
+                }
+            ],
+            "locations": {
+                "EB301": {
+                    "mapId": "1",
+                    "coords": [
+                        794,
+                        982
+                    ]
+                },
+                "EB302": {
+                    "mapId": "1",
+                    "coords": [
+                        438,
+                        982
+                    ]
+                },
+                "EB303": {
+                    "mapId": "1",
+                    "coords": [
+                        794,
+                        848
+                    ]
+                },
+                "EB304": {
+                    "mapId": "1",
+                    "coords": [
+                        438,
+                        827
+                    ]
+                },
+                "EB305": {
+                    "mapId": "1",
+                    "coords": [
+                        794,
+                        677
+                    ]
+                },
+                "1316": {
+                    "mapId": "2",
+                    "coords": [
+                        761,
+                        705
+                    ]
+                },
+                "1416": {
+                    "mapId": "2",
+                    "coords": [
+                        838,
+                        696
+                    ]
+                },
+                "1324": {
+                    "mapId": "2",
+                    "coords": [
+                        761,
+                        632
+                    ]
+                },
+                "1533": {
+                    "mapId": "2",
+                    "coords": [
+                        830,
+                        552
+                    ]
+                },
+                "1151": {
+                    "mapId": "2",
+                    "coords": [
+                        688,
+                        381
+                    ]
+                },
+                "1725": {
+                    "mapId": "2",
+                    "coords": [
+                        1005,
+                        573
+                    ]
+                },
+                "0101": {
+                    "mapId": "3",
+                    "coords": [
+                        679,
+                        561
+                    ]
+                },
+                "0102": {
+                    "mapId": "3",
+                    "coords": [
+                        610,
+                        561
+                    ]
+                },
+                "0103": {
+                    "mapId": "3",
+                    "coords": [
+                        587,
+                        561
+                    ]
+                },
+                "0104": {
+                    "mapId": "3",
+                    "coords": [
+                        565,
+                        561
+                    ]
+                },
+                "0105": {
+                    "mapId": "3",
+                    "coords": [
+                        538,
+                        561
+                    ]
+                },
+                "0106": {
+                    "mapId": "3",
+                    "coords": [
+                        513,
+                        561
+                    ]
+                },
+                "0107": {
+                    "mapId": "3",
+                    "coords": [
+                        441,
+                        561
+                    ]
+                },
+                "0108": {
+                    "mapId": "3",
+                    "coords": [
+                        439,
+                        616
+                    ]
+                },
+                "0109": {
+                    "mapId": "3",
+                    "coords": [
+                        455,
+                        638
+                    ]
+                },
+                "0110": {
+                    "mapId": "3",
+                    "coords": [
+                        479,
+                        638
+                    ]
+                },
+                "0111": {
+                    "mapId": "3",
+                    "coords": [
+                        503,
+                        638
+                    ]
+                },
+                "0112": {
+                    "mapId": "3",
+                    "coords": [
+                        528,
+                        638
+                    ]
+                },
+                "0113": {
+                    "mapId": "3",
+                    "coords": [
+                        552,
+                        638
+                    ]
+                },
+                "0114": {
+                    "mapId": "3",
+                    "coords": [
+                        577,
+                        638
+                    ]
+                },
+                "0115": {
+                    "mapId": "3",
+                    "coords": [
+                        602,
+                        638
+                    ]
+                },
+                "0116": {
+                    "mapId": "3",
+                    "coords": [
+                        627,
+                        638
+                    ]
+                },
+                "0117": {
+                    "mapId": "3",
+                    "coords": [
+                        651,
+                        638
+                    ]
+                },
+                "PIT": {
+                    "mapId": "3",
+                    "coords": [
+                        973,
+                        587
+                    ]
+                },
+                "0118": {
+                    "mapId": "3",
+                    "coords": [
+                        675,
+                        638
+                    ]
+                }
+            }
+        }
+    },
+    "home": {
+        "modulesUrl": "data/home_modules.json"
+    },
+    "discussion": {
+        "url": "http://tmar.higherlogic.com/Home/",
+        "vendorId": "8",
+        "vendorUsername": "HIGHERLOGIC",
+        "vendorPassword": "540F2B157B1DABEE1F9F8B0DD4D7F53D",
+        "vendorBlock": "3FB889F27957A4FB5CD313ABF6E8E6CE"
+    }
+}

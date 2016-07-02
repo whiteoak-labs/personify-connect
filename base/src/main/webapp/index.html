@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html manifest="personify.manifest" lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="links=no" />
+    <meta name="format-detection" content="address=no" />
+
+    <title>Personify</title>
+    <style type="text/css">
+         /**
+         * Example of an initial loading indicator.
+         * It is recommended to keep this as minimal as possible to provide instant feedback
+         * while other resources are still being loaded for the first time
+         */
+        html, body {
+            height: 100%;
+        }
+        @media screen and (orientation: landscape) {
+            html, body {
+                background: transparent url('img/home/loading-landscape.png') center center  no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+        @media screen and (orientation: portrait){
+            html, body {
+                background: transparent url('img/home/loading-portrait.png') center center  no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+        @media (max-width: 700px) {
+            html, body {
+                background: transparent url('img/home/loading-landscape.png') center center  no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+    </style>
+    <!-- The line below must be kept intact for Sencha Command to build your application -->
+    <script type="text/javascript" src="lib/webtoolkit.base64.js"></script>
+    <script type="text/javascript" src="lib/oauth.js"></script>
+    <script type="text/javascript" src="lib/sha1.js"></script>
+    <script type="text/javascript" src="lib/metadata.js"></script>
+    <script type="text/javascript" src="lib/configuration.js"></script>
+    <script type="text/javascript" src="lib/loadCSSandJavaScript.js"></script>
+    <script type="text/javascript" src="touch/sencha-touch-all.js"></script>
+    <script type="text/javascript" src="app.js"></script>    
+    
+    <script>
+        var activeElementLocal = null;
+        window.addEventListener('focus', onFocus, true);
+        
+        function onFocus() {
+            if(document.activeElement.type == "text" || document.activeElement.type == "textarea" || document.activeElement.type == "password")
+            {
+                activeElementLocal = document.activeElement;
+                var body = document.getElementsByTagName('body')[0];
+                body.addEventListener('touchstart', blurField, false);
+                activeElementLocal.addEventListener('blur', removeTouchMoveEventListenerFromBody,false);
+            }
+    }
+    
+    function removeTouchMoveEventListenerFromBody() {
+        activeElementLocal.removeEventListener('blur', removeTouchMoveEventListenerFromBody,false);
+       activeElementLocal = null;
+       var body = document.getElementsByTagName('body')[0];
+       body.removeEventListener('touchstart', blurField, false);
+    }
+    
+    function blurField(e)
+    {
+        if(activeElementLocal)
+        {
+            var evt = e ? e:window.event;
+            if(!(evt.srcElement.type == "text" || evt.srcElement.type == "textarea" || evt.srcElement.type == "password"))
+            {
+                 activeElementLocal.blur();
+                evt.preventDefault();
+            }
+            else
+            {
+                evt.preventDefault();
+                evt.srcElement.focus();
+            }
+        }
+    }
+    
+        </script>
+    
+</head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,458 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.personify.connect</groupId>
+	<artifactId>gap</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>personify-connect-gap</name>
+
+	<scm>
+		<connection></connection>
+		<developerConnection>scm:git:https://github.com/whiteoak-labs/personify-connect</developerConnection>
+	</scm>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.personify</groupId>
+			<artifactId>connect</artifactId>
+			<version>${project.version}</version>
+			<type>zip</type>
+		</dependency>
+	</dependencies>
+
+
+	<profiles>
+		<profile>
+			<id>android</id>
+			<activation>
+				<property>
+					<name>platform</name>
+					<value>android</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<!-- Build Android APKs -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.jdom</groupId>
+								<artifactId>jdom</artifactId>
+								<version>2.0.2</version>
+							</dependency>
+							<dependency>
+								<groupId>ant-contrib</groupId>
+								<artifactId>ant-contrib</artifactId>
+								<version>1.0b3</version>
+								<exclusions>
+									<exclusion>
+										<groupId>ant</groupId>
+										<artifactId>ant</artifactId>
+									</exclusion>
+								</exclusions>
+							</dependency>
+						</dependencies>
+						<executions>
+							<execution>
+								<id>package-android-artifacts</id>
+								<phase>package</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											classpathref="maven.plugin.classpath" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<echo level="info" message="Copying Android Release Resources" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<available file="${project.basedir}/www" type="dir"
+											property="wwwExists" />
+										<if>
+											<isset property="wwwExists" />
+											<then>
+												<delete>
+													<fileset dir="${project.basedir}/www">
+														<include name="**/*" />
+													</fileset>
+												</delete>
+											</then>
+										</if>
+										<copy todir="${project.basedir}/www" encoding="UTF-8"
+											outputencoding="UTF-8" overwrite="true">
+											<fileset dir="${project.build.directory}/inprogress-release/personify-connect-${project.version}-release">
+												<include name="**/*" />
+											</fileset>
+										</copy>
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<echo level="info" message="Packaging Android for Release" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<condition property="isWindows" value="phonegap.cmd">
+											<and>
+												<os family="windows" />
+											</and>
+										</condition>
+										<if>
+											<isset property="isWindows" />
+											<then>
+												<exec executable="cmd" failonerror="true">
+													<arg value="/c" />
+													<arg value="phonegap" />
+													<arg value="build" />
+													<arg value="android" />
+													<arg value="--release" />
+													<arg value="-d" />
+												</exec>
+											</then>
+											<else>
+												<exec executable="phonegap" failonerror="true">
+													<arg value="build" />
+													<arg value="android" />
+													<arg value="--release" />
+													<arg value="-d" />
+												</exec>
+											</else>
+										</if>
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<echo level="info" message="Copying Android Debug Resources" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<available file="${project.basedir}/www" type="dir"
+											property="wwwExists" />
+										<if>
+											<isset property="wwwExists" />
+											<then>
+												<delete>
+													<fileset dir="${project.basedir}/www">
+														<include name="**/*" />
+													</fileset>
+												</delete>
+											</then>
+										</if>
+										<copy todir="${project.basedir}/www" encoding="UTF-8"
+											outputencoding="UTF-8" overwrite="true">
+											<fileset dir="${project.build.directory}/inprogress-debug/personify-connect-${project.version}-debug">
+												<include name="**/*" />
+											</fileset>
+										</copy>
+										<condition property="isWindows" value="phonegap.cmd">
+											<and>
+												<os family="windows" />
+											</and>
+										</condition>
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<echo level="info" message="Packaging Android for Debug" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<if>
+											<isset property="isWindows" />
+											<then>
+												<exec executable="cmd" failonerror="true">
+													<arg value="/c" />
+													<arg value="phonegap" />
+													<arg value="build" />
+													<arg value="android" />
+													<arg value="--debug" />
+													<arg value="-d" />
+												</exec>
+											</then>
+											<else>
+												<exec executable="phonegap" failonerror="true">
+													<arg value="build" />
+													<arg value="android" />
+													<arg value="--debug" />
+													<arg value="-d" />
+												</exec>
+											</else>
+										</if>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>2.5.4</version>
+						<executions>
+							<execution>
+								<id>bundle-packages</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<appendAssemblyId>true</appendAssemblyId>
+									<descriptor>${project.basedir}/assemblies/android.xml</descriptor>
+									<finalName>${project.artifactId}-${project.version}</finalName>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>ios</id>
+			<activation>
+				<property>
+					<name>platform</name>
+					<value>ios</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<!-- Build iOS IPAs -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.jdom</groupId>
+								<artifactId>jdom</artifactId>
+								<version>2.0.2</version>
+							</dependency>
+							<dependency>
+								<groupId>ant-contrib</groupId>
+								<artifactId>ant-contrib</artifactId>
+								<version>1.0b3</version>
+								<exclusions>
+									<exclusion>
+										<groupId>ant</groupId>
+										<artifactId>ant</artifactId>
+									</exclusion>
+								</exclusions>
+							</dependency>
+						</dependencies>
+						<executions>
+							<execution>
+								<id>package-ios-artifacts</id>
+								<phase>package</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											classpathref="maven.plugin.classpath" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<echo level="info" message="Copying iOS Release Resources" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<available file="${project.basedir}/www" type="dir"
+											property="wwwExists" />
+										<if>
+											<isset property="wwwExists" />
+											<then>
+												<delete>
+													<fileset dir="${project.basedir}/www">
+														<include name="**/*" />
+													</fileset>
+												</delete>
+											</then>
+										</if>
+										<copy todir="${project.basedir}/www" encoding="UTF-8"
+											outputencoding="UTF-8" overwrite="true">
+											<fileset dir="${project.build.directory}/inprogress-release">
+												<include name="**/*" />
+											</fileset>
+										</copy>
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<echo level="info" message="Packaging iOS for Release" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<exec executable="phonegap" failonerror="true">
+											<arg value="build" />
+											<arg value="ios" />
+											<arg value="--release" />
+											<arg value="--device" />
+											<arg value="-d" />
+											<arg value="--codeSignResourceRules=" />
+										</exec>
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<echo level="info" message="Copying iOS Debug Resources" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<available file="${project.basedir}/www" type="dir"
+											property="wwwExists" />
+										<if>
+											<isset property="wwwExists" />
+											<then>
+												<delete>
+													<fileset dir="${project.basedir}/www">
+														<include name="**/*" />
+													</fileset>
+												</delete>
+											</then>
+										</if>
+										<copy todir="${project.basedir}/www" encoding="UTF-8"
+											outputencoding="UTF-8" overwrite="true">
+											<fileset dir="${project.build.directory}/inprogress-debug">
+												<include name="**/*" />
+											</fileset>
+										</copy>
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<echo level="info" message="Packaging iOS for Debug" />
+										<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+										<exec executable="phonegap" failonerror="true">
+											<arg value="build" />
+											<arg value="ios" />
+											<arg value="--debug" />
+											<arg value="--device" />
+											<arg value="-d" />
+											<arg value="--codeSignResourceRules=" />
+										</exec>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>2.5.4</version>
+						<executions>
+							<execution>
+								<id>bundle-packages</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<appendAssemblyId>true</appendAssemblyId>
+									<descriptor>${project.basedir}/assemblies/ios.xml</descriptor>
+									<finalName>${project.artifactId}-${project.version}</finalName>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.6.1</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}/node_modules</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/www</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/plugins</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/platforms</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.8</version>
+				<executions>
+					<execution>
+						<id>unpack-base-client-sources</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.personify</groupId>
+									<artifactId>connect</artifactId>
+									<version>${project.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+							<excludes>java/**,**/*.java</excludes>
+							<outputDirectory>${project.build.directory}/base-client</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.jdom</groupId>
+						<artifactId>jdom</artifactId>
+						<version>2.0.2</version>
+					</dependency>
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>1.0b3</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ant</groupId>
+								<artifactId>ant</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>copy-assets</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+									classpathref="maven.plugin.classpath" />
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<echo level="info" message="Unpacking Base Client Debug Sources" />
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<unzip
+									src="${project.build.directory}/base-client/personify-connect-${project.version}/personify-connect-${project.version}-debug.zip"
+									dest="${project.build.directory}/inprogress-debug" />
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<echo level="info" message="Unpacking Base Client Release Sources" />
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<unzip
+									src="${project.build.directory}/base-client/personify-connect-${project.version}/personify-connect-${project.version}-release.zip"
+									dest="${project.build.directory}/inprogress-release" />
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<echo level="info" message="Downloading Required NodeJS Modules" />
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<exec executable="npm" failonerror="true">
+									<arg value="install" />
+									<arg value="fs-extra" />
+								</exec>
+								<exec executable="npm" failonerror="true">
+									<arg value="install" />
+									<arg value="glob" />
+								</exec>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

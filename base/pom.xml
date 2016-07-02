@@ -1,0 +1,323 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.personify</groupId>
+	<artifactId>connect</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>personify-connect</name>
+
+	<scm>
+		<connection></connection>
+		<developerConnection>scm:git:https://github.com/whiteoak-labs/personify-connect</developerConnection>
+	</scm>
+
+	<profiles>
+		<profile>
+			<id>run</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>2.1</version>
+						<executions>
+							<execution>
+								<id>tomcat-run</id>
+								<goals>
+									<goal>exec-war-only</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+									<!-- optional only if you want to use a preconfigured server.xml 
+										file -->
+									<!-- <serverXml>src/main/tomcatconf/server.xml</serverXml> 
+									<warRunDependencies>
+										<warRunDependency>
+											<dependency>
+												<groupId>a groupId</groupId>
+												<artifactId>and artifactId</artifactId>
+												<version>version</version>
+												<type>war</type>
+											</dependency>
+											<contextPath>/</contextPath>
+										</warRunDependency>
+									</warRunDependencies>
+									-->
+									<!-- naming is disabled by default so use true to enable it -->
+									<enableNaming>true</enableNaming>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.6.1</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}</directory>
+							<includes>
+								<include>phantomjsdriver.log</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.jdom</groupId>
+						<artifactId>jdom</artifactId>
+						<version>2.0.2</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>preparing-sources</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<echo level="info" message="Preparing Debug Sources" />
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<copy todir="${project.build.directory}/inprogress-debug"
+									encoding="UTF-8" outputencoding="UTF-8">
+									<fileset dir="${project.basedir}/src/main/webapp">
+										<include name="**/app/**/*" />
+										<include name="**/css/*" />
+										<include name="**/img/**/*" />
+										<include name="**/lib/**/*" />
+										<include name="**/touch/microloader/*" />
+										<include name="**/touch/resources/css/*" />
+										<include name="**/touch/sencha-touch*.js" />
+										<include name="**/app.js" />
+										<include name="**/app.json" />
+										<include name="**/debug.html" />
+										<exclude name="**/index.html" />
+										<exclude name="**/personify.manifest" />
+										<exclude name="touch/img/*" />
+										<exclude name="touch/resources/themes/**/*" />
+									</fileset>
+								</copy>
+								<checksum totalproperty="appChecksum"
+									todir="${project.build.directory}/md5">
+									<fileset dir="${project.build.directory}/inprogress-debug" />
+								</checksum>
+								<delete>
+									<fileset dir="${project.build.directory}/inprogress-debug">
+										<include name="**/*.MD5" />
+									</fileset>
+								</delete>
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<echo level="info" message="Preparing Release Sources" />
+								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+								<copy todir="${project.build.directory}/inprogress-release"
+									encoding="UTF-8" outputencoding="UTF-8">
+									<fileset dir="${project.basedir}/src/main/webapp">
+										<include name="**/app/**/*" />
+										<include name="**/css/*" />
+										<include name="**/img/**/*" />
+										<include name="**/lib/**/*" />
+										<include name="**/app.js" />
+										<include name="**/app.json" />
+										<include name="**/appinfo.js" />
+										<include name="**/personify.manifest" />
+										<include name="**/index.html" />
+										<include name="**/touch/resources/css/*" />
+										<include name="**/touch/sencha-touch.js" />
+										<include name="**/touch/sencha-touch-all.js" />
+										<exclude name="**/debug.html" />
+										<exclude name="touch/microloader/*" />
+										<exclude name="touch/img/*" />
+										<exclude name="touch/resources/themes/**/*" />
+									</fileset>
+								</copy>
+								<checksum totalproperty="appChecksum"
+									todir="${project.build.directory}/md5">
+									<fileset dir="${project.build.directory}/inprogress-release" />
+								</checksum>
+								<replace
+									file="${project.build.directory}/inprogress-release/personify.manifest"
+									token="@@@REVISION@@@" value="${appChecksum}" />
+								<delete>
+									<fileset dir="${project.build.directory}/inprogress-release">
+										<include name="**/*.MD5" />
+									</fileset>
+								</delete>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>yuicompressor-maven-plugin</artifactId>
+				<version>1.5.1</version>
+				<dependencies>
+					<dependency>
+						<groupId>net.alchim31.maven</groupId>
+						<artifactId>yuicompressor-maven-plugin</artifactId>
+						<version>1.5.1</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>minify-release-sources</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>jslint</goal>
+							<goal>compress</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<nosuffix>true</nosuffix>
+					<linebreakpos>-1</linebreakpos>
+					<sourceDirectory>${project.build.directory}/inprogress-release</sourceDirectory>
+					<outputDirectory>${project.build.directory}/inprogress-release</outputDirectory>
+					<excludes>
+						<exclude>**/css/*</exclude>
+						<exclude>**/lib/*.js</exclude>
+						<exclude>**/touch/*.js</exclude>
+						<exclude>**/touch/microloader/*.js</exclude>
+						<exclude>**/touch/resources/css/*.css</exclude>
+						<exclude>**/touch/resources/css-debug/*.css</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<executions>
+					<execution>
+						<id>copy-test-resources</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/jasmine/src</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/inprogress-release</directory>
+									<includes>
+										<include>app/**/*.js</include>
+										<include>lib/**/*.js</include>
+										<include>touch/sencha-touch-all.js</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!--<plugin> <groupId>com.github.searls</groupId> <artifactId>jasmine-maven-plugin</artifactId> 
+				<version>2.1</version> <executions> <execution> <id>execute-jasmine-tests</id> 
+				<goals> <goal>test</goal> </goals> </execution> </executions> <configuration> 
+				<browser>CHROME</browser> <jasmineTargetDir>${project.build.directory}/jasmine</jasmineTargetDir> 
+				<jsTestSrcDir>${basedir}/src/test/spec</jsTestSrcDir> <jsSrcDir>${project.build.directory}/inprogress-debug</jsSrcDir> 
+				<srcDirectoryName>src</srcDirectoryName> <preloadSources> <source>touch/sencha-touch-all-debug.js</source> 
+				</preloadSources> <sourceIncludes> <include>app/**/*.js</include> </sourceIncludes> 
+				<sourceExcludes> <exclude>app/view/**/*.js</exclude> </sourceExcludes> <webDriverClassName>org.openqa.selenium.phantomjs.PhantomJSDriver</webDriverClassName> 
+				<webDriverCapabilities> <capability> <name>webdriver-logfile</name> <value>${project.build.directory}/phantomjsdriver.log</value> 
+				</capability> </webDriverCapabilities> </configuration> </plugin> -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>bundle-debug</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptor>${project.basedir}/src/main/resources/assemblies/debug.xml</descriptor>
+							<finalName>${project.name}-${project.version}-debug</finalName>
+						</configuration>
+					</execution>
+					<execution>
+						<id>bundle-release</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptor>${project.basedir}/src/main/resources/assemblies/release.xml</descriptor>
+							<finalName>${project.name}-${project.version}-release</finalName>
+						</configuration>
+					</execution>
+					<execution>
+						<id>bundle-packages</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptor>${project.basedir}/src/main/resources/assemblies/final.xml</descriptor>
+							<finalName>${project.name}-${project.version}</finalName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<dependentWarExcludes>WEB-INF/web.xml</dependentWarExcludes>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-antrun-plugin</artifactId>
+										<versionRange>[1.8)</versionRange>
+										<goals>
+											<goal>run</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

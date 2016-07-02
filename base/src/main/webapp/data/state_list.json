@@ -1,0 +1,249 @@
+{
+    "d" : [
+        {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='AA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "AA", "ActiveFlag": true, "StateDescription": "Armed Forces Americas"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='AE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "AE", "ActiveFlag": true, "StateDescription": "Armed Forces Europe, Middle East"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='AK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "AK", "ActiveFlag": true, "StateDescription": "Alaska"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='AL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "AL", "ActiveFlag": true, "StateDescription": "Alabama"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='AP')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "AP", "ActiveFlag": true, "StateDescription": "Armed Forces Pacific"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='AR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "AR", "ActiveFlag": true, "StateDescription": "Arkansas"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='AZ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "AZ", "ActiveFlag": true, "StateDescription": "Arizona"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='CA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "CA", "ActiveFlag": true, "StateDescription": "California"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='CO')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "CO", "ActiveFlag": true, "StateDescription": "Colorado"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='CT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "CT", "ActiveFlag": true, "StateDescription": "Connecticut"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='CZ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "CZ", "ActiveFlag": true, "StateDescription": "Canal Zone"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='DC')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "DC", "ActiveFlag": true, "StateDescription": "District of Columbia"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='DE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "DE", "ActiveFlag": true, "StateDescription": "Delaware"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='FL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "FL", "ActiveFlag": true, "StateDescription": "Florida"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='GA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "GA", "ActiveFlag": true, "StateDescription": "Georgia"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='GU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "GU", "ActiveFlag": true, "StateDescription": "Guam"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='HI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "HI", "ActiveFlag": true, "StateDescription": "Hawaii"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='IA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "IA", "ActiveFlag": true, "StateDescription": "Iowa"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='ID')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "ID", "ActiveFlag": true, "StateDescription": "Idaho"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='IL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "IL", "ActiveFlag": true, "StateDescription": "Illinois"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='IN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "IN", "ActiveFlag": true, "StateDescription": "Indiana"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='KS')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "KS", "ActiveFlag": true, "StateDescription": "Kansas"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='KY')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "KY", "ActiveFlag": true, "StateDescription": "Kentucky"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='LA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "LA", "ActiveFlag": true, "StateDescription": "Louisiana"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='MA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "MA", "ActiveFlag": true, "StateDescription": "Massachusetts"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='MD')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "MD", "ActiveFlag": true, "StateDescription": "Maryland"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='ME')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "ME", "ActiveFlag": true, "StateDescription": "Maine"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='MI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "MI", "ActiveFlag": true, "StateDescription": "Michigan"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='MN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "MN", "ActiveFlag": true, "StateDescription": "Minnesota"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='MO')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "MO", "ActiveFlag": true, "StateDescription": "Missouri"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='MP')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "MP", "ActiveFlag": true, "StateDescription": "Northern Mariana Islands"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='MS')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "MS", "ActiveFlag": true, "StateDescription": "Mississippi"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='MT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "MT", "ActiveFlag": true, "StateDescription": "Montana"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='NC')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "NC", "ActiveFlag": true, "StateDescription": "North Carolina"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='ND')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "ND", "ActiveFlag": true, "StateDescription": "North Dakota"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='NE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "NE", "ActiveFlag": true, "StateDescription": "Nebraska"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='NH')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "NH", "ActiveFlag": true, "StateDescription": "New Hampshire"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='NJ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "NJ", "ActiveFlag": true, "StateDescription": "New Jersey"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='NM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "NM", "ActiveFlag": true, "StateDescription": "New Mexico"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='NV')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "NV", "ActiveFlag": true, "StateDescription": "Nevada"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='NY')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "NY", "ActiveFlag": true, "StateDescription": "New York"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='OH')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "OH", "ActiveFlag": true, "StateDescription": "Ohio"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='OK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "OK", "ActiveFlag": true, "StateDescription": "Oklahoma"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='OR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "OR", "ActiveFlag": true, "StateDescription": "Oregon"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='PA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "PA", "ActiveFlag": true, "StateDescription": "Pennsylvania"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='PI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "PI", "ActiveFlag": true, "StateDescription": "Pacific Islands"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='PR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "PR", "ActiveFlag": true, "StateDescription": "Puerto Rico"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='RI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "RI", "ActiveFlag": true, "StateDescription": "Rhode Island"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='SC')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "SC", "ActiveFlag": true, "StateDescription": "South Carolina"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='SD')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "SD", "ActiveFlag": true, "StateDescription": "South Dakota"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='TN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "TN", "ActiveFlag": true, "StateDescription": "Tennessee"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='TT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "TT", "ActiveFlag": true, "StateDescription": "Trust Territories"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='TX')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "TX", "ActiveFlag": true, "StateDescription": "Texas"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='UT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "UT", "ActiveFlag": true, "StateDescription": "Utah"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='VA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "VA", "ActiveFlag": true, "StateDescription": "Virginia"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='VI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "VI", "ActiveFlag": true, "StateDescription": "Virgin Islands"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='VT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "VT", "ActiveFlag": true, "StateDescription": "Vermont"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='WA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "WA", "ActiveFlag": true, "StateDescription": "Washington"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='WI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "WI", "ActiveFlag": true, "StateDescription": "Wisconsin"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='WV')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "WV", "ActiveFlag": true, "StateDescription": "West Virginia"
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/States(CountryCodeString='USA',StateCode='WY')", "type": "Personify.DataServices.EF.Model.Base.DataModel.State"
+            }, "CountryCodeString": "USA", "StateCode": "WY", "ActiveFlag": true, "StateDescription": "Wyoming"
+        }
+    ]
+}

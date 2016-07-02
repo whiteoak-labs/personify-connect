@@ -1,0 +1,1 @@
+Ext.define("Ext.log.Base",{config:{},constructor:function(a){this.initConfig(a);return this}});

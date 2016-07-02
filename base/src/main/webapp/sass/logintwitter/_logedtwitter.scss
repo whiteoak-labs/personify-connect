@@ -1,0 +1,55 @@
+@mixin logedtwitter {
+.connected-twitter-container {
+    background-color: #ffffff;
+    color: black;
+}
+
+#text-title-twitter-authorize {
+    display: inline-block;
+}
+
+#name-account-twitter {
+    display: inline-block;
+    color: #1d16e3;
+    font-size: 25px;
+}
+
+.unauthorize-button {
+    margin-right: 40px;
+    border-radius: 0;
+    background-image: none;
+    background-color: #2899ff;
+    color: white;
+    height: 35px;
+    .x-button-label {
+    	font-size: $p-text-large-size;
+    }
+}
+
+.not-me-button {
+    margin-right: 40px;
+    border-radius: 0;
+    background-image: none;
+    background-color: transparent;
+    color: black;
+    height: 35px;
+    .x-button-label {
+    	font-size: $p-text-large-size;
+    }
+}
+
+.button-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+}
+
+.title-container {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.twitter-view-container {
+    background-color: #ffffff;
+}
+}

@@ -1,0 +1,1 @@
+Ext.define("Personify.model.base.notification.Entry",{extend:"Personify.base.Model",config:{belongsTo:"Personify.model.base.Notification",fields:[{name:"id",type:"string"},{name:"title",type:"string"},{name:"updated",type:"string"},{name:"link",type:"string"},{name:"category",type:"string"}]}});

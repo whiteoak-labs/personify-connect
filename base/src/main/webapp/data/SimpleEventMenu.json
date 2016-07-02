@@ -1,0 +1,34 @@
+{
+    "menu": [
+        {
+            "name": "Event Info",
+            "view": "simpleeventcontent",
+            "css": "descriptionButton menu-list-item-background"
+        },
+        {
+            "name": "Presenters",
+            "view": "presenterpanel",
+            "css": "presenterButton menu-list-item-background"
+        },
+        {
+            "name": "Notes",
+            "view": "notepanel",
+            "css": "notesButton menu-list-item-background"
+        },
+        {
+            "name": "Materials",
+            "view": "materialPanel",
+            "css": "materialButton menu-list-item-background"
+        },
+        {
+            "name": "Badge",
+            "view": "badgepanel",
+            "css": "badgeButton menu-list-item-background"
+        },
+        {
+            "name": "Rate",
+            "view": "sessionrate",
+            "css": "notesButton menu-list-item-background"
+        }
+    ]
+}

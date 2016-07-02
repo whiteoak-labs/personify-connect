@@ -1,0 +1,132 @@
+
+/* line 17, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view table {
+  width: 100%;
+  height:250px;
+  /*border-collapse: separate;*/
+  table-layout: fixed;
+  font-size: 17px;
+  color: #000000;
+  background-color: #ffffff;
+}
+/* line 28, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view table.week td {
+  vertical-align: top;
+}
+/* line 38, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view table.day td.time-block {
+  text-align: left;
+  font-size: 0.7em;
+  height: 20px;
+}
+/* line 52, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view tbody td {
+  border: solid 1px #898989;
+  padding: 3px !important
+}
+/* line 62, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view td {
+  font-weight: normal;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+/* line 71, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view td.today {
+  color: #FFFFFF;
+  text-shadow: #333 1px 1px 2px;
+  border: 1px solid #898989;
+  background: #cf3424; /* Old browsers */
+  background: -moz-linear-gradient(top, #cf3424 0%, #b51f1c 44%, #930b0b 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cf3424), color-stop(44%,#b51f1c), color-stop(100%,#930b0b)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #cf3424 0%,#b51f1c 44%,#930b0b 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #cf3424 0%,#b51f1c 44%,#930b0b 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #cf3424 0%,#b51f1c 44%,#930b0b 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #cf3424 0%,#b51f1c 44%,#930b0b 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cf3424', endColorstr='#930b0b',GradientType=0 ); /* IE6-9 */
+}
+/* line 82, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view td.unselectable {
+  color: #89909A;
+  background-color: #cda3a8;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bb8289), color-stop(10%, #c49399), color-stop(65%, #cda3a8), color-stop(100%, #cea5aa));
+  background-image: -webkit-linear-gradient(#bb8289, #c49399 10%, #cda3a8 65%, #cea5aa);
+  background-image: linear-gradient(#bb8289, #c49399 10%, #cda3a8 65%, #cea5aa);
+}
+/* line 88, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view td.selected,.touch-calendar-view td.today.selected {
+  color: #FFFFFF;
+  text-shadow: #333 1px 1px 0px;
+  border: 1px solid black;
+  background: #1980e5;
+  background-color: #4699eb;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #8bbff2), color-stop(50%, #5da6ed), color-stop(51%, #4699eb), color-stop(100%, #2f8de8));
+  background-image: -webkit-linear-gradient(#8bbff2, #5da6ed 50%, #4699eb 51%, #2f8de8);
+  background-image: linear-gradient(#8bbff2, #5da6ed 50%, #4699eb 51%, #2f8de8);
+}
+/* line 108, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view td.prev-month, .touch-calendar-view td.next-month {
+  color: #89909A;    
+}
+/* line 113, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view td.prev-month.selected, .touch-calendar-view td.next-month.selected {
+  color: #FFFFFF;
+}
+/* line 119, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view thead {
+  background-color: #ffffff;
+}
+/* line 123, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view thead th {
+  font-size: 9px;
+  vertical-align: bottom;
+  padding-bottom: 3px;
+  color: #262626;
+  text-align: center;
+  height: 20px;
+  text-shadow: white 1px 1px 1px;
+  font-weight: bold;
+}
+/* line 135, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view thead th:first-child {
+  background: url(../icons/larr.png) top left no-repeat;
+  cursor: pointer;
+}
+/* line 141, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view thead th:last-child {
+  background: url(../icons/rarr.png) top right no-repeat;
+  cursor: pointer;
+}
+/* line 147, ../scss/Ext.ux.TouchCalendar.scss */
+.touch-calendar-view thead th span {
+  font-size: 20px;
+  font-weight: bold;
+
+  left: 14.5%;
+  position: absolute;
+  text-align: center;
+  top: 6px;
+  width: 71%;
+  z-index: 999;
+  text-shadow: white 1px 1px 1px;
+}
+.calendarYM{
+    background: #ffffff;
+    text-align: center;
+    color: #000000;
+    height: 5px;
+}
+.calendartuochBox{
+    /*border: solid 1px #ffffff;*/
+    padding: 1px;
+    background: #000000;
+}
+td.dayName{
+    margin: 0;    
+    background-color: #266DBF !important;
+    color: #ffffff !important;
+    text-align: center;
+	vertical-align: middle;
+}

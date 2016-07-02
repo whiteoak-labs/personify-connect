@@ -1,0 +1,1 @@
+Ext.define("Ext.behavior.Behavior",{constructor:function(a){this.component=a;a.on("destroy","onComponentDestroy",this)},onComponentDestroy:Ext.emptyFn});

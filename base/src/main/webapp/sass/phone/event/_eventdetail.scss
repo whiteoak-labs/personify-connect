@@ -1,0 +1,231 @@
+@mixin eventdetailphone {
+  .p-phone-event-detail{
+    padding: 10px 10px 0px 10px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+  }
+  .p-phone-eventdetail-header{
+    font-size: $p-phone-text-title-size ;
+    margin-bottom: 5px;
+  }
+  .p-phone-event-detail{
+    .x-vertical{
+      padding: 10px;
+    }
+  }
+  .p-phone-eventdetail-titletext{
+    font-weight: bold;
+    font-size: 12px;
+    width: 25%;
+  }
+  .p-phone-price-field {
+    padding:5px;
+    margin-bottom: 5px;
+  }
+  .p-phone-eventdetail-border-field-content{
+    .x-vertical{
+      padding: 0;
+    }
+    width: 60%;
+  }
+  .p-phone-eventdetail-when, .p-phone-eventdetail-attendees {
+    font-weight: bold;
+  }
+  .p-phone-eventdetail-location{
+    font-weight: normal;
+    .x-innerhtml{
+      width: 135px;
+      word-wrap: break-word;
+    }
+  }
+  .p-phone-button-actioneventdetails{
+    padding: 0px;
+    background-color: white;
+    margin-bottom: 50px;
+  }
+
+  .p-phone-panel-button-note {
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 50px;
+  }
+
+  .p-phone-button-actioneventdetails .x-vertical{
+    padding: 0px !important;
+  }
+
+  .p-phone-segmenteditems-singleday,
+  .p-phone-segmenteditems-mutipledays{
+    width: 50%;
+    color: white;
+    @extend .background-item-header;
+  }
+  .p-phone-eventdaycard-fieldset{
+    font-size: $p-phone-text-small-size;
+    background-color: white;
+    margin-top: 5px;
+  }
+  .p-phone-field-eventday{
+    margin: 5px 0px 0px 0px;
+    font-size: $p-phone-text-small-size;
+    .x-form-label {
+      background: #ffffff;
+      padding: 7.5px 0px;
+    }
+    .x-form-label span {
+      font-size: $p-phone-text-small-size !important;
+    }
+    .x-input-text {
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+    }
+    .x-component-outer::before{
+      background-image: none;
+      background-color: #848484;
+      width: 20px;
+      border-left: 1px solid black;
+    }
+    .x-component-outer::after{
+      background-color: white !important;
+      right: 0.4em !important;
+    }
+    .x-field-input{
+      padding: 0px;
+    }
+    .x-component-outer{
+      .x-input-el{
+        overflow: hidden;
+        padding-right: 20px;
+      }
+    }
+    .x-form-fieldset-inner{
+      border: 0px;
+    }
+    .x-clear-icon {
+      margin: -3px 5px 0px 0px !important;
+      top: 0px !important;
+    }
+  }
+
+
+  /* TAUG panel */
+ .p-phone-taug-panel{
+   background-color: $p-left-panel-background;
+   font-size: $p-phone-text-small-size;
+   color: white;
+   height: auto;
+ }
+  .p-phone-button-infoconference{
+    background-image: url("../icons/phone/info-icon.png");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-color: transparent;
+    border: 0px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+  }
+  .p-phone-conference-taug-image{
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-position: left !important;
+    margin: 5px;
+
+  }
+  /*presenters page*/
+  .p-phone-presenttopic{
+    width: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-style: italic;
+  }
+  .p-list-attendee-item{
+    font-size: $p-phone-text-title-size;
+    padding: 10px;
+    padding-left: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+  }
+  .p-phone-presenter-contactinfotitle{
+    line-height: 30px;
+    border-bottom: 2px solid #848484;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+  }
+  .p-phone-session-list{
+    font-size: 14px;
+    color: black;
+  }
+  .p-phone-biocontent *{
+    color: black !important;
+    font-size: 14px !important;
+    font-family: $p-font-family !important;
+  }
+
+.p-phone-loading-special-events-landscape {
+background: transparent url("../app47/images/event/complexevent/events_landscape_phone.png") center center no-repeat;
+background-size: 100% 100%;
+}
+.p-phone-loading-special-events-portrait {
+background: transparent url("../app47/images/event/complexevent/events_portrait_phone.png") center center no-repeat;
+background-size: 100% 100%;
+}
+
+.p-loading-special-events-portrait {
+background: transparent url("../app47/images/event/complexevent/events_portrait_tablet.png") center center no-repeat;
+background-size: 100% 100%;
+}
+.p-loading-special-events-landscape {
+background: transparent url("../app47/images/event/complexevent/events_landscape_tablet.png") center center no-repeat;
+background-size: 100% 100%;
+}
+
+.p-loading-normal-events-landscape {
+background: transparent url("../app47/images/event/complexevent/events_landscape_tablet.png") center center no-repeat;
+background-size: 100% 100%;
+}
+.p-loading-normal-events-portrait {
+background: transparent url("../app47/images/event/complexevent/events_portrait_tablet.png") center center no-repeat;
+background-size: 100% 100%;
+}
+.p-phone-loading-normal-events-landscape {
+background: transparent url("../app47/images/event/complexevent/events_landscape_phone.png") center center no-repeat;
+background-size: 100% 100%;
+}
+.p-phone-loading-normal-events-portrait {
+background: transparent url("../app47/images/event/complexevent/events_portrait_phone.png") center center no-repeat;
+background-size: 100% 100%;
+}
+
+  .p-phone-eventdetail-contenttext {
+    .x-innerhtml {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 190px;
+    }
+  }
+  .sponsor-carousel{
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 51px;
+    .x-img-background{
+      height: 45px;
+    }
+    .x-carousel-indicator{
+      display: none;
+    }
+  }
+
+  .p-phone-list-price-container {
+    margin-right: 5px !important;
+  }
+}

@@ -1,0 +1,1 @@
+Ext.define("Personify.controller.profile.contactinfo.NameAndTitle",{extend:"Personify.controller.profile.template.InfoTemplate",control:{},setRecord:function(a){}});

@@ -1,0 +1,1 @@
+Ext.define("Ext.dataview.ListItemHeader",{extend:"Ext.Component",xtype:"listitemheader",config:{baseCls:Ext.baseCSSPrefix+"list-header"}});

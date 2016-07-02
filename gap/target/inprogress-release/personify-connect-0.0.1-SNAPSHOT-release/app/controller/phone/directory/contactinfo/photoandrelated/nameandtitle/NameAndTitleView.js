@@ -1,0 +1,1 @@
+Ext.define("Personify.controller.phone.directory.contactinfo.photoandrelated.nameandtitle.NameAndTitleView",{extend:"Personify.controller.profile.NameAndTitleView",control:{displayName:{},jobTitle:{}},init:function(){this.callParent(arguments);this.getView().setRecord(null)}});

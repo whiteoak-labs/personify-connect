@@ -1,0 +1,1 @@
+Ext.define("Ext.Audio",{extend:"Ext.Media",xtype:"audio",config:{cls:Ext.baseCSSPrefix+"audio"},onActivate:function(){var a=this;a.callParent();if(Ext.os.is.Phone){a.element.show()}},onDeactivate:function(){var a=this;a.callParent();if(Ext.os.is.Phone){a.element.hide()}},template:[{reference:"media",preload:"auto",tag:"audio",cls:Ext.baseCSSPrefix+"component"}]});

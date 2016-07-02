@@ -1,0 +1,1 @@
+Ext.define("Ext.device.Capture",{singleton:true,requires:["Ext.device.Communicator","Ext.device.capture.Cordova","Ext.device.capture.Simulator"],constructor:function(){var a=Ext.browser.is;if(a.WebView&&a.Cordova){return Ext.create("Ext.device.capture.Cordova")}return Ext.create("Ext.device.capture.Simulator")}});

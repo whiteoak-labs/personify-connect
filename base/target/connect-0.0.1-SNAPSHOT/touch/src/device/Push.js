@@ -1,0 +1,1 @@
+Ext.define("Ext.device.Push",{singleton:true,requires:["Ext.device.Communicator","Ext.device.push.Sencha","Ext.device.push.Cordova"],constructor:function(){var a=Ext.browser.is;if(a.WebView){if(a.Sencha){return Ext.create("Ext.device.push.Sencha")}else{if(a.Cordova){return Ext.create("Ext.device.push.Cordova")}}}return Ext.create("Ext.device.push.Abstract")}});

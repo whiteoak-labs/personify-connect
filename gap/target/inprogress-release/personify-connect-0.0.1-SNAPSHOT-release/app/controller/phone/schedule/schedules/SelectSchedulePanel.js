@@ -1,0 +1,1 @@
+Ext.define("Personify.controller.phone.schedule.schedules.SelectSchedulePanel",{extend:"Personify.base.Controller",control:{selectScheduleItem:true},config:{storeAllItem:null},setStore:function(a){this.setStoreAllItem(a);if(a.getCount()==0){this.getSelectScheduleItem().setStore(a)}},getStore:function(){return this.getStoreAllItem()}});

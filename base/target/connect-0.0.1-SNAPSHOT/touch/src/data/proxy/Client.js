@@ -1,0 +1,1 @@
+Ext.define("Ext.data.proxy.Client",{extend:"Ext.data.proxy.Proxy",alternateClassName:"Ext.proxy.ClientProxy",clear:function(){Ext.Logger.error("The Ext.data.proxy.Client subclass that you are using has not defined a 'clear' function. See src/data/ClientProxy.js for details.")}});

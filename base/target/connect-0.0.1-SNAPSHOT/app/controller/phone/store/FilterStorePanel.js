@@ -1,0 +1,1 @@
+Ext.define("Personify.controller.phone.store.FilterStorePanel",{extend:"Personify.base.Controller",control:{labelSortByValue:true,clearFilter:{tap:"onClearFilter"}},updateLabel:function(a){this.getLabelSortByValue().setHtml(a)},onClearFilter:function(){this.getView().fireEvent("clearFilter")}});

@@ -1,0 +1,1 @@
+Ext.define("Ext.device.browser.Simulator",{open:function(a){window.open(a.url,"_blank")},close:Ext.emptyFn});

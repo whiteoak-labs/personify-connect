@@ -1,0 +1,1 @@
+Ext.define("Personify.view.store.LoginCartItem",{extend:"Ext.Panel",xtype:"loginCartItem",config:{layout:"vbox",scrollable:false,items:[{items:[{xtype:"button",cls:"take-to-website-checkout",text:"Take me to the website to Checkout",itemId:"checkoutWebsite"},{cls:"or-call-us",itemId:"callUsNumber"}]}]}});

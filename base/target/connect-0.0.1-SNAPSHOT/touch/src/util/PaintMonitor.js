@@ -1,0 +1,1 @@
+Ext.define("Ext.util.PaintMonitor",{requires:["Ext.util.paintmonitor.CssAnimation"],constructor:function(a){return new Ext.util.paintmonitor.CssAnimation(a)}});

@@ -1,0 +1,102 @@
+@mixin map {
+  .map-phone-schema {
+    background-size: 100%;
+    background-color: white !important;
+  }
+
+  .event-complex-list .exhibitorItem {
+    width: 50%;
+    height: 65px !important;
+    margin-left: $p-margin-left !important;
+    margin-bottom: $p-margin-list-item !important;
+  }
+
+  .view-button-map {
+    background: url('../icons/session.png') no-repeat center center;
+    margin-bottom: 8px;
+    margin-right: 10px;
+    padding: 20px;
+    margin-left: $p-margin-left;
+    background-size: 90%;
+  }
+
+  .title-map .x-innerhtml, .location-map .x-innerhtml {
+    color: black;
+    padding-left: $p-padding-text !important;
+  }
+
+  .title-map .x-innerhtml {
+    font-size: $p-text-huge-size;
+    font-weight: bold;
+  }
+
+  .location-map .x-innerhtml {
+    font-size: $p-text-medium-size;
+  }
+
+  .sell-status-map .x-innerhtml {
+    color: black !important;
+  }
+
+  .agenda-map-container .time-event-complex-item {
+    font-size: 24px !important;
+  }
+
+  .event-schedule-tab:HOVER, .my-schedule-tab:HOVER {
+    cursor: pointer !important;
+  }
+
+  .tblExhItem td {
+    padding-left: $p-padding-left !important;
+  }
+
+  .exhibitorItem .x-list-item-label {
+    font-size: $p-text-medium-size;
+    padding-top: $p-padding-top !important;
+    border-bottom: 0px !important;
+  }
+
+  .product-status {
+    font-size: $p-text-huge-size;
+    color: white;
+    background-color: #990000;
+  }
+
+  .exhibitor-item-map .x-list-item-label {
+    padding: 0.3em 0.8em !important;
+  }
+
+  .exhibitor-item-map {
+    background-color: white;
+    margin-bottom: 1px !important;
+    height: 70px !important;
+  }
+
+  .exhibitor-item-map.x-list-item:last-child .x-list-item-label {
+    border: 0px !important;
+  }
+
+  .x-list-item.exhibitor-item-map.x-item-pressed, .x-list-item.exhibitor-item-map.x-item-selected {
+    background-color: $p-button-pressing-background-color !important;
+    color: $p-button-pressing-text-color;
+  }
+
+  .x-list-item.exhibitor-item-map.x-item-selected .x-list-item-label {
+    background: #c60;
+    color: black !important;
+    text-shadow: none;
+  }
+
+  .x-list-item.exhibitor-item-map.x-item-pressed .x-list-item-label .tableExItem .p-text-briefEmployerName {
+    color: white !important;
+  }
+
+  .exhibitorList {
+    background-color: transparent;
+  }
+
+  .imgProductAllExhibitorMap {
+    width: 90px;
+    height: 60px;
+  }
+}

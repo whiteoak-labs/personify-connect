@@ -1,0 +1,1 @@
+Ext.define("Personify.view.profile.contactinfo.session.SessionList",{extend:"Personify.view.profile.contactinfo.ListInfoTemplate",xtype:"sessionlist",config:{baseCls:"phonelist",itemCls:"phonelistitem",store:null,itemTpl:""},initialize:function(a){this.callParent(arguments);this.initConfig(a);this.setItemTpl('<div class="p-label-valueText">{longName}</div>')}});

@@ -1,0 +1,1 @@
+Ext.define("Personify.model.base.Note",{extend:"Personify.base.Model",config:{fields:[{name:"noteId",type:"string",mapping:"id"},{name:"title",type:"string"},{name:"image",type:"string"},{name:"date",type:"datetime",convert:function(b){var c=null;if(b){var a=b.split(/[-T:]/g);c=new Date(a[0],a[1]-1,a[2])}return c}},{name:"description",type:"string"}]}});

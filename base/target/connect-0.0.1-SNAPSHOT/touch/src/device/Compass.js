@@ -1,0 +1,1 @@
+Ext.define("Ext.device.Compass",{singleton:true,requires:["Ext.device.compass.Cordova","Ext.device.compass.Simulator"],constructor:function(){var a=Ext.browser.is;if(a.WebView&&a.Cordova){return Ext.create("Ext.device.compass.Cordova")}return Ext.create("Ext.device.compass.Simulator")}});

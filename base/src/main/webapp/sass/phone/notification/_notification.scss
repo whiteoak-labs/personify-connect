@@ -1,0 +1,143 @@
+@mixin notificationphone {
+  .listNotificationPhone .x-html {
+    line-height: 17px;
+    padding: 0px;
+    font-size: 10pt;
+  }
+
+  .listNotificationPhone {
+    .x-list-header {
+      @extend .background-item-header;
+      color: #ffffff;
+      font-size: 12pt;
+      padding: 3px 10px;
+      position: initial !important;
+    }
+  }
+
+  .presenterlistitemeven {
+    background: #eeeff3;
+    padding: 5px;
+    color: black;
+    font-size: 13px;
+  }
+
+  .presenterlistitemodd {
+    background: #ffffff;
+    padding: 5px;
+    color: black;
+    font-size: 13px;
+  }
+
+  .listNotificationPhone .x-list-header {
+      @extend .background-item-header;
+      color: #ffffff !important;
+      font-size: 12pt !important;
+      padding: 3px 10px !important;
+    }
+
+  .listNotificationPhone-item-relative:nth-child(even) {
+    background: #eeeff3;
+    color: black;
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .listNotificationPhone-item-relative:nth-child(odd) {
+    background: #ffffff;
+    color: black;
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .listNotificationPhone-item:nth-child(even) {
+    background: #eeeff3;
+    color: black;
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .listNotificationPhone-item:nth-child(odd) {
+    background: #ffffff;
+    color: black;
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .listNotificationPhone-selected {
+    background: #cccccc !important;
+  }
+
+  .table-item-listNotificationPhone {
+    margin: 7px 7px 10px;
+  }
+
+  .date-item-listNotificationPhone {
+    color: #848484 !important;
+  }
+
+  .img-item-listNotificationPhone {
+    width: 12px;
+    height: 15px;
+  }
+
+  .desc-item-listNotificationPhone {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    float: left;
+    font-size: 11pt;
+    width: 270px;
+    margin-top: 5px;
+  }
+
+  .itemNotificationUnReadPhone {
+    font-weight: bold;
+  }
+
+  .itemNotificationReadPhone {
+    font-weight: normal;
+  }
+
+  .date-templateItemNotificationPhone {
+    @extend .date-item-listNotificationPhone;
+    padding: 15px 15px 0px 15px;
+  }
+
+  .title-templateItemNotificationPhone {
+    margin: 10px 0px;
+    font-size: 14pt;
+    color: black;
+    padding: 0px 15px;
+  }
+
+  .desc-templateItemNotificationPhone {
+    font-size: 12pt;
+    color: rgb(88, 87, 87);
+    padding: 0px 15px;
+  }
+
+  .link-templateItemNotificationPhone {
+    font-size: 14pt;
+    color: blue;
+    text-decoration: underline;
+    margin-top: 30px;
+    padding: 0px 15px;
+  }
+
+  .btn-templateItemNotificationPhone {
+    @extend .red-button-background;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 15px;
+    .x-button-label {
+      font-size: 12pt;
+      line-height: 36px;
+      color: white;
+    }
+  }
+
+  .btn-templateItemNotificationPhone.x-button-pressing {
+    @extend .red-button-pressing-background;
+  }
+}

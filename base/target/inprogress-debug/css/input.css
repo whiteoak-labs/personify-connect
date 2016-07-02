@@ -1,0 +1,6 @@
+input[type="text"]:not(.selectbox), input[type="number"],
+input[type="password"], input[type="search"], textarea {
+    -webkit-user-modify: read-write-plaintext-only;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    outline-style: none;
+}

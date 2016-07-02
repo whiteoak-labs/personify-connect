@@ -1,0 +1,1 @@
+Ext.define("Ext.data.Error",{config:{field:null,message:""},constructor:function(a){this.initConfig(a)}});

@@ -1,0 +1,1 @@
+Ext.define("Ext.ux.TabMenuButton",{extend:"Ext.ux.MenuButton",config:{ui:"tab",cls:"tabmenu",menuItems:[],menuSide:"left"},onMenuButtonTap:function(a){if(a&&!Ext.theme.is.Blackberry103){this.setText(a.getText());this.setIconCls(a.getIconCls())}Ext.Viewport.hideMenu(this.getMenuSide())}});

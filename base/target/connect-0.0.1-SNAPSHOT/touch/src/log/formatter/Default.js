@@ -1,0 +1,1 @@
+Ext.define("Ext.log.formatter.Default",{extend:"Ext.log.formatter.Formatter",config:{messageFormat:"[{priorityName}][{callerDisplayName}] {message}"},format:function(a){var a=Ext.merge({},a,{priorityName:a.priorityName.toUpperCase()});return this.callParent([a])}});

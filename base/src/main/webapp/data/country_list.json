@@ -1,0 +1,1885 @@
+{
+    "d" : [
+        {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('%5BALL%5D')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "[ALL]", "CountryDescription": "All Countries", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+            "__deferred": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('%5BALL%5D')/State"
+            }
+        }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ALB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ALB", "CountryDescription": "Albania", "PhoneCountryCode": "355", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ALB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ALL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ALL", "CountryDescription": "ALL country addresses", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ALL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('AND')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "AND", "CountryDescription": "Andorra", "PhoneCountryCode": "376", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('AND')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ANT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ANT", "CountryDescription": "Netherlands Antilles", "PhoneCountryCode": "599", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ANT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ARE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ARE", "CountryDescription": "United Arab Emirates", "PhoneCountryCode": "971", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ARE')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ARM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ARM", "CountryDescription": "Armenia", "PhoneCountryCode": "374", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ARM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ASM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ASM", "CountryDescription": "American Samoa", "PhoneCountryCode": "684", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ASM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ATA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ATA", "CountryDescription": "Antarctica", "PhoneCountryCode": "672", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ATA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ATF')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ATF", "CountryDescription": "French Southern Terr", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ATF')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('AUS')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "AUS", "CountryDescription": "Australia", "PhoneCountryCode": "61", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('AUS')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('AUT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "AUT", "CountryDescription": "Austria", "PhoneCountryCode": "43", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('AUT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('AZE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "AZE", "CountryDescription": "Azerbaijan", "PhoneCountryCode": "994", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('AZE')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BDI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BDI", "CountryDescription": "Burundi", "PhoneCountryCode": "257", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BDI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BEL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BEL", "CountryDescription": "Belgium", "PhoneCountryCode": "32", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BEL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BEN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BEN", "CountryDescription": "Benin", "PhoneCountryCode": "229", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BEN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BFA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BFA", "CountryDescription": "Burkina Faso", "PhoneCountryCode": "226", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BFA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BGD')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BGD", "CountryDescription": "Bangladesh", "PhoneCountryCode": "880", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BGD')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BGR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BGR", "CountryDescription": "Bulgaria", "PhoneCountryCode": "359", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BGR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BHR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BHR", "CountryDescription": "Bahrain", "PhoneCountryCode": "973", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BHR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BHS')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BHS", "CountryDescription": "Bahamas", "PhoneCountryCode": "242", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BHS')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BIH')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BIH", "CountryDescription": "Bosnia And Herzegowina", "PhoneCountryCode": "387", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BIH')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BLR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BLR", "CountryDescription": "Belarus", "PhoneCountryCode": "375", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BLR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BLZ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BLZ", "CountryDescription": "Belize", "PhoneCountryCode": "501", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BLZ')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BMU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BMU", "CountryDescription": "Bermuda", "PhoneCountryCode": "441", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BMU')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BOL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BOL", "CountryDescription": "Bolivia", "PhoneCountryCode": "591", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BOL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BRA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BRA", "CountryDescription": "Brazil", "PhoneCountryCode": "55", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BRA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BRB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BRB", "CountryDescription": "Barbados", "PhoneCountryCode": "246", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BRB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BRN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BRN", "CountryDescription": "Brunei Darussalam", "PhoneCountryCode": "673", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BRN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BTN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BTN", "CountryDescription": "Bhutan", "PhoneCountryCode": "975", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BTN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BVT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BVT", "CountryDescription": "Bouvet Island", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BVT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BWA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "BWA", "CountryDescription": "Botswana", "PhoneCountryCode": "267", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('BWA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CAF')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CAF", "CountryDescription": "Central African Republic", "PhoneCountryCode": "236", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CAF')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CAN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CAN", "CountryDescription": "Canada", "PhoneCountryCode": "1", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CAN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CCK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CCK", "CountryDescription": "Cocos (Keeling) Islands", "PhoneCountryCode": "61", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CCK')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CHE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CHE", "CountryDescription": "Switzerland", "PhoneCountryCode": "41", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CHE')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CHL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CHL", "CountryDescription": "Chile", "PhoneCountryCode": "56", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CHL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CHN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CHN", "CountryDescription": "China", "PhoneCountryCode": "86", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CHN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CIV')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CIV", "CountryDescription": "Cote DIvoire", "PhoneCountryCode": "225", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CIV')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CMR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CMR", "CountryDescription": "Cameroon", "PhoneCountryCode": "237", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CMR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COD')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "COD", "CountryDescription": "Congo-Democratic Republic", "PhoneCountryCode": "243", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COD')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COG')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "COG", "CountryDescription": "Congo", "PhoneCountryCode": "242", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COG')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "COK", "CountryDescription": "Cook Islands", "PhoneCountryCode": "682", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COK')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "COL", "CountryDescription": "Colombia", "PhoneCountryCode": "57", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "COM", "CountryDescription": "Comoros", "PhoneCountryCode": "269", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('COM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CPV')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CPV", "CountryDescription": "Cape Verde", "PhoneCountryCode": "238", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CPV')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CRI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CRI", "CountryDescription": "Costa Rica", "PhoneCountryCode": "506", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CRI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CUB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CUB", "CountryDescription": "Cuba", "PhoneCountryCode": "53", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CUB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CXR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CXR", "CountryDescription": "Christmas Island", "PhoneCountryCode": "61", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CXR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CYM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CYM", "CountryDescription": "Cayman Islands", "PhoneCountryCode": "345", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CYM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CYP')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CYP", "CountryDescription": "Cyprus", "PhoneCountryCode": "357", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CYP')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CZE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "CZE", "CountryDescription": "Czech Republic", "PhoneCountryCode": "420", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('CZE')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DEU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "DEU", "CountryDescription": "Germany", "PhoneCountryCode": "49", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DEU')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DJI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "DJI", "CountryDescription": "Djibouti", "PhoneCountryCode": "253", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DJI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DMA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "DMA", "CountryDescription": "Dominica", "PhoneCountryCode": "767", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DMA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DNK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "DNK", "CountryDescription": "Denmark", "PhoneCountryCode": "45", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DNK')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DZA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "DZA", "CountryDescription": "Algeria", "PhoneCountryCode": "213", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('DZA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ECU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ECU", "CountryDescription": "Ecuador", "PhoneCountryCode": "593", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ECU')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('EGY')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "EGY", "CountryDescription": "Egypt", "PhoneCountryCode": "20", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('EGY')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ERI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ERI", "CountryDescription": "Eritrea", "PhoneCountryCode": "291", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ERI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ESH')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ESH", "CountryDescription": "Western Sahara", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ESH')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ESP')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ESP", "CountryDescription": "Spain", "PhoneCountryCode": "34", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ESP')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('EST')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "EST", "CountryDescription": "Estonia", "PhoneCountryCode": "372", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('EST')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ETH')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ETH", "CountryDescription": "Ethiopia", "PhoneCountryCode": "251", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ETH')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FIN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "FIN", "CountryDescription": "Finland", "PhoneCountryCode": "358", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FIN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FJI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "FJI", "CountryDescription": "Fiji", "PhoneCountryCode": "679", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FJI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FLK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "FLK", "CountryDescription": "Falkland Islands", "PhoneCountryCode": "500", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FLK')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FRA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "FRA", "CountryDescription": "France", "PhoneCountryCode": "33", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FRA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FRO')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "FRO", "CountryDescription": "Faroe Islands", "PhoneCountryCode": "298", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FRO')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FSM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "FSM", "CountryDescription": "Micronesia-Federated Stat", "PhoneCountryCode": "691", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FSM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FXX')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "FXX", "CountryDescription": "France - Metropolitan", "PhoneCountryCode": "33", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('FXX')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GAB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GAB", "CountryDescription": "Gabon", "PhoneCountryCode": "241", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GAB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GBR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GBR", "CountryDescription": "United Kingdom", "PhoneCountryCode": "44", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GBR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GEO')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GEO", "CountryDescription": "Georgia", "PhoneCountryCode": "995", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GEO')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GHA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GHA", "CountryDescription": "Ghana", "PhoneCountryCode": "233", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GHA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GIB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GIB", "CountryDescription": "Gibraltar", "PhoneCountryCode": "350", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GIB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GIN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GIN", "CountryDescription": "Guinea", "PhoneCountryCode": "224", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GIN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GLP')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GLP", "CountryDescription": "Guadeloupe", "PhoneCountryCode": "590", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GLP')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GMB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GMB", "CountryDescription": "Gambia", "PhoneCountryCode": "220", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GMB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GNQ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GNQ", "CountryDescription": "Equatorial Guinea", "PhoneCountryCode": "240", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GNQ')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GRC')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GRC", "CountryDescription": "Greece", "PhoneCountryCode": "30", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GRC')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GRD')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GRD", "CountryDescription": "Grenada", "PhoneCountryCode": "473", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GRD')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GRL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GRL", "CountryDescription": "Greenland", "PhoneCountryCode": "299", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GRL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GTM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GTM", "CountryDescription": "Guatemala", "PhoneCountryCode": "502", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GTM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GUF')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GUF", "CountryDescription": "French Guiana", "PhoneCountryCode": "594", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GUF')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GUM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GUM", "CountryDescription": "Guam", "PhoneCountryCode": "671", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GUM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GUY')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "GUY", "CountryDescription": "Guyana", "PhoneCountryCode": "592", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('GUY')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HKG')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "HKG", "CountryDescription": "Hong Kong", "PhoneCountryCode": "852", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HKG')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HMD')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "HMD", "CountryDescription": "Heard & Mcdonald Islands", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HMD')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HND')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "HND", "CountryDescription": "Honduras", "PhoneCountryCode": "504", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HND')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HRV')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "HRV", "CountryDescription": "Croatia (Hrvatska)", "PhoneCountryCode": "385", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HRV')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HTI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "HTI", "CountryDescription": "Haiti", "PhoneCountryCode": "509", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HTI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HUN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "HUN", "CountryDescription": "Hungary", "PhoneCountryCode": "36", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('HUN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IDN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "IDN", "CountryDescription": "Indonesia", "PhoneCountryCode": "62", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IDN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IND')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "IND", "CountryDescription": "India", "PhoneCountryCode": "91", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IND')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IOT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "IOT", "CountryDescription": "British Indian Ocean Terr", "PhoneCountryCode": "99", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IOT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IRL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "IRL", "CountryDescription": "Ireland", "PhoneCountryCode": "353", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IRL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IRN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "IRN", "CountryDescription": "Iran(Islamic Republic Of)", "PhoneCountryCode": "98", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IRN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IRQ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "IRQ", "CountryDescription": "Iraq", "PhoneCountryCode": "964", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('IRQ')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ISL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ISL", "CountryDescription": "Iceland", "PhoneCountryCode": "354", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ISL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ISR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ISR", "CountryDescription": "Israel", "PhoneCountryCode": "972", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ISR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ITA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ITA", "CountryDescription": "Italy", "PhoneCountryCode": "39", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ITA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('JAM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "JAM", "CountryDescription": "Jamaica", "PhoneCountryCode": "876", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('JAM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('JOR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "JOR", "CountryDescription": "Jordan", "PhoneCountryCode": "962", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('JOR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('JPN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "JPN", "CountryDescription": "Japan", "PhoneCountryCode": "81", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('JPN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KAZ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "KAZ", "CountryDescription": "Kazakhstan", "PhoneCountryCode": "7", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KAZ')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KEN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "KEN", "CountryDescription": "Kenya", "PhoneCountryCode": "254", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KEN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KGZ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "KGZ", "CountryDescription": "Kyrgyzstan", "PhoneCountryCode": "996", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KGZ')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KHM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "KHM", "CountryDescription": "Cambodia", "PhoneCountryCode": "855", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KHM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KIR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "KIR", "CountryDescription": "Kiribati", "PhoneCountryCode": "686", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KIR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KNA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "KNA", "CountryDescription": "Saint Kitts And Nevis", "PhoneCountryCode": "869", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KNA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KOR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "KOR", "CountryDescription": "Korea,  Republic of", "PhoneCountryCode": "82", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KOR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KWT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "KWT", "CountryDescription": "Kuwait", "PhoneCountryCode": "965", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('KWT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LAO')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LAO", "CountryDescription": "Lao People Demo Republic", "PhoneCountryCode": "856", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LAO')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LBN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LBN", "CountryDescription": "Lebanon", "PhoneCountryCode": "961", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LBN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LBR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LBR", "CountryDescription": "Liberia", "PhoneCountryCode": "231", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LBR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LBY')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LBY", "CountryDescription": "Libyan Arab Jamahiriya", "PhoneCountryCode": "218", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LBY')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LCA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LCA", "CountryDescription": "Saint Lucia", "PhoneCountryCode": "758", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LCA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LIE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LIE", "CountryDescription": "Liechtenstein", "PhoneCountryCode": "423", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LIE')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LKA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LKA", "CountryDescription": "Sri Lanka", "PhoneCountryCode": "94", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LKA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LSO')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LSO", "CountryDescription": "Lesotho", "PhoneCountryCode": "266", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LSO')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LTU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LTU", "CountryDescription": "Lithuania", "PhoneCountryCode": "370", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LTU')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LUX')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LUX", "CountryDescription": "Luxembourg", "PhoneCountryCode": "352", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LUX')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LVA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "LVA", "CountryDescription": "Latvia", "PhoneCountryCode": "371", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('LVA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MAC')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MAC", "CountryDescription": "Macau", "PhoneCountryCode": "853", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MAC')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MAR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MAR", "CountryDescription": "Morocco", "PhoneCountryCode": "212", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MAR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MCO')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MCO", "CountryDescription": "Monaco", "PhoneCountryCode": "377", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MCO')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MDA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MDA", "CountryDescription": "Moldova - Republic Of", "PhoneCountryCode": "373", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MDA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MDG')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MDG", "CountryDescription": "Madagascar", "PhoneCountryCode": "261", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MDG')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MDV')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MDV", "CountryDescription": "Maldives", "PhoneCountryCode": "960", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MDV')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MEX')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MEX", "CountryDescription": "Mexico", "PhoneCountryCode": "52", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MEX')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MHL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MHL", "CountryDescription": "Marshall Islands", "PhoneCountryCode": "692", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MHL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MKD')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MKD", "CountryDescription": "Macedonia (Yugoslav Rep)", "PhoneCountryCode": "389", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MKD')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MLI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MLI", "CountryDescription": "Mali", "PhoneCountryCode": "223", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MLI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MLT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MLT", "CountryDescription": "Malta", "PhoneCountryCode": "356", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MLT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MMR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MMR", "CountryDescription": "Myanmar", "PhoneCountryCode": "95", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MMR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MNG')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MNG", "CountryDescription": "Mongolia", "PhoneCountryCode": "976", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MNG')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MNP')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MNP", "CountryDescription": "Northern Mariana Islands", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MNP')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MOZ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MOZ", "CountryDescription": "Mozambique", "PhoneCountryCode": "258", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MOZ')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MRT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MRT", "CountryDescription": "Mauritania", "PhoneCountryCode": "222", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MRT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MSR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MSR", "CountryDescription": "Montserrat", "PhoneCountryCode": "664", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MSR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MTQ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MTQ", "CountryDescription": "Martinique", "PhoneCountryCode": "596", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MTQ')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MUS')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MUS", "CountryDescription": "Mauritius", "PhoneCountryCode": "230", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MUS')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MWI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MWI", "CountryDescription": "Malawi", "PhoneCountryCode": "265", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MWI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MYS')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MYS", "CountryDescription": "Malaysia", "PhoneCountryCode": "60", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MYS')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MYT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "MYT", "CountryDescription": "Mayotte", "PhoneCountryCode": "269", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('MYT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NAM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NAM", "CountryDescription": "Namibia", "PhoneCountryCode": "264", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NAM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NCL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NCL", "CountryDescription": "New Caledonia", "PhoneCountryCode": "687", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NCL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NER')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NER", "CountryDescription": "Niger", "PhoneCountryCode": "227", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NER')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NFK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NFK", "CountryDescription": "Norfolk Island", "PhoneCountryCode": "672", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NFK')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NGA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NGA", "CountryDescription": "Nigeria", "PhoneCountryCode": "234", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NGA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NIC')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NIC", "CountryDescription": "Nicaragua", "PhoneCountryCode": "505", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NIC')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NIU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NIU", "CountryDescription": "Niue", "PhoneCountryCode": "683", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NIU')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NLD')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NLD", "CountryDescription": "Netherlands", "PhoneCountryCode": "31", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NLD')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NOR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NOR", "CountryDescription": "Norway", "PhoneCountryCode": "47", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NOR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NPL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NPL", "CountryDescription": "Nepal", "PhoneCountryCode": "977", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NPL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NRU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NRU", "CountryDescription": "Nauru", "PhoneCountryCode": "674", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NRU')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NZL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "NZL", "CountryDescription": "New Zealand", "PhoneCountryCode": "64", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('NZL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('OMN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "OMN", "CountryDescription": "Oman", "PhoneCountryCode": "968", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('OMN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PAK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PAK", "CountryDescription": "Pakistan", "PhoneCountryCode": "92", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PAK')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PAN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PAN", "CountryDescription": "Panama", "PhoneCountryCode": "507", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PAN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PCN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PCN", "CountryDescription": "Pitcairn", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PCN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PER')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PER", "CountryDescription": "Peru", "PhoneCountryCode": "51", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PER')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PHL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PHL", "CountryDescription": "Philippines", "PhoneCountryCode": "63", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PHL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PLW')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PLW", "CountryDescription": "Palau", "PhoneCountryCode": "680", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PLW')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PNG')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PNG", "CountryDescription": "Papua New Guinea", "PhoneCountryCode": "675", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PNG')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('POL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "POL", "CountryDescription": "Poland", "PhoneCountryCode": "48", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('POL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PRI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PRI", "CountryDescription": "Puerto Rico", "PhoneCountryCode": "787", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PRI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PRK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PRK", "CountryDescription": "Korea-Demo PeopleS Rep", "PhoneCountryCode": "850", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PRK')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PRT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PRT", "CountryDescription": "Portugal", "PhoneCountryCode": "351", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PRT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PRY')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PRY", "CountryDescription": "Paraguay", "PhoneCountryCode": "595", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PRY')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PSE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PSE", "CountryDescription": "Palestinian Territory, Occupied", "PhoneCountryCode": "970", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PSE')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PYF')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "PYF", "CountryDescription": "French Polynesia", "PhoneCountryCode": "689", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('PYF')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('QAT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "QAT", "CountryDescription": "Qatar", "PhoneCountryCode": "974", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('QAT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('REU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "REU", "CountryDescription": "Reunion", "PhoneCountryCode": "262", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('REU')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ROU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ROU", "CountryDescription": "Romania", "PhoneCountryCode": "40", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ROU')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('RUS')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "RUS", "CountryDescription": "Russian Federation", "PhoneCountryCode": "7", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('RUS')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('RWA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "RWA", "CountryDescription": "Rwanda", "PhoneCountryCode": "250", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('RWA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SAU')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SAU", "CountryDescription": "Saudi Arabia", "PhoneCountryCode": "966", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SAU')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SDN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SDN", "CountryDescription": "Sudan", "PhoneCountryCode": "249", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SDN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SEN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SEN", "CountryDescription": "Senegal", "PhoneCountryCode": "221", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SEN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SGP')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SGP", "CountryDescription": "Singapore", "PhoneCountryCode": "65", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SGP')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SGS')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SGS", "CountryDescription": "South Georgia", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SGS')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SHN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SHN", "CountryDescription": "St. Helena", "PhoneCountryCode": "290", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SHN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SJM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SJM", "CountryDescription": "Svalbard & Jan Mayen Isl", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SJM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SLB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SLB", "CountryDescription": "Solomon Islands", "PhoneCountryCode": "677", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SLB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SLE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SLE", "CountryDescription": "Sierra Leone", "PhoneCountryCode": "232", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SLE')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SLV')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SLV", "CountryDescription": "El Salvador", "PhoneCountryCode": "503", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SLV')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SMR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SMR", "CountryDescription": "San Marino", "PhoneCountryCode": "378", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SMR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SOM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SOM", "CountryDescription": "Somalia", "PhoneCountryCode": "252", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SOM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SPM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SPM", "CountryDescription": "St. Pierre And Miquelon", "PhoneCountryCode": "508", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SPM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SRB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SRB", "CountryDescription": "Serbia", "PhoneCountryCode": "381", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SRB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('STP')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "STP", "CountryDescription": "Sao Tome And Principe", "PhoneCountryCode": "239", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('STP')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SUR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SUR", "CountryDescription": "Suriname", "PhoneCountryCode": "597", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SUR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SVK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SVK", "CountryDescription": "Slovakia(Slovak Republic)", "PhoneCountryCode": "421", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SVK')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SVN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SVN", "CountryDescription": "Slovenia", "PhoneCountryCode": "386", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SVN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SWE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SWE", "CountryDescription": "Sweden", "PhoneCountryCode": "46", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SWE')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SWZ')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SWZ", "CountryDescription": "Swaziland", "PhoneCountryCode": "268", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SWZ')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SYC')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SYC", "CountryDescription": "Seychelles", "PhoneCountryCode": "248", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SYC')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SYR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "SYR", "CountryDescription": "Syrian Arab Republic", "PhoneCountryCode": "963", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('SYR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('T1_US')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "T1_US", "CountryDescription": "Test Country USA", "PhoneCountryCode": "001", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('T1_US')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TCA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TCA", "CountryDescription": "Turks And Caicos Islands", "PhoneCountryCode": "649", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TCA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TCD')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TCD", "CountryDescription": "Chad", "PhoneCountryCode": "235", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TCD')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TGO')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TGO", "CountryDescription": "Togo", "PhoneCountryCode": "228", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TGO')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('THA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "THA", "CountryDescription": "Thailand", "PhoneCountryCode": "66", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('THA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TJK')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TJK", "CountryDescription": "Tajikistan", "PhoneCountryCode": "992", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TJK')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TKL')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TKL", "CountryDescription": "Tokelau", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TKL')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TKM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TKM", "CountryDescription": "Turkmenistan", "PhoneCountryCode": "993", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TKM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TLS')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TLS", "CountryDescription": "East Timor", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TLS')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TON')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TON", "CountryDescription": "Tonga", "PhoneCountryCode": "676", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TON')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TTO')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TTO", "CountryDescription": "Trinidad And Tobago", "PhoneCountryCode": "868", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TTO')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TUN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TUN", "CountryDescription": "Tunisia", "PhoneCountryCode": "216", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TUN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TUR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TUR", "CountryDescription": "Turkey", "PhoneCountryCode": "90", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TUR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TUV')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TUV", "CountryDescription": "Tuvalu", "PhoneCountryCode": "688", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TUV')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TWN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TWN", "CountryDescription": "Taiwan", "PhoneCountryCode": "886", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TWN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TZA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "TZA", "CountryDescription": "Tanzania-United Republic", "PhoneCountryCode": "255", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('TZA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('UGA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "UGA", "CountryDescription": "Uganda", "PhoneCountryCode": "256", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('UGA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('UKR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "UKR", "CountryDescription": "Ukraine", "PhoneCountryCode": "380", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('UKR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('UMI')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "UMI", "CountryDescription": "U S Minor Island", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('UMI')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('URY')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "URY", "CountryDescription": "Uruguay", "PhoneCountryCode": "598", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('URY')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('USA')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "USA", "CountryDescription": "United States", "PhoneCountryCode": "1", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('USA')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('UZB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "UZB", "CountryDescription": "Uzbekistan", "PhoneCountryCode": "998", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('UZB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VAT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "VAT", "CountryDescription": "Holy See (Vatican City )", "PhoneCountryCode": "39", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VAT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VCT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "VCT", "CountryDescription": "St Vincent And Grenadines", "PhoneCountryCode": "784", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VCT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VEN')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "VEN", "CountryDescription": "Venezuela", "PhoneCountryCode": "58", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VEN')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VGB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "VGB", "CountryDescription": "Virgin Islands (British)", "PhoneCountryCode": "1", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VGB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VIR')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "VIR", "CountryDescription": "Virgin Islands (U.S.)", "PhoneCountryCode": "1", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VIR')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VNM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "VNM", "CountryDescription": "Viet Nam", "PhoneCountryCode": "84", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VNM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VUT')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "VUT", "CountryDescription": "Vanuatu", "PhoneCountryCode": "678", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('VUT')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('WLF')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "WLF", "CountryDescription": "Wallis And Futuna Islands", "PhoneCountryCode": "681", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('WLF')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('WSM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "WSM", "CountryDescription": "Samoa", "PhoneCountryCode": "", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('WSM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('YEM')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "YEM", "CountryDescription": "Yemen", "PhoneCountryCode": "967", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('YEM')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ZAF')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ZAF", "CountryDescription": "South Africa", "PhoneCountryCode": "27", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ZAF')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ZMB')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ZMB", "CountryDescription": "Zambia", "PhoneCountryCode": "260", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ZMB')/State"
+                }
+            }
+        }, {
+            "__metadata": {
+                "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ZWE')", "type": "Personify.DataServices.EF.Model.Base.DataModel.Country"
+            }, "CountryCode": "ZWE", "CountryDescription": "Zimbabwe", "PhoneCountryCode": "263", "ActiveFlag": true, "State": {
+                "__deferred": {
+                    "uri": "http://204.71.142.78/DSJson/PersonifyData.svc/Countries('ZWE')/State"
+                }
+            }
+        }
+    ]
+}

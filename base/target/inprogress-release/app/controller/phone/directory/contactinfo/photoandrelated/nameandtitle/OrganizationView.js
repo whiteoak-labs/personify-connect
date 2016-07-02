@@ -1,0 +1,1 @@
+Ext.define("Personify.controller.phone.directory.contactinfo.photoandrelated.nameandtitle.OrganizationView",{extend:"Personify.controller.profile.OrganizationView",control:{organizationName:{}}});

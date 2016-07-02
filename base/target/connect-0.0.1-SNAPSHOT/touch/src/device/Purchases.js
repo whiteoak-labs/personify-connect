@@ -1,0 +1,1 @@
+Ext.define("Ext.device.Purchases",{singleton:true,requires:["Ext.device.Communicator","Ext.device.purchases.Sencha"],constructor:function(){var a=Ext.browser.is;if(a.WebView&&a.Sencha){return Ext.create("Ext.device.purchases.Sencha")}return{}}});

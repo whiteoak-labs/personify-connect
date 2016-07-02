@@ -1,0 +1,1 @@
+Ext.define("Ext.log.formatter.Formatter",{extend:"Ext.log.Base",config:{messageFormat:"{message}"},format:function(a){return this.substitute(this.getMessageFormat(),a)},substitute:function(b,d){var a,c;for(a in d){if(d.hasOwnProperty(a)){c=d[a];b=b.replace(new RegExp("\\{"+a+"\\}","g"),c)}}return b}});

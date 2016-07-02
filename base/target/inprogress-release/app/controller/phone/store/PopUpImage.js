@@ -1,0 +1,1 @@
+Ext.define("Personify.controller.phone.store.PopUpImage",{extend:"Personify.base.Controller",control:{imageFullScreen:true,buttonClose:{tap:"onCloseForm"}},config:{record:null},updateRecord:function(a){this.getImageFullScreen().setSrc(a.get("imageURL"))},onCloseForm:function(){this.getView().destroy()}});

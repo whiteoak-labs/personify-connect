@@ -1,0 +1,52 @@
+@mixin detailcomplexevent {
+  .p-headerdetailevent {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .detail-time-p-headerdetailevent {
+    font-size: 20pt;
+    text-align: right;
+    padding: 0px;
+    padding-top: 5px;
+    padding-right: 7px;
+    margin: 0px;
+  }
+
+  .type-time-p-headerdetailevent {
+    text-align: right;
+    padding: 0px;
+    padding-right: 7px;
+    font-size: 11pt;
+  }
+
+  .p-headerdetailevent-content {
+    padding: 10px 10px 5px 10px;
+  }
+
+  .p-label-title-event {
+    font-size: 13.5pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .p-label-location {
+    margin-top: 15px;
+    font-size: 11pt;
+  }
+
+  .session-menu-list {
+    padding: 0px;
+    margin: 10px 0px;
+    height: 35px;
+    background-color: transparent;
+  }
+
+  .description-session-container {
+    color: #000000;
+    padding: 10px;
+    background-color: #ffffff !important;
+  }
+}
