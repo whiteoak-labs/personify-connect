@@ -1,1 +1,0 @@
-Ext.define("Personify.controller.event.complexevent.detailsession.SessionDescription",{extend:"Personify.base.Controller",control:{descriptionSession:true},init:function(){var a=this.getView().getRecord();this.setRecord(a)},setRecord:function(a){if(a){this.getDescriptionSession().setHtml(a.get("description"))}}});

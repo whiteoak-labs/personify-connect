@@ -1,1 +1,0 @@
-Ext.Date={now:Date.now,toString:function(a){if(!a){a=new Date()}var b=Ext.String.leftPad;return a.getFullYear()+"-"+b(a.getMonth()+1,2,"0")+"-"+b(a.getDate(),2,"0")+"T"+b(a.getHours(),2,"0")+":"+b(a.getMinutes(),2,"0")+":"+b(a.getSeconds(),2,"0")}};Ext.merge(Ext,{util:{Date:Ext.Date}});

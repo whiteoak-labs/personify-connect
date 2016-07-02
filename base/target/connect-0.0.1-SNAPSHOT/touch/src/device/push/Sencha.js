@@ -1,1 +1,0 @@
-Ext.define("Ext.device.push.Sencha",{extend:"Ext.device.push.Abstract",register:function(){var a=this.callParent(arguments);Ext.apply(a,{command:"PushNotification#Register",callbacks:{success:a.success,failure:a.failure,received:a.received},type:a.type});Ext.device.Communicator.send(a)}});

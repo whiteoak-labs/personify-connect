@@ -1,1 +1,0 @@
-Ext.define("Ext.field.Search",{extend:"Ext.field.Text",xtype:"searchfield",alternateClassName:"Ext.form.Search",config:{component:{type:"search"},ui:"search"},platformConfig:[{platform:"blackberry",component:{type:"text"}}]});

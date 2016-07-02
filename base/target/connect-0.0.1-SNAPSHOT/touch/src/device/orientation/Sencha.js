@@ -1,1 +1,0 @@
-Ext.define("Ext.device.orientation.Sencha",{extend:"Ext.device.orientation.Abstract",requires:["Ext.device.Communicator"],constructor:function(){this.callSuper(arguments);Ext.device.Communicator.send({command:"Orientation#watch",callbacks:{callback:this.onDeviceOrientation},scope:this})}});

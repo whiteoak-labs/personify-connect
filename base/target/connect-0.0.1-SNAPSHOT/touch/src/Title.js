@@ -1,1 +1,0 @@
-Ext.define("Ext.Title",{extend:"Ext.Component",xtype:"title",config:{baseCls:"x-title",title:""},updateTitle:function(a){this.setHtml(a)}});

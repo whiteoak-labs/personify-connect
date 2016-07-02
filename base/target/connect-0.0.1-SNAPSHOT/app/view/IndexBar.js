@@ -1,1 +1,0 @@
-Ext.define("Personify.view.IndexBar",{override:"Ext.dataview.IndexBar",initialize:function(){this.callParent();this.innerElement.on({touchend:this.onDragEnd,dragend:this.onDragEnd,scope:this})}});

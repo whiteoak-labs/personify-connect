@@ -1,1 +1,0 @@
-Ext.define("Ext.data.ResultSet",{config:{loaded:true,count:null,total:null,success:false,records:null,message:null},constructor:function(a){this.initConfig(a)},applyCount:function(a){if(!a&&a!==0){return this.getRecords().length}return a},updateRecords:function(a){this.setCount(a.length)}});

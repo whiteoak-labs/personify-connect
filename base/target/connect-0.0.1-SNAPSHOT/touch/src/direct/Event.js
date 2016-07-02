@@ -1,1 +1,0 @@
-Ext.define("Ext.direct.Event",{alias:"direct.event",requires:["Ext.direct.Manager"],config:{status:true,data:null,name:"event",xhr:null,code:null,message:"",result:null,transaction:null},constructor:function(a){this.initConfig(a)}});

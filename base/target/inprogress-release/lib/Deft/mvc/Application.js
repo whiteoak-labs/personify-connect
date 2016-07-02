@@ -1,1 +1,0 @@
-Ext.define("Deft.mvc.Application",{alternateClassName:["Deft.Application"],initialized:false,constructor:function(a){if(a==null){a={}}this.initConfig(a);Ext.onReady(function(){this.init();this.initialized=true},this);return this},init:function(){}});

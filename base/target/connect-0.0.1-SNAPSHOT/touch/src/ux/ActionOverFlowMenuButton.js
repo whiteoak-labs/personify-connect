@@ -1,1 +1,0 @@
-Ext.define("Ext.ux.ActionOverFlowMenuButton",{extend:"Ext.ux.MenuButton",config:{cls:"overflow",ui:"normal",menuItems:[],menuCover:true,menuCls:"action-over-flow"}});

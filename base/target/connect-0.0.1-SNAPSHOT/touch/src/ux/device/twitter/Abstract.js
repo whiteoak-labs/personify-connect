@@ -1,1 +1,0 @@
-Ext.define("Ext.ux.device.twitter.Abstract",{compose:Ext.emptyFn,getPublicTimeline:Ext.emptyFn,getMentions:Ext.emptyFn,getTwitterUsername:Ext.emptyFn,getTwitterRequest:Ext.emptyFn});

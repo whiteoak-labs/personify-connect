@@ -1,1 +1,0 @@
-Ext.define("Ext.device.SQLite",{singleton:true,requires:["Ext.device.Communicator","Ext.device.sqlite.Sencha"],constructor:function(){var a=Ext.browser.is;if(a.Sencha){return Ext.create("Ext.device.sqlite.Sencha")}return{}}});

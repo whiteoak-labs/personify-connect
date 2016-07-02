@@ -1,1 +1,0 @@
-Ext.define("Personify.store.base.NoteList",{extend:"Personify.base.Store",requires:"Personify.proxy.SqliteProxy",config:{model:"Personify.model.base.Note",listeners:{beforeload:function(){this.onBeforeLoad()}}},onBeforeLoad:function(){var c=this;var a=this.getDataRequest();var b={type:"sqliteproxy",url:"aaa",jsonData:a,reader:{type:"json"}};c.setProxy(b)}});

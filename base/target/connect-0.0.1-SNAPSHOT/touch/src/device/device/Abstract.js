@@ -1,1 +1,0 @@
-Ext.define("Ext.device.device.Abstract",{mixins:["Ext.mixin.Observable"],name:"not available",uuid:"anonymous",platform:Ext.os.name,scheme:false,openURL:function(a){window.location=a}});

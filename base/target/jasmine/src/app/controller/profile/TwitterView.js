@@ -1,1 +1,0 @@
-Ext.define("Personify.controller.profile.TwitterView",{extend:"Personify.base.Controller",control:{view:{changeView:"onChangeView"}},onChangeView:function(a){var c=this,b=c.getView();b.removeAll(true);b.add({xtype:a})},loadContactData:function(){}});

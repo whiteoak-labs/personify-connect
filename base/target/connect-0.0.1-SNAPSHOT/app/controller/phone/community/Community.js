@@ -1,1 +1,0 @@
-Ext.define("Personify.controller.phone.community.Community",{extend:"Personify.base.Controller",control:{communityToolbar:{onNavigationButtonTap:"onBack"}},onBack:function(){var a=this;thisView=a.getView();thisView.fireEvent("back",this)}});

@@ -1,1 +1,0 @@
-Ext.define("Ext.ux.device.analytics.Abstract",{config:{accountID:null},updateAccountID:function(a){if(a){window.plugins.googleAnalyticsPlugin.startTrackerWithAccountID(a)}},registerAccount:function(a){this.setAccountID(a)},trackEvent:Ext.emptyFn,trackPageview:Ext.emptyFn});

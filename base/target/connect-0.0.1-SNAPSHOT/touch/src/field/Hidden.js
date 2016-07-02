@@ -1,1 +1,0 @@
-Ext.define("Ext.field.Hidden",{extend:"Ext.field.Text",alternateClassName:"Ext.form.Hidden",xtype:"hiddenfield",config:{component:{xtype:"input",type:"hidden"},ui:"hidden",hidden:true,tabIndex:-1}});

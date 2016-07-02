@@ -1,1 +1,0 @@
-Ext.define("Personify.base.Layout",{extend:"Ext.Panel",config:{subviews:null},applySubviews:function(e,a){for(var b in a){var c=Ext.ComponentQuery.query("#"+b,this);if(c.length){c[0].removeAll()}}for(var b in e){var c=Ext.ComponentQuery.query("#"+b,this);if(c.length){var d=e[b];c[0].add(d)}}},destroy:function(){this.setSubviews(null);this.callParent(arguments)}});

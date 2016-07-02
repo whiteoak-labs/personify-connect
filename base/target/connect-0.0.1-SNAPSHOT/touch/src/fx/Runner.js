@@ -1,1 +1,0 @@
-Ext.define("Ext.fx.Runner",{requires:["Ext.fx.runner.CssTransition"],constructor:function(){return new Ext.fx.runner.CssTransition()}});

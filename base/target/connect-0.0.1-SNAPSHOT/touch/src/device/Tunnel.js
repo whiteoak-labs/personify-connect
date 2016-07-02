@@ -1,1 +1,0 @@
-Ext.define("Ext.device.Tunnel",{singleton:true,requires:["Ext.device.tunnel.Simulator","Ext.device.tunnel.Sencha"],constructor:function(){var a=Ext.browser.is;if(a.Sencha){return Ext.create("Ext.device.tunnel.Sencha")}return Ext.create("Ext.device.tunnel.Simulator")}});

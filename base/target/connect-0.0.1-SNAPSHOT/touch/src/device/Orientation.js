@@ -1,1 +1,0 @@
-Ext.define("Ext.device.Orientation",{singleton:true,requires:["Ext.device.Communicator","Ext.device.orientation.HTML5","Ext.device.orientation.Sencha"],constructor:function(){var a=Ext.browser.is;if(a.Sencha){return Ext.create("Ext.device.orientation.Sencha")}return Ext.create("Ext.device.orientation.HTML5")}});

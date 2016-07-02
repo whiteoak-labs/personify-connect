@@ -1,1 +1,0 @@
-Ext.define("Personify.controller.profile.Bio",{extend:"Personify.controller.profile.template.InfoTemplate",control:{biographyText:{}},setBioInfo:function(a){if(a){this.getBiographyText().setHtml(a.get("biographyText"))}else{this.getBiographyText().setHtml("")}}});

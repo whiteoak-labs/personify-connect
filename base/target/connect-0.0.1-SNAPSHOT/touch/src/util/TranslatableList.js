@@ -1,1 +1,0 @@
-Ext.define("Ext.util.TranslatableList",{extend:"Ext.util.translatable.Abstract",config:{items:[]},applyItems:function(a){return Ext.Array.from(a)},doTranslate:function(a,h){var b=this.getItems(),g=0,c,e,d,f;for(c=0,e=b.length;c<e;c++){d=b[c];if(d&&!d._list_hidden){f=h+g;g+=d.$height;d.translate(0,f)}}}});

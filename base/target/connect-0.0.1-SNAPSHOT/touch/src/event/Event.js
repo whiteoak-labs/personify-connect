@@ -1,1 +1,0 @@
-Ext.define("Ext.event.Event",{alternateClassName:"Ext.EventObject",isStopped:false,set:function(a,b){if(arguments.length===1&&typeof a!="string"){var c=a;for(a in c){if(c.hasOwnProperty(a)){this[a]=c[a]}}}else{this[a]=c[a]}},stopEvent:function(){return this.stopPropagation()},stopPropagation:function(){this.isStopped=true;return this}});

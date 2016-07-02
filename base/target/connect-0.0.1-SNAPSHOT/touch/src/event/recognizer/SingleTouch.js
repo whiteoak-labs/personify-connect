@@ -1,1 +1,0 @@
-Ext.define("Ext.event.recognizer.SingleTouch",{extend:"Ext.event.recognizer.Touch",inheritableStatics:{NOT_SINGLE_TOUCH:1,TOUCH_MOVED:2},onTouchStart:function(a){if(a.touches.length>1){return this.fail(this.self.NOT_SINGLE_TOUCH)}}});

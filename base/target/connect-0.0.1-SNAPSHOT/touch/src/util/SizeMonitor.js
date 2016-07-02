@@ -1,1 +1,0 @@
-Ext.define("Ext.util.SizeMonitor",{requires:["Ext.util.sizemonitor.Default","Ext.util.sizemonitor.Scroll","Ext.util.sizemonitor.OverflowChange"],constructor:function(a){var b=Ext.util.sizemonitor;if(Ext.browser.is.Firefox){return new b.OverflowChange(a)}else{if(Ext.browser.is.WebKit||Ext.browser.is.IE11){return new b.Scroll(a)}else{return new b.Default(a)}}}});

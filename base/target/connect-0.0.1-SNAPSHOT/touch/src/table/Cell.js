@@ -1,1 +1,0 @@
-Ext.define("Ext.table.Cell",{extend:"Ext.Container",xtype:"tablecell",config:{baseCls:"x-table-cell"},getElementConfig:function(){var a=this.callParent();a.children.length=0;return a}});

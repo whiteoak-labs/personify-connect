@@ -1,1 +1,0 @@
-Ext.define("Personify.controller.phone.directory.directorylist.DirectoryList",{extend:"Personify.controller.directory.DirectoryList",control:{view:{itemtap:"onSelectContactRow"}},onSelectContactRow:function(d,b,g,a,f,c){if(window.plugins.app47){window.plugins.app47.sendGenericEvent("Directory Detail")}this.getView().getParent().getParent().fireEvent("select",d,b,g,a,f,c)}});

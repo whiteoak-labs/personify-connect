@@ -1,1 +1,0 @@
-Ext.Error={raise:function(a){throw new Error(a.msg)}};

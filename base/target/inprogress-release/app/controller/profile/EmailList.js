@@ -1,1 +1,0 @@
-Ext.define("Personify.controller.profile.EmailList",{extend:"Personify.base.Controller",control:{view:{itemtap:"onItemTapEmailList"}},onItemTapEmailList:function(d,b,g,a,f,c){if(window.plugins.emailComposer){window.plugins.emailComposer.showEmailComposer(null,null,null,[a.get("value")],null,null)}}});
