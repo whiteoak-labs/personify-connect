@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Top Stories",
+        "url": "http://rss.cbc.ca/lineup/topstories.xml",
+        "private": false,
+        "visible": true
+    },
+    {
+        "title": "Technology",
+        "url": "http://rss.cbc.ca/lineup/technology.xml",
+        "private": false,
+        "visible": true
+    },
+    {
+        "title": "Football",
+        "url": "http://rss.cbc.ca/lineup/sports-soccer.xml",
+        "private": false,
+        "visible": true
+    }
+]

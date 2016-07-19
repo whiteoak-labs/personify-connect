@@ -1,0 +1,42 @@
+[
+    {
+        "fieldName": "honorificPrefix",
+        "description": "Prefix",
+        "enabled": true,
+        "type": "prefix",
+        "required": false,
+        "requestName": "HonorificPrefix"
+    },
+    {
+        "fieldName": "givenName",
+        "description": "First Name",
+        "enabled": true,
+        "type": "text",
+        "required": false,
+        "requestName": "GivenName"
+    },
+    {
+        "fieldName": "middleName",
+        "description": "Middle Name",
+        "enabled": true,
+        "type": "text",
+        "required": false,
+        "requestName": "MiddleName"
+    },
+    {
+        "fieldName": "familyName",
+        "description": "Last Name",
+        "enabled": true,
+        "type": "text",
+        "required": true,
+        "requestName": "FamilyName"
+    },
+    {
+        "fieldName": "honorificSuffix",
+        "description": "Suffix",
+        "enabled": true,
+        "type": "suffix",
+        "required": false,
+        "requestName": "HonorificSuffix"
+    }
+]

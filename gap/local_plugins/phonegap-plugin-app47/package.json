@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "name": "phonegap-plugins-app47",
+    "cordova_name": "App47",
+    "description": "Phonegap plugin implementing App47's Mobile Application Management (MAM) Solution offers a secure customized enterprise app store with analytics.",
+    "license": "MIT",
+    "platforms": [
+        "ios",
+        "android"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}

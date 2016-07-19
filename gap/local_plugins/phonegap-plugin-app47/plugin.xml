@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="phonegap-plugins-app47"
+    version="1.0.0">
+
+    <name>App47</name>
+    <description>Phonegap plugin implementing App47's Mobile Application Management (MAM) 
+    Solution offers a secure customized enterprise app store with analytics.</description>
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>    
+
+    <js-module src="www/app47pg.js" name="App47">
+        <clobbers target="window.plugins.app47" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <preference name="PROJECT_NAME" />
+        
+        <config-file target="config.xml" parent="/*">
+            <feature name="App47">
+                <param name="ios-package" value="App47" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+                
+        <header-file src="src/ios/App47PGPlugin.h" />
+        <source-file src="src/ios/App47PGPlugin.m" />
+        <header-file src="EmbeddedAgent.h" />
+        <source-file src="src/ios/lib/libEmbeddedAgentWithNoCoreLocation.a" framework="true" />
+        <source-file src="www/icons" target-dir="assets/www" />
+        <source-file src="www/images" target-dir="www"/>
+        <source-file src="www/app47.css" target-dir="www/css" />
+                
+        <resource-file src="resources/contact_addresses.json" target="data"/>
+        <resource-file src="resources/contact_emails.json" target="data"/>
+        <resource-file src="resources/contact_phones.json" target="data"/>
+        <resource-file src="resources/contact_websites.json" target="data"/>
+        <resource-file src="resources/directory_name_fields.json" target="data"/>
+        <resource-file src="resources/directory_title_fields.json" target="data"/>
+        <resource-file src="resources/events_featured.json" target="data"/>
+        <resource-file src="resources/events_maps.json" target="data"/>
+        <resource-file src="resources/events_sponsor.json" target="data"/>
+        <resource-file src="resources/events_types.json" target="data"/>
+        <resource-file src="resources/news_feeds.json" target="data"/>
+        <resource-file src="resources/resources.zip" target="data"/>    
+        <resource-file src="src/ios/EmbeddedAgentSettings.plist" target="$PROJECT_NAME"/>        
+        
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <framework src="com.android.support:support-v13:23.1.1" />
+        
+        <source-file src="src/android/App47PGPlugin.java" target-dir="src/net/dynagility/personify/plugin" />        
+        <source-file src="src/android/lib/commons-io-2.4.jar" target-dir="libs/" />
+        <source-file src="src/android/lib/AndroidAgent-1.7.5.jar" target-dir="libs/" />
+        <source-file src="www/icons" target-dir="assets/www" />
+        <source-file src="www/images" target-dir="assets/www"/>
+        <source-file src="www/app47.css" target-dir="assets/www/css" />
+        
+        <resource-file src="resources/contact_addresses.json" target="data"/>
+		<resource-file src="resources/contact_emails.json" target="data"/>
+		<resource-file src="resources/contact_phones.json" target="data"/>
+		<resource-file src="resources/contact_websites.json" target="data"/>
+		<resource-file src="resources/directory_name_fields.json" target="data"/>
+		<resource-file src="resources/directory_title_fields.json" target="data"/>
+		<resource-file src="resources/events_featured.json" target="data"/>
+		<resource-file src="resources/events_maps.json" target="data"/>
+		<resource-file src="resources/events_sponsor.json" target="data"/>
+		<resource-file src="resources/events_types.json" target="data"/>
+		<resource-file src="resources/news_feeds.json" target="data"/>
+		<resource-file src="resources/resources.zip" target="data"/>                
+        
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="App47">
+                <param name="android-package" value="net.dynagility.personify.plugin.App47PGPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="com.sec.android.app.twdvfs.DVFS_BOOSTER_PERMISSION"/>            
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/application">
+            <service android:enabled="true" android:name="com.app47.embeddedagent.AgentConfigService"/>
+            <service android:enabled="true" android:name="com.app47.embeddedagent.AgentSessionService"/>
+            <service android:enabled="true" android:name="com.app47.embeddedagent.AgentEventService"/>
+        </config-file>
+        
+        <config-file target="res/values/string.xml" parent="/resources" mode="merge">
+           <string name="EmbeddedAgent_configurationUpdateFrequency">0.0001</string>
+           <string name="EmbeddedAgent_delayDataUploadInterval">0</string>
+           <string name="EmbeddedAgent_sendActualDeviceIdentifier">false</string>
+           <string name="app_id">5108236db3a39b000200038e</string>
+        </config-file>
+        
+    </platform>
+</plugin>

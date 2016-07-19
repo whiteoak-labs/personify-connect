@@ -1,0 +1,10 @@
+[
+    {
+        "fieldName": "jobTitle",
+        "description": "Job Title",
+        "enabled": true,
+        "type": "text",
+        "required": false,
+        "requestName": "JobTitle"
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "TabletPortraitImageURL": "resources/images/home/OpeningReceiption.jpg",
+        "TabletLandscapeImageURL": "resources/images/home/OpeningReceiption.jpg",
+        "PhoneImageURL": "",
+        "ProductId": "965410"
+    },
+    {
+        "TabletPortraitImageURL": "resources/images/home/OpeningReceiption.jpg",
+        "TabletLandscapeImageURL": "resources/images/home/OpeningReceiption.jpg",
+        "PhoneImageURL": "",
+        "ProductId": "965410"
+    },
+    {
+        "TabletPortraitImageURL": "resources/images/home/Desert_Botanical_Garden.png",
+        "TabletLandscapeImageURL": "resources/images/home/Desert_Botanical_Garden.png",
+        "PhoneImageURL": "",
+        "ProductId": "965410"
+    },
+    {
+        "TabletPortraitImageURL": "resources/images/home/Desert_Botanical_Garden.png",
+        "TabletLandscapeImageURL": "resources/images/home/Desert_Botanical_Garden.png",
+        "PhoneImageURL": "",
+        "ProductId": "965410"
+    },
+    {
+        "TabletPortraitImageURL": "resources/images/home/Desert_Botanical_Garden.png",
+        "TabletLandscapeImageURL": "resources/images/home/Desert_Botanical_Garden.png",
+        "PhoneImageURL": "",
+        "ProductId": "965410"
+    },
+    {
+        "TabletPortraitImageURL": "resources/images/home/taugSplash_tabletPortrait.png",
+        "TabletLandscapeImageURL": "resources/images/home/taugSplash_tabletPortrait.png",
+        "PhoneImageURL": "",
+        "ProductId": "965410"
+    },
+    {
+        "TabletPortraitImageURL": "resources/images/home/taugSplash_tabletPortrait.png",
+        "TabletLandscapeImageURL": "resources/images/home/taugSplash_tabletPortrait.png",
+        "PhoneImageURL": "",
+        "ProductId": "965410"
+    }
+]

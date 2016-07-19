@@ -1,0 +1,96 @@
+[
+    {
+        "ProductId": "965410",
+        "SponsorImageList": [
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 1"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965306.profile.png",
+                "phoneImageURL": "http://www1.paho.org/Images/DD/PIN/whd08_banner3_eng.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 2"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/971677.profile.png",
+                "phoneImageURL": "http://www.commissaries.com/press_room/images/marketing/comm/comm_banner_fullcolor.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 3"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 4"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965306.profile.png",
+                "phoneImageURL": "http://www1.paho.org/Images/DD/PIN/whd08_banner3_eng.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 5"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/971677.profile.png",
+                "phoneImageURL": "http://www.commissaries.com/press_room/images/marketing/comm/comm_banner_fullcolor.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 6"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 7"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965306.profile.png",
+                "phoneImageURL": "http://www1.paho.org/Images/DD/PIN/whd08_banner3_eng.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 8"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/971677.profile.png",
+                "phoneImageURL": "http://www.commissaries.com/press_room/images/marketing/comm/comm_banner_fullcolor.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 9"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 10"
+            }
+        ]
+    },
+    {
+        "ProductId": "549814",
+        "SponsorImageList": [
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 1"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965306.profile.png",
+                "phoneImageURL": "http://www1.paho.org/Images/DD/PIN/whd08_banner3_eng.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 2"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/971677.profile.png",
+                "phoneImageURL": "http://www.commissaries.com/press_room/images/marketing/comm/comm_banner_fullcolor.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 3"
+            },
+            {
+                "tabletImageURL": "http://204.71.142.78/MobileImages/CustomerImages/965302.profile.png",
+                "phoneImageURL": "http://www.idviet.com/upload/sanpham/www.idvietnam.net-5666-2.jpg",
+                "redirectURL": "http://www.google.com",
+                "sponsorName": "Sponsor 4"
+            }
+        ]
+    }
+]
