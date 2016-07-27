@@ -36,18 +36,18 @@
         <source-file src="www/images" target-dir="www"/>
         <source-file src="www/app47.css" target-dir="www/css" />
                 
-        <resource-file src="resources/contact_addresses.json" target="data"/>
-        <resource-file src="resources/contact_emails.json" target="data"/>
-        <resource-file src="resources/contact_phones.json" target="data"/>
-        <resource-file src="resources/contact_websites.json" target="data"/>
-        <resource-file src="resources/directory_name_fields.json" target="data"/>
-        <resource-file src="resources/directory_title_fields.json" target="data"/>
-        <resource-file src="resources/events_featured.json" target="data"/>
-        <resource-file src="resources/events_maps.json" target="data"/>
-        <resource-file src="resources/events_sponsor.json" target="data"/>
-        <resource-file src="resources/events_types.json" target="data"/>
-        <resource-file src="resources/news_feeds.json" target="data"/>
-        <resource-file src="resources/resources.zip" target="data"/>    
+        <resource-file src="resources/contact_addresses.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/contact_emails.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/contact_phones.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/contact_websites.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/directory_name_fields.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/directory_title_fields.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/events_featured.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/events_maps.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/events_sponsor.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/events_types.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/news_feeds.json" target="$PROJECT_NAME/Resources"/>
+        <resource-file src="resources/resources.zip" target="$PROJECT_NAME/Resources"/>    
         <resource-file src="src/ios/EmbeddedAgentSettings.plist" target="$PROJECT_NAME"/>        
         
     </platform>
@@ -57,24 +57,25 @@
         <framework src="com.android.support:support-v13:23.1.1" />
         
         <source-file src="src/android/App47PGPlugin.java" target-dir="src/net/dynagility/personify/plugin" />        
+        <source-file src="src/android/UnZip.java" target-dir="src/net/dynagility/personify/plugin" />        
         <source-file src="src/android/lib/commons-io-2.4.jar" target-dir="libs/" />
         <source-file src="src/android/lib/AndroidAgent-1.7.5.jar" target-dir="libs/" />
         <source-file src="www/icons" target-dir="assets/www" />
         <source-file src="www/images" target-dir="assets/www"/>
         <source-file src="www/app47.css" target-dir="assets/www/css" />
         
-        <resource-file src="resources/contact_addresses.json" target="data"/>
-		<resource-file src="resources/contact_emails.json" target="data"/>
-		<resource-file src="resources/contact_phones.json" target="data"/>
-		<resource-file src="resources/contact_websites.json" target="data"/>
-		<resource-file src="resources/directory_name_fields.json" target="data"/>
-		<resource-file src="resources/directory_title_fields.json" target="data"/>
-		<resource-file src="resources/events_featured.json" target="data"/>
-		<resource-file src="resources/events_maps.json" target="data"/>
-		<resource-file src="resources/events_sponsor.json" target="data"/>
-		<resource-file src="resources/events_types.json" target="data"/>
-		<resource-file src="resources/news_feeds.json" target="data"/>
-		<resource-file src="resources/resources.zip" target="data"/>                
+        <resource-file src="resources/contact_addresses.json" target="res/raw/contact_addresses.json"/>
+		<resource-file src="resources/contact_emails.json" target="res/raw/contact_emails.json"/>
+		<resource-file src="resources/contact_phones.json" target="res/raw/contact_phones.json"/>
+		<resource-file src="resources/contact_websites.json" target="res/raw/contact_websites.json"/>
+		<resource-file src="resources/directory_name_fields.json" target="res/raw/directory_name_fields.json"/>
+		<resource-file src="resources/directory_title_fields.json" target="res/raw/directory_title_fields.json"/>
+		<resource-file src="resources/events_featured.json" target="res/raw/events_featured.json"/>
+		<resource-file src="resources/events_maps.json" target="res/raw/events_maps.json"/>
+		<resource-file src="resources/events_sponsor.json" target="res/raw/events_sponsor.json"/>
+		<resource-file src="resources/events_types.json" target="res/raw/events_types.json"/>
+		<resource-file src="resources/news_feeds.json" target="res/raw/news_feeds.json"/>
+		<resource-file src="resources/resources.zip" target="res/raw/resources.zip"/>                
         
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="App47">
@@ -83,17 +84,17 @@
             </feature>
         </config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/manifest">
+        <config-file target="AndroidManifest.xml" parent="/manifest" mode="merge">
             <uses-permission android:name="com.sec.android.app.twdvfs.DVFS_BOOSTER_PERMISSION"/>            
         </config-file>
         
-        <config-file target="AndroidManifest.xml" parent="/application">
+        <config-file target="AndroidManifest.xml" parent="/manifest/application" mode="merge">
             <service android:enabled="true" android:name="com.app47.embeddedagent.AgentConfigService"/>
             <service android:enabled="true" android:name="com.app47.embeddedagent.AgentSessionService"/>
             <service android:enabled="true" android:name="com.app47.embeddedagent.AgentEventService"/>
         </config-file>
         
-        <config-file target="res/values/string.xml" parent="/resources" mode="merge">
+        <config-file target="res/values/strings.xml" parent="/resources" mode="merge">
            <string name="EmbeddedAgent_configurationUpdateFrequency">0.0001</string>
            <string name="EmbeddedAgent_delayDataUploadInterval">0</string>
            <string name="EmbeddedAgent_sendActualDeviceIdentifier">false</string>

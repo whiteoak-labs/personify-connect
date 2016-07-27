@@ -6,6 +6,8 @@
  * and https://github.com/App47/phonegap-ios-example for Plugin usage in sample iOS project.
  */
 
+var exec = require("cordova/exec");
+
 App47 = function() {
   this.serviceName = "App47";
 };
@@ -62,10 +64,4 @@ App47.prototype.getConfigurationGroupNames = function(success, fail) {
   return cordova.exec(success, fail, this.serviceName, "configurationGroupNames", []);
 };
 
-App47.install = function(){
-  if (typeof window.plugins == "undefined") window.plugins = {};
-  if (typeof window.plugins.app47 == "undefined") window.plugins.app47 = new App47();
-  return window.plugins.app47;
-};
-
-cordova.addConstructor(App47.install);
+module.exports = new App47();

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
+import java.util.HashMap;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.cordova.CallbackContext;
@@ -18,13 +19,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.res.Resources;
 import android.preference.PreferenceManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+import android.webkit.WebView;
 
 import com.app47.embeddedagent.EmbeddedAgent;
 import com.app47.embeddedagent.EmbeddedAgentLogger;
+import static com.app47.embeddedagent.EmbeddedAgent.CONFIG_GROUPS_COMPLETE_BROADCAST;
+import static com.app47.embeddedagent.EmbeddedAgent.AGENT_CONFIGURATION_COMPLETE_BROADCAST;
 
 @SuppressLint("NewApi")
 public class App47PGPlugin extends CordovaPlugin {
@@ -48,6 +59,10 @@ public class App47PGPlugin extends CordovaPlugin {
 	private static final String CONFIGURE_AGENT = "configureAgent";
 	
 	public static final String LOG_TAG = "App47PGPlugin";
+
+	private SharedPreferences sharedPrefs = null;
+	private Context context = null;
+	private Activity activity = null;
 
 	public boolean execute(String method, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if (method.equals(START_TIMED_EVENT)) {
@@ -93,6 +108,136 @@ public class App47PGPlugin extends CordovaPlugin {
 		else {
 			return handleActionWithCallback(method, args, callbackContext);
 		}
+	}
+
+	@Override
+	protected void pluginInitialize() {
+		super.pluginInitialize();
+		this.activity = this.cordova.getActivity();
+		this.context = this.activity;
+
+        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.activity);
+        String key = "app47Id";
+        Resources resources = this.context.getResources();
+        String embeddedAgentAppID = resources.getString(resources.getIdentifier("app_id", "string", context.getPackageName()));//"51ca4548285e1d002e00013a";
+        Map<String, String> app47Config = new HashMap<String, String>();
+        app47Config.put("ConfigurationUpdateFrequency", resources.getString(resources.getIdentifier("EmbeddedAgent_configurationUpdateFrequency", "string", context.getPackageName())));
+        app47Config.put("DelayDataUploadInterval", resources.getString(resources.getIdentifier("EmbeddedAgent_delayDataUploadInterval", "string", context.getPackageName())));
+        app47Config.put("SendActualDeviceIdentifier", resources.getString(resources.getIdentifier("EmbeddedAgent_sendActualDeviceIdentifier", "string", context.getPackageName())));
+
+        if (sharedPrefs.contains(key)) {
+            Object obj = sharedPrefs.getAll().get(key);
+            embeddedAgentAppID = obj.toString();
+        }
+
+        Editor editor = sharedPrefs.edit();
+
+        editor.putString("configurationUpdated", "0");
+        editor.commit();
+
+        EmbeddedAgent.configureAgentWithAppID(this.context, embeddedAgentAppID, app47Config);
+
+        //
+        // override shouldOverrideUrlLoading  when user request open new webpage
+        // handler for received Intents for the "agent-config" event
+        BroadcastReceiver configurationLoadedReceiver = new BroadcastReceiver() {
+            public void onReceive(Context context, Intent intent) {
+                byte[] fileContent = EmbeddedAgent.configurationFileForKey("resources-url", "Stylesheet");
+                try {
+                    String fileName = "resources.zip";
+                    File dataStorage = getActivity().getFilesDir();
+                    File resourceFile = new File(dataStorage, fileName);
+                    ByteArrayInputStream input = new ByteArrayInputStream(fileContent);
+                    FileOutputStream output = new FileOutputStream(resourceFile);
+                    IOUtils.copy(input, output);
+                    IOUtils.closeQuietly(input);
+                    IOUtils.closeQuietly(output);
+
+                    UnZip unZip = new UnZip();
+                    unZip.unZipFile(resourceFile, dataStorage);
+                } catch (Exception e) {
+                    Log.e(LOG_TAG, "save file error " + e.getMessage());
+                }
+
+                Editor editor = sharedPrefs.edit();
+                editor.putString("configurationLoaded", "1");
+                editor.commit();
+                Log.d("App47", "Configuration loaded");
+            }
+        };
+
+        BroadcastReceiver configurationUpdatedReceiver = new BroadcastReceiver() {
+            public void onReceive(Context context, Intent intent) {
+                Object configurationLoaded = sharedPrefs.getAll().get("configurationLoaded");
+
+                if (configurationLoaded != null && configurationLoaded.equals("1")) {
+                    Editor editor = sharedPrefs.edit();
+                    editor.putString("configurationUpdated", "1");
+                    editor.commit();
+                    Log.d("App47", "Configuration updated");
+                }
+            }
+        };
+
+        LocalBroadcastManager.getInstance(this.activity).registerReceiver(configurationUpdatedReceiver, new IntentFilter(CONFIG_GROUPS_COMPLETE_BROADCAST));
+        LocalBroadcastManager.getInstance(this.activity).registerReceiver(configurationLoadedReceiver, new IntentFilter(AGENT_CONFIGURATION_COMPLETE_BROADCAST));
+//
+//        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB ||
+//                android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.JELLY_BEAN_MR1)
+//        {
+//            super.webView.setWebViewClient(new CordovaWebViewClient(this, this.appView) {
+//                @Override
+//                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                    if (url.startsWith("geo:")) {
+//                        Uri uri = Uri.parse(url);
+//                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+//                        ApplicationCtx.context.startActivity(browserIntent);
+//                        return true;
+//                    } else if (url.startsWith("http") || url.startsWith("https")) {
+//                        String jsOpenInAppBrowser = String.format("javascript:window.open('%s', '_blank', 'location = yes, enableviewportscale = yes')", url);
+//                        view.loadUrl(jsOpenInAppBrowser);
+//                        return true;
+//                    } else {
+//                        return super.shouldOverrideUrlLoading(view, url);
+//                    }
+//                }
+//            });
+//        } else {
+//            super.appView.setWebViewClient(new IceCreamCordovaWebViewClient(this, this.appView){
+//                @Override
+//                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                    if (url.startsWith("geo:")) {
+//                        Uri uri = Uri.parse(url);
+//                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+//                        ApplicationCtx.context.startActivity(browserIntent);
+//                        return true;
+//                    } else if (url.startsWith("http") || url.startsWith("https")) {
+//                        String jsOpenInAppBrowser = String.format("javascript:window.open('%s', '_blank', 'location = yes, enableviewportscale = yes')", url);
+//                        view.loadUrl(jsOpenInAppBrowser);
+//                        return true;
+//                    } else {
+//                        return super.shouldOverrideUrlLoading(view, url);
+//                    }
+//                }
+//            });
+//        }
+	}
+
+	@Override
+	public void onPause(boolean multitasking) {
+		super.onPause(multitasking);
+        EmbeddedAgent.onPause(getActivity().getApplication().getApplicationContext());
+	}
+
+	@Override
+	public void onResume(boolean multitasking) {
+		super.onResume(multitasking);
+        EmbeddedAgent.onResume(getActivity().getApplication().getApplicationContext());
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
 	}
 
 	private void handleConfigureAgent(JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -216,4 +361,12 @@ public class App47PGPlugin extends CordovaPlugin {
 		EmbeddedAgent.sendEvent(data.getString(0));
 		return true;
 	}
+
+    public Context getContext() {
+        return this.context;
+    }
+
+    public Activity getActivity() {
+        return this.activity;
+    }
 }

@@ -10,8 +10,7 @@ var fs = require('fs'),
 
 if(fs.existsSync(projectDir)) {
 	var androidPlatform = path.join(projectDir, 'platforms', 'android'),
-		iosPlatform = path.join(projectDir, 'platforms', 'ios'),
-		windowsPlatform = path.join(projectDir, 'platforms', 'windows');
+		iosPlatform = path.join(projectDir, 'platforms', 'ios');
 		
 	if(fs.existsSync(androidPlatform)){
 		finalizeAndroid(androidPlatform);		
@@ -28,7 +27,7 @@ function finalizeAndroid(platformDir) {
 			buildArtifactDir = path.join(projectDir, 'target', 'android'),
 			debugArtifacts = glob.sync(path.join(dir, '*-debug.apk'), {nonull:true}),
 			releaseArtifacts = glob.sync(path.join(dir, '*-release*.apk'), {nonull:true}),
-                        artifactName = 'PersonifyConnect',
+            artifactName = 'PersonifyConnect',
 			finalDebugArtifactPath = path.join(buildArtifactDir, artifactName + '-debug-signed.apk'),
 			finalReleaseArtifactPath = path.join(buildArtifactDir, artifactName + '-release-signed-aligned.apk'),
 			keystore = path.join(projectDir, 'resources', 'android', 'personify-release.keystore'),

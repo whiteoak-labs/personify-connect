@@ -12,46 +12,49 @@ if(fs.existsSync(projectDir)){
 		    platforms: {
 		    	ios: [		             
 			    'https://github.com/EddyVerbruggen/LaunchMyApp-PhoneGap-Plugin.git --variable URL_SCHEME=personify',
-			    'org.apache.cordova.camera',
-			    'org.apache.cordova.console',
-			    'org.apache.cordova.device',
-			    'org.apache.cordova.file',
-		            'org.apache.cordova.file-transfer',
-			    'org.apache.cordova.geolocation',
-			    'org.apache.cordova.inappbrowser',
-			    'org.apache.cordova.media',
-			    'org.apache.cordova.media-capture',
-		            'org.apache.cordova.network-information',
-			    'org.apache.cordova.splashscreen',
-			    'org.apache.cordova.statusbar',
-			    'org.apache.cordova.vibration',
-			    'https://github.com/litehelpers/Cordova-sqlcipher-adapter.git'
+			    'https://github.com/apache/cordova-plugin-camera.git',
+			    'https://github.com/apache/cordova-plugin-console.git',
+				'https://github.com/apache/cordova-plugin-device.git',
+			    'https://github.com/apache/cordova-plugin-file.git',
+		        'https://github.com/apache/cordova-plugin-file-transfer.git',
+			    'https://github.com/apache/cordova-plugin-geolocation.git',
+			    'https://github.com/apache/cordova-plugin-inappbrowser.git',
+			    'https://github.com/apache/cordova-plugin-media.git',
+			    'https://github.com/apache/cordova-plugin-media-capture.git',
+		        'https://github.com/apache/cordova-plugin-network-information.git',
+			    'https://github.com/apache/cordova-plugin-splashscreen.git',
+			    'https://github.com/apache/cordova-plugin-statusbar.git',
+			    'https://github.com/apache/cordova-plugin-vibration.git'
 			],
 			android: [
-			    'phonegap-plugin-barcodescanner',
-		  	    'org.apache.cordova.camera',
-			    'org.apache.cordova.console',
-		    	    'org.apache.cordova.device',
-			    'org.apache.cordova.file',
-			    'org.apache.cordova.file-transfer',
-			    'org.apache.cordova.geolocation',
-			    'org.apache.cordova.inappbrowser',
-			    'org.apache.cordova.media',
-			    'org.apache.cordova.media-capture',
-			    'org.apache.cordova.network-information',
-			    'org.apache.cordova.splashscreen',
-			    'org.apache.cordova.statusbar',
-			    'org.apache.cordova.vibration',
-                            'cordova-plugin-legacy-whitelist'
+			    'https://github.com/phonegap/phonegap-plugin-barcodescanner.git',
+			    'https://github.com/apache/cordova-plugin-camera.git',
+			    'https://github.com/apache/cordova-plugin-console.git',
+				'https://github.com/apache/cordova-plugin-device.git',
+			    'https://github.com/apache/cordova-plugin-file.git',
+		        'https://github.com/apache/cordova-plugin-file-transfer.git',
+			    'https://github.com/apache/cordova-plugin-geolocation.git',
+			    'https://github.com/apache/cordova-plugin-inappbrowser.git',
+			    'https://github.com/apache/cordova-plugin-media.git',
+			    'https://github.com/apache/cordova-plugin-media-capture.git',
+		        'https://github.com/apache/cordova-plugin-network-information.git',
+			    'https://github.com/apache/cordova-plugin-splashscreen.git',
+			    'https://github.com/apache/cordova-plugin-statusbar.git',
+			    'https://github.com/apache/cordova-plugin-vibration.git',
+			    'https://github.com/apache/cordova-plugin-legacy-whitelist.git'
 		        ]
 		    }
 		},
 		localPlugins = {
 		   platforms: {
-		    	ios: [],
-			android: []
-	           }
-	        };
+		    	ios: [
+		    	   'phonegap-plugin-app47 --variable PROJECT_NAME=PersonifyConnect'
+		    	],
+			android: [
+			      'phonegap-plugin-app47'
+			]
+		   }
+	    };
 	
 	if(Array.isArray(supportedPlatforms)) {
 		supportedPlatforms.forEach(function(platform) {
