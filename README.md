@@ -65,7 +65,7 @@ Debugging is accomplished one of two ways depending on the type if code needing 
        Open chrome and access the device from the following URL: <i>chrome://inspect</i><br/>
        Please note that you will need the correct USB drivers installed in order for your machine to recognize the Android device.</p>        
 2. Gap code debugging
-    With the device attached to the developer's machine open the project file for the specific platform. The project
+    <p>With the device attached to the developer's machine open the project file for the specific platform. The project
     files can be found in the __gap__ project's platforms directory and simply import into your desired IDE. Keep in mind
-    iOS can only be debugged from an OSX machine with XCode installed.
+    iOS can only be debugged from an OSX machine with XCode installed.</p>
  
