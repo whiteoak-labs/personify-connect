@@ -25,6 +25,7 @@ if(fs.existsSync(projectDir)){
 			    'https://github.com/apache/cordova-plugin-splashscreen.git',
 			    'https://github.com/apache/cordova-plugin-statusbar.git',
 			    'https://github.com/apache/cordova-plugin-vibration.git'
+//			    ,'https://github.com/urbanairship/phonegap-ua-push.git'
 			],
 			android: [
 			    'https://github.com/phonegap/phonegap-plugin-barcodescanner.git',
@@ -42,6 +43,7 @@ if(fs.existsSync(projectDir)){
 			    'https://github.com/apache/cordova-plugin-statusbar.git',
 			    'https://github.com/apache/cordova-plugin-vibration.git',
 			    'https://github.com/apache/cordova-plugin-legacy-whitelist.git'
+//			    ,'https://github.com/urbanairship/phonegap-ua-push.git'
 		        ]
 		    }
 		},

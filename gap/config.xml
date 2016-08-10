@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="net.dynagility.personify" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <!-- General Project -->
+<widget id="net.dynagility.personify" version="2.4.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>PersonifyConnect</name>
     <description>
 		The Personify Connect application allows customers and staff to interact
@@ -25,8 +24,6 @@
     </platform>
     <content src="index.html" />
     <engine name="android" spec="~5.1.1" />
-    
-    <!-- Preferences -->
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
@@ -46,17 +43,8 @@
     <preference name="android-targetSdkVersion" value="22" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="android-installLocation" value="auto" />
-    <!-- Urban Airship app credentials -->
-	<preference name="com.urbanairship.production_app_key" value="PRODUCTION_APP_KEY" />
-	<preference name="com.urbanairship.production_app_secret" value="PRODUCTION_APP_SECRET" />
-	<preference name="com.urbanairship.development_app_key" value="DEVELOPMENT_APP_KEY" />
-	<preference name="com.urbanairship.development_app_secret" value="DEVELOPMENT_APP_SECRET" />
-	<preference name="com.urbanairship.in_production" value="true" />
-	<preference name="com.urbanairship.enable_push_onlaunch" value="true" />
-	<preference name="com.urbanairship.gcm_sender" value="321646902800" />
-    
-    <!-- Plugins -->
-    <plugin name="cordova-plugin-whitelist" version="1" />    
+    <preference name="BackupWebStorage" value="local" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
     <plugin name="org.apache.cordova.battery-status" />
     <plugin name="org.apache.cordova.camera" />
     <plugin name="org.apache.cordova.media-capture" />
@@ -75,8 +63,6 @@
     <plugin name="org.apache.cordova.network-information" />
     <plugin name="org.apache.cordova.splashscreen" />
     <plugin name="org.apache.cordova.vibration" />
-    
-    <!-- Graphics -->
     <icon platform="android" qualifier="ldpi" src="resources/android/icons/icon-ldpi.png" />
     <icon platform="android" qualifier="mdpi" src="resources/android/icons/icon-mdpi.png" />
     <icon platform="android" qualifier="hdpi" src="resources/android/icons/icon-hdpi.png" />
@@ -100,5 +86,5 @@
     <splash height="2008" platform="ios" src="resources/ios/splash/default-portrait@2x~ipad.png" width="1536" />
     <splash height="768" platform="ios" src="resources/ios/splash/default-landscape~ipad.png" width="1024" />
     <splash height="1496" platform="ios" src="resources/ios/splash/default-landscape@2x~ipad.png" width="2046" />
-
+    <engine name="ios" spec="~4.1.1" />
 </widget>

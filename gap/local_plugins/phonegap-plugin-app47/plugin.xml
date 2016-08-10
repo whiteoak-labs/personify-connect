@@ -30,12 +30,24 @@
                 
         <header-file src="src/ios/App47PGPlugin.h" />
         <source-file src="src/ios/App47PGPlugin.m" />
-        <header-file src="EmbeddedAgent.h" />
-        <source-file src="src/ios/lib/libEmbeddedAgentWithNoCoreLocation.a" framework="true" />
-        <source-file src="www/icons" target-dir="assets/www" />
-        <source-file src="www/images" target-dir="www"/>
-        <source-file src="www/app47.css" target-dir="www/css" />
-                
+        <header-file src="src/ios/AppDelegate+App47.h" />
+        <source-file src="src/ios/AppDelegate+App47.m" />
+        <header-file src="src/ios/EmbeddedAgent.h" />
+        <header-file src="src/ios/SSZipArchive.h" />
+        <source-file src="src/ios/SSZipArchive.m" />
+        <header-file src="src/ios/lib/minizip/crypt.h" />
+        <header-file src="src/ios/lib/minizip/ioapi.h" />
+        <source-file src="src/ios/lib/minizip/ioapi.c" />
+        <header-file src="src/ios/lib/minizip/mztools.h" />
+        <source-file src="src/ios/lib/minizip/mztools.c" />
+        <header-file src="src/ios/lib/minizip/unzip.h" />
+        <source-file src="src/ios/lib/minizip/unzip.c" />
+        <header-file src="src/ios/lib/minizip/zip.h" />
+        <source-file src="src/ios/lib/minizip/zip.c" />
+        <source-file src="src/ios/lib/libEmbeddedAgent.a" framework="true" />
+        <source-file src="src/ios/lib/libGMStackTrace.a" framework="true" />        
+        
+        <!--        
         <resource-file src="resources/contact_addresses.json" target="$PROJECT_NAME/Resources"/>
         <resource-file src="resources/contact_emails.json" target="$PROJECT_NAME/Resources"/>
         <resource-file src="resources/contact_phones.json" target="$PROJECT_NAME/Resources"/>
@@ -47,9 +59,11 @@
         <resource-file src="resources/events_sponsor.json" target="$PROJECT_NAME/Resources"/>
         <resource-file src="resources/events_types.json" target="$PROJECT_NAME/Resources"/>
         <resource-file src="resources/news_feeds.json" target="$PROJECT_NAME/Resources"/>
-        <resource-file src="resources/resources.zip" target="$PROJECT_NAME/Resources"/>    
+        <resource-file src="resources/resources.zip" target="$PROJECT_NAME/Resources"/>
+        -->
         <resource-file src="src/ios/EmbeddedAgentSettings.plist" target="$PROJECT_NAME"/>        
         
+        <framework src="libz.tbd" />
     </platform>
 
     <!-- android -->
@@ -59,11 +73,12 @@
         <source-file src="src/android/App47PGPlugin.java" target-dir="src/net/dynagility/personify/plugin" />        
         <source-file src="src/android/UnZip.java" target-dir="src/net/dynagility/personify/plugin" />        
         <source-file src="src/android/lib/commons-io-2.4.jar" target-dir="libs/" />
-        <source-file src="src/android/lib/AndroidAgent-1.7.5.jar" target-dir="libs/" />
+        <source-file src="src/android/lib/AndroidAgent-1.9.jar" target-dir="libs/" />
         <source-file src="www/icons" target-dir="assets/www" />
         <source-file src="www/images" target-dir="assets/www"/>
         <source-file src="www/app47.css" target-dir="assets/www/css" />
         
+        <!--
         <resource-file src="resources/contact_addresses.json" target="res/raw/contact_addresses.json"/>
 		<resource-file src="resources/contact_emails.json" target="res/raw/contact_emails.json"/>
 		<resource-file src="resources/contact_phones.json" target="res/raw/contact_phones.json"/>
@@ -76,7 +91,7 @@
 		<resource-file src="resources/events_types.json" target="res/raw/events_types.json"/>
 		<resource-file src="resources/news_feeds.json" target="res/raw/news_feeds.json"/>
 		<resource-file src="resources/resources.zip" target="res/raw/resources.zip"/>                
-        
+        -->
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="App47">
                 <param name="android-package" value="net.dynagility.personify.plugin.App47PGPlugin" />
