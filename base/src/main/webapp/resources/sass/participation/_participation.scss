@@ -1,0 +1,43 @@
+@mixin participation {
+  
+  .date-item-participation {
+      text-align: right;
+  }
+  
+  .name-pos-item-participation {
+      width: 50%;
+      font-size: 15px;
+  }
+  
+  .name-item-participation {
+      font-weight: bold;
+      //margin-bottom: 5px;
+  }
+  
+  .participation-history {
+      background-image: none;
+      background-color: transparent;
+  }
+  
+  .current-committee, .past-committee, 
+   .future-committee{
+      background-image: none;
+      background-color: transparent;
+      margin-bottom: 35px;
+  }
+ 
+  .sub-participation-history-list-header {
+      min-height: $p-height-button-medium;
+      padding-left: 10px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+
+  .p-phone-directory-participant-history-name {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}

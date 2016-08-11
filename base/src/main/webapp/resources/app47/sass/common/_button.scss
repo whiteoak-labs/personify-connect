@@ -1,0 +1,590 @@
+.menu-list-item-background {
+  background-color: transparent; // Old browsers
+  @include filter-gradient(#45484d, #000000, vertical); // IE6-9
+  @include background-image(linear-gradient(top, $p-conifg-tablet-menulist-colorstart 0%, $p-conifg-tablet-menulist-colorend 100%));
+}
+.menu-item {
+  padding: 10px 0px 10px 30px;
+  width: 100%;
+  margin: 0px;
+  font-weight: normal;
+  text-align: left;
+  min-height: 44px;
+  @include tabletfonttype($p-config-tablet-menuitem-fontfamily, $p-config-tablet-menuitem-fontsize, $p-config-tablet-menuitem-fontcolor);
+}
+.menu-item::before {
+  background-image: url($p-conifg-tablet-quickmenuarrow);
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  content: "";
+  border-style: none;
+  right: 10px;
+  background-repeat: no-repeat;
+  margin-top: 5px;
+}
+.p-list-menu-item .x-item-pressed .menu-item, .p-list-menu-item .x-item-selected .menu-item, .about.x-button-pressing {
+  @extend .blue-button-background;
+  border-radius: 0px !important;
+  box-shadow: none;
+  border: 0px !important;
+}
+
+.extend-css-for-quick-icon-after {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  content: "";
+  border-style: none;
+  left: 5px;
+  background-repeat: no-repeat;
+}
+
+.p-list-menu-item {
+
+  .newsmenuitem::after {
+    background-image: url($p-config-icon-listmenunews);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .storemenuitem::after {
+    background-image: url($p-config-icon-listmenustore);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .discussionmenuitem::after {
+    background-image: url($p-config-icon-listmenudiscussion);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .schedulemenuitem::after {
+    background-image: url($p-config-icon-listmenuschedule);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .eventmenuitem::after {
+    background-image: url($p-config-icon-listmenuevent);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .directormenuitem::after {
+    background-image: url($p-config-icon-listmenudirectory);
+    @extend .extend-css-for-quick-icon-after;
+  }
+  .about {
+    border: 0px !important;
+    border-radius: 0px !important;
+    padding-bottom: 15px !important;
+    padding: 10px 0px 10px 30px;
+    @extend .menu-list-item-background;
+    .x-button-label {
+      @include tabletfonttype($p-config-tablet-menuitem-fontfamily, $p-config-tablet-menuitem-fontsize, $p-config-tablet-menuitem-fontcolor);
+      text-align: left;
+      font-weight: normal;
+    }
+  }
+
+  .about::after {
+    background-image: url($p-config-icon-listmenuabout);
+    background-color: transparent;
+    @extend .extend-css-for-quick-icon-after;
+  }
+}
+
+.p-list-menu-item .x-item-pressed .menu-item, .p-list-menu-item .x-item-selected .menu-item, .about.menu-list-item-background.x-button-pressing {
+  @extend .blue-button-background;
+  border-radius: 0px;
+  box-shadow: none;
+  border: 0px !important;
+}
+
+.about.menu-list-item-background.x-button-pressing::after {
+  background-image: url($p-config-icon-listmenuabout-pressing);
+  background-color: transparent;
+  @extend .extend-css-for-quick-icon-after;
+}
+
+.p-list-menu-item .x-item-selected, .p-list-menu-item .x-item-pressed {
+  .newsmenuitem::after {
+    background-image: url($p-config-icon-listmenunews-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .storemenuitem::after {
+    background-image: url($p-config-icon-listmenustore-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .discussionmenuitem::after {
+    background-image: url($p-config-icon-listmenudiscussion-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .schedulemenuitem::after {
+    background-image: url($p-config-icon-listmenuschedule-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .eventmenuitem::after {
+    background-image: url($p-config-icon-listmenuevent-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .directormenuitem::after {
+    background-image: url($p-config-icon-listmenudirectory-pressing)!important;
+    @extend .extend-css-for-quick-icon-after;
+  }
+}
+.p-button-edit::before {
+  background-image: url($p-conifg-tablet-editwhite), url($p-conifg-tablet-blueline);
+  background-repeat: no-repeat, repeat-y !important;
+  background-position: right center, 82% center;
+  content: '';
+  width: 190px;
+  height: 40px;
+  position: absolute;
+  right: 30px;
+}
+
+.p-button-edit, .p-button-editPhoto {
+  height: $p-height-button-medium;
+  color: $p-config-tablet-lablebuttonbluecolor;
+  width: 190px;
+  margin-right: 20px;
+  margin-top: 10px;
+  @extend .blue-button-background;
+}
+
+.p-button-edit {
+  .x-button-label{
+    font-size: $p-text-huge-size;
+    padding: 10px 0px 0px 15px;
+    text-align: left;
+  }
+}
+
+.p-button-edit.x-button-pressing, .p-button-editPhoto.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+
+.p-button-edit-disabled {
+  background: gray !important;
+  border: 2px solid #919191
+}
+
+.p-button-edit-disabled::before {
+  background-image: url($p-conifg-tablet-editwhite), url($p-conifg-tablet-grayline);
+  background-repeat: no-repeat, repeat-y !important;
+  background-position: right center, 82% center;
+  content: '';
+  width: 190px;
+  height: 40px;
+  position: absolute;
+  right: 30px;
+}
+
+.p-button-editPhoto::before {
+  background-image: url($p-conifg-tablet-editwhite),url($p-conifg-tablet-blueline);
+  background-repeat: no-repeat,repeat-y !important;
+  background-position: center center,35px center;
+  content: '';
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+
+.p-button-editPhoto {
+  width: 130px !important;
+  margin-right: 0px !important;
+  .x-button-label {
+    font-size: $p-text-huge-size;
+    padding: 10px 0px 0px 30px;
+    text-align: center;
+  }
+}
+
+.p-button-community-conversation-type {
+  background: #ffffff url($p-config-icon-menubarconversation)center center no-repeat;
+  background-size: 25px auto;
+  width: 30px;
+  height:30px;
+  border-radius: 0;
+}
+
+.p-button-community-twitter-type {
+  background: #ffffff url($p-conifg-tablet-twitterb)center center no-repeat;
+  background-size: 25px auto;
+  width:  30px;
+  height: 30px;
+  border-radius: 0;
+}
+.p-button-share-news::before {
+  background-image: url($p-conifg-tablet-shareicon)!important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  content: "";
+  height: 100%;
+  width: 50px;
+  position: absolute !important;
+}
+.buttonAddAddress::before {
+  background-image: url($p-conifg-tablet-pluswhite), url($p-conifg-tablet-blueline) !important;
+  background-repeat: no-repeat,repeat-y !important;
+  background-position: left center,30px !important;
+  content: "";
+  height: 40px;
+  width: 40%;
+  position: absolute !important;
+  margin-left: 10px;
+}
+
+.buttonAddAddress {
+  @extend .blue-button-background;
+  height: $p-height-button-medium;
+  width: 40%;
+  margin-right: 10px;
+  .x-button-label {
+    padding-top: 10px;
+    line-height: 22px;
+    color: $p-config-tablet-lablebuttonbluecolor
+  }
+}
+
+.buttonAddAddress.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+
+.extend-AddToSchedule-Share-InMySchedule {
+  background-repeat: no-repeat, repeat-y !important;
+  background-position: 6px center, 30px 0 !important;
+  content: "";
+  height: 100%;
+  width: 50px;
+  position: absolute !important;
+}
+
+.extend-button-AddToSchedule-Share-InMySchedule {
+  min-height: 35px;
+  padding: 0px;
+}
+.p-button-AddToSchedule::before {
+  background-image: url($p-conifg-tablet-pluswhite), url($p-conifg-tablet-blueline) !important;
+  @extend .extend-AddToSchedule-Share-InMySchedule;
+}
+
+.p-button-AddToSchedule {
+  @extend .blue-blood-button-background;
+  @extend .extend-button-AddToSchedule-Share-InMySchedule;
+  width: 110px;
+  margin: 0px 0px 5px 10px;
+  .x-button-label{
+    text-align: center;
+    font-weight: bold;
+    font-size: 10pt;
+    color: $p-config-tablet-lablebuttonbluebloodcolor;
+    text-shadow: none;
+    padding: 8px 0px 5px 30px;
+    opacity: 1 !important;
+  }
+}
+.p-button-sharewithtitle::before{
+  background-image: url($p-conifg-tablet-shareicon), url($p-conifg-tablet-blueline) !important;
+  @extend .extend-AddToSchedule-Share-InMySchedule;
+}
+
+.p-button-share, .p-share-calendar, .p-button-sharewithtitle {
+  @extend .blue-blood-button-background;
+  @extend .extend-button-AddToSchedule-Share-InMySchedule;
+  width: 50px;
+  margin: 5px 0px 5px 10px;
+}
+.p-button-InMySchedule::before {
+  background-image: url($p-conifg-tablet-inormyschedule), url($p-conifg-tablet-blueline) !important;
+  @extend .extend-AddToSchedule-Share-InMySchedule;
+}
+
+.p-button-InMySchedule {
+  @extend .blue-blood-button-background;
+  @extend .extend-button-AddToSchedule-Share-InMySchedule;
+  width: 150px;
+  margin: 0px 0px 5px 10px;
+}
+.p-button-RemoveSchedule::before {
+  background-image: url($p-conifg-tablet-trash16x16), url($p-conifg-tablet-iconredline) !important;
+  @extend .extend-AddToSchedule-Share-InMySchedule;
+}
+.extend-label-AddToSchedule-Share-InMySchedule {
+  text-align: center;
+  font-weight: bold;
+  font-size: 10pt;
+  color: $p-config-tablet-lablebuttonbluecolor;
+  text-shadow: none;
+  padding-left: 30px;
+  opacity: 1 !important;
+}
+
+.p-button-RemoveSchedule .x-button-label,.p-button-InMySchedule .x-button-label,
+.p-button-share .x-button-label, .p-button-shareCurrentNote .x-button-label,
+.p-button-sharewithtitle .x-button-label{
+  @extend .extend-label-AddToSchedule-Share-InMySchedule;
+}
+.p-button-RemoveSchedule {
+  @extend .red-button-background;
+  @extend .extend-button-AddToSchedule-Share-InMySchedule;
+  color: $p-config-tablet-lablebuttonredcolor;
+  width: 110px;
+  margin: 0px 0px 5px 10px;
+}
+
+.p-button-AddToSchedule.x-button-pressing, .p-button-share.x-button-pressing,
+.p-button-InMySchedule.x-button-pressing, .p-share-calendar.x-button-pressing,
+.p-button-sharewithtitle.x-button-pressing, .p-button-rate-simple-event.x-button-pressing{
+  @extend .blue-button-pressing-background;
+}
+.p-button-backToEvent::before {
+  background-image: url($p-config-icon-listmenuevent-pressing), url($p-conifg-tablet-iconredline) !important;
+  background-repeat: no-repeat, repeat-y !important;
+  background-position: 10px center, 40px 0 !important;
+  content: "";
+  height: 33px;
+  width: 50px;
+  position: absolute !important;
+}
+
+.p-button-backToEvent {
+  @extend .red-button-background;
+  height: 35px;
+  margin: 10px 10px 0px;
+  .x-button-label {
+    padding-top: 6px;
+    padding-left: 30px;
+    color: $p-config-tablet-lablebuttonredcolor;
+  }
+}
+.p-button-RemoveSchedule.x-button-pressing, .p-button-backToEvent.x-button-pressing, .addEventSavebt.x-button-pressing,
+.p-close-button.x-button-pressing {
+  @extend .red-button-pressing-background;
+}
+.p-close-button {
+  @extend .red-button-background;
+  color: $p-config-tablet-lablebuttonredcolor;
+  height: 35px;
+  width: 40px;
+}
+.extend-css-for-quick-icon-after {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  content: "";
+  border-style: none;
+  left: 5px;
+  background-repeat: no-repeat;
+}
+
+.p-list-menu-item {
+  .descriptionButton::after {
+    background-image: url($p-config-icon-eventcomplex-description);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .presenterButton::after {
+    background-image: url($p-config-icon-eventcomplex-presenter);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .conversationButton::after {
+    background-image: url($p-config-icon-eventcomplex-discussion);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .notesButton::after {
+    background-image: url($p-config-icon-eventcomplex-note);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .scheduleButton::after {
+    background-image: url($p-config-icon-eventcomplex-schedule);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .attendeesButton::after {
+    background-image: url($p-config-icon-eventcomplex-attendees);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .exhibitorsButton::after {
+    background-image: url($p-config-icon-eventcomplex-exhibitor);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .mapButton::after {
+    background-image: url($p-config-icon-eventcomplex-maps);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .badgeButton::after {
+    background-image: url($p-config-icon-eventcomplex-badge);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .materialButton::after {
+    background-image: url($p-config-icon-eventcomplex-materials);
+    @extend .extend-css-for-quick-icon-after;
+  }
+}
+
+.p-list-menu-item .x-item-selected, .p-list-menu-item .x-item-pressed {
+  .descriptionButton::after {
+    background-image: url($p-config-icon-eventcomplex-description-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .presenterButton::after {
+    background-image: url($p-config-icon-eventcomplex-presenter-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .conversationButton::after {
+    background-image: url($p-config-icon-eventcomplex-discussion-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .notesButton::after {
+    background-image: url($p-config-icon-eventcomplex-note-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .scheduleButton::after {
+    background-image: url($p-config-icon-eventcomplex-schedule-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .attendeesButton::after {
+    background-image: url($p-config-icon-eventcomplex-attendees-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .exhibitorsButton::after {
+    background-image: url($p-config-icon-eventcomplex-exhibitor-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .mapButton::after {
+    background-image: url($p-config-icon-eventcomplex-maps-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .badgeButton::after {
+    background-image: url($p-config-icon-eventcomplex-badge-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+
+  .materialButton::after {
+    background-image: url($p-config-icon-eventcomplex-materials-pressing);
+    @extend .extend-css-for-quick-icon-after;
+  }
+}
+
+.item-event-complex-list.x-item-pressed .x-inner {
+  opacity: 0.9;
+}
+
+.item-event-complex-list-wrap.x-item-pressed .x-inner {
+  opacity: 0.9;
+}
+
+
+.p-button-share::before {
+  background-image: url($p-conifg-tablet-shareicon)!important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  content: "";
+  height: 100%;
+  width: 50px;
+  position: absolute !important;
+}
+
+.p-button-share-news{
+  @extend .blue-blood-button-background;
+  @extend .extend-button-AddToSchedule-Share-InMySchedule;
+  width: 100px;
+  margin: 5px 0px 5px 10px;
+  color: $p-config-tablet-lablebuttonbluebloodcolor;
+  position: absolute;
+  right: 10px;
+  top: -3px;
+  .x-button-label {
+    padding-left: 25px;
+  }
+}
+
+.p-button-share-news.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+
+.p-share-calendar::before  {
+  background-image: url($p-config-tablet-calendaricon)!important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  content: "";
+  height: 100%;
+  width: 50px;
+  position: absolute !important;
+}
+.p-button-sharewithtitle{
+  .x-button-label{
+    padding: 7px 0px 7px 30px;
+  }
+}
+.menu-list-item-background-extend {
+  background-color: #45484d; // Old browsers
+  @include filter-gradient(#45484d, #000000, vertical); // IE6-9
+  @include background-image(linear-gradient(top, #45484d 0%,#000000 100%));
+}
+.p-button-cartdelete{
+  @extend .red-button-background;
+  float: right;
+  width: 170px;
+  margin-right: 10px;
+  height: 35px;
+  margin-top: 7px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+.p-button-cartdelete-pressing{
+  @extend .red-button-pressing-background;
+}
+.p-button-notificationcancel{
+  @extend .gray-button-background;
+  float: right;
+  width: 120px;
+  margin-right: 10px;
+  height: 35px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttongraycolor;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+.p-button-notificationcancel-pressing{
+  @extend .gray-button-pressing-background;
+}
+
+.p-button-notificationdelete{
+  @extend .red-button-background;
+  float: right;
+  width: 120px;
+  margin-right: 10px;
+  height: 35px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+.p-button-notificationdelete-pressing{
+  @extend .red-button-pressing-background;
+}

@@ -1,0 +1,15 @@
+.homeBtnType {
+  height: $p-height-button-medium;
+  margin: $p-margin-same-component $p-margin-same-component*2;
+  color: $p-config-tablet-lablebuttonredcolor;
+  padding: 0px;
+  @extend .red-button-background;
+  .x-button-label {
+    font-size: 18px;
+    line-height: 40px;
+  }
+}
+
+.homeBtnType.x-button-pressing {
+  @extend .red-button-pressing-background;
+}

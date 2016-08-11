@@ -1,0 +1,75 @@
+.button-login-phone {
+  height: 35px;
+  font-size: 12pt;
+  color: $p-config-tablet-lablebuttonredcolor;
+  margin: 15px 0px;
+  padding: 0px;
+  @extend .red-button-background;
+  .x-button-label {
+    line-height: 31px;
+  }
+}
+
+.button-login-phone.x-button-pressing {
+  @extend .red-button-pressing-background;
+}
+.headerPanelphone {
+  border-bottom: 2px solid $p-config-tablet-headerpanel-borderbottomcolor !important;
+  border-top: 2px solid $p-config-tablet-headerpanel-bordertopcolor !important;
+  background: radial-gradient(center, ellipse cover, $p-config-tablet-headerpanel-aroundcolor 3%, $p-config-tablet-headerpanel-centercolor 100%) !important;
+  background: -moz-radial-gradient(center, ellipse cover, $p-config-tablet-headerpanel-aroundcolor 3%, $p-config-tablet-headerpanel-centercolor 100%) !important;
+  background: -webkit-radial-gradient(center, ellipse cover, $p-config-tablet-headerpanel-aroundcolor 3%, $p-config-tablet-headerpanel-centercolor 100%) !important;
+  background: -o-radial-gradient(center, ellipse cover, $p-config-tablet-headerpanel-aroundcolor 3%, $p-config-tablet-headerpanel-centercolor 100%) !important;
+  min-height: 45px !important;
+}
+.p-main-view-panel {
+  background-color: #364249;
+  .banner-container {
+    width: 100%;
+    @extend .headerPanelphone;
+    .x-docking-horizontal {
+      .x-button {
+        min-height: 0.8em;
+      }
+    }
+  }
+
+  .banner-container::before {
+    content: '';
+    width: 100%;
+    height: 45px;
+    background-image: url($p-config-tablet-connectionicon) !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    position: absolute;
+  }
+
+  .title-bar-main-phone {
+    height: 40px;
+    background-image: none;
+    background-color: #de591b;
+    .x-title {
+      height: 100%;
+      font-size: 15px;
+      width: 100%;
+    }
+  }
+
+  .button-home-title-bar-main-phone {
+    background-image: none;
+    background-color: transparent;
+    border-style: none;
+  }
+}
+.p-toolbar-container {
+  @extend .headerPanelphone;
+  .x-innerhtml {
+    color: $p-config-phone-toolbartitlecolor;
+    font-size: $p-config-phone-toolbartitlefontsize;
+    font-family: $p-config-phone-toolbartitlefontfamilly;
+  }
+  .x-title{
+    margin: 0px;
+    padding: 0px;
+  }
+}

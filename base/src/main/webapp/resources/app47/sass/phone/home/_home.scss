@@ -1,0 +1,87 @@
+.phone-menu-item{
+  padding: 20px 0px 10px 30px;
+  width: 100%;
+  margin: 0px;
+  font-size: $p-text-list-menu-item-size;
+  font-weight: normal;
+  text-align: left;
+  color: $p-config-phone-menuitemtextcolor;
+  min-height: 61px;
+}
+.phone-menu-item::before {
+  background-image: url($p-conifg-tablet-quickmenuarrow);
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  content: "";
+  border-style: none;
+  right: 10px;
+  background-repeat: no-repeat;
+  margin-top: 5px;
+}
+
+.p-phone-list-menu-item-item-relative {
+  min-height: 60px;
+  .eventmenuitem::after {
+    background-image: url($p-config-phone-icon-listmenuevent);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .schedulemenuitem::after{
+    background-image: url($p-config-phone-icon-listmenuschedule);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .newsmenuitem::after{
+    background-image: url($p-config-phone-icon-listmenunews);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .directormenuitem::after{
+    background-image: url($p-config-phone-icon-listmenudirectory);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .discussionmenuitem::after{
+    background-image: url($p-config-phone-icon-listmenudiscussion);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .settingmenuitem::after {
+    background-image: url($p-config-phone-icon-listmenusetting);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .storemenuitem::after{
+    background-image: url($p-config-phone-icon-listmenustore);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .profilemenuitem:after{
+    background-image: url($p-config-phone-icon-listmenuprofile);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+}
+.p-phone-list-menu-item .x-item-pressed .phone-menu-item, .p-phone-list-phone-menu-item .x-item-selected .phone-menu-item{
+  @extend .blue-button-background;
+  border-radius: 0px !important;
+  box-shadow: none;
+  border: 0px !important;
+}
+.main-navigation-view{
+  padding-bottom: 51px;
+}
+.menu-list-item-background-phone {
+  background-color: transparent; // Old browsers
+  @include filter-gradient($p-conifg-tablet-menulist-colorstart, $p-conifg-tablet-menulist-colorend, vertical); // IE6-9
+  @include background-image(linear-gradient(top, $p-conifg-tablet-menulist-colorstart 0%, $p-conifg-tablet-menulist-colorend 100%));
+}
+.home-menulist-image{
+  content: '';
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  background-size: auto 100%;
+  left: 5px;
+}

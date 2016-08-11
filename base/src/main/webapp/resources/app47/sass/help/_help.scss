@@ -1,0 +1,17 @@
+.p-button-configsettings {
+  @extend .blue-button-background;
+  height: $p-height-button-medium;
+  width: 230px;
+  margin-top: 10px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonbluecolor;
+  }
+}
+.p-phone-button-configsettings {
+  @extend .blue-button-background;
+  height: $p-height-button-small;
+  margin-bottom: 25px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonbluecolor;
+  }
+}

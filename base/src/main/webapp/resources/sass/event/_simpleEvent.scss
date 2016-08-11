@@ -1,0 +1,27 @@
+@mixin simpleEvent {
+  .registerBtn {
+    @extend .red-button-background;
+    height: 35px;
+    margin: 10px 10px 0px;
+    color: #ffffff;
+    font-size: 12pt;
+    font-family: Arial;
+    font-weight: normal;
+    text-decoration: none;
+   .x-button-label {
+     text-align: center;
+     line-height: 31px;
+   }
+  }
+
+  .registerBtn.x-button-pressing {
+    @extend .red-button-pressing-background;
+  }
+
+  .daySession-p-headerdetail-simpleevent {
+    @extend .type-time-p-headerdetailevent;
+    height: 25px;
+    line-height: 25px;
+    background-color: #303030 !important;
+  }
+}

@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.personify</groupId>
-	<artifactId>connect</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>base</artifactId>
+	<version>2.4.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>personify-connect</name>
 
@@ -31,7 +31,7 @@
 								<configuration>
 									<!-- optional only if you want to use a preconfigured server.xml 
 										file -->
-									<!-- <serverXml>src/main/tomcatconf/server.xml</serverXml> 
+									<!-- <serverXml>src/main/tomcat/conf/server.xml</serverXml> 
 									<warRunDependencies>
 										<warRunDependency>
 											<dependency>
@@ -101,6 +101,8 @@
 										<include name="**/css/*" />
 										<include name="**/img/**/*" />
 										<include name="**/lib/**/*" />
+										<include name="**/data/**/*" />
+										<include name="**/resources/**/*" />
 										<include name="**/touch/microloader/*" />
 										<include name="**/touch/resources/css/*" />
 										<include name="**/touch/sencha-touch*.js" />
@@ -132,6 +134,8 @@
 										<include name="**/css/*" />
 										<include name="**/img/**/*" />
 										<include name="**/lib/**/*" />
+										<include name="**/data/**/*" />
+										<include name="**/resources/**/*" />
 										<include name="**/app.js" />
 										<include name="**/app.json" />
 										<include name="**/appinfo.js" />
@@ -236,33 +240,52 @@
 				<webDriverCapabilities> <capability> <name>webdriver-logfile</name> <value>${project.build.directory}/phantomjsdriver.log</value> 
 				</capability> </webDriverCapabilities> </configuration> </plugin> -->
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<executions>
+					<execution>
+						<id>debug</id>
+						<phase>package</phase>
+						<goals>
+							<goal>war</goal>
+						</goals>
+						<configuration>
+							<warName>${project.name}-${project.version}-debug</warName>
+							<warSourceDirectory>${project.build.directory}/inprogress-debug</warSourceDirectory>
+                            <webappDirectory>${project.build.directory}/inprogress-debug</webappDirectory>
+							<webResources>
+								<resource>
+									<directory>${project.build.directory}/inprogress-debug</directory>
+								</resource>
+							</webResources>		
+							<webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>					
+						</configuration>
+					</execution>
+					<execution>
+						<id>release</id>
+						<phase>package</phase>
+						<goals>
+							<goal>war</goal>
+						</goals>
+						<configuration>
+							<warName>${project.name}-${project.version}-release</warName>
+							<warSourceDirectory>${project.build.directory}/inprogress-release</warSourceDirectory>
+                            <webappDirectory>${project.build.directory}/inprogress-release</webappDirectory>
+							<webResources>
+								<resource>
+									<directory>${project.build.directory}/inprogress-release</directory>
+								</resource>
+							</webResources>
+						    <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.4</version>
 				<executions>
-					<execution>
-						<id>bundle-debug</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<appendAssemblyId>false</appendAssemblyId>
-							<descriptor>${project.basedir}/src/main/resources/assemblies/debug.xml</descriptor>
-							<finalName>${project.name}-${project.version}-debug</finalName>
-						</configuration>
-					</execution>
-					<execution>
-						<id>bundle-release</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<appendAssemblyId>false</appendAssemblyId>
-							<descriptor>${project.basedir}/src/main/resources/assemblies/release.xml</descriptor>
-							<finalName>${project.name}-${project.version}-release</finalName>
-						</configuration>
-					</execution>
 					<execution>
 						<id>bundle-packages</id>
 						<phase>package</phase>
@@ -276,18 +299,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<dependentWarExcludes>WEB-INF/web.xml</dependentWarExcludes>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
+			</plugin>			
 		</plugins>
 		<pluginManagement>
 			<plugins>

@@ -1,0 +1,80 @@
+@mixin filterList {
+  .filter-list {
+    background: black;
+    width: 200px;
+    height: 255px !important;
+    margin-top: 10px;
+  }
+
+  .update-list {
+    background-color: transparent ;
+    margin: 0px 10px 10px;
+    padding: 0px;
+  }
+
+  .item-update-list-selected .x-list-item-label {
+    @extend .blue-button-pressing-background;
+    color: white;
+  }
+
+  .item-update-list {
+    line-height: 35px;
+    border-bottom: 1px solid #e0e0e0;
+    .x-innerhtml {
+    	padding: 5px !important;
+    }
+  }
+  .item-update-list-focus {
+    @extend .blue-button-pressing-background;
+    color: white;
+  }
+  .item-update-list.x-list-item{
+    margin-bottom: 0px;
+  }
+  .item-update-list:nth-child(even) {
+    background: #eeeff3;
+  }
+  .item-update-list:nth-child(odd) {
+    background: #ffffff;
+  }
+  .p-filterlist-checkbox-item-parent{
+    @extend .background-item-header;
+    color: #ffffff;
+    height: 38px;
+  }
+  .p-filterlist-phone-checkbox-item-parent {
+    @extend .background-item-header;
+    color: #ffffff;
+    height: 25px;
+    font-size: 13px;
+  }
+  .p-filterlist-checkbox-item-child{
+    border-bottom: 1px solid #e0e0e0;
+    height: 38px;
+    color: black;
+  }
+  .p-filterlist-checkbox-item-child:nth-child(even) {
+    background: #eeeff3;
+  }
+  .p-filterlist-checkbox-item-child:nth-child(odd) {
+    background: #ffffff;
+  }
+  .p-filterlist-phone-checkbox-item-child{
+    border-bottom: 1px solid #e0e0e0;
+    height: 30px;
+    color: black;
+    font-size: 12px;
+  }
+  .p-filterlist-phone-checkbox-item-child:nth-child(even) {
+    background: #eeeff3;
+  }
+  .p-filterlist-phone-checkbox-item-child:nth-child(odd) {
+    background: #ffffff;
+  }
+  .item-update-list .x-list-item-label {
+    line-height: 35px;
+    padding: 0px 0px 0px 10px !important;
+    border-radius: 0px;
+    font-size: 12pt;
+  }
+}

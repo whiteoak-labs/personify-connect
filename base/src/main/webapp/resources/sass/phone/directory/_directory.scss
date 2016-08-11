@@ -1,0 +1,546 @@
+@mixin directoryphone {
+  .p-panel-photo {
+    background-size: contain !important;
+    height: 76px !important;
+    width: 80px !important;
+
+  }
+
+  .p-text-name {
+    font-size: $p-phone-text-title-size;
+    color: black;
+  }
+
+  .p-text-jobTitle {
+    font-size: $p-phone-text-small-size;
+    color: black;
+  }
+
+  .p-phone-directory-contactInfo-phone,
+  .p-phone-directory-contactInfo-email,
+  .p-phone-directory-contactInfo-address,
+  .p-phone-directory-contactInfo-website{
+    font-size: $p-phone-text-small-size;
+    @extend .background-item-header;
+    padding: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
+
+  .background-item-header {
+    background: linear-gradient(90deg, #000000 0%, #45484D 70%) !important;
+    background: -moz-linear-gradient(90deg, #000000 0%, #45484D 70%) !important;
+    background: -webkit-linear-gradient(90deg, #000000 0%, #45484D 70%) !important;
+    background: -o-linear-gradient(90deg, #000000 0%, #45484D 70%) !important;
+  }
+
+  .p-text-organization {
+    font-size: $p-phone-text-small-size;
+    color: gray;
+  }
+
+  .p-field-info,
+  .p-field-emails-info,
+  .p-field-websites-info{
+    background-color: white;
+    color: black;
+    .x-list {
+        background-color: white;
+        padding: 10px 0px;
+    }
+    .x-list-item {
+        border-bottom: 1px dotted #cccccc;
+        padding-bottom: 5px;
+    }
+  }
+  .p-field-emails-info,
+  .p-field-websites-info{
+    .p-phone-directory-labelinfo .x-innerhtml{
+      text-decoration: underline;
+      color: $p-hyperlink-blue;
+      word-break: break-all;
+      .p-phone-directory-main{
+         text-decoration: none !important;
+       }
+    }
+  }
+  .p-label-text-phone {
+    font-size: $p-phone-text-small-size;
+  }
+
+  .p-phone-panel-contactinfo {
+    background-color: white;
+    .p-label-contactinfovalueText{
+      word-break: break-all;
+      text-decoration: underline !important;
+      color: $p-hyperlink-blue !important;
+    }
+  }
+
+  .p-list-info {
+    background-color: white;
+  }
+
+  .p-list-info.x-list .x-list-item {
+    border-bottom: 1px dotted #cccccc;
+  }
+
+  .p-phone-type {
+    font-size: $p-phone-text-tiny-size;
+  }
+
+  .p-phone-label-text.x-layout-box-item, .p-phone-label-text.x-docked-left {
+    font-size: $p-phone-text-tiny-size;
+    width: 20% !important;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .p-phone-label-valueText.x-layout-box-item, .p-phone-label-valueText {
+    font-size: $p-phone-text-tiny-size;
+    width: 100% !important;
+    color: black;
+  }
+  .p-phone-label-valueText{
+    .x-innerhtml{
+      padding-left: 20px;
+    }
+  }
+  .p-itemlist-info {
+    padding: 0px 0px 5px 0px;
+    border-bottom: 1px dotted #cccccc;
+    margin-bottom: 5px;
+  }
+
+  .p-phone-list-directory {
+    .x-list-item {
+      border-bottom: 1px solid #e0e0e0;
+      margin: 0 !important;
+      .x-list-header{
+        @extend .background-item-header;
+        border: none;
+        color: #ffffff;
+        font-size: $p-phone-text-title-size;
+        padding: 5px;
+      }
+      .x-list-item-label{
+        padding: 2px !important;
+      }
+    }
+    .x-list {
+      background-color: gray;
+    }
+    .x-list-item:nth-child(even) {
+      background-color: #eeeff3;
+    }
+
+    .x-list-item:nth-child(odd) {
+      background-color: #ffffff;
+    }
+  }
+
+  .directoryphoneitem:nth-child(even) {
+    background-color: #eeeff3;
+    color: black;
+    font-size: 11pt;
+    padding: 3px 10px;
+  }
+
+  .directoryphoneitem:nth-child(odd) {
+    background-color: #ffffff;
+    color: black;
+    font-size: 11pt;
+    padding: 3px 10px;
+  }
+
+  .p-img-directory {
+    margin-right:10px;
+    .x-innerhtml{
+      height: 40px;
+    }
+  }
+
+
+  .p-phone-directorylist-item-name {
+    font-size: $p-phone-text-small-size;
+    font-weight: bold;
+  }
+
+  .p-phone-directorylist-item-jobtitle {
+    font-size: $p-phone-text-small-size;
+  }
+
+  .p-phone-directorymanagement {
+    margin-bottom: 51px;
+  }
+
+  .p-phone-panel-contactInfoManagememt {
+    background-color: white;
+  }
+
+  .p-phone-text-profileFunctionHeader {
+    font-size: $p-phone-text-tiny-size;
+    font-weight: bold;
+  }
+
+  .p-phone-button-paging .x-button-label {
+    font-size: $p-phone-text-small-size !important;
+    color: black;
+    font-weight: bold;
+  }
+
+  .p-phone-panel-paging {
+    width: 30%;
+    margin-top: 5px;
+    .x-button-label{
+        color: white;
+    }
+  }
+  .p-phone-contacktraking-item{
+    .x-innerhtml{
+      padding: 0px !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+    .p-purchasehistoryphone-item.x-list-item, .p-phone-contacktraking-item{
+        border-bottom: 1px solid gray;
+        color: black;
+        font-size: $p-phone-text-small-size;
+        padding: $p-padding-text;
+        margin-bottom:0 !important;
+    }
+    .p-purchasehistoryphone-item {
+      color: black;
+      padding: 10px;
+      border-bottom: 1px solid gray;
+      .x-inner {
+          .x-innerhtml{
+              padding: 0px !important;
+          }
+      }
+    }
+    .p-phone-directory-purchase-history-summary-text{
+        .x-inner {
+            .x-innerhtml{
+                width: 200px !important ;
+            }
+        }
+    }
+    .p-phone-directory-list-summary-text{
+        .x-inner {
+            .x-innerhtml{
+                width: 300px !important ;
+            }
+        }
+    }
+    .p-purchasehistoryphone-item:nth-child(even),
+    .p-phone-directory-participant-history:nth-child(even),
+    .p-phone-directory-contact-tracking-detail-follow-up-detail:nth-child(even),
+    .p-phone-contacktraking-item:nth-child(even){
+        background: #eeeff3;
+    }
+    .p-purchasehistoryphone-item:nth-child(odd),
+    .p-phone-directory-participant-history:nth-child(odd),
+    .p-phone-directory-contact-tracking-detail-follow-up-detail:nth-child(odd),
+    .p-phone-contacktraking-item:nth-child(odd){
+        background: #ffffff ;
+    }
+  .p-phone-directory-participantheader{
+     @extend .background-item-header;
+      border: none;
+      color: #ffffff;
+      font-size: $p-phone-text-title-size;
+      padding: 5px;
+      font-weight: bold;
+  }
+  .p-phone-list-directory.x-list {
+    background-color:gray;
+  }
+  .p-phone-directory-table-presenter{
+    clear: both;
+    color: #000000;
+    font-size: $p-phone-text-small-size;
+    width: 100%;
+    min-height: 44px;
+    padding: 2px;
+  }
+   .p-phone-directory-main{
+        font-size: $p-phone-text-tiny-size;
+        font-weight: bold;
+        font-style: normal;
+        color: black;
+        margin-right: 15px;
+    }
+
+    .p-phone-directory-participant-history {
+        border-bottom: 1px solid #cccccc;
+        font-size: $p-phone-text-small-size;
+        font-family: $p-font-family;
+        color: black;
+        padding: 10px !important;
+    }
+    .p-phone-directory-participant-history-nodata {
+        background: #ffffff;
+        color: black;
+        .x-inner{
+            font-size: $p-phone-text-small-size;
+            font-family: $p-font-family;
+            margin: 0px 10px !important;
+            padding: 10px 0px !important;
+        }
+
+    }
+    .p-phone-directory-participant-history.x-list-item{
+        margin-bottom:0 !important;
+        .x-list-item-label{
+            margin: 0px 10px !important;
+            padding: 10px 0px !important;
+        }
+    }
+    .p-phone-directory-participant-history.x-list-item:first-child {
+        margin-top: 10px;
+    }
+    .p-phone-directory-participant-history-selected,
+    .p-purchasehistoryphone-item-selected,
+    .p-phone-directory-contact-tracking-detail-follow-up-detail-selected{
+        background-color: #cccccc !important;
+    }
+    .p-phone-directory-participant-history-pressed,
+    .p-purchasehistoryphone-item-pressed,
+    .p-phone-directory-contact-tracking-detail-follow-up-detail-pressed{
+        background-color: #eeeff3 !important;
+    }
+    .p-phone-directory-participant-history-name {
+       font-weight: bold;
+    }
+    .p-phone-directory-participant-history-position-vote {
+
+    }
+    .p-phone-directory-participant-history-date{
+        text-align: right
+    }
+    .p-phone-directory-purchase-history-nodata{
+        background: #ffffff;
+        .x-inner {
+            font-size: $p-phone-text-small-size;
+            font-family: $p-font-family;
+            .x-innerhtml{
+                padding: 10px;
+                text-align: left;
+            }
+        }
+    }
+    .p-phone-directory-contact-tracking-detail-page,
+    .p-phone-directory-participation-history-detail-page{
+         background: white;
+         margin-bottom: 51px;
+    }
+    .p-phone-directory-contact-tracking-detail,
+    .p-phone-directory-contact-tracking-detail-follow-up-list{
+        font-size: $p-phone-text-small-size;
+        font-family: $p-font-family;
+        padding: 10px;
+        background: white;
+        line-height: 20px;
+        color: black;
+        .x-list-emptytext{
+            text-align: left;
+            padding: 10px;
+        }
+    }
+
+    .p-phone-directory-contact-tracking-detail-follow-up-list-items {
+        padding: 10px;
+    }
+    .p-phone-directory-contact-tracking-detail{
+        padding-bottom: 0 !important;
+    }
+    .p-phone-directory-contact-tracking-detail-follow-up-list{
+        padding-top: 0 !important;
+    }
+    .p-phone-directory-contact-tracking-detail-email-inbound{
+        font-weight: bold;
+        padding-bottom: $p-padding-text;
+    }
+    .p-phone-directory-contact-tracking-detail-email-inbound-msg {
+        border-bottom: 1px solid #cccccc;
+        padding-bottom: $p-padding-text;
+    }
+    .p-phone-directory-contact-tracking-detail-email-inbound-info {
+        border-bottom: 1px solid #cccccc;
+        padding: 10px 0px;
+    }
+    .p-phone-directory-contact-tracking-detail-title{
+        font-weight: bold;
+        display: block;
+        float: left;
+        width: 25%;
+    }
+    .p-phone-directory-contact-tracking-detail-follow-up{
+        font-size: $p-phone-text-small-size !important;
+    }
+    .p-phone-directory-contact-tracking-detail-follow-up-detail{
+        border-bottom: 1px solid #cccccc;
+        .x-list-item-label{
+            margin:0px;
+            padding: 0px;
+            height:auto;
+        }
+    }
+    .p-phone-directory-contact-tracking-detail-follow-up-detail.x-list-item{
+        margin-bottom:0 !important;
+    }
+    .p-phone-directory-list-summary-text {
+        font-weight: bold;
+    }
+
+  .p-phone-directory-new-contact-tracking-form-page {
+    font-size: $p-phone-text-small-size !important;
+    padding: 10px 0px;
+    background-color: white;
+  }
+
+  .p-phone-directory-new-contact-tracking{
+    margin: 0px 10px 10px 10px;
+    .x-form-label {
+      background: #ffffff;
+      padding: 7.5px 0px;
+    }
+    .x-form-label span {
+      font-size: $p-phone-text-small-size !important;
+    }
+    .x-input-text {
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+    }
+    .x-component-outer::before{
+      background-image: none;
+      background-color: #848484;
+      width: 25px;
+      border-left: 1px solid black
+    }
+    .x-component-outer::after{
+      background-color: white !important;
+    }
+    .x-field-input{
+      padding: 0px;
+    }
+    .x-component-outer{
+      .x-input-el{
+        overflow: hidden;
+        padding-right: 30px;
+      }
+    }
+    .x-clear-icon {
+      margin: 0px !important;
+      top: 0px !important;
+      background-position: 8px 6px !important;
+    }
+  }
+  .p-phone-fieldset-directory-editform{
+    background: #ffffff;
+    font-size: $p-phone-text-small-size !important;
+    margin-left: -5px;
+  }
+  .p-phone-fieldset-directory-nameandtitleform {
+    background: #ffffff;
+    font-size: $p-phone-text-small-size !important;
+    margin: 0px 5px 0px 0px;
+    .x-form-fieldset-inner {
+      border: 0px
+    }
+    .x-field {
+      border: 0px
+    }
+  }
+  .p-phone-field-directory-editform{
+    margin: 5px 0px 0px 5px;
+    .x-form-label {
+      background: #ffffff;
+      padding: 7.5px 0px;
+    }
+    .x-form-label span {
+      font-size: $p-phone-text-small-size !important;
+    }
+    .x-input-text {
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+    }
+    .x-component-outer::before{
+      background-image: none;
+      background-color: #848484;
+      width: 20px;
+      border-left: 1px solid black;
+    }
+    .x-component-outer::after{
+      background-color: white !important;
+      right: 0.4em !important;
+    }
+    .x-field-input{
+      padding: 0px;
+    }
+    .x-component-outer{
+      .x-input-el{
+        overflow: hidden;
+        padding-right: 30px;
+      }
+    }
+    .x-clear-icon {
+      margin: 0px !important;
+      background-position: 8px 6px !important;
+      top: 0px !important;
+    }
+  }//.p-phone-field-directory-editform
+  .p-phone-button-directory-editform-delete{
+    background-image: url("../images/directory/delete-icon.png");
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    margin-top: 8px;
+    color: white;
+    border-radius: 15px;
+    border: 2px solid white;
+    background-color: red;
+    background-position: center center;
+  }
+  .p-phone-button-directory-editform-delete-pressing{
+    background-color: #8E0200 !important;
+  }
+  .p-phone-editform-main{
+    padding-top: 4px;
+    font-weight: 900;
+  }
+
+  .p-field-info-readOnly{
+    padding-top: 5px;
+    font-weight: bold;
+    .p-phone-label-text{
+      margin-right: 19px;
+      font-style: normal;
+      color: black;
+    }
+    .x-list{
+      background-color: transparent;
+    }
+  }
+  .p-button-phone-editprofile{
+    @extend .blue-blood-button-background;
+    margin-top: 10px;
+    .x-button-label{
+      color: white;
+      font-size: 12px;
+    }
+  }
+  .p-phone-contactinfo-photoandrelated {
+    margin-bottom: 10px;
+    color: black;
+  }
+}

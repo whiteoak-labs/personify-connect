@@ -1,0 +1,132 @@
+@mixin button {
+  .ios5_toggle .x-toggle-off {
+    border-radius: 2px;
+  }
+
+  .ios5_toggle .x-toggle-on {
+    border-radius: 4px;
+  }
+
+  .x-thumb::before {
+    border-radius: 4px;
+  }
+
+  //pressing button for all
+  .x-button-pressing {
+    background-color: $p-button-pressing-background-color !important;
+    color: $p-button-pressing-text-color !important;
+  }
+
+  //pressing button for news page
+  .x-item-pressed .p-filter-button {
+    background-color: $p-button-pressing-background-other-color !important;
+    color:$p-button-pressing-text-color;
+  }
+
+  //pressing button for store page
+  .x-item-pressed .rightStoreDetail,.x-item-pressed .rightStoreDetail *{
+    background-color: $p-button-pressing-background-color !important;
+    color:$p-button-pressing-text-color;
+  }
+
+  .x-item-pressed .moreStoreDetail {
+    background-color: $p-button-pressing-background-other-color !important;
+    color:$p-button-pressing-text-color;
+  }
+
+  .p-button-search-event {
+    background: #333333;
+    background-image: url('../icons/search-icon.png') !important;
+    background-repeat:  no-repeat !important;
+    background-position: center center !important;
+    -webkit-transform: scaleX(-1);
+    border-radius: 0;
+    border: solid 1px #999;
+    height: 34px;
+    width: 40px;
+    margin-left : $p-margin-same-component;
+    margin-bottom: $p-margin-same-component;
+    display: none !important;
+  }
+
+  .p-button-disabled {
+    background: gray !important;
+    border: solid 2px grey !important;
+  }
+
+  .panel-contain-button .x-layout-vbox {
+    -webkit-box-align: end !important;
+  }
+  .p-panel-addOrFilterPanel, .p-filterlist-checkbox-item, .p-filterlist-checkbox-item-event {
+    input[type="checkbox"],input[type="radio"] {
+      display:none;
+    }
+    input[type="checkbox"] + label span, input[type="radio"] + label span{
+      display:inline-block;
+      width:30px;
+      height:30px;
+      margin:5px 6px 5px 0;
+      vertical-align:middle;
+      background:url("../icons/check_radio_sheet_28.png") 1px top no-repeat;
+      background-size: auto 28px;
+      cursor:pointer;
+    }
+    input[type="checkbox"]:checked + label span, input[type="radio"]:checked + label span{
+        background:url("../icons/check_radio_sheet_28.png") -30px top no-repeat;
+        background-size: auto 28px;
+    }
+  }
+
+  .p-filterlist-phone-checkbox-item-event {
+    input[type="checkbox"],input[type="radio"] {
+      display:none;
+    }
+    input[type="checkbox"] + label span, input[type="radio"] + label span{
+      display:inline-block;
+      width:15px;
+      height:15px;
+      margin:5px 6px 5px 5px;
+      vertical-align:middle;
+      background:url("../icons/check_radio_sheet_28.png") 1px top no-repeat;
+      background-size: auto 15px;
+      background-position: 0px 0px;
+      cursor:pointer;
+    }
+    input[type="checkbox"]:checked + label span, input[type="radio"]:checked + label span{
+      background:url("../icons/check_radio_sheet_28.png") -30px top no-repeat;
+      background-size: auto 15px;
+      background-position: -17px 0px;
+    }
+  }
+
+  .p-button-trash {
+    height: 40px;
+    width: 90%;
+    max-width: 60px;
+    background-image: url("../icons/trash.png") !important;
+    background-position: center center!important;
+    background-repeat: no-repeat!important;
+    border: solid 1px #000;
+    margin-bottom: 10px;
+  }
+
+   .p-filterlist-checkbox-item {
+     margin: 3px 12px;
+   }
+
+   .p-container-button-notification{
+     padding-left: 10px;
+     margin-bottom: 10px;
+   }
+    .x-webkit {
+      .x-button-forward,
+      .x-button-back {
+        &:before, &:after {
+          @include insertion(20px, auto, 1px, -13px !important);
+          bottom: 1px;
+          -webkit-mask-size: 11px 100%;
+          overflow: hidden;
+        }
+      }
+    }
+}

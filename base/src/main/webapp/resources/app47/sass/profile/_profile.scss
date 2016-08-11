@@ -1,0 +1,304 @@
+.profile-list-item::before {
+  background-image: url($p-conifg-tablet-quickmenuarrow);
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  content: "";
+  border-style: none;
+  right: 10px;
+  background-repeat: no-repeat;
+  margin-top: 5px;
+}
+.profile-list-item{
+  height: 44px;
+  width: 100%;
+  @extend .menu-list-item-background;
+  margin-bottom: 0px !important;
+  padding: $p-padding-text !important;
+}
+.p-new-contact-inquiry {
+  @extend .red-button-background;
+  height: 44px;
+  width: 180px;
+  margin: 0px 20px 10px 20px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-weight: bold;
+  }
+}
+.p-new-contact-inquiry.x-button-pressing{
+  @extend .red-button-pressing-background;
+}
+
+.p-submit-inquiry {
+  @extend .p-button-big;
+  border-radius: 0px;
+  @extend .blue-button-background;
+  color: $p-config-tablet-lablebuttonbluecolor;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 15px;
+  .x-button-label {
+    font-size: 14px;
+  }
+}
+.goOnlineProfileButton{
+  @extend .red-button-background;
+  height: 44px;
+  margin: 10px;
+  .x-button-label {
+    font-size: $p-text-huge-size;
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-weight: bold;
+    width: 100%;
+  }
+}
+.goOnlineProfileButton.x-button-pressing{
+  @extend .red-button-pressing-background;
+}
+.logoutProfileButon{
+  @extend .gray-button-background;
+  margin-top: 0px !important;
+  margin-bottom: 15px !important;
+  height: 44px;
+  margin: 10px;
+  .x-button-label {
+    font-size: $p-text-huge-size;
+    color: $p-config-tablet-lablebuttongraycolor;
+    font-weight: bold;
+    width: 100%;
+  }
+}
+.logoutProfileButon.x-button-pressing{
+  @extend .gray-button-pressing-background;
+}
+
+.toggle-option {
+  padding-left: 5%;
+  max-height: 140px;
+  height: 125px;
+  background-color: $p-config-tablet-toggleoption-colorstart;
+  @include filter-gradient($p-config-tablet-toggleoption-colorstart, $p-config-tablet-toggleoption-colorend, vertical);
+  @include background-image(linear-gradient(top,  $p-config-tablet-toggleoption-colorstart 0%, $p-config-tablet-toggleoption-colormiddle 54%, $p-config-tablet-toggleoption-colorend 100%));
+}
+.toggle-option .ios5_toggle{
+  background: transparent !important;
+}
+.toggle-option .ios5_toggle .x-toggle {
+  top:.45em;
+  left:0em;
+  right:1.8em;
+  border: 0.1em solid #888888;
+  width: 4.7em;
+  height:1.7em;
+
+}
+.toggle-option .ios5_toggle_label{
+  text-shadow: none;
+  background: transparent !important;
+  padding: 0px;
+  font-family: Arial;
+  font-size: $p-text-large-size;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  color: $p-config-tablet-toggleoption-labelcolor;
+  margin-top: 10px;
+}
+
+.toggle-option .ios5_toggle .x-thumb{
+  width: 1.7em; /*adjust track*/
+}
+
+.toggle-option .ios5_toggle .x-thumb:before {
+  width: 1.7em;
+  height:1.7em;
+  top:  0px;
+  left: 0px;
+  border-radius: 2px !important;
+  box-shadow: inset 0 2px 1px white, inset 0 -2px 1px white ;
+  background-color: #dfdfdf !important;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%,  from(#dfdfdf), to(#ffffff));
+}
+
+.toggle-option .ios5_toggle .x-toggle-on{
+  @extend .blue-button-pressing-background;
+  border: 1px solid #252E33;
+}
+.toggle-option .ios5_toggle .x-toggle-off{
+  background: white;
+  border: 1px solid #B5B5B5;
+}
+.toggle-option .ios5_toggle .x-toggle-on:before {
+  position:absolute;
+  content:'Yes';
+  padding-left: 5px;
+  padding-top: 4px;
+}
+
+.toggle-option .ios5_toggle .x-toggle-off:before {
+  position:absolute;
+  content:'No';
+  color: #B5B5B5;
+  left: 40px;
+  padding-top: 4px;
+}
+.profile-panel-right{
+  background-color: $p-config-tablet-panelright-color;
+  color: $p-config-tablet-profilepanelrighttextcolor !important;
+}
+.p-button-applysettings{
+  @extend .red-button-background;
+  height: 44px;
+  margin: 10px;
+  width: 50%;
+  .x-button-label {
+    font-size: $p-text-huge-size;
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-weight: bold;
+    width: 100%;
+  }
+}
+.p-button-pressing-applysettings{
+  @extend .red-button-pressing-background;
+}
+
+.p-phone-button-viewmyonlineprofile,
+.p-phone-button-applysettings{
+  @extend .red-button-background;
+  height: 30px;
+  margin-bottom: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    text-align: center;
+  }
+}
+.p-phone-button-changemypassword{
+  @extend .gray-button-background;
+  height: 30px;
+  margin-bottom: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttongraycolor;
+    text-align: center;
+  }
+}
+.p-phone-button-viewmypurchasehistory,
+.p-phone-button-viewmyparticipationhistory{
+  @extend .blue-button-background;
+  height: 30px;
+  margin-bottom: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonbluecolor;
+    text-align: center;
+  }
+}
+.p-phone-toggle-profileprivacy{
+  margin-bottom: 10px;
+  background-color: transparent !important;
+  .x-thumb::after{
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 30px;
+  }
+  .x-toggle-on {
+    @extend .toggle-background-on;
+    .x-thumb::after{
+      border-left: 1px solid #919191;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 0px;
+      border-top-left-radius: 0px;
+    }
+  }
+  .x-toggle {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    line-height: 30px;
+    font-size: 12pt;
+    font-weight: bold;
+  }
+  .x-toggle-on:before {
+    position: absolute;
+    content: 'ON';
+    color: white;
+    padding-left: 19px;
+  }
+  .x-toggle-off:before {
+    position:absolute;
+    content: 'OFF';
+    color: gray;
+    padding-left: 53px;
+  }
+  .x-toggle-off{
+    .x-thumb::after{
+      border-right: 1px solid #919191;
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+  }
+}
+.p-phone-toggle-lable-profileprivacy{
+  text-align: left;
+  background-color: transparent;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 14px;
+}
+.ios5_toggle{
+  background-color: white;
+  .x-toggle{
+    width: 65px;
+    border-radius: 5px;
+  }
+  .x-thumb::before{
+    top: -1px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+  }
+  .x-thumb::after {
+    border-radius: 0px !important;
+    top: 0px !important;
+    left: 0px !important;
+  }
+  .x-toggle-off{
+    .x-thumb::before {
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 0px;
+    }
+  }
+  .x-toggle-off:before{
+    content: "No" !important;
+    position: absolute;
+    padding-left: 0px;
+    font-size: 13px;
+    font-weight: bold;
+    padding-top: 5px;
+    color: gray;
+  }
+  .x-toggle-on{
+    @extend .toggle-background-on;
+    .x-thumb::before {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 4px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 4px;
+    }
+  }
+  .x-toggle-on:before{
+    content: "Yes" !important;
+    position: absolute;
+    padding-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    padding-top: 5px;
+    color: white;
+  }
+}

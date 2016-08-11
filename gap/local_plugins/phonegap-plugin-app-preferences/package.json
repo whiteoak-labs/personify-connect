@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "name": "phonegap-plugin-app-preferences",
+    "cordova_name": "ApplicationPreferences",
+    "description": "Phonegap plugin allowing for storing and retrieval of user stores application preferences.",
+    "license": "MIT",
+    "platforms": [
+        "ios",
+        "android"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}

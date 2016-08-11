@@ -1,0 +1,108 @@
+.p-button-delete-editTempelate{
+  background-image: url($p-conifg-tablet-directorydeleteicon);
+  background-repeat: no-repeat;
+  height: 25px;
+  width: 28px;
+  color: $p-conifg-tablet-directorydeletetextcolor;
+  border-radius: 15px;
+  border: 2px solid white;
+  background-color: $p-conifg-tablet-directorydeletecolor;
+  background-position: center center;
+}
+.p-button-delete-editTempelate-pressing{
+  background-color: $p-conifg-tablet-directorydeletecolor-pressed !important;
+}
+.p-button-big {
+  color: $p-config-tablet-lablebuttonbluecolor;
+  @extend .blue-button-background;
+  height: $p-height-button-medium;
+  margin: 10px 20px 10px 20px;
+}
+
+.p-button-big .x-button-label {
+  font-weight: bold;
+  font-size: $p-text-huge-size;
+}
+.p-button-big-disabled, .p-button-directory-disabled{
+  background: $p-config-tablet-buttondisablebackground !important;
+  border: 2px solid #919191 !important;
+}
+
+.p-button-big.x-button-pressing, .p-button-staffFunction.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+.p-button-paging {
+  color: $p-config-tablet-lablebuttonbluecolor;
+  @extend .blue-button-background;
+}
+
+.p-button-paging.x-button-pressing{
+  @extend .blue-button-pressing-background;
+}
+
+.p-button-paging-disable{
+  font-size: 16px !important;
+  background: $p-config-tablet-buttondisablebackground !important;
+}
+
+.p-button-paging, .p-button-paging-disable {
+  margin: 10px !important;
+  height: $p-height-button-medium;
+  padding: 0px 10px;
+  .x-button-label {
+    line-height: 40px;
+  }
+}
+.p-list-directorylist-pressed {
+  opacity: 0.5;
+}
+.p-button-staffFunction {
+  color: $p-config-tablet-lablebuttonbluecolor;
+  @extend .blue-button-background;
+  margin-left: 10px;
+}
+
+.p-button-staffFunction-selected {
+  color: $p-config-tablet-lablebuttonredcolor;
+  @extend .red-button-background;
+  margin-left: 10px;
+}
+
+.p-button-staffFunction .x-button-label {
+  font-weight: normal;
+  font-size: 10.5pt;
+}
+.p-button-profile-done {
+  width: 20%;
+  height: $p-height-button-medium;
+  @extend .blue-button-background;
+  margin: 10px 0px 10px 20px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonbluecolor;
+    text-align: center;
+    line-height: 22px;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+}
+.p-button-profile-cancel {
+  width: 20%;
+  height: $p-height-button-medium;
+  @extend .gray-button-background;
+  margin: 10px 0px 10px 20px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttongraycolor;
+    text-align: center;
+    line-height: 22px;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+}
+
+.p-button-profile-done.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+
+.p-button-profile-cancel.x-button-pressing {
+  @extend .gray-button-pressing-background;
+}

@@ -15,6 +15,7 @@
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
+    <allow-navigation href="*" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
@@ -81,7 +82,7 @@
     <splash platform="android" qualifier="land-xhdpi" src="resources/android/splash/splash-land-xhdpi.png" />
     <splash height="480" platform="ios" src="resources/ios/splash/default~iphone.png" width="320" />
     <splash height="960" platform="ios" src="resources/ios/splash/default@2x~iphone.png" width="640" />
-    <splash height="1136" platform="ios" src="resources/ios/splash/default-568h@2x" width="640" />
+    <splash height="1136" platform="ios" src="resources/ios/splash/default-568h@2x.png" width="640" />
     <splash height="1024" platform="ios" src="resources/ios/splash/default-portrait~ipad.png" width="768" />
     <splash height="2008" platform="ios" src="resources/ios/splash/default-portrait@2x~ipad.png" width="1536" />
     <splash height="768" platform="ios" src="resources/ios/splash/default-landscape~ipad.png" width="1024" />

@@ -1,0 +1,62 @@
+.headerPanel {
+  @include tabletheaderbar($p-config-tablet-headerpanel-aroundcolor, $p-config-tablet-headerpanel-centercolor,
+    $p-config-tablet-headerpanel-borderbottomcolor, $p-config-tablet-headerpanel-bordertopcolor);
+}
+.labelTitleHeaderPanel {
+  @include tabletfonttype($p-config-tablet-headerpanel-titlefontfamily, $p-config-tablet-headerpanel-titlefontsize, $p-config-tablet-headerpanel-titlefontcolor);
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5px;
+}
+.homemenuitem.p-image-iconheaderurl {
+  background-image: url($p-config-icon-headerpanel-home) !important;
+}
+.schedulemenuitem.p-image-iconheaderurl {
+  background-image: url($p-config-icon-headerpanel-schedule)!important;
+}
+.storemenuitem.p-image-iconheaderurl {
+  background-image: url($p-config-icon-headerpanel-store) !important;
+}
+.newsmenuitem.p-image-iconheaderurl {
+  background-image: url($p-config-icon-headerpanel-news) !important;
+}
+.directormenuitem.p-image-iconheaderurl {
+  background-image: url($p-config-icon-headerpanel-directory) !important;
+}
+.eventmenuitem.p-image-iconheaderurl {
+  background-image: url($p-config-icon-headerpanel-event) !important;
+}
+
+.headerPanel {
+  .discussionmenuitem {
+    background: transparent url($p-config-icon-headerpanel-comunication) 46.5% 20px no-repeat !important;
+    padding-left: 160px;
+    font-family: Arial;
+    font-size: 23pt;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  .profilemenuitem{
+    font-family: Arial;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+    margin-left: -80px;
+  }
+}
+.p-button-headerconnect {
+  width: 80px;
+  margin: 0px 20px 5px 0px;
+  background-image: url($p-config-tablet-connectionicon) !important;
+  background-position: 5px 7px !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent;
+  border: 0px;
+  border-radius: 0;
+}
+.p-button-pressing-opacity {
+  opacity: 0.6;
+}

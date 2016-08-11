@@ -1,0 +1,94 @@
+@include sencha-button-ui('back', gray, '');
+@include sencha-button-ui('blue',   #0044AC, '');
+@include sencha-button-ui('gray', gray, '');
+@mixin buttonphone {
+  .p-phone-toolbar-blue{
+      .x-button.x-button-back, .x-button.x-button-back.x-button-back::after,
+      .x-button.x-button-back.x-button-forward::after, .x-toolbar .x-button.x-button-back,
+      .x-toolbar .x-button.x-button-back.x-button-back::after,
+      .x-toolbar .x-button.x-button-back.x-button-forward::after,
+      .x-button.x-button-back-round, .x-button.x-button-back-round.x-button-back::after,
+      .x-button.x-button-back-round.x-button-forward::after, .x-toolbar .x-button.x-button-back-round,
+      .x-toolbar .x-button.x-button-back-round.x-button-back::after,
+      .x-toolbar .x-button.x-button-back-round.x-button-forward::after,
+      .x-button.x-button-back-small, .x-button.x-button-back-small.x-button-back::after,
+      .x-button.x-button-back-small.x-button-forward::after,
+      .x-toolbar .x-button.x-button-back-small,
+      .x-toolbar .x-button.x-button-back-small.x-button-back::after,
+      .x-toolbar .x-button.x-button-back-small.x-button-forward::after
+      {
+        background-color: none;
+      }
+  }
+  .p-phone-title-toolbar{
+    padding-left: 10px;
+  }
+
+
+  .x-button-back.x-button-back::after{
+    border: 0px !important;
+    border-radius: 5px !important;
+  }
+  .x-button-forward:before, .x-button-forward:after, .x-button-back:before, .x-button-back:after {
+    width: 2.77253em;
+    height: 1.9em;
+  }
+
+  .p-phone-soldout {
+      margin: 5px 10px 5px 0px;
+      background-color: red;
+      color: #ffffff;
+      font-size: 10px;
+      padding: 3px 10px 3px 20px;
+      border-radius: 15px;
+
+  }
+  .p-phone-member{
+      margin: 5px 10px 5px 0px;
+      background-color: blue;
+      color: #ffffff;
+      font-size: 10px;
+      padding: 3px 10px 3px 20px;
+      border-radius: 15px;
+  }
+
+  .p-phone-button-loadingmore{
+    min-height: 45px;
+  }
+
+  .button-session-navigation{
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 50px;
+    border: 1px;
+    border-radius: 0px;
+    background-color: transparent;
+    background-size: 22px 28px;
+    margin: 0 10px;
+  }
+  .button-session-navigation.x-item-disabled {
+     background-image: none;
+    }
+  .p-phone-button-sessionprevious{
+    background-image: url('../icons/phone/back-arrow-grey.png');
+    @extend .button-session-navigation;
+  }
+  .p-phone-button-sessioncontinue{
+    background-image: url('../icons/phone/next-arrow-grey.png');
+    @extend .button-session-navigation;
+  }
+
+  .p-phone-button-store-filter{
+    border-radius: 0;
+    background-color: transparent !important;
+    border: none;
+    background-image: none !important;
+    color: white;
+  }
+  .p-phone-button-store-filter-press{
+    background-color: transparent !important;
+  }
+
+
+
+}

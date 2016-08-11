@@ -1,0 +1,89 @@
+@mixin community {
+  .conversationText {
+    background: #ffffff;
+    color: #000000;
+    border-radius: 0;
+    width: 300px;
+    height: $p-height-button;
+    background-image: url('../icons/conversation.png'),url('../icons/line.png') !important;
+    background-repeat: no-repeat,repeat-y !important;
+    background-size: 25px 25px, auto auto !important;
+    background-position: 10px center, 40px 0; 
+    font-size: $p-text-large-size;
+    font-weight: normal;
+    margin-bottom: $p-margin-same-component;
+  }
+
+  .conversationText .x-button-label {
+    padding-left: 45px;
+    text-align: left;
+  }
+
+  .hearderDescription {
+    background: #ffffff url('../images/header-des.png') top left no-repeat;
+    background-size:  auto 100%;
+  }
+
+  .backgroundItemList {
+    background: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    padding:10px 10px 0 10px
+  }
+
+  .backgroundItemList a {
+    color: blue;
+  }
+
+  .x-item-pressed .backgroundItemList,.x-item-pressed .backgroundItemList * {
+    background-color: $p-button-pressing-background-color !important;
+    color: $p-button-pressing-text-color;
+  }
+
+  .communityItemName {
+    line-height: 30px;
+    padding-left: 20px;
+  }
+
+  .communitybtn {
+    background: #ffffff url('../icons/profile.png')center center no-repeat;
+    background-size: 25px auto; 
+    border: solid 1px #000000;
+    width: 30px;
+    height:30px;
+    border-radius: 0;
+  }
+
+  .comunityPhoto {
+    background: #333333;
+  }
+
+  .p-panel-postComment {
+    padding: $p-padding-text;
+    background: #ffffff;
+    color: #000000;
+    margin-bottom: $p-margin-same-component;
+  }
+
+  .p-textareafield-postComment {
+    border: solid 1px #333333;
+    margin-bottom: $p-margin-same-component;
+  }
+
+  .p-panel-choice-postComment {
+     padding: $p-padding-text;
+     margin-bottom: $p-margin-same-component;
+   }
+
+  .p-checkbox-comunitypanel {
+    margin-bottom: $p-margin-same-component;
+  }
+
+  .p-button-postcomment {
+    border-radius: 0;
+    color: #ffffff;
+    background: #000000;
+    border:solid 1px #999999;
+    padding: 15px;
+  }
+}

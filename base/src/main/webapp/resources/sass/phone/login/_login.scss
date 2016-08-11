@@ -1,0 +1,116 @@
+@mixin loginphone {
+  .p-login-form-phone::before {
+    background: transparent url("../images/phone/login/TMARConnect-logo.png") center bottom no-repeat;
+    content: '';
+    height: 300px;
+    width: 100%;
+    position: absolute !important;
+    bottom: 10px;
+    left: 0px;
+    background-size: 90% 80%;
+  }
+  .p-phone-logineditfield{
+    padding: 20px 10px;
+  }
+  .p-login-form-phone {
+    background-image: url("../images/phone/login/TMARConnect-bg-black.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+
+    .username-text-field-login-container, .password-text-field-login-container {
+      margin-bottom: 10px;
+      border-radius: 8px;
+      min-height: 40px !important;
+      height: 40px !important;
+    }
+
+    .label-field-login {
+      padding: 0px 0px 0px 10px;
+      line-height: 40px;
+      text-align: left;
+      border-top-left-radius: 8px !important;
+      border-bottom-left-radius: 8px;
+      background-color: transparent;
+    }
+
+    .username-text-field-login-container .x-input-text, .password-text-field-login-container .x-input-password {
+      min-height: 40px !important;
+      height: 40px !important;
+      padding: 0px 0px 0px 7px;
+      font-size: 12pt;
+      font-weight: normal;
+      font-family: Arial;
+    }
+
+    .username-text-field-login-container .x-form-label span, .password-text-field-login-container .x-form-label span {
+      font-size: 12pt;
+      font-weight: bold;
+      font-family: Arial;
+    }
+
+    .temporary-note {
+      margin-bottom: 25px;
+      margin-top: 25px;
+
+      #title-temporary-note {
+        display: inline;
+        color: #db5111;
+        font-size: 20px;
+        font-weight: bold
+      }
+
+      #content-temporary-note {
+        color: #e8672c;
+        display: inline;
+        font-size: 16px
+        
+      }
+    }
+  }
+
+  .p-container-phone-login-bottom{
+    height: 35px;
+    margin-bottom: 51px
+  }
+
+  .p-button-phone-forgot-password, .p-button-phone-requesttemporaypassword{
+    background: transparent;
+    border: 0px;
+    width: 50%;
+    .x-button-label{
+      color: white;
+      font-size: 9px;
+      text-align: left;
+      font-weight: normal;
+    }
+  }
+
+  .p-button-phone-loginbottompressed{
+    background: transparent;
+    border: 0px;
+    .x-button-label{
+      color: #919191;
+    }
+  }
+
+  .p-button-phone-requesttemporaypassword .x-button-label{
+    text-align: right;
+  }
+
+  .info-twitter-container {
+    color: black;
+  }
+
+  .authorize-button-phone{
+    @extend .blue-button-background;
+    margin: 8px 20px 20px 20px;
+    height: 35px;
+    .x-button-label {
+      font-size: 13px !important;
+      color: white;
+    }
+  }
+  .authorize-button-phone.x-button-pressing{
+    @extend .blue-button-pressing-background;
+  }
+}

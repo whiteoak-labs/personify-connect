@@ -1,0 +1,225 @@
+.headerMainBtn.x-button {
+  border-radius: 0;
+  border: 0px;
+  padding-top:45px;
+  width: 60px;
+  background-image: url($p-config-icon-menubarhome) !important;
+  background-position: center 3px !important;
+  background-repeat: no-repeat !important;
+  color: $p-config-tablet-headerinfoandhomebtntextcolor;
+  background-color: $p-config-tablet-headerinfoandhomebtn;
+  .x-button-label {
+    color: white;
+  }
+}
+.menuitempositon{
+  background-size: 30px;
+  margin-top: 3px;
+}
+
+.headerInfoBtn.x-button, .headerInfoBtn .x-button-pressed {
+  border-radius: 0;
+  border: 0px;
+  padding-top:45px;
+  width: 60px;
+  background-image: url($p-config-icon-menubarinfo) !important;
+  background-position: center 7px !important;
+  background-repeat: no-repeat !important;
+  color: $p-config-tablet-headerinfoandhomebtntextcolor;
+  background-color: $p-config-tablet-headerinfoandhomebtn;
+  background-size: 33px;
+  .x-button-label {
+    color: white;
+  }
+}
+
+.menubarPanel{
+  background: $p-config-tablet-menubarpanel-background;
+  width: 100%;
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: -1px !important;
+  .x-carousel-indicator-dark span {
+    opacity: 0.01;
+  }
+  span.x-carousel-indicator-active {
+    opacity: 0.01;
+  }
+}
+.menubarPanel .x-button-label{
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+}
+.menubarPanel .x-item-pressed {
+  background-color: $p-config-tablet-menubarPanel-presseditembackgroundcolor !important;
+  color: $p-config-tablet-menubarPanel-presseditemtextcolor;
+}
+.menubarPanel .newsmenuitem{
+  background-image: url($p-config-icon-menubarnews) !important;
+  @extend .menuitempositon;
+  background-size: 32px !important;
+}
+.menubarPanel .storemenuitem{
+  background-image: url($p-config-icon-menubarstore)!important;
+  @extend .menuitempositon;
+  background-position: center 2px , center top !important;
+}
+.menubarPanel .discussionmenuitem{
+  background-image: url($p-config-icon-menubardiscussion) !important;
+}
+.menubarPanel .schedulemenuitem{
+  background-image: url($p-config-icon-menubarschedule) !important;
+  @extend .menuitempositon;
+}
+.menubarPanel .eventmenuitem{
+  background-image: url($p-config-icon-menubarevent) !important;
+  @extend .menuitempositon;
+}
+.menubarPanel .directormenuitem{
+  background-image: url($p-config-icon-menubardirectory) !important;
+  @extend .menuitempositon;
+}
+.menubarPanel .profilemenuitem{
+  background-image: url($p-config-icon-menubarheaderprofile) !important;
+  margin-top: 3px;
+  background-size: 32px 30px !important;
+}
+.menubarPanel .about{
+  background-image: url($p-config-icon-menubardescription)!important;
+}
+
+.headerMainBtnSelected{
+  border-radius: 0;
+  padding-top:40px;
+  width: 60px;
+  text-align: center;
+  background-image: url($p-config-icon-menubarhome) !important;
+  background-position: center 3px !important;
+  background-repeat: no-repeat !important;
+  color: $p-config-tablet-headerMainBtnSelectedtextcolor;
+  border: 0px;
+  background-color: $p-config-tablet-headerMainBtnSelected;
+  .x-button-label {
+    color: white;
+  }
+}
+.headerInfoBtnSelected {
+  border-radius: 0;
+  border: 0px;
+  padding-top:45px;
+  width: 60px;
+  background-image: url($p-config-icon-menubarinfo) !important;
+  background-position: center 7px !important;
+  background-repeat: no-repeat !important;
+  color: $p-config-tablet-headerMainBtnSelectedtextcolor;
+  background-color: $p-config-tablet-headerMainBtnSelected;
+  .x-button-label {
+    color: white;
+  }
+}
+.menubarPanel .x-item-selected .menuItem {
+  background-image: url($p-config-icon-menubarnote)!important;
+  background-position: center 7px !important;
+  background-repeat: no-repeat !important;
+}
+.menubarPanel .x-item-selected .homemenuitem {
+  background-image: url($p-config-icon-menubarhome)!important;
+}
+.menubarPanel .x-item-selected .newsmenuitem {
+  background-image: url($p-config-icon-menubarnews)!important;
+}
+.menubarPanel .x-item-selected .storemenuitem {
+  background-image: url($p-config-icon-menubarstore) !important;
+}
+.menubarPanel .x-item-selected .discussionmenuitem {
+  background-image: url($p-config-icon-menubardiscussion) !important;
+  background-position: center 5px !important;
+}
+.menubarPanel .x-item-selected .schedulemenuitem {
+  background-image: url($p-config-icon-menubarschedule) !important;
+}
+.menubarPanel .x-item-selected .eventmenuitem {
+  background-image: url($p-config-icon-menubarevent) !important;
+}
+.menubarPanel .x-item-selected .directormenuitem {
+  background-image: url($p-config-icon-menubardirectory) !important;
+}
+.menubarPanel .x-item-selected .profilemenuitem {
+  background-image: url($p-config-icon-menubarheaderprofile) !important;
+}
+.menubarPanelTop, .menubarPanelTop.x-layout-card-item{
+  background-color: $p-config-tablet-menubarPanelTop-colorstart;
+  @include filter-gradient($p-config-tablet-menubarPanelTop-colorstart, $p-config-tablet-menubarPanelTop-colorend, horizontal);
+  @include background-image(linear-gradient(left,  $p-config-tablet-menubarPanelTop-colorstart 0%,$p-config-tablet-menubarPanelTop-colormiddle 54%,$p-config-tablet-menubarPanelTop-colorend 100%));
+  height: 51px;
+}
+.notificationButtonOnMenuBar::before{
+  background-image: url($p-conifg-tablet-mailicon) !important;
+  background-position: 8px center !important;
+  background-repeat: no-repeat !important;
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: -5px;
+}
+.notificationButtonOnMenuBar{
+  @extend .red-button-background;
+  border-radius: 15px !important;
+  box-shadow:none !important;
+  font-size: 10px !important;
+  color: $p-config-tablet-lablebuttonredcolor !important;
+  text-align: center !important;
+  min-width: 55px;
+  height: 32px;
+  .x-button-label{
+    text-align: center;
+    padding-left: 12px;
+    font-size: 14px;
+  }
+}
+.x-button.notificationButtonOnMenuBar.x-button-pressing{
+  @extend .red-button-pressing-background;
+}
+.menubarButton {
+  background-image: url($p-config-tablet-buttonmenubar);
+  background-repeat: no-repeat !important;
+  background-color: $p-config-tablet-buttonmenubarbackground;
+  border: 1px;
+}
+.menubarButtonPressed {
+  background-color: $p-config-tablet-buttonmenubarpressed !important;
+  background-image: url($p-config-tablet-buttonmenubar);
+  background-repeat: no-repeat !important;
+  boder: 1px;
+}
+.p-phone-button-notification::before{
+  background-image: url($p-conifg-tablet-mailicon) !important;
+  background-position: 8px center !important;
+  background-repeat: no-repeat !important;
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 15px;
+  margin-left: -5px;
+}
+.p-phone-button-notification{
+  margin: 14px 10px 14px 0px;
+  @extend .red-button-background;
+  border-radius: 12px !important;
+  box-shadow:none !important;
+  font-size: 10px !important;
+  color: $p-config-tablet-lablebuttonredcolor !important;
+  text-align: center !important;
+  min-width: 45px;
+  .x-button-label{
+    text-align: center;
+    padding-left: 12px;
+    font-size: 12px;
+  }
+}
+
+.x-button.p-phone-button-notification.x-button-pressing{
+  @extend .red-button-pressing-background;
+}

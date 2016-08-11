@@ -1,0 +1,184 @@
+//define global variable
+$p-padding-top: 15px;
+$p-padding-left: 15px;
+$p-padding-right: 15px;
+$p-padding-bottom: 15px;
+
+$p-margin-top: 15px;
+$p-margin-bottom: 15px;
+$p-margin-left: 15px;
+$p-margin-right: 15px;
+
+$p-text-small-size: 13px;
+$p-text-medium-size: 14px;
+$p-text-large-size: 15px;
+$p-text-huge-size: 16px;
+$p-text-list-menu-item-size: 18px;
+$p-text-event-title-size: 18px;
+
+$p-font-family: Arial;
+$p-main-background: black;
+$p-main-color: #ffffff;
+$p-left-panel-background: #364249;
+$p-right-panel-background: #303030;
+$button-background-red: #CF3424;
+$button-background-blue: #266DBF;
+
+//list
+$p-padding-text: 10px;
+$p-padding-main: 2px;
+$p-hyperlink-blue: #007CF9;
+$p-hyperlink-bluelight: #76B9FD;
+
+$p-margin-list-item: 5px;
+$p-margin-same-component: 10px;
+$p-margin-diff-component: 2px;
+
+$p-height-button: 40px;
+$p-height-button-small: 30px;
+$p-height-button-medium: 44px;
+$p-height-button-high: 45px;
+$p-height-field-title: 35px;
+$p-button-pressing-background-color : #cf3424;
+$p-button-pressing-background-other-color: #006600;
+$p-button-pressing-text-color : #ffffff;
+$p-buttonEdit-pressing-background-color: gray;
+
+//global variable for phone view
+$p-toolbar-header-size: 17px;
+$p-toolbar-button-font-size-big: 13px;
+$p-toolbar-button-font-size: 12px;
+$p-toolbar-button-font-size-small: 7px;
+$p-phone-text-huge-size: 18px;
+$p-phone-text-small-size: 12px;
+$p-phone-text-tiny-size: 11px;
+$p-phone-text-micro-size: 10px;
+$p-phone-text-nano-size: 9px;
+$p-phone-text-title-size: 16px;
+$p-phone-text-medium-size: 14px;
+
+@import 'recipes/background';
+@import 'recipes/color';
+@import 'sencha-touch/default/mixins/Class';
+
+@import 'configuration';
+@import 'mixinhelper';
+@import 'main/menubar';
+@import 'common/field';
+@import 'common/button';
+@import "direcotry/directory";
+@import "event/event";
+@import "event/filter";
+@import "event/complexEvent";
+@import "event/detailcomplexevent";
+@import "event/material";
+@import "event/notes";
+@import "exibitor/exhibitor";
+@import 'home/home';
+@import "help/help";
+@import 'login/login';
+@import 'main/main';
+@import "main/menubar";
+@import 'news/news';
+@import "profile/profile";
+@import 'store/store';
+@import "phone/common/button";
+@import "phone/common/panel";
+@import "phone/home/home";
+@import "phone/main/main";
+@import "phone/event/eventdetail";
+@import "phone/directory/directory";
+@import "phone/news/news";
+@import "phone/aboutAPA/aboutAPAPhone";
+@import "phone/login/login";
+
+
+.panel-right {
+  background-color: $p-config-tablet-panelright-color !important;
+  color: $p-config-tablet-profilepanelrighttextcolor !important;
+}
+
+.panel-left {
+  background-color: $p-config-tablet-panelleft-colorstart; // Old browsers
+  @include filter-gradient($p-config-tablet-panelleft-colorstart, $p-config-tablet-panelleft-colorend, vertical); // IE6-9
+  @include background-image(linear-gradient(top, #22292f 0%,$p-config-tablet-panelleft-colormiddle 54%,$p-config-tablet-panelleft-colorend 100%));
+}
+
+.red-button-background {
+  border-radius: 7px;
+  box-shadow: 0px 2px 2px $p-config-tablet-redbuttonshadow;
+  border: 2px solid $p-config-tablet-redbuttonborder;
+  background-color: $p-config-tablet-redbuttonbackgroud-colorstart;
+  @include filter-gradient($p-config-tablet-redbuttonbackgroud-colorstart, $p-config-tablet-redbuttonbackgroud-colorend, vertical);
+  @include background-image(linear-gradient(top,  $p-config-tablet-redbuttonbackgroud-colorstart 0%,$p-config-tablet-redbuttonbackgroud-colormiddle 44%,$p-config-tablet-redbuttonbackgroud-colorend 100%));
+}
+
+.red-button-pressing-background {
+  background: $p-config-tablet-redbuttonbackgroud-pressed-colorstart !important;
+  background: -moz-linear-gradient(top, $p-config-tablet-redbuttonbackgroud-pressed-colorstart 0%, $p-config-tablet-redbuttonbackgroud-pressed-colormiddle 33%, $p-config-tablet-redbuttonbackgroud-pressed-colorend 100%) !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$p-config-tablet-redbuttonbackgroud-pressed-colorstart), color-stop(33%,$p-config-tablet-redbuttonbackgroud-pressed-colormiddle), color-stop(100%,$p-config-tablet-redbuttonbackgroud-pressed-colorend)) !important;
+  background: -webkit-linear-gradient(top, $p-config-tablet-redbuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-redbuttonbackgroud-pressed-colormiddle 33%,$p-config-tablet-redbuttonbackgroud-pressed-colorend 100%) !important;
+  background: -o-linear-gradient(top, $p-config-tablet-redbuttonbackgroud-pressed-colorstart 0%,#6d0007 33%,$p-config-tablet-redbuttonbackgroud-pressed-colorend 100%) !important;
+  background: -ms-linear-gradient(top, $p-config-tablet-redbuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-redbuttonbackgroud-pressed-colormiddle 33%,$p-config-tablet-redbuttonbackgroud-pressed-colorend 100%) !important;
+  background: linear-gradient(to bottom, $p-config-tablet-redbuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-redbuttonbackgroud-pressed-colormiddle 33%,$p-config-tablet-redbuttonbackgroud-pressed-colorend 100%) !important;
+}
+
+.blue-button-background {
+  border-radius: 7px;
+  box-shadow: 0px 2px 2px $p-config-tablet-bluebuttonshadow;
+  border: 2px solid $p-config-tablet-bluebuttonborder;
+  background-color: $p-config-tablet-bluebuttonbackgroud-colorstart;
+  @include filter-gradient($p-config-tablet-bluebuttonbackgroud-colorstart, $p-config-tablet-bluebuttonbackgroud-colorend, vertical);
+  @include background-image(linear-gradient(top,$p-config-tablet-bluebuttonbackgroud-colorstart 0%,$p-config-tablet-bluebuttonbackgroud-colorend 100%));
+}
+
+.blue-button-pressing-background {
+  background: $p-config-tablet-bluebuttonbackgroud-pressed-colorstart !important;
+  background: -moz-linear-gradient(top, $p-config-tablet-bluebuttonbackgroud-pressed-colorstart 0%, $p-config-tablet-bluebuttonbackgroud-pressed-colorend 100%) !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$p-config-tablet-bluebuttonbackgroud-pressed-colorstart), color-stop(100%,$p-config-tablet-bluebuttonbackgroud-pressed-colorend)) !important;
+  background: -webkit-linear-gradient(top, $p-config-tablet-bluebuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-bluebuttonbackgroud-pressed-colorend 100%) !important;
+  background: -o-linear-gradient(top, $p-config-tablet-bluebuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-bluebuttonbackgroud-pressed-colorend 100%) !important;
+  background: -ms-linear-gradient(top, $p-config-tablet-bluebuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-bluebuttonbackgroud-pressed-colorend 100%) !important;
+  background: linear-gradient(to bottom, $p-config-tablet-bluebuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-bluebuttonbackgroud-pressed-colorend 100%) !important;
+}
+
+.gray-button-background {
+  border-radius: 7px;
+  box-shadow: 0px 2px 2px $p-config-tablet-graybuttonshadow;
+  border: 2px solid $p-config-tablet-graybuttonborder;
+  background-color: $p-config-tablet-graybuttonbackgroud-colorstart;
+  @include filter-gradient($p-config-tablet-graybuttonbackgroud-colorstart, $p-config-tablet-graybuttonbackgroud-colorend, vertical);
+  @include background-image(linear-gradient(top,  $p-config-tablet-graybuttonbackgroud-colorstart 0%,$p-config-tablet-graybuttonbackgroud-colormiddle 36%,$p-config-tablet-graybuttonbackgroud-colorend 100%));
+
+}
+
+.gray-button-pressing-background {
+  background: $p-config-tablet-graybuttonbackgroud-pressed-colorstart !important;
+  background: -moz-linear-gradient(top, $p-config-tablet-graybuttonbackgroud-pressed-colorstart 0%, $p-config-tablet-graybuttonbackgroud-pressed-colormiddle 36%, $p-config-tablet-graybuttonbackgroud-pressed-colorend 100%) !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$p-config-tablet-graybuttonbackgroud-pressed-colorstart), color-stop(36%,$p-config-tablet-graybuttonbackgroud-pressed-colormiddle), color-stop(100%,$p-config-tablet-graybuttonbackgroud-pressed-colorend)) !important;
+  background: -webkit-linear-gradient(top, $p-config-tablet-graybuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-graybuttonbackgroud-pressed-colormiddle 36%,$p-config-tablet-graybuttonbackgroud-pressed-colorend 100%) !important;
+  background: -o-linear-gradient(top, $p-config-tablet-graybuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-graybuttonbackgroud-pressed-colormiddle 36%,$p-config-tablet-graybuttonbackgroud-pressed-colorend 100%) !important;
+  background: -ms-linear-gradient(top, $p-config-tablet-graybuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-graybuttonbackgroud-pressed-colormiddle 36%,$p-config-tablet-graybuttonbackgroud-pressed-colorend 100%) !important;
+  background: linear-gradient(to bottom, $p-config-tablet-graybuttonbackgroud-pressed-colorstart 0%,$p-config-tablet-graybuttonbackgroud-pressed-colormiddle 36%,$p-config-tablet-graybuttonbackgroud-pressed-colorend 100%) !important;
+}
+
+.blue-blood-button-background {
+  border-radius: 7px;
+  box-shadow: 0px 2px 2px $p-config-tablet-bluebloodbuttonshadow;
+  border: 2px solid $p-config-tablet-bluebloodbuttonborder;
+  background-color: $p-config-tablet-bluebloodbuttonbackgroud-colorstart;
+  @include filter-gradient($p-config-tablet-bluebloodbuttonbackgroud-colorstart, $p-config-tablet-bluebloodbuttonbackgroud-colorend, vertical);
+  @include background-image(linear-gradient(top,  $p-config-tablet-bluebloodbuttonbackgroud-colorstart 0%,$p-config-tablet-bluebloodbuttonbackgroud-colorend 100%));
+ }
+
+.panel-left-not-gradient {
+  background-color: $p-conifg-tablet-panelleftnotgradient;
+  @include filter-gradient($p-conifg-tablet-panelleftnotgradient, $p-conifg-tablet-panelleftnotgradient, vertical);
+  @include background-image(linear-gradient(top, $p-conifg-tablet-panelleftnotgradient 0%, $p-conifg-tablet-panelleftnotgradient 100%));
+}
+
+.panel-gray-gradient {
+  background-color: $p-config-tablet-panelgraygradient-colorstart;
+  @include filter-gradient($p-config-tablet-panelgraygradient-colorstart, $p-config-tablet-panelgraygradient-colorend, vertical);
+  @include background-image(linear-gradient(top,  $p-config-tablet-panelgraygradient-colorstart 0%, $p-config-tablet-panelgraygradient-colorend 100%));
+}

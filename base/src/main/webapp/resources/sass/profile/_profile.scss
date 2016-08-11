@@ -1,0 +1,298 @@
+@mixin profile {
+/* CSS for Profile */
+  .p-container-items-purchasehistory,  
+  .p-contactlistingitems, .p-relationshipitems, 
+  .p-list-items-contaclisting{
+    border-bottom: solid 1.5px #919191;
+    min-height: $p-height-button-medium;
+    background-color: transparent;
+    font-size: 15px;
+    margin: 0px 20px !important;
+    padding: 10px 20px !important;
+    color: white;
+  }
+  .p-list-nodatacontactdetail{
+      color: white;
+      background-color: transparent;
+      .x-list-emptytext{
+        text-align: left !important;
+        padding-left: 10px;
+      }
+  }
+  .current-committee-list, .future-committee-list, .past-committee-list{
+    background-color: transparent;
+    margin: 0px 20px 20px 20px;
+    .x-list-item-label{
+      color: white;
+    }
+  }
+  .p-sub-item-participation{
+    padding: 10px 20px;
+    border-bottom: 2px solid #919191;
+    margin-bottom: 0px !important;
+  }
+  .p-relationshipcontainer{
+    background-color: transparent;
+  }
+  .p-items-purchasehistory-span{
+    color: #A5A5A5; 
+  }
+  .p-label-displayoption{
+    height: $p-height-button-medium !important;
+  }
+
+  .profile-button{
+      margin:$p-margin-same-component 0px;
+  }
+  .profile-button-content{
+      background: white;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+      font-weight: normal;
+      padding: $p-padding-text;
+  }
+  .profile-label-button{
+      text-align: left;
+  }
+  .displayoption-list{
+      margin: 0px 0px $p-margin-list-item;
+  }
+  .displayoption{
+      margin-right: 3px;
+  } 
+  .profile-button-content-selected{
+    @extend .blue-button-pressing-background;    
+  }
+  .profile-button-content-pressed{
+    @extend .blue-button-pressing-background;
+    opacity: 0.7;
+  }
+
+/*-- toggle field--*/
+  .displayoption-togglefield-label, .displayoption-togglefield{
+      background: transparent;
+      color: white;
+  }
+  
+  /* list profile */
+  .purchase-history-container {
+  	margin-top: 50px;
+  }
+  .p-container-purchasehistory {
+    .x-dataview-emptytext {
+      text-align: center;
+    }
+  }
+  .profile-list-header{
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    background: transparent;
+    height: 44px;
+    margin-bottom: 0px!important;
+  }
+  .sub-profile-list-title{
+    background-color: #595959;
+    @include filter-gradient(#595959, #303030, vertical);
+    @include background-image(linear-gradient(top,  #595959 0%,#303030 56%,#303030 100%));
+    border-bottom: 2px solid #919191;
+    margin: 0 20px;
+  }
+  .sub-profile-list-header{
+      color: #cc6600;
+      background:white;
+      padding: $p-padding-text;
+      margin-bottom: $p-margin-same-component;
+  }
+  .sub-profile-list-container 
+  {
+      background:transparent;
+      margin-bottom:30px;
+  }  
+
+  .p-listItem-followUpRecord {
+    background: white;
+    border-bottom: solid 1px gray !important;
+    font-size: $p-text-large-size;
+    font-weight: bold;
+    color: black;
+  }
+  .p-text-topicString {
+    margin: 20px;
+  }
+
+  /* ------------------ *//* IOS5 TOGGLE
+  /* ------------------ */
+
+  .p-label-valueText {
+    font-size: 14px;
+    width: 100%;
+  }
+  /*logout*/
+  .logout-container {
+  	width: 275px;
+  	height: 143px;
+  	border: 1px solid gray;
+  }
+  .logout-container-cart {
+  	width: 315px;
+  	height: 150px;
+  	border: 1px solid gray;
+  }
+  .title-logout {
+  	background: #333333;
+  	width: 100%;
+  	height: 50px;
+  	text-align: center;
+  	color: white;
+  	line-height: 50px;
+  	font-size: $p-text-event-title-size;
+  	font-weight: bold;
+  }
+  .content-panel-logout {
+  	background: white;
+  	width: 100%;
+  }
+  .label-content-panel-logout {
+  	padding: 15px 15px 10px 15px;
+  	font-size: 14px;
+  	color: black;
+  	margin: 5px 0px 0px 0px;
+  	font-family: Arial;
+  }
+  .btn-close-content-panel-logout {
+     background: url('../images/closeButton.png') 0px 0px no-repeat;
+     width: 44px;
+     height: 44px;
+     position: absolute;
+     top: -20px;
+     left: -20px;
+     border: none;
+  }
+  /*inquiry panel*/
+  .inquiry-page {
+      width: 50%;
+      height: 90%;
+      padding: 10px;
+      box-shadow: -10px 10px 10px black;
+  }
+
+  .form-inquiry-panel {
+      background-color: transparent !important;
+      margin-top: 20px;
+  }
+  .form-inquiry-panel .x-field-labeled {
+    background-color: transparent;
+  }
+
+  .p-text-contactTrackingText {
+    margin-bottom: 10px;
+    display: block;
+    .x-innerhtml{
+      overflow: hidden;
+      text-overflow: ellipsis !important;
+      width: 400px;
+      white-space: nowrap;
+    }
+  }
+  .form-trackingDetail-panel {
+    margin-top: 20px;
+    background-color: white;
+  }
+  .p-text-callTypeCode {
+    font-weight: bold;
+    font-size: $p-text-large-size;
+    margin-bottom: 10px;
+    color: white !important;
+  }
+  .p-text-activity {
+    font-weight: normal;
+    font-size: $p-text-large-size;
+    color: white;
+  }
+  .p-text-trackingDetail-label {
+    font-size: $p-text-large-size;
+    font-weight: bold;
+    margin-right: 20px;
+    color: white !important;
+  }
+
+  .p-text-trackingDetail-value {
+    font-size: $p-text-large-size;
+    font-weight: normal;
+    color: white;
+  }
+
+  .p-panel-trackingInfo {
+    border-bottom: 1px solid #919191;
+    padding: 10px;
+  }
+
+  .p-text-followUp-header {
+    font-size: $p-text-large-size;
+    font-weight: bold;
+    color: white;
+  }
+
+  .p-panel-followUp-header {
+    @extend .addEventLabel; 
+  }
+
+  .p-button-trackingDetail-action {
+    @extend .blue-button-background;
+    width: 140px;
+    height: 44px;
+   .x-button-label {
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+    }
+  }
+
+  .p-button-trackingDetail-action.x-button-pressing{
+    @extend .blue-button-pressing-background;
+  }
+  .p-div-profile-address-main {
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .p-panel-nameAndTitleEditForm {
+    background: blue;
+  }
+
+  .p-panel-profile-photo {
+    margin: 0px 10px 0px 0px;
+  }
+
+  .phonelist-item {
+    margin-bottom: 10px;
+  }
+
+  .p-phone-membersettingtitle, 
+  .p-phone-addpersonalevent{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px; 
+  }
+
+  .p-container-setting{
+    padding: 10px;
+  }
+  .p-fieldset-settingsapp47id{
+    .x-form-fieldset-inner{
+      background: transparent !important;
+      border: 0px !important;
+    }
+  }
+  .p-phone-container-profilesetting{
+    background-color: white;
+    font-size: $p-phone-text-small-size;
+    color: black;
+    margin-bottom: 51px;
+  }
+}

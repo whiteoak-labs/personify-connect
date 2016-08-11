@@ -1,0 +1,34 @@
+.extend-list-exhibitor-material-presenter-attendees {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+.extend-Itemlist-exhibitor-material-presenter-attendees {
+  min-height: 86px;
+  margin: 3px 0px;
+  border: none !important;
+  background-color: $p-config-tablet-eventitembackground;
+}
+.materialList-item {
+  @extend .extend-Itemlist-exhibitor-material-presenter-attendees;
+  padding: 10px;
+}
+.materialList-item-label {
+  color: white;
+}
+
+.btn-ppt-material {
+  height: 25px;
+  width: 30px;
+  border: none;
+  padding: 0px;
+}
+.btn-ppt-material {
+  background: transparent url($p-config-tablet-downloadmaterial) no-repeat center center;
+}
+
+.materialList {
+  @extend .extend-list-exhibitor-material-presenter-attendees;
+}

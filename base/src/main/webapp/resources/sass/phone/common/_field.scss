@@ -1,0 +1,150 @@
+@mixin fieldphone {
+  .p-phone-label-title{
+    padding: 10px;
+    width: 100%;
+  }
+  .p-phone-search-field{
+    border-radius: 25px;
+    margin: 10px 10px;
+    padding:0px 5px 0px 10px;
+    border: solid 1px gray;
+    font-size: 12px;
+    height: 30px;
+    min-height: 10px;
+    .x-field-input{
+      top: 3px;
+    }
+    .x-field-input::before{
+      left: 0px;
+    }
+    .x-clear-icon {
+      margin: 0px !important;
+      background-position: 8px 5px !important;
+      top: -3px !important;
+    }
+  }
+  .p-phone-search-field .x-input-el {
+    min-height: 0 !important;
+  }
+  .p-phone-search-view{
+    font-size: 12px;
+    padding: 0px 10px;
+    color: black;
+  }
+  .p-phone.search-field .x-input-text {
+    height: 30px;
+    min-height: 10px;
+  }
+  
+  .p-phone-notification-number{
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    background: #C60;
+    color: white !important;
+    font-size: 12px;
+    padding: 3px 5px;
+  }
+
+  .p-img-presenter{
+    background: #dedede;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .p-phone-text-red {
+    color: #ce0909;
+  }
+  .p-phone-event-name{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    .x-innerhtml{
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 230px;
+    }
+  }
+  .event-item-phone {
+    .p-phone-event-name{
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 220px;
+    }
+    .p-phone-event-location{
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 145px;
+    }
+  }
+  .p-phone-event-location{
+    .x-innerhtml{
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 145px;
+    }
+  }
+  .p-phone-icon{
+    height: 17px;
+    width: 17px;
+    margin: 0px 2px;
+    background-size: 100% 100%;
+  }
+  
+  .p-phone-icon-soulOut{
+    @extend .p-phone-icon;
+    background-image: url("../icons/phone/sold-out-icon.png") !important;
+  }
+  
+  .p-phone-icon-member{
+    @extend .p-phone-icon;
+    background-image: url("../icons/phone/member-only-icon.png") !important;
+  }
+  .p-phone-filter-list{
+    height: 250px;
+    width: 200px;
+    font-size: 12px;
+    background-color: white;
+    color: black;
+    .item-update-list{
+      padding-left: 10px;
+    }
+  }
+
+  .p-emptyText-phone {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12pt;
+    font-weight: bold;
+  }
+  .p-phone-calendar-day{
+    padding: 5px;
+    background-color: $p-left-panel-background;
+    color: white;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .p-phone-calendar-day-personal-event {
+    background-color: $p-left-panel-background;
+    color: white;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .p-phone-event-personal-header{
+    margin-bottom: 10px;
+  }
+  .p-phone-text-alreadyRegistered{
+    text-align: center;
+    color: #A80000;
+    font-size: 12px;
+  }
+  
+  .p-inlineblock{
+    display: inline-block;
+  }
+}

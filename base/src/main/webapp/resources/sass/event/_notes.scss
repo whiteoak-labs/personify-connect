@@ -1,0 +1,62 @@
+@mixin notes {
+  .notelist {
+    @extend .extend-list-exhibitor-material-presenter-attendees;
+    background-color: transparent !important;
+    color: #ffffff !important;
+  }
+
+  .x-list .notelist {
+    background-color: transparent !important;
+  }
+
+  .notelistitem .x-list-item-label {
+    width: 100%;
+    min-height: 86px;
+    margin: 2px 0px !important;;
+    padding: 10px !important;;
+    border: none !important;
+    background-color: grey;
+    color: #ffffff !important;
+  }
+  .notelistitem{
+    color: white !important;
+  }
+
+
+  .inputTitleOneNote {
+    margin: 0px;
+    padding: 2px;
+    border: none;
+    border-radius: 0px;
+    .sencha-clear-icon{
+      padding-right: 2.1em !important;
+    }
+
+  }
+
+  .inputTitleOneNote .x-input-el {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-radius: 0px;
+    border-bottom: 1px solid black;
+    font-size: 15pt;
+    min-height: 100%;
+  }
+
+  .inputDescriptionNote {
+    margin: 10px; 
+    padding: 0px;
+    border: none;
+    border-radius: 0px;
+  }
+  
+  .inputDescriptionNote textarea{
+    resize: none;
+    overflow: hidden;
+  }
+  .description-item-note {
+    font-size: 15pt;
+    color: black !important;
+  }
+}

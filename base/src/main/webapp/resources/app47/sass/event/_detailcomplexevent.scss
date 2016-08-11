@@ -1,0 +1,47 @@
+.p-button-map::before {
+  background-image: url($p-conifg-tablet-mapiconwhite), url($p-conifg-tablet-blueline) !important;
+  @extend .extend-AddToSchedule-Share-InMySchedule;
+}
+
+.p-button-map {
+  @extend .blue-blood-button-background;
+  @extend .extend-button-AddToSchedule-Share-InMySchedule;
+  width: 110px;
+  margin: 5px 0px 5px 10px;
+}
+
+.p-button-map.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+
+.p-button-map .x-button-label {
+  @extend .extend-label-AddToSchedule-Share-InMySchedule;
+}
+.item-session-menu-list {
+  height: 35px;
+  width: 20%;
+  border-radius: 0px !important;
+  border: 1px solid black !important;
+  background-color: $p-config-tablet-segmentedbutton-disablecolor;
+  margin: 0px !important;
+  padding: 0px;
+}
+.item-session-menu-list-without-rate {
+  @extend .item-session-menu-list;
+  width: 25% !important;
+}
+
+.item-selected-session-menu-list {
+  @extend .blue-button-background;
+}
+
+.item-session-menu-list.x-item-pressed {
+  opacity: 0.9;
+}
+
+.item-session-menu-list .title-name, .item-session-menu-list.x-item-pressed .title-name, .item-selected-session-menu-list .title-name {
+  text-align: center;
+  line-height: 35px;
+  color: white;
+  font-weight: bold;
+}

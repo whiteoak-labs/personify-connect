@@ -28,11 +28,13 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
 
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
     @catch (NSException *ex)
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -56,13 +58,15 @@
         } else {
             NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:jsonString];
-            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         }
         
     }
     @catch (NSException *ex)
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -85,12 +89,14 @@
         } else {
             NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:jsonString];
-            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         }        
     }
     @catch (NSException *ex)
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -111,13 +117,15 @@
         } else {
             NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:jsonString];
-            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         }                        
     }
     @catch (NSException *ex)
     {
         NSLog(@"NSException in configurationGroupNames ");
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -131,13 +139,13 @@
         NSString* key = [options objectForKey:@"key"];
         NSString* group = [options objectForKey:@"group"];
         id obj = [EmbeddedAgent configurationObjectForKey:key group:group];
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:obj];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-
-    }
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:obj];    }
     @catch (NSException *ex) 
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -152,12 +160,13 @@
         NSData *data = [EmbeddedAgent configurationFileForKey:key group:group];
         NSString *obj = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:obj];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-        
     }
     @catch (NSException *ex)
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -186,11 +195,13 @@
             EALogDebug(@"%@",[options objectForKey:@"msg"]); 
         }
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
     @catch (NSException *ex)
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -203,11 +214,13 @@
         NSString *eventName = [command.arguments objectAtIndex:0]; 
         [EmbeddedAgent sendGenericEvent:eventName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
     @catch (NSException *ex) 
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -219,11 +232,13 @@
         NSString *eventName = [command.arguments objectAtIndex:0];
         NSString *eventID = [EmbeddedAgent startTimedEvent:eventName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:eventID];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
     @catch (NSException *ex) 
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
     
 }
@@ -236,11 +251,13 @@
         NSString *eventName = [command.arguments objectAtIndex:0];
         [EmbeddedAgent endTimedEvent:eventName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
     @catch (NSException *ex) 
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:[ex reason]];
+    }
+    @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -256,4 +273,3 @@
 }
 
 @end
-

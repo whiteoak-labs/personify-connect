@@ -1,0 +1,14 @@
+.p-button-aboutAPA {
+  @extend .blue-button-background;
+  height: 30px;
+  width: 100%;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  color: $p-config-tablet-lablebuttonbluecolor;
+}
+.p-button-aboutAPA .x-button-label {
+  line-height: 26px;
+}
+.p-button-aboutAPA.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}

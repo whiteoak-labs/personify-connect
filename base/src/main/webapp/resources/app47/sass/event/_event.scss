@@ -1,0 +1,130 @@
+.p-button-all-schedule.x-button-pressing, .p-button-all-event.x-button-pressing {
+  @extend .red-button-pressing-background;
+}
+
+.p-button-all-schedule::before, .p-button-all-event::before {
+  background-image: url($p-conifg-tablet-onlymysch), url($p-conifg-tablet-iconredline) !important;
+  background-repeat: no-repeat, repeat-y !important;
+  background-position: 7px center, 40px 0 !important;
+  content: "";
+  height: 100%;
+  width: 50px;
+  margin-top: -4px;
+  position: absolute !important;
+}
+
+.p-button-all-schedule, .p-button-all-event {
+  @extend .red-button-background;
+  color: $p-config-tablet-lablebuttonredcolor;
+  height: $p-height-button;
+  margin: $p-margin-same-component !important;
+}
+
+.p-button-all-event .x-button-label, .p-button-all-schedule .x-button-label {
+  padding-left: 50px;
+}
+.p-button-add-personal::before {
+  background-image: url($p-conifg-tablet-pluswhite), url($p-conifg-tablet-blueline) !important;
+  background-repeat: no-repeat, repeat-y !important;
+  background-position: 7px center, 40px 0 !important;
+  content: "";
+  height: 100%;
+  width: 50px;
+  position: absolute !important;
+  margin-top: -4px;
+}
+
+.p-button-add-personal {
+  border-radius: 5px;
+  color: $p-config-tablet-lablebuttonbluecolor;
+  height: $p-height-button;
+  margin: $p-margin-same-component !important;
+  margin-top: 0px !important;
+  @extend .blue-button-background;
+  .x-button-label{
+    padding-left: 50px;
+    text-align: center !important;
+  }
+}
+
+.dayInfoPanel {
+  background: $p-config-tablet-dayInfoPanelbackground;
+  width: 90px;
+  text-align: center;
+}
+
+.p-button-add-personal.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+.addEventSavebt{
+  @extend .red-button-background;
+  width: 50%;
+  height: 35px;
+  margin: 10px 10px 0px;
+  .x-button-label{
+    text-align: center;
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+.addEventSavebt.x-button-pressing{
+  @extend .red-button-pressing-background;
+}
+.eventDay{
+  background: transparent;
+  color: $p-config-tablet-eventitemtextcolor;
+  font-family:Arial;
+  font-size:47px;
+  font-weight:normal;
+  font-style:normal;
+  text-align:center;
+}
+.p-eventDay-personal{
+  padding-top: 10px;
+  background: transparent;
+  color: $p-config-tablet-eventitemtextcolor;
+  font-family:Arial;
+  font-size:47px;
+  font-weight:normal;
+  font-style:normal;
+  text-align:center;
+}
+.eventMonth{
+  font-family:Arial;
+  background: transparent;
+  font-weight:normal;
+  font-size:15px;
+  text-align:center;
+  color: $p-config-tablet-eventitemtextcolor;
+  padding-bottom: 3px;
+}
+.eventItems{
+  background: #ffffff;
+  font-family:Arial;
+  font-size:12px;
+  font-weight:normal;
+  //margin-bottom: $p-margin-list-item;
+}
+.eventItemContent{
+  background: $p-config-tablet-eventitembackground;
+  padding: $p-padding-text;
+  width:100%;
+  color: $p-config-tablet-eventitemtextcolor;
+}
+.p-button-rate-simple-event{
+  @extend .blue-blood-button-background;
+  @extend .extend-button-AddToSchedule-Share-InMySchedule;
+  color: $p-config-tablet-lablebuttonbluebloodcolor;
+  width: 110px;
+  margin: 5px 0px 5px 10px;
+}
+.conference-item-background{
+  background: $p-config-phone-conferentmenubackground-colorstart; /* Old browsers */
+  background: -moz-linear-gradient(top, $p-config-phone-conferentmenubackground-colorstart 0%, $p-config-phone-conferentmenubackground-colormiddle 46%, $p-config-phone-conferentmenubackground-colorend 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$p-config-phone-conferentmenubackground-colorstart), color-stop(46%,$p-config-phone-conferentmenubackground-colormiddle), color-stop(100%,$p-config-phone-conferentmenubackground-colorend)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, $p-config-phone-conferentmenubackground-colorstart 0%,$p-config-phone-conferentmenubackground-colormiddle 46%,$p-config-phone-conferentmenubackground-colorend 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $p-config-phone-conferentmenubackground-colorstart 0%,$p-config-phone-conferentmenubackground-colormiddle 46%,$p-config-phone-conferentmenubackground-colorend 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $p-config-phone-conferentmenubackground-colorstart 0%,$p-config-phone-conferentmenubackground-colormiddle 46%,$p-config-phone-conferentmenubackground-colorend 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $p-config-phone-conferentmenubackground-colorstart 0%,$p-config-phone-conferentmenubackground-colormiddle 46%,$p-config-phone-conferentmenubackground-colorend 100%); /* W3C */
+}

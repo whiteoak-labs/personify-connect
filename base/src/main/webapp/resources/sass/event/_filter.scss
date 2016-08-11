@@ -1,0 +1,26 @@
+@mixin filter {
+  .filtertypelabel {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    height: 44px;
+    padding-top: 8px;
+    @extend .p-event-header-background;
+  }
+
+  .filterClosePanel {
+    color: white;
+    font-weight: bold;
+    min-height: 45px;
+    font-size: 20px;
+    margin: 20px 10px 10px 10px;
+  }
+
+  .filterTopTitle {
+    margin: 0 !important;
+  }
+
+
+}

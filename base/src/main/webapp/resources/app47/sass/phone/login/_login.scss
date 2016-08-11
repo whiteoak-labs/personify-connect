@@ -1,0 +1,67 @@
+.toggle-background-on {
+  background: $p-config-tablet-toggleoption-colorstart !important;
+  background: -moz-linear-gradient(top, $p-config-tablet-toggleoption-colorstart 0%, $p-config-tablet-toggleoption-colormiddle 36%, $p-config-tablet-toggleoption-colorend 100%) !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$p-config-tablet-toggleoption-colorstart), color-stop(36%,$p-config-tablet-toggleoption-colormiddle), color-stop(100%,$p-config-tablet-toggleoption-colorend)) !important;
+  background: -webkit-linear-gradient(top, $p-config-tablet-toggleoption-colorstart 0%,$p-config-tablet-toggleoption-colormiddle 36%,$p-config-tablet-toggleoption-colorend 100%) !important;
+  background: -o-linear-gradient(top, $p-config-tablet-toggleoption-colorstart 0%,$p-config-tablet-toggleoption-colormiddle 36%,$p-config-tablet-toggleoption-colorend 100%) !important;
+  background: -ms-linear-gradient(top, $p-config-tablet-toggleoption-colorstart 0%,$p-config-tablet-toggleoption-colormiddle 36%,$p-config-tablet-toggleoption-colorend 100%) !important;
+  background: linear-gradient(to bottom, $p-config-tablet-toggleoption-colorstart 0%,$p-config-tablet-toggleoption-colormiddle 36%,$p-config-tablet-toggleoption-colorend 100%) !important;
+}
+.toggleRememberUserID-phone {
+  background-color: transparent !important;
+  .x-thumb::after{
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 30px;
+  }
+  .x-toggle-on {
+    @extend .toggle-background-on;
+    .x-thumb::after{
+      border-left: 1px solid #919191;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 0px;
+      border-top-left-radius: 0px;
+    }
+  }
+  .x-toggle {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    line-height: 30px;
+    font-size: 12pt;
+    font-weight: bold;
+  }
+  .x-form-label {
+    background-color: transparent;
+    border-radius: 0px !important;
+    padding: 0px;
+    padding-bottom: 5px;
+    text-shadow: none;
+    color: white;
+    font-size: 9pt;
+  }
+  .x-toggle-on:before {
+    position: absolute;
+    content: 'ON';
+    color: white;
+    padding-left: 19px;
+  }
+  .x-toggle-off:before {
+    position:absolute;
+    content: 'OFF';
+    color: gray;
+    padding-left: 53px;
+  }
+  .x-toggle-off{
+    .x-thumb::after{
+      border-right: 1px solid #919191;
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+  }
+}

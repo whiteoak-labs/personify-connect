@@ -1,0 +1,15 @@
+@mixin tabletheaderbar ($aroundColor, $centerColor, $borderBottom, $boderTop) {
+  border-bottom: 2px solid $borderBottom;
+  border-top: 2px solid $boderTop;
+  background: radial-gradient(center, ellipse cover, $aroundColor 3%, $centerColor 100%);
+  background: -moz-radial-gradient(center, ellipse cover, $aroundColor 3%, $centerColor 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, $aroundColor 3%, $centerColor 100%);
+  background: -o-radial-gradient(center, ellipse cover, $aroundColor 3%, $centerColor 100%);
+  min-height: 49px !important;
+}
+
+@mixin tabletfonttype($fontFamily, $fontSize, $fontColor) {
+  font-size: $fontSize;
+  font-family: $fontFamily;
+  color: $fontColor;
+}

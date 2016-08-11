@@ -2,45 +2,53 @@
     "menu": [
         {
             "name": "Sessions",
+            "title": "Sessions",
             "view": "Personify.view.phone.session.SessionPanel",
             "css": "scheduleButton menu-list-item-background"
         },
         {
             "name": "Attendees",
+            "title": "Attendees",
             "view": "Personify.view.phone.attendee.Attendee",
             "css": "attendeesButton menu-list-item-background",
             "menuItem": "attendees"
         },
         {
             "name": "Exhibitors",
+            "title": "Exhibitors",
             "view": "Personify.view.phone.exhibitor.ExhibitorPanelPhone",
             "css": "exhibitorsButton menu-list-item-background",
             "menuItem": "exhibitors"
         },
         {
             "name": "Map",
+            "title": "Map",
             "view": "Personify.view.phone.map.MapNavigation",
             "css": "mapButton menu-list-item-background"
         },
         {
             "name": "Materials",
+            "title": "Materials",
             "view": "Personify.view.phone.material.MaterialPanelPhone",
             "css": "materialButton menu-list-item-background",
             "menuItem": "materials"
         },
         {
             "name": "Notes",
+            "title": "Notes",
             "view": "Personify.view.phone.note.NoteNavigation",
             "css": "notesButton menu-list-item-background"
         },
         {
             "name": "Presenters",
+            "title": "Presenters",
             "view": "Personify.view.phone.presenter.PresenterPanel",
             "css": "presenterButton menu-list-item-background",
             "menuItem": "presenters"
         },
         {
             "name": "Badge",
+            "title": "Badge",
             "view": "Personify.view.phone.badge.Badge",
             "css": "badgeButton menu-list-item-background",
             "menuItem": "badge"

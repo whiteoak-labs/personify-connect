@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.personify.connect</groupId>
 	<artifactId>gap</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>2.4.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>personify-connect-gap</name>
 
@@ -15,7 +15,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.personify</groupId>
-			<artifactId>connect</artifactId>
+			<artifactId>base</artifactId>
 			<version>${project.version}</version>
 			<type>zip</type>
 		</dependency>
@@ -378,7 +378,7 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>com.personify</groupId>
-									<artifactId>connect</artifactId>
+									<artifactId>base</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
@@ -429,13 +429,13 @@
 								<echo level="info" message="Unpacking Base Client Debug Sources" />
 								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
 								<unzip
-									src="${project.build.directory}/base-client/personify-connect-${project.version}/personify-connect-${project.version}-debug.zip"
+									src="${project.build.directory}/base-client/personify-connect-${project.version}/personify-connect-${project.version}-debug.war"
 									dest="${project.build.directory}/inprogress-debug" />
 								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
 								<echo level="info" message="Unpacking Base Client Release Sources" />
 								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
 								<unzip
-									src="${project.build.directory}/base-client/personify-connect-${project.version}/personify-connect-${project.version}-release.zip"
+									src="${project.build.directory}/base-client/personify-connect-${project.version}/personify-connect-${project.version}-release.war"
 									dest="${project.build.directory}/inprogress-release" />
 								<echo level="info" message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
 								<echo level="info" message="Downloading Required NodeJS Modules" />

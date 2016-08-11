@@ -3,23 +3,27 @@
     [
         {
             "name": "Presenters",
+            "title": "Presenters",
             "view": "Personify.view.phone.presenter.PresenterPanel",
             "css": "presenterButton menu-list-item-background",
             "menuItem": "presenters"
         },
         {
             "name": "Notes",
+            "title": "Notes",
             "view": "Personify.view.phone.note.NoteNavigation",
             "css": "notesButton menu-list-item-background"
         },
         {
             "name": "Materials",
+            "title": "Materials",
             "view": "Personify.view.phone.material.MaterialPanelPhone",
             "css": "materialButton menu-list-item-background",
             "menuItem": "materials"
         },
         {
             "name": "Badge",
+            "title": "Badge",
             "view": "Personify.view.phone.badge.Badge",
             "css": "badgeButton menu-list-item-background",
             "menuItem": "badge"

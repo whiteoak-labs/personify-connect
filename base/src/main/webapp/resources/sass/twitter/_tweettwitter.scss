@@ -1,0 +1,163 @@
+@mixin tweettwitter {
+    .subdiv_content_twitter {
+      display: inline-block;
+      word-break: break-all;
+    }
+    .screen_name-twitter {
+        color: #0066cc;
+        font-size: 16px;
+    }
+    .content-twitter {
+      color: white;
+      font-size: 17px;
+      word-break: break-all;
+    }
+    .subdiv_feature_twitter{
+      display: inline-block;
+      color: #cfcfcf;
+      font-weight: normal;
+      font-size: 12px;
+    }
+
+  .twitter-list {    
+    background-color: transparent;
+  }
+
+  .twitter-list .item_content_twitter {    
+    padding: 5px 10px;
+    border-bottom: 2px solid #919191;
+  }
+
+  .textareafield-reply {
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #c7bfc7;
+    margin-bottom: 10px;
+}
+  .twitter-timeline-item {
+    padding: 5px 10px;
+    border-bottom: 2px solid #919191;
+    float: left;
+    .subdiv_feature_twitter {
+      float: left;
+      width: 50%;
+      font-size: 14px;
+    }
+    .reply-feature-twitter {
+      float: left;
+      width: 50%;
+      font-size: 14px;
+    }
+    .retweet_feature_twitter {
+      float: left;
+      width: 50%;
+      min-height: 10px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .favorited_feature_twitter {
+      float: left;
+      width: 50%;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .reply-feature-twitter-button {
+      float: right;
+    }
+    .subdiv_feature_twitter-button {
+      float: left;
+    }
+    .twitter-retweet {
+      float: left;
+    }
+    .tweet-favorited, .favorite-feature-twitter {
+      float: right;
+    }
+    .x-button-pressing {
+      background-image: none;
+      background-color: #ccc;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f2f2f2), color-stop(3%, #d9d9d9), color-stop(100%, #bfbfbf));
+      background-image: -webkit-linear-gradient(top, #f2f2f2,#d9d9d9 3%,#bfbfbf);
+      background-image: -moz-linear-gradient(top, #f2f2f2,#d9d9d9 3%,#bfbfbf);
+      background-image: -o-linear-gradient(top, #f2f2f2,#d9d9d9 3%,#bfbfbf);
+      background-image: linear-gradient(top, #f2f2f2,#d9d9d9 3%,#bfbfbf);
+    }
+  }
+  .reply-twitter-button {
+    @extend .blue-blood-button-background;
+    @extend .extend-button-AddToSchedule-Share-InMySchedule;
+    color: white;
+    width: 60px;
+    margin: 10px 5px 5px 10px;
+    padding-left: 10px !important;
+    font-size: 11px;
+    min-height: 25px !important;
+    height: 25px;
+    float: right;
+  }
+  .retweet_feature_twitter {
+    display: inline-block;
+    color: #cfcfcf;
+    font-weight: normal;
+  }
+  .subdiv_feature_twitter{
+        display: inline-block;
+        color: #cfcfcf;
+        font-weight: normal;
+      }
+  .tweet-favorited{
+    display: inline-block;
+    color: #ff9b00;
+    font-weight: normal;
+    font-size: 14px;
+  }
+
+  .hidden-twitter{
+      display: none;
+  }
+
+  .unhidden-twitter{
+      display: block;
+  }
+
+.cancel-reply-twitter-button{
+  @extend .blue-blood-button-background;
+  @extend .extend-button-AddToSchedule-Share-InMySchedule;
+  color: white;
+  width: 60px;
+  margin: 10px 5px 5px 10px;
+  padding-left: 10px !important;
+  font-size: 11px;
+  min-height: 25px !important;
+  height: 25px;
+  float: right;
+}
+
+  .p-count-twitter {
+    padding: 15px;
+    font-size: 15px;
+    width: 50%;
+    color: white;
+  }
+  .name-account-twitter {
+    font-size: 18px;
+    font-weight: 900;
+    color: blue;
+  }
+
+  .p-date-reply-container {
+    margin-top: 10px;
+    color: #cfcfcf;
+  }
+
+  .p-retweet-favorite-container {
+    margin: 10px 0px;
+  }
+
+  .p-require-login-panel {
+    color: white;
+    margin: 0px 10px;
+    font-size: 14px;
+  }
+}

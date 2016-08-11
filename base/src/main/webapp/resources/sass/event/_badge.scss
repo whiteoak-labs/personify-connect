@@ -1,0 +1,61 @@
+@mixin badge {
+  .p-panel-badge{
+    background-color: white !important;
+    padding-top: 20px;
+    color: black;
+  }
+  .p-panel-badgeinfo{
+    margin: 10px;
+    border: 6px solid #848484;
+    border-radius: 8px;
+  }
+  .p-panle-leftbadgeinfo{
+    background-color: #c3c3c3;
+    width: 50px;
+  }
+  .p-panel-badgeinfodetails{
+    padding: 10px 10px 20px 10px ;
+  }
+  .p-panel-badgeinfoname{
+    font-size: $p-text-event-title-size * 1.5;
+    border-bottom: 2px solid #cfcfcf;
+    padding: 20px 10px;
+  }
+  .p-panel-badgeinfojobtitle, .p-panel-badgeinfoassociation {
+
+  }
+  .p-badge-barcode{
+    margin-top: 20px;
+  }
+
+  .p-phone-panel-badge{
+    background-color: white !important;
+    color: black;
+  }
+  .p-phone-panel-badgeinfo{
+    margin: 10px 10px 0px 10px;
+    border: 6px solid #848484;
+    border-radius: 8px;
+  }
+  .p-phone-panle-leftbadgeinfo{
+    background-color: #c3c3c3;
+    width: 40px;
+  }
+  .p-phone-panel-badgeinfodetails{
+    padding: 5px 5px 10px 5px;
+  }
+  .p-phone-panel-badgeinfoname{
+    font-size: $p-text-event-title-size * 1.25;
+    border-bottom: 2px solid #cfcfcf;
+    padding: 10px 5px;
+  }
+  .p-phone-panel-badgeinfojobtitle, .p-phone-panel-badgeinfoassociation {
+    font-size: $p-phone-text-small-size;
+  }
+  .p-phone-badge-barcode{
+    margin-top: 15px;
+  }
+  .p-phone-panelscrollable-badge, .p-panelscrollable-badge{
+    margin-bottom: 60px;
+  }
+}

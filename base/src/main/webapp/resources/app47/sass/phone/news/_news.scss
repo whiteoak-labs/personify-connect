@@ -1,0 +1,27 @@
+.btnShare-detail-panel-New-phone {
+  @extend .blue-blood-button-background;
+  height: 30px;
+  width: 90px;
+  margin: 0px;
+  padding: 0px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonbluebloodcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+    padding-left: 20px;
+    opacity: 1 !important;
+  }
+}
+
+.btnShare-detail-panel-New-phone::before  {
+  background-image: url($p-conifg-tablet-shareicon), url($p-conifg-tablet-blueline)!important;
+  background-repeat: no-repeat, repeat-y !important;
+  background-position: center center, 29px !important;
+  content: "";
+  height: 100%;
+  width: 30px;
+  position: absolute !important;
+}
+
+.btnShare-detail-panel-New-phone.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}

@@ -1,0 +1,123 @@
+@mixin login {
+  .remember-forgot-container{
+    margin: 20px 10px 20px 10px;
+  }  
+  .p-login-form-tablet{
+      height: 200px !important;
+      width: 620px !important;
+      padding: 20px;      
+      border-radius: 20px;
+      font-size: 20px;
+      box-shadow: -10px 10px 10px black;
+    .login-label {
+        height: 44px;
+        color: white;
+        font-size: 26px;
+     }
+    .form-login-container{
+      margin-bottom: 10px;
+    }
+    .form-password-container{
+      margin: 10px 0px; 
+    }
+    .username-text-field-login-container,
+    .password-text-field-login-container{
+      height: 44px;
+      border: solid 2px #919191;
+      border-radius: 7px;
+      background: white;      
+      .x-input-el{
+        min-height: 50px !important;
+        font-size: 16px;
+        padding: 10px;
+      }
+      .x-field-input .x-clear-icon{
+        margin-top: -1.2em;
+      }
+    }
+    .username-text-field-login-container{
+      width: 320px !important;
+    }
+    .password-text-field-login-container{
+      width: 180px !important; 
+    }
+    .remember-me-checkbox{
+      width: 320px !important;        
+      height: 44px;
+      border: solid 2px #919191;        
+      border-radius: 7px;
+      background: white;      
+      .x-input-el{
+        min-height: 50px !important;
+        font-size: 26px;
+        padding: 10px;
+      }
+      .x-field-input .x-clear-icon{
+        margin-top: -1.2em;
+      }
+    }
+    .remember-me-checkbox{
+      .x-component-outer{        
+        .x-input-checkbox{
+          width: 80%;
+        }
+      }
+    }
+    .password-text-field-login-container{
+      margin-left: 10px;
+    }   
+
+    .go-button-login-container {
+      margin-left: 10px;
+      width: 60px;
+      height: 50px;
+      @extend .red-button-background;
+      .x-button-label {
+        color: white;
+        font-size: 16pt;
+      }
+    }
+    .go-button-login-container.x-button-pressing{
+      @extend .red-button-pressing-background;
+    }
+
+    .remember-me-label-checkbox{
+      background-color: transparent !important;
+      padding-top: 10px !important;
+    }
+    .remember-me-label-checkbox span{
+      font-size: 22px !important;
+    }
+    .forgot-password {
+        background-color: transparent;
+        background-image: none;
+        border-style: none;
+        text-decoration: underline;
+        font-style: italic;
+        color: white;
+        font-size: 20px;
+        margin-left: 10px;
+        height: 54px !important;
+        width: 250px;
+        padding: 0px;
+        .x-button-label{
+          text-align: left;
+        }
+    }
+    .forgot-password.x-button-pressing{        
+        color: #560E0F !important;
+        background-color: transparent !important;
+    }
+}
+  .login-status,
+    .login-container {
+        background-image: none;
+        background-color: transparent;
+        padding: 0px;
+        margin: 0px;
+        border: none;
+        border-left: 2px solid white;
+    }
+
+
+}

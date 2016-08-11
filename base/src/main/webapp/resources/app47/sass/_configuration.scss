@@ -1,0 +1,243 @@
+//config icon menubar on tablet
+$p-config-icon-menubarevent: '../app47/images/main/events.png';
+$p-config-icon-menubarschedule: '../app47/images/main/schedule.png';
+$p-config-icon-menubardirectory: '../app47/images/main/directory.png';
+$p-config-icon-menubarstore: '../app47/images/main/store.png';
+$p-config-icon-menubarnews: '../app47/images/main/news.png';
+$p-config-icon-menubardiscussion: '../app47/images/main/discussion.png';
+$p-config-icon-menubarhome: '../app47/icons/home.png';
+$p-config-icon-menubarinfo: '../app47/icons/info.png';
+$p-config-icon-menubarnote: '../app47/images/main/note.png';
+$p-config-icon-menubarheaderprofile: '../app47/images/main/headerProfile.png';
+$p-config-icon-menubarconversation: '../app47/icons/conversation.png';
+$p-config-icon-menubardescription: '../app47/icons/description.png';
+
+//config icon menu list on tablet
+$p-config-icon-listmenuevent: '../app47/icons/quick-event.png';
+$p-config-icon-listmenuschedule: '../app47/icons/quick-schedule.png';
+$p-config-icon-listmenustore: '../app47/icons/quick-store.png';
+$p-config-icon-listmenudirectory: '../app47/icons/quick-director.png';
+$p-config-icon-listmenunews: '../app47/icons/quick-news.png';
+$p-config-icon-listmenudiscussion: '../app47/icons/quick-conversation.png';
+$p-config-icon-listmenuabout: '../app47/icons/quick-about.png';
+
+$p-config-icon-listmenuevent-pressing: '../app47/icons/events-icon-top.png';
+$p-config-icon-listmenuschedule-pressing: '../app47/icons/schedule-icon-white.png';
+$p-config-icon-listmenustore-pressing: '../app47/icons/store-icon-top.png';
+$p-config-icon-listmenudirectory-pressing: '../app47/icons/directory-icon-top.png';
+$p-config-icon-listmenunews-pressing: '../app47/icons/news-icon-top.png';
+$p-config-icon-listmenudiscussion-pressing: '../app47/icons/community-icon-top.png';
+$p-config-icon-listmenuabout-pressing: '../app47/icons/about-icon-top.png';
+
+//config icon on header panel on tablet
+$p-config-icon-headerpanel-home: '../app47/images/main/home30x30-top-header.png';
+$p-config-icon-headerpanel-event: '../app47/images/main/events.png';
+$p-config-icon-headerpanel-schedule: '../app47/images/main/schedule.png';
+$p-config-icon-headerpanel-news: '../app47/images/main/news.png';
+$p-config-icon-headerpanel-store: '../app47/images/main/store.png';
+$p-config-icon-headerpanel-directory: '../app47/images/main/directory.png';
+$p-config-icon-headerpanel-comunication: '../app47/images/main/community30x30-top-header.png';
+
+// tablet header panel
+$p-config-tablet-headerpanel-aroundcolor: #82160C;
+$p-config-tablet-headerpanel-centercolor: #3D0804;
+$p-config-tablet-headerpanel-bordertopcolor: #662725;
+$p-config-tablet-headerpanel-borderbottomcolor: #661006;
+$p-config-tablet-headerpanel-titlefontfamily: Arial;
+$p-config-tablet-headerpanel-titlefontsize: 16pt;
+$p-config-tablet-headerpanel-titlefontcolor: white;
+
+// tablet main title label
+$p-config-talbet-maintitlelabel-fontfamily: inherit;
+$p-config-talbet-maintitlelabel-fontsize: 18px;
+$p-config-talbet-maintitlelabel-fontcolor: white;
+
+// tablet menu item font type
+$p-config-tablet-menuitem-fontfamily: inherit;
+$p-config-tablet-menuitem-fontsize: 18px;
+$p-config-tablet-menuitem-fontcolor: white;
+
+$p-config-tablet-panelright-color: #303030;
+$p-config-tablet-panelleft-colorstart: #22292f;
+$p-config-tablet-panelleft-colormiddle: #45535e;
+$p-config-tablet-panelleft-colorend: #566575;
+
+$p-config-tablet-newsheadertitle-color: #007cf9;
+$p-config-tablet-newsheadertitle-fontsize: 22px;
+$p-config-tablet-newsheadertitle-fontfamily: inherit;
+
+//menu bar
+$p-config-tablet-menubarPanelTop-colorstart: #0e0e0e;
+$p-config-tablet-menubarPanelTop-colormiddle: #2b353a;
+$p-config-tablet-menubarPanelTop-colorend: #0e0e0e;
+$p-config-tablet-menubarPanel-presseditembackgroundcolor: #cf3424;
+$p-config-tablet-menubarPanel-presseditemtextcolor: #ffffff;
+
+$p-conifg-tablet-menulist-colorstart: #45484d;
+$p-conifg-tablet-menulist-colorend: #000000;
+
+$p-config-tablet-headerinfoandhomebtn: #303030;
+$p-config-tablet-headerinfoandhomebtntextcolor: #000000;
+$p-config-tablet-headerMainBtnSelected: #303030;
+$p-config-tablet-headerMainBtnSelectedtextcolor: #000000;
+$p-config-tablet-menubarpanel-background: #4A4A4A;
+
+$p-config-tablet-bluebuttonborder: #20497B;
+$p-config-tablet-bluebuttonshadow: #3F3F3F;
+$p-config-tablet-bluebuttonbackgroud-colorstart: #499bea;
+$p-config-tablet-bluebuttonbackgroud-colorend: #207ce5;
+$p-config-tablet-bluebuttonbackgroud-pressed-colorstart: #4587d8;
+$p-config-tablet-bluebuttonbackgroud-pressed-colorend: #165ba0;
+
+$p-config-tablet-redbuttonborder: #930B0B;
+$p-config-tablet-redbuttonshadow: #3F3F3F;
+$p-config-tablet-redbuttonbackgroud-colorstart: #cf3424;
+$p-config-tablet-redbuttonbackgroud-colormiddle: #b51f1c;
+$p-config-tablet-redbuttonbackgroud-colorend: #930b0b;
+$p-config-tablet-redbuttonbackgroud-pressed-colorstart: #8c0103;
+$p-config-tablet-redbuttonbackgroud-pressed-colormiddle: #6d0007;
+$p-config-tablet-redbuttonbackgroud-pressed-colorend: #470001;
+
+$p-config-tablet-graybuttonborder: #303030;
+$p-config-tablet-graybuttonshadow: #3F3F3F;
+$p-config-tablet-graybuttonbackgroud-colorstart: #b5bdc8;
+$p-config-tablet-graybuttonbackgroud-colormiddle: #828c95;
+$p-config-tablet-graybuttonbackgroud-colorend: #28343b;
+$p-config-tablet-graybuttonbackgroud-pressed-colorstart: #9da4ad;
+$p-config-tablet-graybuttonbackgroud-pressed-colormiddle: #646b72;
+$p-config-tablet-graybuttonbackgroud-pressed-colorend: #1b2328;
+
+$p-config-tablet-bluebloodbuttonborder: #4773AA;
+$p-config-tablet-bluebloodbuttonshadow: #3F3F3F;
+$p-config-tablet-bluebloodbuttonbackgroud-colorstart: #588cc8;
+$p-config-tablet-bluebloodbuttonbackgroud-colorend: #3b7cc6;
+
+$p-conifg-tablet-iconfilter: "../app47/icons/filter.png";
+$p-conifg-tablet-iconredline: "../app47/icons/red-line.png";
+$p-config-tablet-lablebuttonredcolor: #ffffff;
+$p-config-tablet-lablebuttonbluecolor: #ffffff;
+$p-config-tablet-lablebuttonbluebloodcolor: #ffffff;
+$p-config-tablet-lablebuttongraycolor: #ffffff;
+$p-conifg-tablet-onlymysch: "../app47/icons/onlyMySch.png";
+$p-conifg-tablet-pluswhite: "../app47/icons/plus-white.png";
+$p-conifg-tablet-blueline: "../app47/icons/blue-line.png";
+$p-conifg-tablet-grayline: "../app47/icons/grey-line.png";
+$p-conifg-tablet-mailicon: "../app47/icons/mail-icon.png";
+$p-conifg-tablet-editwhite: "../app47/icons/edit-white.png";
+$p-conifg-tablet-twitterb: '../app47/icons/twitter-b.png';
+$p-conifg-tablet-directorydeleteicon: "../app47/images/directory/delete-icon.png";
+$p-conifg-tablet-directorydeletecolor: red;
+$p-conifg-tablet-directorydeletecolor-pressed: #8E0200;
+$p-conifg-tablet-directorydeletetextcolor: white;
+$p-conifg-tablet-shoppingcart: "../app47/icons/shoppingCart.png";
+$p-conifg-tablet-shareicon: "../app47/icons/share-icon.png";
+$p-conifg-tablet-inormyschedule: "../app47/icons/In-OrMyShedule.png";
+$p-conifg-tablet-mapiconwhite: "../app47/icons/map-icon-white.png";
+$p-conifg-tablet-trash16x16: "../app47/icons/trash_16x16.gif";
+$p-config-tablet-connectionicon: '../app47/images/main/connect-logo.png';
+$p-config-tablet-profileicon: '../app47/icons/headerProfile.png';
+$p-conifg-tablet-quickmenuarrow: '../app47/icons/quick-menu-arrow.png';
+
+$p-config-tablet-loginpanelbackground-colorstart: #364249;
+$p-config-tablet-loginpanelbackground-colorend: #515f6b;
+$p-config-tablet-pressing-newstitlehomepage: #0035F4;
+
+$p-config-tablet-segmentedbutton-disablecolor: gray;
+$p-config-tablet-segmentedbutton-activecolorstart: #499bea;
+$p-config-tablet-segmentedbutton-activecolorend: #207ce5;
+
+//config icon on event complexe list button
+$p-config-icon-eventcomplex-description: '../app47/icons/quick-about.png';
+$p-config-icon-eventcomplex-presenter: '../app47/icons/presenter-icon.png';
+$p-config-icon-eventcomplex-discussion: '../app47/icons/quick-conversation.png';
+$p-config-icon-eventcomplex-note: '../app47/icons/notes-icon.png';
+$p-config-icon-eventcomplex-schedule: '../app47/icons/quick-event.png';
+$p-config-icon-eventcomplex-attendees: '../app47/icons/attendees-icon.png';
+$p-config-icon-eventcomplex-exhibitor: '../app47/icons/exhibitor-icon.png';
+$p-config-icon-eventcomplex-maps: '../app47/icons/map-icon.png';
+$p-config-icon-eventcomplex-badge: '../app47/icons/badge-icon.png';
+$p-config-icon-eventcomplex-materials: '../app47/icons/materials-gray.png';
+
+$p-config-icon-eventcomplex-description-pressing: '../app47/icons/about-icon-top.png';
+$p-config-icon-eventcomplex-presenter-pressing: '../app47/icons/presenter-icon-white.png';
+$p-config-icon-eventcomplex-discussion-pressing: '../app47/icons/community-icon-top.png';
+$p-config-icon-eventcomplex-note-pressing: '../app47/icons/notes-icon-white.png';
+$p-config-icon-eventcomplex-schedule-pressing: '../app47/icons/events-icon-top.png';
+$p-config-icon-eventcomplex-attendees-pressing: '../app47/icons/attendees-icon-white.png';
+$p-config-icon-eventcomplex-exhibitor-pressing: '../app47/icons/exhibitor-icon-white.png';
+$p-config-icon-eventcomplex-maps-pressing: '../app47/icons/map-icon-white.png';
+$p-config-icon-eventcomplex-badge-pressing: '../app47/icons/badge-icon-white.png';
+$p-config-icon-eventcomplex-materials-pressing: '../app47/icons/materials-white.png';
+
+$p-config-tablet-eventitembackground: #5D6A72;
+$p-config-tablet-eventitemtextcolor: white;
+$p-config-tablet-newheaderbackground-colorstart: #45484d;
+$p-config-tablet-newheaderbackground-colorend: #000000;
+$p-config-tablet-newheadertextcolor: white;
+
+$p-config-tablet-trianglephone: '../app47/icons/trianglephone.png';
+$p-config-tablet-trianglephoneexpand: '../app47/icons/trianglephoneexpand.png';
+$p-config-tablet-dayInfoPanelbackground: #364249;
+$p-config-tablet-calendaricon: '../app47/icons/calendaricon.png';
+$p-conifg-tablet-panelleftnotgradient: #616a71;
+$p-config-tablet-panelgraygradient-colorstart: #9b9b9b;
+$p-config-tablet-panelgraygradient-colorend: #c9c9c9;
+$p-config-tablet-downloadmaterial: '../app47/icons/download-material.png';
+$p-config-tablet-buttondisablebackground: gray;
+
+$p-config-tablet-toggleoption-colorstart: #364249;
+$p-config-tablet-toggleoption-colormiddle: #45535e;
+$p-config-tablet-toggleoption-colorend: #566575;
+$p-config-tablet-toggleoption-labelcolor: white;
+
+$p-config-tablet-news30x30-top-header: '../app47/icons/news30x30-top-header.png';
+$p-config-tablet-twittericon: '../app47/icons/twittericon.png';
+$p-config-tablet-profilepanelrighttextcolor: white;
+$p-config-tablet-buttonmenubar: '../app47/icons/menu-bar-icon.png';
+$p-config-tablet-buttonmenubarpressed: #cf3424;
+$p-config-tablet-buttonmenubarbackground: black;
+
+// for phone
+$p-config-phone-shoppingcart: "../app47/icons/phone/shoppingCart.png";
+
+//config icon on menu list on home page of phone version
+$p-config-phone-icon-listmenuevent: '../app47/icons/phone/event-icon.png';
+$p-config-phone-icon-listmenuschedule: '../app47/icons/phone/schedule-icon.png';
+$p-config-phone-icon-listmenunews: '../app47/icons/phone/news-icon.png';
+$p-config-phone-icon-listmenudirectory: '../app47/icons/phone/directory-icon.png';
+$p-config-phone-icon-listmenudiscussion: '../app47/icons/phone/community-icon.png';
+$p-config-phone-icon-listmenusetting: '../app47/icons/phone/setting.png';
+$p-config-phone-icon-listmenustore: '../app47/icons/phone/store-icon.png';
+$p-config-phone-icon-listmenuprofile: '../app47/icons/phone/headerProfile.png';
+$p-config-phone-menuitemtextcolor: white;
+
+$p-config-phone-homeimage: '../app47/icons/phone/home-w.png';
+$p-config-phone-narrowleft: '../app47/icons/phone/narrow-left.png';
+$p-config-phone-narrowleftpressed: '../app47/icons/phone/narrow-left-pressed.png';
+$p-config-phone-toolbartextcolor: white;
+$p-config-phone-toolbarbutton-backgroundcolor: #AA0408;
+$button-gradient: 'bevel';
+$p-config-phone-conferencearrowicon: '../app47/icons/phone/conference-arrow-icon.png';
+$p-config-phone-conferentmenubackground-colorstart: #ededed;
+$p-config-phone-conferentmenubackground-colormiddle: #e3e1de;
+$p-config-phone-conferentmenubackground-colorend: #cecdca;
+$p-config-phone-conferentmenub-textcolor: black;
+$p-config-phone-conferentmenub-pressed-textcolor: white;
+//config icon on complexe event on phone version
+$p-config-phone-icon-eventcomplex-presenter: '../app47/icons/phone/presenter-icon.png';
+$p-config-phone-icon-eventcomplex-note: '../app47/icons/phone/note-icon.png';
+$p-config-phone-icon-eventcomplex-schedule: '../app47/icons/phone/session-icon.png';
+$p-config-phone-icon-eventcomplex-attendees: '../app47/icons/phone/attend-icon.png';
+$p-config-phone-icon-eventcomplex-exhibitor: '../app47/icons/phone/exhibitor-icon.png';
+$p-config-phone-icon-eventcomplex-maps: '../app47/icons/phone/map-icon.png';
+$p-config-phone-icon-eventcomplex-badge: '../app47/icons/phone/badge-icon.png';
+$p-config-phone-icon-eventcomplex-materials: '../app47/icons/phone/materials-icon.png';
+
+$p-config-phone-nextarrowgrey: '../app47/icons/phone/next-arrow-grey.png';
+$p-config-phone-complexeventpanelbackground-colorstart: #848484;
+$p-config-phone-complexeventpanelbackground-colorend: #dadada;
+
+$p-config-phone-deleteicon: "../app47/icons/phone/delete-icon.png";
+$p-config-phone-toolbartitlecolor: white;
+$p-config-phone-toolbartitlefontfamilly: inherit;
+$p-config-phone-toolbartitlefontsize: 22px;

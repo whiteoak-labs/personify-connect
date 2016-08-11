@@ -1,0 +1,147 @@
+.extend-p-button-inlist {
+  height: 35px;
+  margin: 0px 5px 10px 0px;
+  padding: 0px 7px;
+  cursor: pointer;
+}
+.p-button-red-inlist {
+  @extend .red-button-background;
+  @extend .extend-p-button-inlist;
+}
+.p-button-blue-inlist {
+  @extend .blue-button-background;
+  @extend .extend-p-button-inlist;
+  color: $p-config-tablet-lablebuttonbluecolor !important;
+}
+
+.p-button-blue-inlist .x-button-label {
+  font-size: 11px;
+  line-height: 31px;
+}
+.p-button-red-inlist .x-button-label {
+  font-size: 11px;
+  line-height: 31px;
+  color: $p-config-tablet-lablebuttonredcolor !important;
+}
+
+.p-button-red-inlist:active {
+  @extend .red-button-pressing-background;
+}
+
+.p-button-blue-inlist:active {
+  @extend .blue-button-pressing-background;
+}
+.x-segmentedbutton .x-button.event-schedule-tab.x-first, .x-segmentedbutton .x-button.my-schedule-tab:not(.x-first) {
+  border-radius: 0px !important;
+  border: 1px solid black !important;
+  background-color: $p-config-tablet-segmentedbutton-disablecolor !important;
+  background-image: none;
+  box-shadow: none !important;
+}
+
+.x-segmentedbutton .x-button.x-button-pressed.event-schedule-tab.x-first.x-button-pressing, .x-segmentedbutton .x-button.x-button-pressed.my-schedule-tab:not(.x-first).x-button-pressing,
+.x-segmentedbutton .x-button.event-schedule-tab.x-first.x-button-pressing, .x-segmentedbutton .x-button.my-schedule-tab:not(.x-first).x-button-pressing {
+  opacity: 0.9;
+}
+
+.x-segmentedbutton .x-button.x-button-pressed.event-schedule-tab.x-first, .x-segmentedbutton .x-button.x-button-pressed.my-schedule-tab:not(.x-first) {
+  background-color: $p-config-tablet-segmentedbutton-activecolorstart;
+  @include filter-gradient($p-config-tablet-segmentedbutton-activecolorstart, $p-config-tablet-segmentedbutton-activecolorend, vertical);
+  @include background-image(linear-gradient(top,$p-config-tablet-segmentedbutton-activecolorstart 0%, $p-config-tablet-segmentedbutton-activecolorend 100%));
+}
+
+.segmented-button-container {
+  height: 35px;
+}
+
+.btn-date-list-selected {
+  background-color: $p-config-tablet-segmentedbutton-activecolorstart;
+  @include filter-gradient($p-config-tablet-segmentedbutton-activecolorstart, $p-config-tablet-segmentedbutton-activecolorend, vertical);
+  @include background-image(linear-gradient(top,$p-config-tablet-segmentedbutton-activecolorstart 0%, $p-config-tablet-segmentedbutton-activecolorend 100%));
+  height: 35px;
+  border-radius: 0px !important;
+  border: 1px solid black !important;
+  box-shadow: none !important;
+}
+.btn-date-list {
+  height: 35px;
+  background-color: $p-config-tablet-segmentedbutton-disablecolor;
+  background-image: none;
+  border-radius: 0px;
+  border: 1px solid black !important;
+  box-shadow: none !important;
+}
+.btn-date-list .x-button-label, .btn-date-list-selected .x-button-label {
+  line-height: 35px;
+  font-weight: bold;
+}
+.p-button-addAppointment {
+  @extend .blue-button-background;
+  width: 40px;
+  height: 35px;
+  margin: 10px 10px 10px 0px;
+  padding: 0px;
+}
+
+.p-button-addAppointment::before {
+  background-image: url($p-conifg-tablet-pluswhite) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 100%;
+}
+
+.p-button-addAppointment.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+.item-event-complex-list {
+  margin-bottom: 3px;
+  height: 80px;
+  color: $p-config-tablet-eventitemtextcolor;
+  background-color: $p-config-tablet-eventitembackground;
+}
+
+.item-event-complex-list-wrap {
+  margin-bottom: 3px;
+  height: 100%;
+  overflow:auto;
+  color: $p-config-tablet-eventitemtextcolor;
+  background-color: $p-config-tablet-eventitembackground;
+}
+
+.p-list-presentersession{
+  background-color: black;
+  .x-list-item{
+    border-top: 0px !important;
+    background-color: $p-config-tablet-eventitembackground;
+  }
+}
+.p-phone-button-removeschedule{
+  @extend .red-button-background;
+  height: 30px;
+  width: 70px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-size: $p-phone-text-small-size;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.p-button-closechildpanelevent {
+  @extend .red-button-background;
+  font-size: $p-phone-text-small-size;
+  .x-button-label {
+    text-align: center;
+    font-weight: bold;
+    font-size: 10pt;
+    color: $p-config-tablet-lablebuttonredcolor;
+    text-shadow: none;
+    padding-top: 6px;
+  }
+}
+.p-button-closechildpanelevent.x-button-pressing {
+  @extend .red-button-pressing-background;
+}

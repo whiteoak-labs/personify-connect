@@ -1,0 +1,58 @@
+.p-phone-button-addtofollowup {
+  margin: 0px 10px 10px 10px;
+  @extend .red-button-background;
+  min-height: 30px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+
+.p-phone-button-addToMyAddress {
+  margin-bottom: 10px;
+  padding-top: 7px;
+  @extend .red-button-background;
+  min-height: 30px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-size: $p-phone-text-small-size;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+.p-phone-button-addToMyAddress.x-button-pressing {
+  @extend .red-button-pressing-background;
+}
+.p-phone-button-more {
+  @extend .blue-button-background;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonbluecolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-profileFunction {
+  padding: 6px;
+  @extend .blue-blood-button-background;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonbluebloodcolor;
+    font-size: $p-phone-text-small-size;
+  }
+}
+.p-phone-button-profileFunction.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+.p-phone-button-paging-disable .x-button-label {
+  font-size: $p-phone-text-small-size !important;
+  color: white;
+  font-weight: bold;
+}
+.p-phone-buttonaddaddress-editform{
+  @extend .blue-blood-button-background;
+  height: 30px;
+  margin: 10px 40px;
+  width: 50%;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonbluecolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}

@@ -1,0 +1,183 @@
+@include sencha-toolbar-ui('gray', #B1B1B1, '');
+@include sencha-toolbar-ui('blue', #001E51, '');
+@mixin panelphone {
+    body {
+        font-family: $p-font-family;
+    }
+  .p-phone-panel-header{
+    background: #CC6600;
+    color: #ffffff;
+    font-size: 12px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+  .p-phone-toolbar-blue{
+    background: #001D53;
+    height: 40px;
+  }
+  .p-phone-toolbar-blue .x-title{
+    color: #ffffff !important;
+    text-shadow: none !important;
+    font-size: 16px;
+  }
+  .p-phone-background-white{
+    background: #e7e7e7 !important;
+  }
+
+  .p-toolbar {
+    border: none !important;
+    @extend .headerPanelphone;
+    .x-title .x-innerhtml {
+      font-size: $p-toolbar-header-size;
+      font-weight: bold;
+      color: white;
+    }
+    .p-toolbar-gray {
+      .x-title .x-innerhtml {
+        color: black;
+      }
+      min-height: 45px;
+    }
+    .p-toolbar-blue {
+      .x-title .x-innerhtml {
+        color: white;
+      }
+    }
+  }
+  .p-phone-filter-panel{
+    margin: 0px 10px;
+  }
+  .p-phone-filter-panel{
+    .x-container{
+      font-size: 12px !important;
+      padding-top: 8px;
+    }
+  }
+  .p-panel-phone-same-component-top, .p-phone-eventdetail-pricing {
+    font-size: 12px;
+    margin-bottom: $p-margin-same-component;
+  }
+  .p-phone-eventdetail-pricing{
+    .x-vertical{
+      padding: 0 !important;
+    }
+  }
+  .phone-emptyText{
+    color: black;
+    font-size: $p-phone-text-small-size;
+    padding: 10px;
+  }
+
+  .p-phone-panel-filter-topic{
+    background: #ffffff;
+    padding: 10px;
+  }
+  .p-phone-parentcontainer > div:first-child{
+    background-color: white;
+    font-size: $p-phone-text-small-size;
+    padding: 10px;
+    color: black;
+  }
+  /*for all phone list element*/
+  .p-phone-common-list{
+    font-size: $p-phone-text-small-size;
+    .x-list-item-label{
+      font-size: $p-phone-text-small-size;
+      min-height: 44px !important;
+      margin: 0px !important;
+      padding: 2px !important;
+    }
+    .x-list-item{
+      margin: 0 !important;
+    }
+
+    .x-list-header, .x-innerhtml {
+      @extend .background-item-header;
+      border: none;
+      color: #ffffff;
+      font-size: $p-phone-text-title-size;
+      padding: 5px;
+    }
+
+    .x-innerhtml {
+      font-weight: bold;
+      text-shadow: rgba(255,255,255,0.25) 0 0.08em 0;
+    }
+
+    .x-indexbar > div {
+      color: #000000;
+      font-size: 9.5px;
+    }
+    .x-list {
+      background-color:gray;
+    }
+    .x-list-item:nth-child(even) {
+      background: #eeeff3;
+    }
+
+    .x-list-item:nth-child(odd) {
+      background: #ffffff;
+    }
+  }
+  .p-phone-common-list-item{
+    border-bottom: solid 1px #e0e0e0;
+  }
+  .p-phone-common-list-selected {
+    background: #cccccc !important;
+  }
+  .p-phone-list-note{
+    .x-list-item{
+      margin: 0px;
+      border-bottom: solid 1px #E0E0E0;
+    }
+  }
+  .p-phone-item-note:nth-child(even){
+    background-color: #eeeff3;
+  }
+  .p-phone-item-note:nth-child(odd){
+    background-color: #ffffff;
+  }
+  .p-phone-item-note{
+    .x-list-item-label{
+      padding: 5px !important;
+    }
+    .x-innerhtml{
+      padding: 5px !important;
+    }
+  }
+  .p-phone-label-titlenote{
+    .x-innerhtml{
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 185px;
+      overflow: hidden;
+    }
+  }
+  .p-phone-label-notedescription{
+    .x-innerhtml{
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 280px;
+      overflow: hidden;
+    }
+  }
+  .p-phone-container-viewnote{
+    background-color: white;
+    padding: 10px;
+    color: black
+  }
+  .p-phone-viewnote-title{
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  .p-phone-label-viewnotedescriptionnote {
+    white-space: pre-line;
+    word-wrap: break-word;
+  }
+  .p-phone-viewnote{
+    width: 70%;
+    color: black !important;
+  }
+}

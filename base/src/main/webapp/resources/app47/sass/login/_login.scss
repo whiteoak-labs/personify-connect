@@ -1,0 +1,32 @@
+.login-button-status, .profile-button-status{
+  background: transparent;
+  color: $p-config-tablet-lablebuttonredcolor;
+  font-size: 13pt;
+  font-family: Arial;
+  height: 53px;
+  width: 78px;
+  border: none;
+  border-radius: 0px;
+}
+.login-button-status .x-button-label{
+  padding-top: 10px;
+}
+.profile-button-status .x-button-label {
+  margin-top: 29px;
+  font-size: 13px;
+  font-family: Arial;
+}
+.profile-button-status::before{
+  background-image: url($p-config-tablet-profileicon);
+  background-repeat: no-repeat;
+  background-position: 30%;
+  content: "";
+  height: 30px;
+  width: 100%;
+  position: absolute;
+}
+.p-panel-background-login{
+  background-color: $p-config-tablet-loginpanelbackground-colorstart;
+  @include filter-gradient($p-config-tablet-loginpanelbackground-colorstart, $p-config-tablet-loginpanelbackground-colorend, vertical);
+  @include background-image(linear-gradient(top, $p-config-tablet-loginpanelbackground-colorstart 0%, $p-config-tablet-loginpanelbackground-colorend 100%));
+}

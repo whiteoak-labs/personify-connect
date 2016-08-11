@@ -1,0 +1,242 @@
+.extend-p-button-inlist-exhibitor {
+  height: 35px;
+  width: 110px;
+  margin: 0px 10px 0px 10px;
+  padding: 0px;
+  cursor: pointer;
+  color: $p-config-tablet-lablebuttonredcolor;
+  font-weight: bold;
+  line-height: 31px;
+  font-size: 13px;
+}
+
+.p-button-red-inlist-exhibitor {
+  @extend .red-button-background;
+  @extend .extend-p-button-inlist-exhibitor;
+}
+
+.p-button-blue-inlist-exhibitor {
+  @extend .blue-button-background;
+  @extend .extend-p-button-inlist-exhibitor;
+}
+
+.allExhibitorListItem {
+  margin: 3px 0;
+  padding: 0;
+  border: none!important;
+  font-size: 13px;
+  background-color: $p-config-tablet-eventitembackground;
+}
+
+.allSessionListItem {
+  @extend .allExhibitorListItem;
+}
+.allSessionListItem .x-item-pressed {
+  opacity: 0.9;
+}
+
+.contactListExItem-item-label {
+  width: 49.2%;
+  height: 86px;
+  margin: 2px;
+  padding: 10px;
+  border: none !important;
+  float: left;
+  min-width: 249.5px;
+  font-size: 13px;
+  background-color: $p-config-tablet-eventitembackground;
+  color: white;
+}
+
+.contactListExItem-item {
+  width: 49.2%;
+  height: 86px;
+  margin: 2px;
+  border: none !important;
+  float: left;
+  min-width: 249.5px;
+  font-size: 13px;
+  background-color: $p-config-tablet-eventitembackground;
+  color: white;
+}
+
+.x-item-selected .contactListExItem-item-label {
+  background-color: $p-button-pressing-background-color !important;
+}
+.allExhibitorList {
+  @extend .extend-list-exhibitor-material-presenter-attendees;
+  .x-list-header-swap {
+    display: block !important;
+  }
+}
+
+.allSessionList {
+  @extend .allExhibitorList;
+}
+
+.allExhibitorList-inner{
+  background: black;
+  .x-list-header {
+    padding: 10px 10px;
+    height: 40px;
+    position: absolute;
+    @extend .menu-list-item-background-extend;
+  }
+  .x-scroll-scroller {
+    padding-bottom: 38px;
+  }
+}
+
+.allSessionList-inner {
+  @extend .allExhibitorList-inner;
+}
+
+.allExhibitorListItemPressed {
+  @extend .red-button-pressing-background;
+}
+
+.allExhibitorList-item-label {
+  @extend .extend-Itemlist-exhibitor-material-presenter-attendees;
+  padding: 0px;
+  font-size: 13px;
+}
+
+.x-item-pressed .allExhibitorList-item-label, .allSessionList-item-label, .x-item-selected .allExhibitorList-item-label {
+  @extend .red-button-pressing-background;
+}
+
+.allExhibitorList-header {
+  padding: 0px;
+  padding-left: 10px;
+  margin: 0px 1px;
+}
+
+.allSessionList-header {
+  @extend .allExhibitorList-header;
+}
+
+.allExhibitorList {
+  .x-scroll-container {
+    margin-top: 38px;
+  }
+}
+
+.allSessionList {
+  .x-scroll-container {
+    margin-top: 0px;
+  }
+}
+
+.presenterlistdetail .allExhibitorList {
+  .x-scroll-container {
+    margin-top: 0px;
+  }
+}
+.segmentedButtonDetailEx {
+  width: 100%;
+  height: 35px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  border: 0px;
+  background-color: transparent;
+}
+
+.segmentedButtonDetailEx .x-button.x-first {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.segmentedButtonDetailEx .x-button.x-last {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.segmentedButtonDetailEx .x-button-label {
+  text-align: center;
+  font-size: 10pt;
+  font-weight: bold;
+  line-height: 35px;
+}
+
+.segmentButtonItemDetailEx {
+  width: 25%;
+  height: 35px;
+  border-radius: 0px !important;
+  border: 1px solid black !important;
+  background-color: $p-config-tablet-segmentedbutton-disablecolor !important;
+  box-shadow: none !important;
+}
+
+.segmentedButtonDetailEx {
+  .x-button-pressing {
+    background-color: $p-config-tablet-segmentedbutton-disablecolor !important;
+    opacity: 0.9;
+  }
+}
+
+.segmentedButtonPressedDetailEx {
+  @extend .blue-button-background;
+}
+.extend-button-phone {
+  height: 30px;
+  padding: 0px;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+  margin: 8px 10px 8px;
+}
+
+.btnOpenExhibitorsList, .btnRemoveMyExihibitorPhone {
+  @extend .red-button-background;
+  @extend .extend-button-phone;
+  border: 1px solid #930B0B !important;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    line-height: 28px;
+  }
+}
+
+.btnOpenExhibitorsList.x-button-pressing, .btnRemoveMyExihibitorPhone.x-button-pressing {
+  @extend .red-button-pressing-background;
+}
+.btnExihibitorDetailPhone {
+  @extend .conference-item-background;
+  @extend .extend-button-phone;
+  padding: 0px 10px;
+  margin: 0px 0px 10px;
+  border: 1px solid rgba(201, 198, 198, 0.98);
+  .x-button-label {
+    line-height: 28px;
+    text-align: left;
+    font-weight: normal;
+  }
+}
+
+.btnExihibitorDetailPhone::before {
+  background-image: url($p-config-phone-nextarrowgrey) !important;
+  background-size: 12px 15px !important;
+  background-repeat: no-repeat !important;
+  background-position: 93% center !important;
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute !important;
+}
+
+.btnExihibitorDetailPhone.x-button-pressing {
+  @extend .p-panel-pressing;
+  color: black !important;
+}
+
+.btnAddMyExihibitorPhone {
+  @extend .blue-blood-button-background;
+  @extend .extend-button-phone;
+  border: 1px solid #4773AA !important;
+  .x-button-label {
+    line-height: 28px;
+    color: $p-config-tablet-lablebuttonbluebloodcolor;
+  }
+}
+
+.btnAddMyExihibitorPhone.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}

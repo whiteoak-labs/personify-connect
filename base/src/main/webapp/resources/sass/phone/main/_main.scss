@@ -1,0 +1,33 @@
+@mixin mainphone {
+  .topbar-noti-phone {
+    background: #B1B1B1;
+    padding-top: 5px;
+  }
+
+  .back-noti-phone {
+    font-size: 14px;
+  }
+
+  .edit-noti-phone {
+    font-size: 14px;
+  }
+
+  .topbar-noti-phone .x-button-action {
+    height: 30px;
+    background-color: #717171 !important;
+    background-image: none;
+    border-radius: 20px;
+    width: 70px;
+    margin-right: 10px;
+  }
+
+  .topbar-noti-phone .x-button-back {
+    margin-left: 20px !important;
+    margin-right: 10px;
+  }
+
+  .label-noti-phone {
+    font-size: 17px;
+    padding-top: 5px;
+  }
+}

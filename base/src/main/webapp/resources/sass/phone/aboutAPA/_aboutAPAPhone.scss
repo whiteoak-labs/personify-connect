@@ -1,0 +1,22 @@
+@mixin aboutAPAphone {
+  .imageFrame-AboutAPAPhone {
+    min-width: 100px;
+    min-height: 100px;
+    background-size: 100%;
+    margin-right: 10px;
+  }
+
+  .p-phone-aboutpagedescription *{
+    font-size: 14px !important;
+    font-family: $p-font-family !important;
+    padding: 0 !important;
+  }
+
+  .p-phone-panel-aboutwesite{
+    margin-bottom: 10px;
+    .p-label-contactinfovalueText{
+      text-decoration: underline !important;
+      color: $p-hyperlink-blue !important;
+    }
+  }
+}

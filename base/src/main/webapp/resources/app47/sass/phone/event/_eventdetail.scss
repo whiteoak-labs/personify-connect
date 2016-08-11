@@ -1,0 +1,142 @@
+.p-phone-button-submit{
+  @extend .red-button-background;
+  box-shadow: none;
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-clear{
+  @extend .gray-button-background;
+  box-shadow: none;
+  height: 30px;
+  margin-top: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttongraycolor;
+    line-height: 17px;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-addevent-segmentedcontainer{
+  height: 30px;
+  .x-button-pressed{
+    @extend .blue-button-pressing-background;
+  }
+}
+.p-phone-button-eventdetail-addtocart, .p-phone-button-eventdetail-savetocalendar{
+  margin-bottom: 5px;
+  color: $p-config-tablet-lablebuttonbluebloodcolor;
+  @extend .blue-blood-button-background;
+  font-size: 12px;
+  min-height: 30px
+}
+.p-phone-button-eventdetail-regiter{
+  @extend .red-button-background;
+  height: 30px;
+  margin-bottom: 5px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-eventdetail-regiter.x-button-pressing{
+  @extend .red-button-pressing-background;
+}
+.p-phone-button-eventdetail-savetocalendar.x-button-pressing{
+  @extend .blue-button-pressing-background;
+}
+.p-phone-conference-item{
+  padding: 20px 0px 10px 30px;
+  width: 100%;
+  margin: 0px;
+  font-size: $p-text-list-menu-item-size;
+  font-weight: normal;
+  text-align: left;
+  color: $p-config-phone-conferentmenub-textcolor;
+  min-height: 61px;
+}
+.p-phone-conference-item:before{
+  background-image: url($p-config-phone-conferencearrowicon);
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  content: "";
+  border-style: none;
+  right: 10px;
+  background-repeat: no-repeat;
+  margin-top: 5px;
+}
+/*pressed on conference item*/
+.p-phone-conference-list .x-item-pressed,
+.p-phone-conference-list .x-item-selected{
+  .p-phone-conference-item{
+    @extend .menu-list-item-background-phone;
+    color: $p-config-phone-conferentmenub-pressed-textcolor;
+  }
+  .p-phone-conference-item:before{
+    background-image: url($p-conifg-tablet-quickmenuarrow);
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    content: "";
+    border-style: none;
+    right: 10px;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+  }
+}
+/*event conference */
+.p-phone-container-conference-background{
+  background-color: white;
+}
+
+.p-phone-conference-list-item{
+  min-height: 60px;
+  .scheduleButton:after{
+    background-image: url($p-config-phone-icon-eventcomplex-schedule);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+    background-position: center;
+    background-size: 24px 24px;
+  }
+  .attendeesButton:after{
+    background-image: url($p-config-phone-icon-eventcomplex-attendees);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .exhibitorsButton:after{
+    background-image: url($p-config-phone-icon-eventcomplex-exhibitor);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .mapButton:after{
+    background-image: url($p-config-phone-icon-eventcomplex-maps);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .materialButton:after{
+    background-image: url($p-config-phone-icon-eventcomplex-materials);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+    background-size: 20px 17px;
+    background-position: center;
+  }
+  .notesButton:after{
+    background-image: url($p-config-phone-icon-eventcomplex-note);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .presenterButton:after{
+    background-image: url($p-config-phone-icon-eventcomplex-presenter);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+  .badgeButton:after{
+    background-image: url($p-config-phone-icon-eventcomplex-badge);
+    background-repeat: no-repeat;
+    @extend .home-menulist-image;
+  }
+}

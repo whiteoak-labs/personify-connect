@@ -1,0 +1,21 @@
+.p-phone-border-field {
+  font-size: 12px !important;
+  border: solid 1px rgba(201, 198, 198, 0.98);
+  padding: 5px;
+  min-height: 35px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  @extend .conference-item-background;
+  .x-inner {
+    min-height: 25px;
+  }
+}
+
+.p-phone-arrowgrayimage{
+  background: transparent url($p-config-phone-nextarrowgrey) no-repeat center !important;
+  width: 12px;
+  min-height: 25px;
+  position: absolute;
+  right: 20px;
+  background-size: 12px 15px !important;
+}

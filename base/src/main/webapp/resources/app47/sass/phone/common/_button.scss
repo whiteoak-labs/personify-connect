@@ -1,0 +1,275 @@
+.p-phone-button-storeshoppingcart:before{
+  content: "";
+  background-image: url($p-config-phone-shoppingcart);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 5px;
+  top: 2px;
+}
+.p-phone-button-storeshoppingcart{
+  min-height: 30px !important;
+  min-width: 60px;
+  border: 0px !important;
+  border-radius: 5px !important;
+  margin-left: 10px;
+  height: 30px;
+  @extend .red-button-background;
+  .x-button-label {
+    font-size: $p-toolbar-button-font-size !important;
+    font-weight: bold;
+    color: $p-config-tablet-lablebuttonredcolor;
+    padding-left: 22px;
+    line-height: 22px !important;
+  }
+}
+
+.p-button-action{
+  height: 30px !important;
+  min-width: 55px;
+  border: 0px !important;
+  border-radius: 5px !important;
+  .x-button-label {
+    font-size: $p-toolbar-button-font-size !important;
+    font-weight: bold;
+    color: $p-config-phone-toolbartextcolor;
+  }
+  @include toolbar-button($p-config-phone-toolbarbutton-backgroundcolor);
+}
+
+.p-button-back {
+  margin-left: 12px !important;
+  height: 30px !important;
+  min-width: 45px;
+  border: 0px !important;
+  border-bottom-right-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+  border-bottom-left-radius: 3px !important;
+  border-top-left-radius: 3px !important;
+  .x-button-label {
+    font-size: $p-toolbar-button-font-size !important;
+    font-weight: bold;
+    text-align: center;
+  }
+  @include toolbar-button($p-config-phone-toolbarbutton-backgroundcolor);
+}
+.p-phone-backbuttonarrow-extend {
+  background-size: 12px 31px;
+  background-repeat: no-repeat;
+  border: none !important;
+  position: absolute;
+  top: 1px;
+  left: -2px;
+  background-color: transparent !important;
+}
+.p-button-back-arrow {
+  background-image: url($p-config-phone-narrowleft) !important;
+  @extend .p-phone-backbuttonarrow-extend;
+}
+.x-button-forward, .x-button-back{
+  overflow: hidden;
+}
+
+.p-pressed-button-back-arrow {
+  background-image: url($p-config-phone-narrowleftpressed) !important;
+  @extend .p-phone-backbuttonarrow-extend;
+}
+
+.p-phone-button-viewmore{
+  min-height: 30px !important;
+  min-width: 70px;
+  border: 0px !important;
+  border-radius: 5px !important;
+  @include toolbar-button($p-config-phone-toolbarbutton-backgroundcolor);
+  .x-button-label {
+    font-size: $p-toolbar-button-font-size !important;
+    font-weight: bold;
+    color: $p-config-phone-toolbartextcolor;
+    padding-right: 20px;
+  }
+}
+
+.p-phone-button-viewmore:before{
+  content: "";
+  background-image: url($p-config-tablet-trianglephoneexpand);
+  background-repeat: no-repeat;
+  background-size: 15px 12px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 45px;
+  top: 10px;
+}
+.p-phone-home-button{
+  background-image:url($p-config-phone-homeimage)!important;
+  background-repeat: no-repeat!important;
+  background-position: center 5px!important;
+  background-size: 20px auto!important;
+  width: 30px;
+  height:30px;
+  border-radius: 0;
+  border:none;
+  background: transparent;
+  border: none;
+}
+
+.p-phone-buttonlabel-smalltext{
+  font-size: $p-phone-text-small-size;
+  text-align: center;
+  font-weight: bold;
+}
+.p-phone-button-event-filter, .p-phone-button-clearfilterevent{
+  @extend .red-button-background;
+  height: 30px;
+  margin: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-event-filter .x-button-label{
+  font-size: $p-phone-text-tiny-size !important;
+  line-height: 15px;
+}
+.p-panel-pressing{
+  background: $p-config-phone-complexeventpanelbackground-colorstart !important; /* Old browsers */
+  background: -moz-linear-gradient(top, $p-config-phone-complexeventpanelbackground-colorstart 0%, $p-config-phone-complexeventpanelbackground-colorend 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$p-config-phone-complexeventpanelbackground-colorstart), color-stop(100%,$p-config-phone-complexeventpanelbackground-colorend)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, $p-config-phone-complexeventpanelbackground-colorstart 0%,$p-config-phone-complexeventpanelbackground-colorend 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $p-config-phone-complexeventpanelbackground-colorstart 0%,$p-config-phone-complexeventpanelbackground-colorend 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $p-config-phone-complexeventpanelbackground-colorstart 0%,$p-config-phone-complexeventpanelbackground-colorend 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom, $p-config-phone-complexeventpanelbackground-colorstart 0%,$p-config-phone-complexeventpanelbackground-colorend 100%) !important; /* W3C */
+}
+.add-to-cart-store-detail-phone{
+  @extend .blue-button-background;
+  height: 30px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonbluecolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.buy-now-store-detail-phone{
+  margin-top: 10px;
+  @extend .red-button-background;
+  height: 30px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-confirmorderpanel{
+  @extend .red-button-background;
+  height: 30px;
+  min-width: 80px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-cancelorderpanel{
+  @extend .gray-button-background;
+  margin-right: 10px;
+  height: 30px;
+  min-width: 80px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttongraycolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-deletenote{
+  background-image: url($p-config-phone-deleteicon);
+  background-repeat: no-repeat;
+  min-height: 25px;
+  width: 25px;
+  color: white;
+  border-radius: 15px;
+  border: 2px solid white;
+  background-color: red;
+  background-position: center center;
+}
+.p-phone-button-shareallnote::before{
+  background-image: url($p-conifg-tablet-shareicon),url($p-conifg-tablet-blueline) !important;
+  background-repeat: no-repeat,repeat-y !important;
+  background-position: 6px center,35px 0 !important;
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  top: 0px;
+}
+.p-phone-button-shareallnote {
+  @extend .blue-blood-button-background;
+  height: 30px;
+  margin: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonbluebloodcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+
+.p-phone-button-storeclearfilter{
+  @extend .red-button-background;
+  height: 30px;
+  margin: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-viewmysetting{
+  @extend .red-button-background;
+  margin-bottom: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-logout{
+  @extend .gray-button-background;
+  margin-bottom: 10px;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttongraycolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-addevent{
+  @extend .red-button-background;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 10px;
+  left: 25%;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-eventhome{
+  height: 30px;
+  width: 95px;
+  top: 0px;
+  @extend .red-button-background;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}
+.p-phone-button-blue-pressing{
+  @extend .blue-button-pressing-background;
+}
+.p-phone-button-red-pressing{
+  @extend .red-button-pressing-background;
+}
+.p-phone-button-gray-pressing{
+  @extend .gray-button-pressing-background;
+}
+.p-phone-button-filterproducts{
+  @extend .red-button-background;
+  height: 30px;
+  width: 45%;
+  float: right;
+  .x-button-label{
+    color: $p-config-tablet-lablebuttonredcolor;
+    @extend .p-phone-buttonlabel-smalltext;
+  }
+}

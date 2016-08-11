@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="phonegap-plugin-app-preferences"
+    version="1.0.0">
+
+    <name>ApplicationPreferences</name>
+    <description>Phonegap plugin allowing for storing and retrieval of user stores application preferences.</description>
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>    
+
+    <js-module src="www/applicationPreferences.js" name="ApplicationPreferences">
+        <clobbers target="window.plugins.applicationPreferences" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ApplicationPreferences">
+                <param name="ios-package" value="ApplicationPreferences" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+                
+        <header-file src="src/ios/ApplicationPreferences.h" />
+        <source-file src="src/ios/ApplicationPreferences.m" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ApplicationPreferences">
+                <param name="android-package" value="net.dynagility.personify.plugin.ApplicationPreferences" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        
+        <source-file src="src/android/ApplicationPreferences.java" target-dir="src/net/dynagility/personify/plugin" />                
+    </platform>
+</plugin>

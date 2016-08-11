@@ -1,0 +1,112 @@
+.news-page-title {
+  width: 100%;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 15px;
+  text-decoration: underline;
+  @include tabletfonttype($p-config-tablet-newsheadertitle-fontfamily, $p-config-tablet-newsheadertitle-fontsize, $p-config-tablet-newsheadertitle-color);
+}
+.news-page-item.x-item-pressed {
+  .news-page-title{
+    color: $p-config-tablet-pressing-newstitlehomepage;
+  }
+}
+
+.p-dataview-pressed{
+  .eventItemContent {
+    @extend .red-button-pressing-background;
+  }
+}
+
+.p-filter-button-new::before {
+  background: url($p-config-tablet-trianglephone);
+  height: 45px;
+  background-size: 12px 15px;
+  background-repeat: no-repeat;
+  content: '';
+  left: 20px;
+  padding-left: 20px;
+}
+.p-filter-button-new-enabled::before {
+  background-image: url($p-config-tablet-trianglephoneexpand);
+  height: 45px;
+  background-size: 15px 12px;
+  background-repeat: no-repeat;
+  content: '';
+  left: 20px;
+  padding-left: 20px;
+  margin-left: 10px;
+}
+.p-filter-button-new, .p-filter-button-new-enabled{
+  height: 45px;
+  background-color: $p-config-tablet-newheaderbackground-colorstart;
+  @include filter-gradient($p-config-tablet-newheaderbackground-colorstart, $p-config-tablet-newheaderbackground-colorend, vertical);
+  @include background-image(linear-gradient(top, $p-config-tablet-newheaderbackground-colorstart 0%, $p-config-tablet-newheaderbackground-colorend 100%));
+  color: $p-config-tablet-newheadertextcolor;
+  font-size: 16px;
+  line-height: 45px;
+  float: left;
+  width: 100%;
+}
+.tabpanelButtonNews {
+  background: #303030 !important;
+  .x-tab {
+    border-radius: 0px !important;
+    font-size: 18px;
+  }
+  .x-tab-normal {
+    background: $p-config-tablet-segmentedbutton-disablecolor !important;
+    width: 50%;
+    color: white;
+    height: 42px !important;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+  .x-tab-active {
+    background: $p-config-tablet-segmentedbutton-activecolorstart !important;
+    background: -moz-linear-gradient(top, $p-config-tablet-segmentedbutton-activecolorstart 0%, $p-config-tablet-segmentedbutton-activecolorend 100%)!important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$p-config-tablet-segmentedbutton-activecolorstart), color-stop(100%,$p-config-tablet-segmentedbutton-activecolorend))!important;
+    background: -webkit-linear-gradient(top, $p-config-tablet-segmentedbutton-activecolorstart 0%, $p-config-tablet-segmentedbutton-activecolorend 100%)!important;
+    background: -o-linear-gradient(top,$p-config-tablet-segmentedbutton-activecolorstart 0%, $p-config-tablet-segmentedbutton-activecolorend 100%)!important;
+    background: -ms-linear-gradient(top, $p-config-tablet-segmentedbutton-activecolorstart 0%, $p-config-tablet-segmentedbutton-activecolorend 100%)!important;
+    background: linear-gradient(to bottom, $p-config-tablet-segmentedbutton-activecolorstart 0%, $p-config-tablet-segmentedbutton-activecolorend 100%)!important;
+    color: white;
+    height: 42px !important;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+  .x-tabbar {
+    height: 43px;
+    padding: 0px;
+    .x-button-label{
+      font-size: 18px !important;
+      padding-top: 15px !important;
+    }
+  }
+  .x-tabbar-dark{
+    background: none;
+    boder: 0px !important;
+  }
+  .x-tab-active.x-tab-pressed {
+    opacity: 0.9;
+  }
+  .x-tab-pressed {
+    opacity: 0.9;
+  }
+}
+.iconTwetterNews {
+  background: url($p-config-tablet-twittericon) no-repeat 0px -1px !important;
+  width: 30px !important;
+  height: 30px !important;
+  float: left;
+  top: 2px;
+  left: -10px;
+}
+.iconNewsTabPanel {
+  background: url($p-config-tablet-news30x30-top-header) no-repeat 0px -1px !important;
+  width: 30px !important;
+  height: 30px !important;
+  float: left;
+  top: 2px;
+  left: -10px;
+}

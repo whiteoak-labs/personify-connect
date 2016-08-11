@@ -3,15 +3,15 @@
         {
             "mapId": "1",
             "name": "Esplanade Lobby",
-            "image": "img/event/map/schema/esplanade.lobby.png"
+            "image": "resources/images/event/map/schema/esplanade.lobby.png"
         }, {
             "mapId": "2",
             "name": "Exhibitor Hall",
-            "image": "img/event/map/schema/exhibitor.hall.png"
+            "image": "resources/images/event/map/schema/exhibitor.hall.png"
         }, {
             "mapId": "3",
             "name": "Indy Marriott",
-            "image": "img/event/map/schema/indy.marriott.png"
+            "image": "resources/images/event/map/schema/indy.marriott.png"
         }
     ],
     "locations": {

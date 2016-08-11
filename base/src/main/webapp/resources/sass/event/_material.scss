@@ -1,0 +1,45 @@
+@mixin material {
+
+
+
+
+  .panel-contain-button-material {
+    min-height: 86px;
+    width: 30px;
+    margin: 0px 20px 0px 10px;
+  }
+
+  .btn-email-material {
+    height: 25px;
+    width: 30px;
+    border: none;
+    padding: 0px;
+  }
+
+  .btn-email-material {
+    background: transparent url('../icons/email-material.png') no-repeat center center;
+  }
+
+  .panel-contain-button-material-phone {
+    min-height: 50px;
+    width: 25px;
+    margin: 10px 10px 10px 0px;
+  }
+
+  .btn-ppt-material-phone {
+    height: 24px;
+    width: 25px;
+    border: none;
+    padding: 0px;
+    background: rgb(90, 71, 71) url('../icons/phone/download-material-Phone.png') no-repeat center center;
+  }
+  .p-phone-event-material-item{
+    border-bottom: 1px solid gray;
+  }
+  .p-phone-event-material-item:nth-child(even) {
+    background: #eeeff3;
+  }
+  .p-phone-event-material-item:nth-child(odd) {
+    background: #ffffff;
+  }
+}

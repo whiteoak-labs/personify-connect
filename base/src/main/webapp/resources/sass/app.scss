@@ -1,0 +1,141 @@
+// The following two lines import the default Sencha Touch theme. If you are building
+// a new theme, remove them and the add your own CSS on top of the base CSS (which
+// is already included in your app.json file).
+@import 'sencha-touch/default';
+@import 'sencha-touch/default/all';
+
+@import "../app47/sass/app47";
+@import 'store/store';
+@import 'event/event';
+@import 'event/complexEvent';
+@import 'event/notes';
+@import 'directory/directory';
+@import 'phone/directory/directory';
+@import 'news/news';
+@import 'profile/profile';
+@import 'home/home';
+@import 'exhibitor/exhibitor';
+@import 'login/login';
+@import 'logintwitter/logintwitter';
+@import 'twitter/tweettwitter';
+@import 'event/simpleEvent';
+@import 'main/main';
+@import 'main/menubar';
+@import 'community/community';
+@import 'event/detailcomplexevent';
+@import 'event/map';
+@import 'event/badge';
+@import 'event/material';
+@import 'participation/participation';
+@import 'logintwitter/logedtwitter';
+@import 'event/filterList';
+@import 'event/filter';
+@import 'help/help';
+@import 'common/button';
+@import 'common/field';
+@import 'common/panel';
+@import 'phone/common/button';
+@import 'phone/common/field';
+@import 'phone/common/panel';
+@import 'phone/main/main';
+@import 'phone/event/map';
+@import 'phone/login/login';
+@import 'phone/notification/notification';
+@import 'phone/home/home';
+@import 'phone/event/eventlist';
+@import 'phone/news/news';
+@import 'phone/event/eventdetail';
+@import 'phone/viewwithbanner/viewwithbanner';
+@import 'phone/aboutAPA/aboutAPAPhone';
+@import 'phone/store/store';
+@import 'rate/rate';
+
+@include store;
+@include directory;
+@include directoryphone;
+@include news;
+@include event;
+@include complexEvent;
+@include notes;
+@include profile;
+@include home;
+@include exhibitor;
+@include login;
+@include twitterlogin;
+@include tweettwitter;
+@include simpleEvent;
+@include main;
+@include community;
+@include detailcomplexevent;
+@include map;
+@include material;
+@include menubar;
+@include participation;
+@include logedtwitter;
+@include filterList;
+@include filter;
+@include help;
+@include button;
+@include field;
+@include panel;
+@include buttonphone;
+@include fieldphone;
+@include panelphone;
+@include loginphone;
+@include mainphone;
+@include notificationphone;
+@include mapphone;
+@include homephone;
+@include eventlistphone;
+@include newsphone;
+@include eventdetailphone;
+@include viewwithbannerphone;
+@include badge;
+@include aboutAPAphone;
+@include storephone;
+@include rate;
+
+  // Your custom code goes here
+  .p-filter-button {
+    background: white !important;
+    border-radius: 0px;
+    color: black !important;
+    font-weight: 100;
+    border: 1px solid gray !important;
+    float: left;
+    margin: 5px 30px;
+    .x-button {
+      background: white;
+      border-radius: 0px;
+      color: black;
+      font-weight: 100;
+      border: none;
+      font-size: 13px;
+    }
+  }
+
+  .p-filter-button-enabled {
+    background: black !important;
+    color: white !important;
+    border-radius: 0px;
+    border: 1px solid gray !important;
+    font-weight: 100;
+    float: left;
+    margin: 5px 30px;
+    .x-button {
+      background: black;
+      color: white;
+      border-radius: 0px;
+      font-weight: 100;
+      border: none;
+      color: white;
+      font-size: 13px;
+    }
+  }
+  .x-input-el{
+  	background-color: transparent !important;
+  }
+  .x-clear-icon {
+    background-size: 50% 50% !important;
+    padding: 18px;
+  }

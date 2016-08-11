@@ -24,7 +24,8 @@ if(fs.existsSync(projectDir)){
 		        'https://github.com/apache/cordova-plugin-network-information.git',
 			    'https://github.com/apache/cordova-plugin-splashscreen.git',
 			    'https://github.com/apache/cordova-plugin-statusbar.git',
-			    'https://github.com/apache/cordova-plugin-vibration.git'
+			    'https://github.com/apache/cordova-plugin-vibration.git',
+			    'https://github.com/litehelpers/Cordova-sqlite-storage.git'
 //			    ,'https://github.com/urbanairship/phonegap-ua-push.git'
 			],
 			android: [
@@ -42,7 +43,8 @@ if(fs.existsSync(projectDir)){
 			    'https://github.com/apache/cordova-plugin-splashscreen.git',
 			    'https://github.com/apache/cordova-plugin-statusbar.git',
 			    'https://github.com/apache/cordova-plugin-vibration.git',
-			    'https://github.com/apache/cordova-plugin-legacy-whitelist.git'
+			    'https://github.com/apache/cordova-plugin-legacy-whitelist.git',
+			    'https://github.com/litehelpers/Cordova-sqlite-storage.git'
 //			    ,'https://github.com/urbanairship/phonegap-ua-push.git'
 		        ]
 		    }
@@ -50,10 +52,12 @@ if(fs.existsSync(projectDir)){
 		localPlugins = {
 		   platforms: {
 		    	ios: [
-		    	   'phonegap-plugin-app47 --variable PROJECT_NAME=PersonifyConnect'
+		    	   'phonegap-plugin-app47 --variable PROJECT_NAME=PersonifyConnect',
+		    	   'phonegap-plugin-app-preferences'
 		    	],
 			android: [
-			      'phonegap-plugin-app47'
+			      'phonegap-plugin-app47',
+			      'phonegap-plugin-app-preferences'
 			]
 		   }
 	    };

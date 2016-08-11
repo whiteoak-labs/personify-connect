@@ -1,0 +1,88 @@
+.filterEventButton {
+  @extend .red-button-background;
+  .x-button-label {
+    padding-left: 35px;
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-size: 12pt;
+  }
+}
+
+.filterEventButton::before {
+  background-image: url($p-conifg-tablet-iconfilter), url($p-conifg-tablet-iconredline) !important;
+  background-repeat: no-repeat, repeat-y !important;
+  background-position: 5px center, 35px center !important;
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  margin-top: -5px;
+}
+.p-button-clearFilterBytrack {
+  @extend .red-button-background;
+  margin: 0px 10px 10px;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-size: 12pt;
+  }
+}
+
+.filterEventButton.x-button-pressing, .p-button-clearFilterBytrack.x-button-pressing {
+  @extend .red-button-pressing-background;
+}
+.clearFilter {
+  @extend .red-button-background;
+  margin: $p-margin-same-component;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonredcolor;
+    font-size: 12pt;
+    line-height: 28px
+  }
+}
+.p-button-submitFilter {
+  @extend .blue-button-background;
+  width: 50%;
+  margin: 20px;
+  height: $p-height-button;
+  .x-button-label {
+    color: $p-config-tablet-lablebuttonbluecolor;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.p-button-submitFilter.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+.p-button-panelfilter-clear {
+  color: $p-config-tablet-lablebuttonredcolor;
+  font-size: 16px;
+  font-weight: bold;
+  height: 44px;
+  width: 120px;
+  text-align: center;
+  margin-right: 10px;
+  @extend .red-button-background;
+  .x-button-label{
+    line-height: 34px;
+  }
+}
+
+.p-button-panelfilter-clear.x-button-pressing {
+  @extend .red-button-pressing-background;
+}
+.p-button-past-event {
+  margin: $p-margin-same-component;
+  height: $p-height-button;
+  margin-top: 0px;
+  padding: 0px;
+  color: $p-config-tablet-lablebuttonbluecolor;
+  @extend .blue-button-background;
+}
+
+.p-button-past-event.x-button-pressing {
+  @extend .blue-button-pressing-background;
+}
+
+.p-button-past-event .x-button-label {
+  line-height: 36px;
+}
