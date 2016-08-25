@@ -53,11 +53,16 @@ if(fs.existsSync(projectDir)){
 		   platforms: {
 		    	ios: [
 		    	   'phonegap-plugin-app47 --variable PROJECT_NAME=PersonifyConnect',
-		    	   'phonegap-plugin-app-preferences'
+		    	   'phonegap-plugin-app-preferences',
+		    	   'phonegap-plugin-calendar',
+		    	   'phonegap-plugin-social'
 		    	],
 			android: [
 			      'phonegap-plugin-app47',
-			      'phonegap-plugin-app-preferences'
+			      'phonegap-plugin-app-preferences',
+			      'phonegap-plugin-android-helper',
+			      'phonegap-plugin-calendar',
+			      'phonegap-plugin-social'
 			]
 		   }
 	    };

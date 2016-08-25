@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "name": "phonegap-plugin-social",
+    "cordova_name": "Calendar",
+    "description": "Phonegap plugin allowing access social media sharing.",
+    "license": "MIT",
+    "platforms": [
+        "ios",
+        "android"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}

@@ -1,31 +1,68 @@
 Ext.define('Personify.utils.Sqlite', {
-    db: null,
+    db: false,
+    
     statics: {
+           connectOptions: {
+               	name: 'Personify',
+               	location: 2,
+               	androidDatabaseImplementation: 2,
+               	androidLockWorkaround: 1
+           },
+
            init: function() {
-               Personify.utils.Sqlite.db = window.sqlitePlugin.openDatabase("Personify", "1.0", "Personify", -1);
-               //Personify.utils.Sqlite.db = window.openDatabase("Personifyaaa", "1.0", "Personifyeee", -1);
-               Personify.utils.Sqlite.createTableData();
+               Personify.utils.Sqlite.db = Personify.utils.Sqlite.db || window.sqlitePlugin.openDatabase(Personify.utils.Sqlite.connectOptions,
+            	  function(){
+            	     Personify.utils.Sqlite.createTableData();
+                  },
+                  function(e){
+                	  console.log(e);
+                  }
+               );               
            },
            
            initNotes: function() {
-               Personify.utils.Sqlite.db = window.sqlitePlugin.openDatabase("Personify", "1.0", "Personify", -1);
-               //Personify.utils.Sqlite.db = window.openDatabse("Personify", "1.0", "Personify", -1);
-               Personify.utils.Sqlite.createTableNotes();
+               Personify.utils.Sqlite.db = Personify.utils.Sqlite.db || window.sqlitePlugin.openDatabase(Personify.utils.Sqlite.connectOptions,
+            	    function(){
+            	       Personify.utils.Sqlite.createTableNotes();
+                    },
+                    function(e){
+                	   console.log(e);
+                    }
+                );               
            },
            
            initExhibitor: function() {
-               Personify.utils.Sqlite.db = window.sqlitePlugin.openDatabase("Personify", "1.0", "Personify", -1);
-               Personify.utils.Sqlite.createTableExhibitor();
+               Personify.utils.Sqlite.db = Personify.utils.Sqlite.db || window.sqlitePlugin.openDatabase(Personify.utils.Sqlite.connectOptions,
+                   function(){
+            	       Personify.utils.Sqlite.createTableExhibitor();
+                   },
+                   function(e) {
+                       console.log(e);
+                   }
+               );
+               
            },
            
            initNotification: function() {
-               Personify.utils.Sqlite.db = window.sqlitePlugin.openDatabase("Personify", "1.0", "Personify", -1);
-               Personify.utils.Sqlite.createTableNotification();
+               Personify.utils.Sqlite.db = Personify.utils.Sqlite.db || window.sqlitePlugin.openDatabase(Personify.utils.Sqlite.connectOptions,
+                   function(){
+            	       Personify.utils.Sqlite.createTableNotification();
+                   },
+                   function(e) {
+                       console.log(e);
+                   }
+              );               
            },
 
            initImage: function() {
-               Personify.utils.Sqlite.db = window.sqlitePlugin.openDatabase("Personify", "1.0", "Personify", -1);
-               Personify.utils.Sqlite.createTableImage();
+        	   Personify.utils.Sqlite.db = Personify.utils.Sqlite.db || window.sqlitePlugin.openDatabase(Personify.utils.Sqlite.connectOptions,
+                  function(){
+        		      Personify.utils.Sqlite.createTableImage();
+                  },
+                  function(e) {
+                      console.log(e);
+                  }
+               );               
            },
            
            createTableData: function() {

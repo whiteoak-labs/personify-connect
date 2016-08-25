@@ -80,7 +80,7 @@
         <source-file src="src/android/App47PGPlugin.java" target-dir="src/net/dynagility/personify/plugin" />        
         <source-file src="src/android/UnZip.java" target-dir="src/net/dynagility/personify/plugin" />        
         <source-file src="src/android/lib/commons-io-2.4.jar" target-dir="libs/" />
-        <source-file src="src/android/lib/AndroidAgent-1.9.jar" target-dir="libs/" />
+        <source-file src="src/android/lib/AndroidAgent-1.7.5.jar" target-dir="libs/" />
         <source-file src="www/icons" target-dir="assets/www" />
         <source-file src="www/images" target-dir="assets/www"/>
         <source-file src="www/app47.css" target-dir="assets/www/css" />
@@ -99,6 +99,7 @@
 		<resource-file src="resources/news_feeds.json" target="res/raw/news_feeds.json"/>
 		<resource-file src="resources/resources.zip" target="res/raw/resources.zip"/>                
         -->
+        
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="App47">
                 <param name="android-package" value="net.dynagility.personify.plugin.App47PGPlugin" />
@@ -111,16 +112,21 @@
         </config-file>
         
         <config-file target="AndroidManifest.xml" parent="/manifest/application" mode="merge">
-            <service android:enabled="true" android:name="com.app47.embeddedagent.AgentConfigService"/>
-            <service android:enabled="true" android:name="com.app47.embeddedagent.AgentSessionService"/>
-            <service android:enabled="true" android:name="com.app47.embeddedagent.AgentEventService"/>
+             <service android:enabled="true" android:name="com.app47.embeddedagent.AgentConfigService" />
+             <service android:enabled="true" android:name="com.app47.embeddedagent.AgentSessionService" />
+             <service android:enabled="true" android:name="com.app47.embeddedagent.AgentEventService" />
+             <!-- Delete if you don't require upgrades via App47 platform -->
+             <activity android:label="@string/app_name"
+                  android:name="com.app47.sdk.util.UpgradeDialogActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         </config-file>
         
         <config-file target="res/values/strings.xml" parent="/resources" mode="merge">
+           <string name="EmbeddedAgent_configurationEndpoint">https://api.app47.mobi/</string>
            <string name="EmbeddedAgent_configurationUpdateFrequency">0.0001</string>
            <string name="EmbeddedAgent_delayDataUploadInterval">0</string>
            <string name="EmbeddedAgent_sendActualDeviceIdentifier">false</string>
-           <string name="app_id">5108236db3a39b000200038e</string>
+           <string name="app_id">55096b629ac25b355d0038c9</string>
         </config-file>
         
     </platform>

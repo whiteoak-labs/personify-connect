@@ -84,7 +84,7 @@
 										</if>
 										<copy todir="${project.basedir}/www" encoding="UTF-8"
 											outputencoding="UTF-8" overwrite="true">
-											<fileset dir="${project.build.directory}/inprogress-release/personify-connect-${project.version}-release">
+											<fileset dir="${project.build.directory}/inprogress-release">
 												<include name="**/*" />
 											</fileset>
 										</copy>
@@ -134,7 +134,7 @@
 										</if>
 										<copy todir="${project.basedir}/www" encoding="UTF-8"
 											outputencoding="UTF-8" overwrite="true">
-											<fileset dir="${project.build.directory}/inprogress-debug/personify-connect-${project.version}-debug">
+											<fileset dir="${project.build.directory}/inprogress-debug">
 												<include name="**/*" />
 											</fileset>
 										</copy>
