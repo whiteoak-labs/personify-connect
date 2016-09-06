@@ -10,7 +10,7 @@ if(fs.existsSync(projectDir)){
 	    supportedPlatforms = process.env.CORDOVA_PLATFORMS.split(','),
 		hostedPlugins = {
 		    platforms: {
-		    	ios: [		             
+		    	ios: [
 			    'https://github.com/EddyVerbruggen/LaunchMyApp-PhoneGap-Plugin.git --variable URL_SCHEME=personify',
 			    'https://github.com/apache/cordova-plugin-camera.git',
 			    'https://github.com/apache/cordova-plugin-console.git',
@@ -55,35 +55,43 @@ if(fs.existsSync(projectDir)){
 		    	   'phonegap-plugin-app47 --variable PROJECT_NAME=PersonifyConnect',
 		    	   'phonegap-plugin-app-preferences',
 		    	   'phonegap-plugin-calendar',
-		    	   'phonegap-plugin-social'
+		    	   'phonegap-plugin-social',
+						 'phonegap-plugin-email-composer',
+						 'phonegap-plugin-external-file-util',
+						 'phonegap-plugin-phone-dialer',
+						 'phonegap-plugin-sms-composer'
 		    	],
 			android: [
 			      'phonegap-plugin-app47',
 			      'phonegap-plugin-app-preferences',
 			      'phonegap-plugin-android-helper',
 			      'phonegap-plugin-calendar',
-			      'phonegap-plugin-social'
+			      'phonegap-plugin-social',
+						'phonegap-plugin-email-composer',
+				 		'phonegap-plugin-external-file-util',
+						'phonegap-plugin-phone-dialer',
+						'phonegap-plugin-sms-composer'
 			]
 		   }
 	    };
-	
+
 	if(Array.isArray(supportedPlatforms)) {
 		supportedPlatforms.forEach(function(platform) {
 			var cmdPrefix = (platform !== 'windows') ? 'phonegap plugin add ' : 'cmd.exe /c phonegap.cmd plugin add ';
-			
+
 			hostedPlugins.platforms[platform].forEach(function(hostedPlugin){
 				var result = exec((cmdPrefix + hostedPlugin + ' --verbose'));
 				if(result){
 					process.stdout.write(result);
 				}
 			});
-			
+
 			localPlugins.platforms[platform].forEach(function(localPlugin){
 				var result = exec((cmdPrefix + projectDir + '/local_plugins/' + localPlugin + ' --verbose'));
 				if(result){
 					process.stdout.write(result);
 				}
-			});		
+			});
 		});
 	}
 }

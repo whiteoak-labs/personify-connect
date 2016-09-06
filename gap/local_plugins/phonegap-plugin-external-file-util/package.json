@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "name": "phonegap-plugin-external-file-util",
+    "cordova_name": "ExternalFileUtil",
+    "description": "Phonegap plugin.",
+    "license": "MIT",
+    "platforms": [
+        "android",
+        "ios"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}

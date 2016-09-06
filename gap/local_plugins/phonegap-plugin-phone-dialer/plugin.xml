@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="phonegap-plugin-phone-dialer"
+    version="1.0.0">
+
+    <name>PhoneDialer</name>
+    <description>Phonegap plugin.</description>
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/PhoneDialer.js" name="PhoneDialer">
+          <clobbers target="window.plugins.PhoneDialer" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+          <feature name="phonedialer">
+						<param name="ios-package" value="PhoneDialer" />
+            <param name="onload" value="true" />
+					</feature>
+        </config-file>
+
+        <header-file src="src/ios/PhoneDialer.h" />
+        <source-file src="src/ios/PhoneDialer.m" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <framework src="com.android.support:support-v4:24.2.0" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+          <feature name="PhoneDialer">
+    				<param name="android-package" value="net.dynagility.personify.plugin.PhoneDialer" />
+            <param name="onload" value="true" />
+    			</feature>
+        </config-file>
+
+		    <source-file src="src/android/PhoneDialer.java" target-dir="src/net/dynagility/personify/plugin" />
+    </platform>
+</plugin>
