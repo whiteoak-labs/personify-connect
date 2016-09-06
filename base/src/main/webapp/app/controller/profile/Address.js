@@ -59,7 +59,9 @@ Ext.define('Personify.controller.profile.Address', {
             var storeAddressList = recordCopy.EntryProfile.getAt(0).AddressesProfile;
             if(storeAddressList) {
                 storeAddressList.each(function(record) {
-                    typeListToRemove.push(record.get('type'));
+                    //typeListToRemove.push(record.get('type'));
+                    //var itemDesc = Personify.utils.ItemUtil.getDesc(recordCopy.get('addressTypeList').split(','),record.get('type'));
+                    typeListToRemove.push(record.get('type').toUpperCase()+':'+record.get('typeDesc'));
                     if(record.get('canEdit') == true) {
                         addressStore.add(record);
                     } else {

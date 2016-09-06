@@ -11,6 +11,7 @@ Ext.define('Personify.model.jsonp.profile.Organization', {
             {name: 'department', type: 'string', mapping: 'Department', allowNull: false},
             {name: 'title', type: 'string', mapping: 'Title', allowNull: false},
             {name: 'type', type: 'string', mapping: 'Type', allowNull: false},
+            {name: 'typeDesc', type: 'string', mapping: 'TypeDesc', allowNull: false},
             {name: 'startDate', type: 'string', mapping: 'StartDate', allowNull: false},
             {name: 'endDate', type: 'string', mapping: 'EndDate', allowNull: false},
             {name: 'location', type: 'string', mapping: 'Location', allowNull: false},

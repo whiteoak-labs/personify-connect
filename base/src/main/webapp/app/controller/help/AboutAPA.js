@@ -44,7 +44,8 @@ Ext.define('Personify.controller.help.AboutAPA', {
             me.setTempData(data);
 
             me.getTitlePanel().setHtml(data.get('title'));
-            me.getVersion().setHtml('Version: ' + data.get('version'));
+            //VERSION INFO : TBD
+            me.getVersion().setHtml('Version: ' + '2.4.0');
             me.getImageFrame().setSrc(data.get('logoUrl'));
 
             me.getDescriptionPanel().updateTitle(data.get('descriptionTitle'));
@@ -125,7 +126,7 @@ Ext.define('Personify.controller.help.AboutAPA', {
         }
         myContact.urls = urls;
 
-        myContact.save(me.onSuccess, me.onError);
+        myContact.save(setTimeout(me.onSuccess,500), me.onError);
     },
 
     onSuccess: function() {

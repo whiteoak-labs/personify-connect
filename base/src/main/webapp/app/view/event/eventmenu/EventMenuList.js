@@ -19,7 +19,7 @@ Ext.define('Personify.view.event.eventmenu.EventMenuList', {
                 itemId: 'eventMenuList',
                 selectedCls: 'x-menu-selected',
                 scrollable: null,
-                itemTpl: '<div class="menu-item {css}">{name}</div>',
+                itemTpl: '<div class="menu-item {css}">{title}</div>',
                 baseCls: 'p-list-menu-item',
                 store: null
             }

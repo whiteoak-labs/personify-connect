@@ -68,11 +68,15 @@ Ext.define('Personify.controller.phone.addevent.AddEvent',{
         endDate = Personify.utils.ItemUtil.oneDateLater(startDate);
 
         this.getStartDatePicker().setValue(startDate);
+        this.getStartDatePicker().setDateTimeFormat(Personify.utils.ItemUtil.getDateDisplayFormat());
         this.getEndDatePicker().setValue(endDate);
+        this.getEndDatePicker().setDateTimeFormat(Personify.utils.ItemUtil.getDateDisplayFormat());
 
+        this.getBothDatePicker().setDateTimeFormat(Personify.utils.ItemUtil.getDateDisplayFormat());
         this.getSingleStartTime().setValue(startTime);
         this.getSingleEndTime().setValue(endTime);
         this.getBothDatePicker().setValue(startTime);
+        
 
         if (this.getIsSingleDate()) {
             this.setStartDate(startTime);
@@ -235,7 +239,7 @@ Ext.define('Personify.controller.phone.addevent.AddEvent',{
                             me.getView().fireEvent('back', me);
                         }
                     });
-                    Ext.Msg.alert('', titleOfPanel + ' has been added to your schedule.');
+                    setTimeout(Ext.Msg.alert('', titleOfPanel + ' has been added to your schedule.'),1000);
                 },
                 failure: function() {
                     Ext.Msg.alert('', 'Error occurred while adding ' + titleOfPanel);

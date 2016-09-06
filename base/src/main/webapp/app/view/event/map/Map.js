@@ -67,7 +67,8 @@ Ext.define('Personify.view.event.map.Map', {
                                 itemId: 'agendaAndExhibitorCardLayout',
                                 items: [
                                     {
-                                        itemCls:'item-event-complex-list',
+                                        ////itemCls:'item-event-complex-list',
+                                        itemCls:'item-event-complex-list-wrap',
                                         itemId:'myAgenda',
                                         grouped: true,
                                         xtype: 'mysessionschedulelist'

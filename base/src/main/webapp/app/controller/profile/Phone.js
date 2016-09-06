@@ -58,8 +58,9 @@ Ext.define('Personify.controller.profile.Phone', {
                 phoneEditForm.getController().setTypeList(me.getTypeList());
                 phoneEditForm.setRecord(record);
                 phoneContainer.add(phoneEditForm);
-                
-                typeListToRemove.push(record.get('type'));
+                //var itemDesc = Personify.utils.ItemUtil.getDesc(recordCopy.get('communicationLocationList').split(','),record.get('type'));
+                typeListToRemove.push(record.get('type').toUpperCase()+':'+record.get('typeDesc'));
+                //typeListToRemove.push(record.get('type'));
             });
             
             this.setTypeListToRemove(typeListToRemove);

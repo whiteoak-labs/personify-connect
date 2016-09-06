@@ -24,6 +24,7 @@ Ext.application({
         'Personify.utils.ServiceManager',
         'Personify.utils.PhoneGapHelper',
         'Personify.utils.Configuration',
+        'Personify.utils.BackHandler',
         'Personify.utils.Sqlite',
         'Personify.view.profile.contactlisting.ContactListingTemplate',
         'Personify.view.twitter.SearchList',
@@ -37,7 +38,9 @@ Ext.application({
         'Ext.form.FieldSet',
         'Personify.view.DataView',
         'Personify.view.Container',
-        'Personify.view.Scroller'
+        'Personify.view.Scroller',
+        'Personify.utils.PaintMonitor',
+        'Personify.utils.SizeMonitor'
     ],
 
     profiles: ['Tablet','Phone'],
@@ -52,6 +55,7 @@ Ext.application({
         'Personify.model.jsonp.User',
         'Personify.model.jsonp.Material',
         'Personify.model.jsonp.DirectoryManagement',
+        'Personify.model.jsonp.AttendeeManagement',
         'Personify.model.jsonp.relationship.RelationshipManagement',
         'Personify.model.jsonp.contactlisting.ContactManagement',
         'Personify.model.jsonp.contactlisting.ContactDetailManagement',
@@ -91,6 +95,7 @@ Ext.application({
         'Personify.store.jsonp.Attendee',
         'Personify.store.jsonp.Directory',
         'Personify.store.jsonp.Session',
+        'Personify.store.jsonp.SessionList',
         'Personify.store.jsonp.Exhibitor',
         'Personify.store.jsonp.PurchaseHistory',
         'Personify.store.jsonp.Product',
@@ -129,6 +134,7 @@ Ext.application({
         'Personify.store.base.NoteList',
         'Personify.store.offline.IsUserRegister',
         'Personify.store.offline.Session',
+        'Personify.store.offline.SessionList',
         'Personify.store.offline.Attendee',
         'Personify.store.offline.Exhibitor',
         'Personify.store.offline.calendar.Event',
@@ -146,43 +152,22 @@ Ext.application({
         'Personify.store.offline.SessionDetail',
         'Personify.store.offline.profile.Urls',
         'Personify.store.offline.profile.Emails',
-        'Personify.store.offline.Profile',
-        'Personify.proxy.ProfileProxy',
+        'Personify.store.offline.Profile'
     ],
 
     launch: function() {
         var me = this;
         Personify.utils.ServiceManager.updateManager();
-
+        Ext.Msg.defaultAllowedConfig.showAnimation = false;
         document.addEventListener('hidekeyboard', me.onHideKeyboard, false);
         document.addEventListener('showkeyboard', me.onShowKeyboard, false);
-                
-        if (Ext.os.is('Android')) {
-                
-            document.addEventListener('deviceready', onDeviceReady, false);
-                
-            function onDeviceReady()
-            {
-                document.addEventListener('backbutton', me.backKeyDown, false);
-            }
-            
-        }
+
         me.handleOrientationChange();
         Ext.Viewport.on('orientationchange', 'handleOrientationChange', this, {buffer: 50 });
+
+        document.addEventListener("backbutton", Personify.utils.BackHandler.onBackKeyDown, false);
     },
-    
-    backKeyDown: function(e) {
-    	if (Ext.Viewport.getActiveItem().pop == undefined || Ext.Viewport.getActiveItem().pop() == undefined) {
-    		e.preventDefault();
-    		//navigator.app.exitApp();
-    		me.getApplication().getHistory().beck();
-    	}
-    	else {
-    		e.preventDefault();
-    		me.getApplication().getHistory().back();
-    	}
-    },
-    
+
     handleOrientationChange: function(){
             if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
             {
@@ -227,12 +212,12 @@ Ext.application({
     }
 });
 
-Ext.onReady(function(){ 
-    Ext.Ajax.on('beforerequest', function(conn, response, options){ 
+Ext.onReady(function(){
+    Ext.Ajax.on('beforerequest', function(conn, response, options){
             this.startAjaxTime = new Date().getTime();
     });
-    
-    Ext.Ajax.on('requestcomplete', function(conn, response, options){ 
+
+    Ext.Ajax.on('requestcomplete', function(conn, response, options){
             var endAjaxTime = new Date().getTime();
             var delta = endAjaxTime - this.startAjaxTime;
             delta = isNaN(delta) ? 0 : delta;

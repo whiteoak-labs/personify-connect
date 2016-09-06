@@ -66,8 +66,9 @@ Ext.define('Personify.controller.phone.directory.contactinfo.Website', {
                 websiteEditForm.getController().setTypeList(me.getTypeList());
                 websiteEditForm.setRecord(record);
                 me.getInfoContainer().add(websiteEditForm);
-                
-                typeListToRemove.push(record.get('type'));
+                //var itemDesc = Personify.utils.ItemUtil.getDesc(recordCopy.get('urlLocationList').split(','),record.get('type'));
+                typeListToRemove.push(record.get('type').toUpperCase()+':'+record.get('typeDesc'));
+                //typeListToRemove.push(record.get('type'));
             });
             this.setTypeListToRemove(typeListToRemove);
             

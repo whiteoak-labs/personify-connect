@@ -11,10 +11,15 @@ Ext.define('Personify.controller.profile.WebsiteList', {
         if ((url.indexOf('http://') !== 0) && (url.indexOf('https://') !== 0)) {
             url = "http://" + url;
         }
+           var ref = null;
         if (Ext.os.is.Android) {
-            window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
+            ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
         } else {
-            window.open(url, '_blank', 'location=no,enableViewportScale=yes');
+            ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
         }
+       Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+       ref.addEventListener('exit', function() {
+        Personify.utils.BackHandler.popActionAndTarget('close', ref);
+        });
     }
 });

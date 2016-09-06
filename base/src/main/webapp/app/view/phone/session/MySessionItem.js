@@ -8,7 +8,7 @@ Ext.define('Personify.view.phone.session.MySessionItem', {
                 cls: 'p-phone-lable-sessionitem'
             },
             {
-                html: '{[Personify.utils.ItemUtil.getHourEventView(Personify.utils.ItemUtil.convertStringToDate(values.startDateTimeString))]}{[this.checkLocationNull(values.location)]}',
+                html: '{[Personify.utils.ItemUtil.getHourEventView(Personify.utils.ItemUtil.convertStringToDate(values.startDateTimeString))]}{[this.checkLocationNull(values.locationDescription)]}',
                 cls: 'p-phone-lable-sessionitem'
             },
             {

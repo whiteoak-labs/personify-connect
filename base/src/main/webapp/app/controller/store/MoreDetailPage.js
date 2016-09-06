@@ -17,7 +17,7 @@ Ext.define('Personify.controller.store.MoreDetailPage', {
 
     control: {
         view: {
-            show: 'onShow'
+            show: 'onShow',
         },
         titleMoredetailPage: true,
         memberPriceMoredetailPage: true,
@@ -39,7 +39,7 @@ Ext.define('Personify.controller.store.MoreDetailPage', {
     },
 
     init: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Product Detail');
         }
 
@@ -94,6 +94,8 @@ Ext.define('Personify.controller.store.MoreDetailPage', {
         }
 
         this.getBuyNowButtonMoredetailPage().setText(data.get('purchaseActionTitle'));
+           
+        Personify.utils.BackHandler.pushActionAndTarget('hide', this.getView());
     },
 
     onAddToCart: function(record) {

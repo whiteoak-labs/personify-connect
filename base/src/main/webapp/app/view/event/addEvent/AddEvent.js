@@ -107,7 +107,6 @@ Ext.define('Personify.view.event.addEvent.AddEvent', {
                                                 xtype: 'datetimepickerfield',
                                                 name: 'bothDate',
                                                 label: 'Date',
-                                                dateTimeFormat: 'm/d/Y',
                                                 value: new Date(),
                                                 picker: {
                                                     zIndex: 15,

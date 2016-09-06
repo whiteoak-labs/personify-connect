@@ -11,7 +11,7 @@ Ext.define('Personify.view.phone.exhibitor.ListExhibitorPhone', {
         scrollable: true,
         itemCls: 'presenterlistitem',
         grouped: true,
-
+        scrollToTopOnRefresh:false,   
         itemTpl: new Ext.XTemplate(
             '<table width="100%">' +
                 '<tr width="100%">' +

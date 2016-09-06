@@ -23,6 +23,8 @@ Ext.define('Personify.utils.storemanager.StoreOfflineManager', {
         
         sessionStore: 'Personify.store.offline.Session',
 
+           sessionListStore: 'Personify.store.offline.SessionList',
+           
         sessionDetailStore: 'Personify.store.offline.SessionDetail',
 
         presenterStore: 'Personify.store.offline.Presenter',

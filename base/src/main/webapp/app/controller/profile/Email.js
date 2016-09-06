@@ -44,8 +44,9 @@ Ext.define('Personify.controller.profile.Email', {
                 emailEditForm.getController().setTypeList(me.getTypeList());
                 emailEditForm.setRecord(record);
                 me.getInfoContainer().add(emailEditForm);
-                
-                typeListToRemove.push(record.get('type'));
+                //var itemDesc = Personify.utils.ItemUtil.getDesc(me.getTypeList(),record.get('type'));
+                typeListToRemove.push(record.get('type').toUpperCase()+':'+record.get('typeDesc'));
+                                
             });
             me.setTypeListToRemove(typeListToRemove);
             me.addEmptyItem();
@@ -115,6 +116,10 @@ Ext.define('Personify.controller.profile.Email', {
         var itemViewEmpty = Ext.create('Personify.view.profile.contactinfo.EmailEditForm');
         itemViewEmpty.getController().setTypeList(typeListForNewItem);
         
+           //var itemDesc = Personify.utils.ItemUtil.getDesc(this.getTypeList(),typeListForNewItem[0]);
+           //this.getTypeListToRemove().push(typeListForNewItem[0].toUpperCase()+':'+itemDesc);
+           this.getTypeListToRemove().push(typeListForNewItem[0]);
+           
         this.getTypeListToRemove().push(typeListForNewItem[0]);
         editPanel.add(itemViewEmpty);
     },

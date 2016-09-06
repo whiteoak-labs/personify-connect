@@ -6,7 +6,8 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         defaultView: 'sessionsAndDetail',
         fromSchedule: false,
         curSchedule: null,
-        fromMain: false
+        fromMain: false,
+        stackTopForBack : 0
     },
     control: {
         twitterPanel: true,
@@ -34,7 +35,8 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         if (record) {
             this.getAllDataOfChild(record);
         }
-           
+        Personify.utils.BackHandler.pushActionAndTarget('onBackToEventTap', this);
+        stackTopForBack = Personify.utils.BackHandler.getTop();
     },
 
     initView: function() {
@@ -57,6 +59,14 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
             });
         }
 
+        /*if(record)
+        {
+           if(TMA.Twitter.isAppOnlyAuthorized())
+           {
+                record.set('twitterHashTag',Personify.utils.Configuration.getConfiguration().first().NewsStore.get('twitterHashtag'));
+           }           
+        }*/
+           
         this.getTwitterPanel().updateRecord(record);
 
         if(record.get('registered')) {
@@ -67,16 +77,17 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         this.onloadMenu(record, record.get('registered'));
         Ext.Viewport.setMasked(false);
         var currentUser = Personify.utils.Configuration.getCurrentUser();
-
+        
+        /*
         if (currentUser && currentUser.isLogged()) {
             if (!record.MeetingRegistrantStore) {
                 this.onGetMeetingRegistrantData(record, currentUser);
             }
-        }
+        }*/
 
-        if (!record.ExhibitorStore) {
-            this.onGetExhibitorData(record, currentUser);
-        }
+        //if (!record.ExhibitorStore) {
+        //    this.onGetExhibitorData(record, currentUser);
+        //}
 
         var view = this.getComplexEventScheduleContent().getActiveItem();
 
@@ -93,13 +104,13 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         this.setFromSchedule(false);
         var currentUser = Personify.utils.Configuration.getCurrentUser();
 
-        var loadCount = 1;
+        var loadCount = 2;
 
-        if (currentUser && currentUser.isLogged()) {
+        if (currentUser && currentUser.isLogged() && navigator.onLine) {
             if (record.get('registered')) {
-                loadCount = 2;
-            } else {
                 loadCount = 3;
+            } else {
+                loadCount = 4;
             }
         }
 
@@ -111,11 +122,17 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         } else {
             this.onGetSesstionListData(record, currentUser);
         }
-
-        if (currentUser && currentUser.isLogged()) {
+        
+        if (record.ExhibitorStore) {
+           this.removeMask();
+        } else {
+           this.onGetExhibitorData(record, currentUser);
+        }
+           
+        if (currentUser && currentUser.isLogged() && navigator.onLine) {
             this.onGetMeetingAgendaData(record, currentUser);
-
-            if (!record.get('registered')) {
+           
+            if (!record.get('registered') && navigator.onLine) {
                 this.onGetIsUserRegistered(record, currentUser);
             }
         }
@@ -131,13 +148,13 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         this.setCurSchedule(record);
         var currentUser = Personify.utils.Configuration.getCurrentUser();
 
-        var loadCount = 1;
+        var loadCount = 2;
 
-        if (currentUser && currentUser.isLogged()) {
+        if (currentUser && currentUser.isLogged() && navigator.onLine) {
             if (recordEvent.get('registered')) {
-                loadCount = 2;
-            } else {
                 loadCount = 3;
+            } else {
+                loadCount = 4;
             }
         }
 
@@ -149,6 +166,7 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
                 var sessionStore = recordEvent.SessionStore;
                 sessionStore.each(function(item) {
                     if (item.get('sessionID') && item.get('sessionID') == record.get('sessionID')) {
+                        item.set('isAdded',true);
                         me.setCurSchedule(item);
                     }
                 });
@@ -157,8 +175,14 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         } else {
             this.onGetSesstionListData(recordEvent, currentUser, record);
         }
+           
+        if (recordEvent.ExhibitorStore) {
+           me.removeMask();
+        } else {
+           me.onGetExhibitorData(recordEvent, currentUser);
+        }
 
-        if (currentUser && currentUser.isLogged()) {
+        if (currentUser && currentUser.isLogged() && navigator.onLine) {
             this.onGetMeetingAgendaData(recordEvent, currentUser);
 
             if (!recordEvent.get('registered')) {
@@ -176,35 +200,54 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
     },
 
     onGetSesstionListData: function(record, currentUser, sessionRecord) {
-
         //alert('onGetSesstionListData');
         var me = this;
-        var attributes = {
-            "MeetingID": record.get('productID'),
-            "IsStaffMember": currentUser? currentUser.isStaffMember().toString() : false,
-            "IsMember": currentUser ? currentUser.isMember().toString() : false,
-            "ItemsPerPage": "100000",
-           "StartIndex": "0",
-           "MasterCustomerID": currentUser? currentUser.get('masterCustomerId'): '' ,
-           "SubCustomerID": currentUser? currentUser.get('subCustomerId'): '0'
-        };
-        var storeManager = Personify.utils.ServiceManager.getStoreManager();
-        var storeSessionName = storeManager.getSessionStore();
-        var storeSession = Ext.create(storeSessionName);
-        storeSession.setDataRequest(attributes);
-        record.SessionStore = storeSession;
-        storeSession.load({ scope: me, callback: function() {
-            if (sessionRecord) {
-                if (sessionRecord.get('sessionID')) {
-                    storeSession.each(function(item) {
-                        if (item.get('sessionID') && item.get('sessionID') == sessionRecord.get('sessionID')) {
-                            me.setCurSchedule(item);
-                        }
-                    });
+		var attributes = {
+			"MeetingID" : record.get('productID'),
+			"IsStaffMember" : currentUser ? currentUser.isStaffMember().toString() : false,
+			"IsMember" : currentUser ? currentUser.isMember().toString() : false,
+			"ItemsPerPage" : 10000,
+			"StartIndex" : 1,
+			"MasterCustomerID" : currentUser ? currentUser.get('masterCustomerId') : '',
+			"SubCustomerID" : currentUser ? currentUser.get('subCustomerId') : '0',
+			"SessionDate" : ""
+		};
+          // var storeManager = Ext.create('Personify.utils.storemanager.StoreOfflineManager');//Personify.utils.ServiceManager.getStoreManager();
+		var storeManager = Personify.utils.ServiceManager.getStoreManager();
+		var storeSessionName = storeManager.getSessionListStore();
+		var storeListSession = Ext.create(storeSessionName);
+		storeListSession.setDataRequest(attributes);
+		storeListSession.load({
+			scope : me,
+			callback : function(records, operation, success) {
+                if(success)
+                {
+                              if (records.length > 0) {
+                                record.SessionStore = Ext.create(storeManager.getSessionStore());
+                                record.SessionStore = records[0].SessionsStore;
+                                record.SessionDatesStore = records[0].SessionDatesStore;
+                                var storeSession = records[0].SessionsStore;
+                                if (sessionRecord && sessionRecord.get('sessionID')) {
+                                    storeSession.each(function(item) {
+                                    if (item.get('sessionID') && item.get('sessionID') == sessionRecord.get('sessionID')) {
+                                                        item.set('isAdded',true);
+                                                        me.setCurSchedule(item);
+                                     }
+                                });
+                              }
+
+                            } else {
+                                Ext.Msg("Error during fetching Sessions");
+                            }
                 }
-            }
-            me.removeMask();
-        }});
+                else
+                {
+                         Ext.Viewport.setMasked(false);
+                         Personify.utils.ItemUtil.cantLoadEvent(operation,"Error during fetching Sessions");
+                }
+				me.removeMask();
+           }
+		});
     },
 
     onGetMeetingAgendaData: function(record, currentUser){
@@ -222,7 +265,16 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
             var agendaStore = Ext.create(agendaStoreName);
             agendaStore.setDataRequest(attributes);
             record.MeetingAgendaStore = agendaStore;
-            agendaStore.load({ scope: me, callback: me.removeMask });
+            //agendaStore.load({ scope: me, callback: me.removeMask });
+           agendaStore.load({scope:me, callback: function(records,operation,success){
+                   if(!success)
+                   {
+                            Ext.Viewport.setMasked(false);
+                            Personify.utils.ItemUtil.cantLoadEvent(operation,"Error during fetching meeting agenda");
+                   }
+                   me.removeMask();
+           }});
+           
         }
     },
 
@@ -255,7 +307,7 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
                     "XbtProductCode": record.get('xbtProductCode')
                 };
             var storeManager = Personify.utils.ServiceManager.getStoreManager();
-            var exhibitorStore = storeManager.getExhibitorStore();
+            var exhibitorStore = storeManager.getExhibitorListStore();
             var storeExhibitor = Ext.create(exhibitorStore);
             var storeMyExhibitor = Ext.create(exhibitorStore);
 
@@ -263,7 +315,16 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
             record.ExhibitorStore = storeExhibitor;
 
             storeExhibitor.load({scope: me, callback: function(records, operation, success) {
-                me.getAllExhibitorFromSql(record, currentUser, storeExhibitor);
+                if(success)
+                {
+                      me.getAllExhibitorFromSql(record, currentUser, storeExhibitor);
+                }
+                else
+                {
+                     Ext.Viewport.setMasked(false);
+                     Personify.utils.ItemUtil.cantLoadEvent(operation,"Error fetching exhibitors");
+                }
+                me.removeMask();
             }});
         }
     },
@@ -308,10 +369,18 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         isUserRegisterStore.setDataRequest(attributes);
         isUserRegisterStore.load({
             callback: function(records, operation, success) {
-                if(records.length > 0){
-                    record.set('registered', records[0].get('userRegistered'));
+                if(success)
+                {
+                      me.removeMask(record);
+                      if(records.length > 0){
+                         record.set('registered', records[0].get('userRegistered'));
+                     }
                 }
-                me.removeMask(record);
+                else
+                {
+                    Ext.Viewport.setMasked(false);
+                    Personify.utils.ItemUtil.cantLoadEvent(operation,"Error verifying if user is registered");
+                }
             },
             scope: this
         });
@@ -451,8 +520,8 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
     },
 
     onEventMenuItemSelected: function(record) {
-           
-        var recordView = this.getView().getRecord();
+        Personify.utils.BackHandler.popActions(stackTopForBack);
+		var recordView = this.getView().getRecord();
         var me = this;
         var subView = {xtype: record.get('view'), itemId: record.get('view'), record: recordView, meetingRecord: recordView};
         var complexEventScheduleContent  = me.getComplexEventScheduleContent();
@@ -530,12 +599,14 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
                     }
                 };
             }
-
-            this.setCountLoad(0);
-            this.setMaxCountLoad(2);
-            this.onGetIsUserRegistered(record, currentUser);
-            this.onGetMeetingAgendaData(record, currentUser);
-            this.onGetMeetingRegistrantData(record, currentUser);
+            if(navigator.onLine){
+                this.setCountLoad(0);
+                this.setMaxCountLoad(2);
+           
+                this.onGetIsUserRegistered(record, currentUser);
+                this.onGetMeetingAgendaData(record, currentUser);
+                ///this.onGetMeetingRegistrantData(record, currentUser);
+            }
         }
 
         this.removeAllChild();
@@ -544,7 +615,9 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
     onBackToEventTap: function(){
         if (Personify.utils.Configuration.getAllowChangeView()) {
             var me = this;
-            me.getView().setMasked({xtype: 'loadmask'});
+           Personify.utils.BackHandler.popActions(stackTopForBack);
+			Personify.utils.BackHandler.popActionAndTarget('onBackToEventTap', this);
+			me.getView().setMasked({xtype: 'loadmask'});
             Ext.callback(function() {
                 me.getView().setMasked(false);
                 if (me.getFromMain()) {
@@ -617,8 +690,7 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         if (view != null) {
             view.getController().setRecord(record);
         }
-
-        this.refreshDataAgenda(recordsResponse.get('appointmentId'), true);
+        this.refreshDataAgenda(record.get('sessionID'), true);
 
         if (isMeeting) {
             Ext.Msg.alert('', 'Meeting has been added to your schedule.');
@@ -745,7 +817,7 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
         this.getView().getParent().fireEvent('updateagendalist');
         if(view.getItemId() == 'sessionsAndDetail' || view.getItemId() == 'mapEventSchedule' || view.getItemId() == 'mapevent') {
             view.getController().refreshMySchedule(sessionID, isAdded);
-        }else{
+        }else if(navigator.onLine){
             var record = this.getView().getRecord();
             var currentUser = Personify.utils.Configuration.getCurrentUser();
             this.onGetMeetingAgendaData(record, currentUser);
@@ -754,7 +826,7 @@ Ext.define('Personify.controller.event.complexevent.ComplexEvent',{
 
     onAddPersonalTap: function(record){
         var me = this;
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Event Add To Calendar');
         }
         var panel = Ext.Viewport.add([{

@@ -13,6 +13,7 @@ Ext.define("Social.lib.Twitter", {
          */
         consumerKey: null,
         consumerSecret: null,
+        base64KeySecret: null,
 
         /**
          *  Access Token and Access Token Secret of user
@@ -20,7 +21,8 @@ Ext.define("Social.lib.Twitter", {
          */
         accessToken: '',
         accessTokenSecret: '',
-
+        appOnlyAccessToken: '',
+        appOnlyAccessTokenType: '',
         /**
          * The parameters to Authorize a request
          *
@@ -28,6 +30,7 @@ Ext.define("Social.lib.Twitter", {
         oauthVersion: "1.0",
         oauthSignatureMethod: 'HMAC-SHA1',
         xauthMode: 'client_auth',
+        grantType: 'client_credentials',
 
         /**
          * Error Callback and success Callback
@@ -47,13 +50,18 @@ Ext.define("Social.lib.Twitter", {
             favoriteTweet:'https://api.twitter.com/1.1/favorites/create.json',
             retweet:'https://api.twitter.com/1.1/statuses/retweet',
             userInfo: 'https://api.twitter.com/1.1/account/verify_credentials.json',
-            search: 'https://api.twitter.com/1.1/search/tweets.json'
+            search: 'https://api.twitter.com/1.1/search/tweets.json',
+           apponlyauthorize: 'https://api.twitter.com/oauth2/token'
         },
 
         /**
          * some error can get after request
          */
         errors: {
+            invalidCredential: {
+                code: 99,
+                message: 'Unable to verify your credentials'
+            },
             invalidConsumerInfo: {
                 code: 100,
                 message: 'consumer key and secret is required'
@@ -127,6 +135,9 @@ Ext.define("Social.lib.Twitter", {
 
         if(params.hasOwnProperty('userModel'))
             me.setUserModel(params.userModel)
+           
+        if(params.hasOwnProperty('base64KeySecret'))
+           me.setBase64KeySecret(params.base64KeySecret)
     },
     /**
      * Get authorization from user
@@ -167,7 +178,6 @@ Ext.define("Social.lib.Twitter", {
                 x_auth_mode : me.getXauthMode()
             }
         };
-
         if(params.hasOwnProperty('failure') && typeof params.failure =='function')
             error = params.failure;
 
@@ -198,7 +208,7 @@ Ext.define("Social.lib.Twitter", {
         var additionalHeaders = {
             "Authorization" : authorizationHeader
         };
-
+           console.log(authorizationHeader);
         var request = {
                 method : message.method,
                 action : message.action,
@@ -216,11 +226,62 @@ Ext.define("Social.lib.Twitter", {
         me.send(request);
     },
 
+    apponlyauthorize : function(params) {
+        var me = this,
+        error = function(){},
+        success = function(){},
+        scope = params.scope || {};
+           
+        me.setTypeRequest('apponlyauthorize');
+           
+        me.setConsumer(params);
+           
+           
+        var message = {
+           method : "POST",
+           action : me.getUrls().apponlyauthorize,
+           parameters : {
+                oauth_consumer_key_secret : me.getBase64KeySecret(),
+                oauth_grant_type : me.getGrantType()
+           }
+        };
+           
+        if(params.hasOwnProperty('failure') && typeof params.failure =='function')
+           error = params.failure;
+           
+        if(params.hasOwnProperty('success') && typeof params.success =='function')
+           success = params.success;
+           
+        var successCallback = function(oauthAccessToken, oauthTokenType, twitter) {
+           me.onAppOnlyAuthorizeSuccess(oauthAccessToken, oauthTokenType,success, scope);
+        };
+        var errorCallback = function(errorCode, errorMessage, twitter) {
+           me.onAppOnlyAuthorizeError(errorCode, errorMessage,error, scope);
+        };
+         
+        var authorizationHeader = 'Basic '+ message.parameters.oauth_consumer_key_secret;
+        var additionalHeaders = {
+           "Authorization" : authorizationHeader
+        };
+           
+        var request = {
+           method : message.method,
+           action : message.action,
+           additionalHeaders : additionalHeaders,
+           errorMessages : params.hasOwnProperty('errorMessages')? params.errorMessages: {},
+           postData : 'grant_type=' + message.parameters.oauth_grant_type,
+           success : successCallback,
+           error : errorCallback,
+           scope: scope
+        };
+        me.send(request);
+    },
+           
     unAuthorize: function() {
         var me= this;
 
         me.setToken({accessToken:null,accessTokenSecret:null});
-        me.setConsumer({consumerKey:null,consumerSecret:null});
+        //me.setConsumer({consumerKey:null,consumerSecret:null});
         me.setUser(null);
         me.setUserModel(null);
         me.setScope(null);
@@ -336,10 +397,14 @@ Ext.define("Social.lib.Twitter", {
             page = me.getPage(),
             params = params || {},
             scope = params.scope || {},
-            accessor = {
+           accessor = null;
+           if(me.isAuthorized())
+           {
+           accessor ={
                 consumerSecret : me.getConsumerSecret(),
                 tokenSecret : me.getAccessTokenSecret()
             };
+           }
 
         me.setTypeRequest('userTimeline');
 
@@ -353,13 +418,12 @@ Ext.define("Social.lib.Twitter", {
             me.defaultErrorCallback("invalidConsumerInfo", errorCallback, 'Failed');
             return;
         }
-
         if (!params.screen_name) {
             me.defaultErrorCallback('', errorCallback,'screen_name required');
             return;
         }
 
-        if (!me.isAuthorized()) {
+        if (!me.isAuthorized() && !me.isAppOnlyAuthorized()) {
             me.defaultErrorCallback("notAuthorized", errorCallback, 'Failed');
             return;
         }
@@ -375,7 +439,6 @@ Ext.define("Social.lib.Twitter", {
                 page = params.page;
             }
         }
-
         var message = {
             method : "GET",
             action : me.getUrls().userTimeline,
@@ -384,24 +447,57 @@ Ext.define("Social.lib.Twitter", {
                 oauth_consumer_key : me.getConsumerKey(),
                 oauth_signature_method : me.getOauthSignatureMethod(),
                 oauth_version : me.getOauthVersion(),
-                oauth_token : me.getAccessToken(),
+                oauth_token : me.isAuthorized()?me.getAccessToken():me.getAppOnlyAccessToken(),
                 trim_user : false,
                 page: page,
                 count: count
             }
         };
-
+        
         OAuth.setTimestampAndNonce(message);
-        OAuth.SignatureMethod.sign(message, accessor);
+        //OAuth.SignatureMethod.sign(message, accessor);
+           
+           var request = null;/*request = {
+           method : message.method,
+           action : OAuth.addToURL(message.action, message.parameters),
+           success : successCallback,
+           error : errorCallback,
+           errorMessages : params.hasOwnProperty('errorMessages')? params.errorMessages: {},
+           scope:scope
+           };*/
 
-        var request = {
-            method : message.method,
-            action : OAuth.addToURL(message.action, message.parameters),
-            success : successCallback,
-            error : errorCallback,
-            errorMessages : params.hasOwnProperty('errorMessages')? params.errorMessages: {},
-            scope:scope
-        };
+        if(me.isAuthorized())
+        {
+           OAuth.SignatureMethod.sign(message, accessor);
+           
+           request = {
+                method : message.method,
+                action : OAuth.addToURL(message.action, message.parameters),
+                success : successCallback,
+                error : errorCallback,
+                errorMessages : params.hasOwnProperty('errorMessages')? params.errorMessages: {},
+                scope:scope
+           };
+        }
+        else
+        {
+           var authorizationHeader = 'Bearer '+ me.getAppOnlyAccessToken();
+           var additionalHeaders = {
+           "Authorization" : authorizationHeader
+           };
+           request = {
+                method : message.method,
+                additionalHeaders : additionalHeaders,
+                action : OAuth.addToURL(message.action, message.parameters),
+                success : successCallback,
+                error : errorCallback,
+                errorMessages : params.hasOwnProperty('errorMessages')? params.errorMessages: {},
+                scope:scope
+           };
+        }
+        
+          
+        
 
         me.send(request);
     },
@@ -614,11 +710,14 @@ Ext.define("Social.lib.Twitter", {
             count = me.getCount(),
             scope = params.scope || {},
             paramUrl = params.config,
-            accessor = {
-                consumerSecret : me.getConsumerSecret(),
-                tokenSecret : me.getAccessTokenSecret()
-            };
-
+            accessor = null;
+            if(me.isAuthorized())
+            {
+                accessor = {
+                    consumerSecret : me.getConsumerSecret(),
+                    tokenSecret : me.getAccessTokenSecret()
+                };
+            }
         me.setTypeRequest('search');
 
         if(params.hasOwnProperty('failure') && typeof params.failure =='function')
@@ -632,7 +731,7 @@ Ext.define("Social.lib.Twitter", {
             return;
         }
 
-        if (!me.isAuthorized()) {
+        if (!me.isAuthorized() && !me.isAppOnlyAuthorized()) {
             me.defaultErrorCallback("notAuthorized", errorCallback, 'Failed');
             return;
         }
@@ -646,7 +745,7 @@ Ext.define("Social.lib.Twitter", {
                 count = params.count;
             }
         }
-
+           
         var message = {
             method : "GET",
             action : me.getUrls().search,
@@ -657,22 +756,41 @@ Ext.define("Social.lib.Twitter", {
                 oauth_consumer_key : me.getConsumerKey(),
                 oauth_signature_method : me.getOauthSignatureMethod(),
                 oauth_version : me.getOauthVersion(),
-                oauth_token : me.getAccessToken()
+                oauth_token   : me.isAuthorized()?me.getAccessToken():me.getAppOnlyAccessToken()
             }
         };
 
         OAuth.setTimestampAndNonce(message);
-        OAuth.SignatureMethod.sign(message, accessor);
-
-        var request = {
-            method : message.method,
-            action : OAuth.addToURL(message.action, message.parameters),
-            success : successCallback,
-            error : errorCallback,
-            errorMessages : params.hasOwnProperty('errorMessages')? params.errorMessages: {},
-            scope : scope
-        };
-
+        //OAuth.SignatureMethod.sign(message, accessor);
+        var request = null;
+        if(me.isAuthorized())
+        {
+           OAuth.SignatureMethod.sign(message, accessor);
+           request = {
+                method : message.method,
+                action : OAuth.addToURL(message.action, message.parameters),
+                success : successCallback,
+                error : errorCallback,
+                errorMessages : params.hasOwnProperty('errorMessages')? params.errorMessages: {},
+                scope : scope
+           };
+        }
+        else
+        {
+           var authorizationHeader = 'Bearer '+ me.getAppOnlyAccessToken();
+           var additionalHeaders = {
+                "Authorization" : authorizationHeader
+           };
+           request = {
+                method : message.method,
+                additionalHeaders : additionalHeaders,
+                action : OAuth.addToURL(message.action, message.parameters),
+                success : successCallback,
+                error : errorCallback,
+                errorMessages : params.hasOwnProperty('errorMessages')? params.errorMessages: {},
+                scope : scope
+           };
+        }
         me.send(request);
     },
 
@@ -686,6 +804,7 @@ Ext.define("Social.lib.Twitter", {
         var me = this;
         params.hasOwnProperty('consumerKey')?me.setConsumerKey(params.consumerKey):'';
         params.hasOwnProperty('consumerSecret')?me.setConsumerSecret(params.consumerSecret):'';
+        params.hasOwnProperty('base64KeySecret')?me.setBase64KeySecret(params.base64KeySecret):'';
     },
 
     /*
@@ -764,7 +883,12 @@ Ext.define("Social.lib.Twitter", {
         me.setAccessToken(params.accessToken? params.accessToken: null);
         me.setAccessTokenSecret(params.accessTokenSecret? params.accessTokenSecret: null);
     },
-
+    setAppOnlyToken : function(params) {
+        var me = this;
+        me.setAppOnlyAccessToken(params.appOnlyAccessToken? params.appOnlyAccessToken: null);
+        me.setAppOnlyAccessTokenType(params.appOnlyAccessTokenType? params.appOnlyAccessTokenType: null);
+    },
+       
     /**
      * check Authorized Or Not
      * true if Authorized
@@ -779,7 +903,13 @@ Ext.define("Social.lib.Twitter", {
         }
         return true;
     },
-
+    isAppOnlyAuthorized : function() {
+        var me = this;
+        if (me.getAppOnlyAccessToken() == null || me.getAppOnlyAccessToken().length == 0|| me.getAppOnlyAccessTokenType() == null|| me.getAppOnlyAccessTokenType().length == 0) {
+           return false;
+        }
+        return true;
+    },
     /**
      *
      * @param {} fileName
@@ -820,13 +950,16 @@ Ext.define("Social.lib.Twitter", {
             headers = {},
             data = request.hasOwnProperty("postData") ? request.postData : null,
             ajaxRequest = new XMLHttpRequest();
-
+           console.log(request.action);
         for (var key in request.additionalHeaders) {
             headers[key] = request.additionalHeaders[key];
         }
         headers['Accept-Encoding'] = 'none';
         if (request.method == "POST") {
-            headers["Content-Type"] = "application/x-www-form-urlencoded";
+           if(me.getTypeRequest()=='apponlyauthorize')
+                headers["Content-Type"] = "application/x-www-form-urlencoded;charset=UTF-8";
+           else
+                headers["Content-Type"] = "application/x-www-form-urlencoded";
         }
 
         ajaxRequest.open(request.method, request.action, true);
@@ -918,6 +1051,17 @@ Ext.define("Social.lib.Twitter", {
             case 'search':
                 me.onSearchSuccess(respone.responseText, request.success, request.scope);
                 break;
+           case 'apponlyauthorize':
+                var responseParams = JSON.parse(respone.responseText);
+                if (!responseParams['access_token'] || !responseParams['token_type']) {
+                    var errorMessage = (request.errorMessages.hasOwnProperty('authorizeError'))? request.errorMessages.invalidCredential: me.getErrors().invalidCredential.message, errorCode = me.getErrors().invalidCredential.code;
+                    me.onAuthorizeError(errorCode, errorMessage, request.error,request.scope);
+                    return;
+                }
+                var oauthAccessToken = responseParams['access_token'],
+                oauthTokenType = responseParams['token_type'];
+                me.onAppOnlyAuthorizeSuccess(oauthAccessToken, oauthTokenType,request.success,request.scope);
+                break;
         }
 
     },
@@ -965,6 +1109,25 @@ Ext.define("Social.lib.Twitter", {
         }
     },
 
+    onAppOnlyAuthorizeSuccess: function(oauthAccessToken, oauthTokenType,callback,scope){
+        var me = this,
+        scope = scope || me.getScope();
+           
+        me.setAppOnlyToken({
+            appOnlyAccessToken : oauthAccessToken,
+            appOnlyAccessTokenType : oauthTokenType
+        });
+           
+        typeof callback == 'function'? callback.call(scope, oauthAccessToken, oauthTokenType): '';
+        
+        if (window.plugins.applicationPreferences) {
+           var appOnlyToken = { appOnlyAccessToken : oauthAccessToken, appOnlyAccessTokenType : oauthTokenType };
+           var appOnlyTwitterToken = Ext.JSON.encode(appOnlyToken);
+           window.plugins.applicationPreferences.set('appOnlyTwitterToken', appOnlyTwitterToken, function() {}, function() {});
+        }
+
+           
+    },
     /**
      *
      * @param {} errorCode
@@ -974,8 +1137,16 @@ Ext.define("Social.lib.Twitter", {
      */
     onAuthorizeError : function(errorCode, errorMessage, callback,scope) {
     	var me = this;
-        me.setAccessToken(null);
-        me.setAccessTokenSecret(null);
+        if(errorCode == me.getErrors().invalidCredential.code)
+        {
+           me.setAppOnlyAccessToken(null);
+           me.setAppOnlyAccessTokenType(null);
+        }
+        else
+        {
+           me.setAccessToken(null);
+           me.setAccessTokenSecret(null);
+        }
         typeof callback == 'function'? callback.call(scope,errorCode, errorMessage): '';
     },
 

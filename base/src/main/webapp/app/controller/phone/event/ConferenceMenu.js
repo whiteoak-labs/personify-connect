@@ -13,10 +13,14 @@ Ext.define('Personify.controller.phone.event.ConferenceMenu', {
         },
         titleEventOfConferenceMenu: true,
         imageEvent: true,
-        sponsorCarousel: true
+        sponsorCarousel: {
+           show: 'onShowImage',
+           activeitemchange: 'onActiveItemChange'
+        }
     },
 
     init: function() {
+           this.onShowImage();
         this.getMenuToolbar().getController().setHiddenActionButton(true);
         var conferenceImageWidth = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('conferenceImageWidth');
         var conferenceImageHeight = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('conferenceImageHeight');
@@ -133,5 +137,32 @@ Ext.define('Personify.controller.phone.event.ConferenceMenu', {
                 store.remove(record);
             }
         });
+    },
+           
+    onShowImage: function() {
+        var carousel = this.getSponsorCarousel();
+           
+        //if(carousel.getActiveIndex()>0)
+        //{
+        var rotation = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('sponsorRotation');
+        carousel.pageTurner = new Ext.util.DelayedTask(function() {
+            if (carousel.getActiveIndex() == carousel.items.length - 1) {
+                carousel.setActiveItem(0, { type: "slide", direction: "right", duration: rotation * 1000 });
+                carousel.setActiveIndex(0);
+            } else {
+                carousel.next();
+            }
+        }, carousel);
+        //}
+           
+        carousel.pageTurner.delay(rotation * 1000);
+    },
+           
+    onActiveItemChange: function() {
+        var carousel = this.getSponsorCarousel();
+        // if(carousel.getActiveIndex()>0){
+        var rotation = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('sponsorRotation');
+        carousel.pageTurner.delay(rotation * 1000);
+        //}
     }
 });

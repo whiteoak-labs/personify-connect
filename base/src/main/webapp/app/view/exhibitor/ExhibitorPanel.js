@@ -10,7 +10,7 @@ Ext.define('Personify.view.exhibitor.ExhibitorPanel', {
     ],
 
     config: {
-        cls: 'panelExhibitor',
+        //cls: 'panelExhibitor',
         meetingRecord: null,
         layout: 'vbox',
         defaultFilter: null,
@@ -23,7 +23,8 @@ Ext.define('Personify.view.exhibitor.ExhibitorPanel', {
                         xtype: 'searchEventPanel',
                         flex: 1,
                         itemId: 'searchFieldExhibitor'
-                    },
+                    }
+                    /*,
                     {
                         xtype: 'button',
                         cls: 'clearFilter',
@@ -33,7 +34,7 @@ Ext.define('Personify.view.exhibitor.ExhibitorPanel', {
                         docked: 'right',
                         disabled: true,
                         disabledCls: 'p-button-disabled'
-                    }
+                    } */
                 ]
             },
             {

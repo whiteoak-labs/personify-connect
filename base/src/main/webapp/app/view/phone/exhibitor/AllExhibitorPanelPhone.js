@@ -57,5 +57,11 @@ Ext.define('Personify.view.phone.exhibitor.AllExhibitorPanelPhone', {
         if(record && record != null) {
             this.getController().setRecord(record);
         }
+    },
+    loadAllExhibitors: function(searchTerm,resetIndex) {
+           this.getController().loadAllExhibitors(searchTerm,resetIndex);
+    },
+    clearLocalStore: function() {
+           this.getController().clearLocalStore();
     }
 });

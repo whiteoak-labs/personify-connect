@@ -13,6 +13,11 @@ Ext.define('Personify.model.personify.Events', {
             { name: 'featuredEventsRotation', type: 'int', defaultValue: '15' },
             { name: 'sponsorEvents' },
             { name: 'sponsorRotation', type: 'int', defaultValue: '15' }
+            ,{ name: 'itemsPerPageEventList', type: 'int', defaultValue: '10' },
+            { name: 'itemsPerPageAttendeeList', type: 'int', defaultValue: '10' },
+            { name: 'itemsPerPagePresentersList', type: 'int', defaultValue: '10' },
+            { name: 'itemsPerPageMaterialsList', type: 'int', defaultValue: '10' },
+            { name: 'itemsPerPageExhibitorsList', type: 'int', defaultValue: '10' }
         ],
         associations: [
            {

@@ -84,8 +84,16 @@ Ext.define('Personify.view.event.complexevent.TwitterPanel', {
         
         if (newRecord) {
             var twitterHashTag = newRecord.get('twitterHashTag');
-            
+           
             if (twitterPanel) {
+                if(twitterHashTag && twitterHashTag != '')
+                {
+                    var initialCharacter = twitterHashTag.charAt(0);
+                    if(initialCharacter != '@')
+                        me.setType('search');
+                    else
+                        me.setType('timeline');
+                }
                 me.setHashtag(twitterHashTag);
                 twitterPanel.setTwitterHashTag(twitterHashTag);
                 me.down('#twitterHashTagLabel').setHtml(twitterHashTag);
@@ -95,11 +103,35 @@ Ext.define('Personify.view.event.complexevent.TwitterPanel', {
                 twitterPanel.setTwitterHashTag('');
             }
         }
+           if (TMA.Twitter.isAuthorized()) {
+                twitterPanel.setHidden(false);
+                me.down('#twitterTextField').setHidden(false);
+                me.down('#requireLoginPanel').setHidden(true);
+           }
+           else
+           {
+           
+                if (TMA.Twitter.isAppOnlyAuthorized()) {
+                        twitterPanel.setHidden(false);
+                        me.down('#twitterTextField').setHidden(true);
+                        me.down('#requireLoginPanel').setHidden(true);
+                }
+                else
+                {
+                        twitterPanel.setHidden(true);
+                        me.down('#twitterTextField').setHidden(true);
+                        me.down('#requireLoginPanel').setHidden(false);
+                }
+           }
     },
     
     updateHashtag: function(hashtag) {
         this.down('#searchTwitter').setType(this.getType());
         this.down('#searchTwitter').setTwitterHashTag(hashtag);
         this.down('#twitterHashTagLabel').setHtml(hashtag);
+    },
+           
+    updateType: function(type) {
+        this.down('#searchTwitter').setType(this.getType());           
     }
 });

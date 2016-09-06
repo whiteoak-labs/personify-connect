@@ -90,7 +90,7 @@ Ext.define('Personify.controller.phone.store.Store', {
             if (Ext.os.is.Android) {
                 ref = window.open(checkoutUrl, '_blank', 'location=yes,enableViewportScale=yes');
             } else {
-                ref = window.open(checkoutUrl, '_blank', 'location=no,enableViewportScale=yes');
+                ref = window.open(checkoutUrl, '_blank', 'location=yes,enableViewportScale=yes');
             }
             ref.addEventListener('exit', function() {
                 Ext.callback(me.setTotalItemCheckout, me);

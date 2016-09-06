@@ -32,11 +32,16 @@ Ext.define('Personify.controller.main.NotificationDetails', {
     },
     
     onOpenHyberLink: function(record) {
+           var ref =null;
         if (Ext.os.is.Android) {
-            window.open(record.get('hyperLink'), '_blank', 'location=yes,enableViewportScale=yes');
+            ref = window.open(record.get('hyperLink'), '_blank', 'location=yes,enableViewportScale=yes');
         } else {
-            window.open(record.get('hyperLink'), '_blank', 'location=no,enableViewportScale=yes');
+            ref = window.open(record.get('hyperLink'), '_blank', 'location=yes,enableViewportScale=yes');
         }
+           Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+           ref.addEventListener('exit', function() {
+            Personify.utils.BackHandler.popActionAndTarget('close', ref);
+            });
     },
     
     onDeleteNotification: function() {

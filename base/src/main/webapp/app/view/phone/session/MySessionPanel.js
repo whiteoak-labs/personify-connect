@@ -27,22 +27,26 @@ Ext.define('Personify.view.phone.session.MySessionPanel', {
                         cls: 'p-phone-button-sessionprevious',
                         pressedCls: '',
                         itemId: 'previousButton',
-                        docked: 'left'
+                        docked: 'left',
+                        style: 'margin: 12px 00px 0px 0px'
                     },
                     {
                         itemId: 'dateTimeLabel',
-                        cls: 'p-phone-lable-sessiondatetime'
+                        cls: 'p-phone-lable-sessiondatetime',
+                        style: 'margin: 2px 0px 0px 0px'
                     },
                     {
                         itemId: 'totalEventLabel',
-                        cls: 'p-phone-lable-sessiontotalevent'
+                        cls: 'p-phone-lable-sessiontotalevent',
+                        hidden: true
                     },
                     {
                         xtype: 'button',
                         cls: 'p-phone-button-sessioncontinue',
                         pressedCls: '',
                         itemId: 'nextButton',
-                        docked: 'right'
+                        docked: 'right',
+                        style: 'margin: 12px 0px 0px 0px'
                     }
                 ]
             },

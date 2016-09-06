@@ -89,7 +89,7 @@ Ext.define('Personify.controller.phone.Event', {
             }
         }
 
-        eventPanelViewController.checkAndCompileFilter();
+        /////eventPanelViewController.checkAndCompileFilter();
     },
 
     onBackToEvent: function() {

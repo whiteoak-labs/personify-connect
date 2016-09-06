@@ -50,7 +50,7 @@ Ext.define('Personify.controller.News', {
             return;
         }
 
-        if (window.plugins.app47) {
+        if (navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('News');
         }
 
@@ -277,11 +277,16 @@ Ext.define('Personify.controller.News', {
     },
 
     onTapTitle : function(record) {
+           var ref = null;
         if (Ext.os.is.Android) {
-            window.open(record.get('link'), '_blank', 'location=yes,enableViewportScale=yes');
+            ref = window.open(record.get('link'), '_blank', 'location=yes,enableViewportScale=yes');
         } else {
-            window.open(record.get('link'), '_blank', 'location=no,enableViewportScale=yes');
+            ref = window.open(record.get('link'), '_blank', 'location=yes,enableViewportScale=yes');
         }
+           Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+           ref.addEventListener('exit', function() {
+                Personify.utils.BackHandler.popActionAndTarget('close', ref);
+            });
     },
 
     refreshData: function() {

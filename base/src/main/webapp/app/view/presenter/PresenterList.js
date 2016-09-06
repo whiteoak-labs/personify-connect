@@ -1,16 +1,18 @@
 Ext.define('Personify.view.presenter.PresenterList', {
-    extend: 'Ext.dataview.List',
+    extend: 'Ext.dataview.DataView',
     xtype: 'presenterlist',
 
     config: {
-        baseCls: 'allExhibitorList',
+        baseCls: 'materialList',
         pressedCls: 'allExhibitorListItemPressed',
         selectedCls: '',
         itemCls: 'allExhibitorListItem',
-        grouped: true,
-        indexBar: {
-            direction: 'horizontal'
-        },
+        scrollable: true,
+        scrollToTopOnRefresh: false,
+        //grouped: true,
+        indexBar: false,//{
+        //    direction: 'horizontal'
+        //},
         deferEmptyText: false,
         emptyText: '<div class="p-presenter-emptyText">No Presenter</div>',
         itemTpl: new Ext.XTemplate(

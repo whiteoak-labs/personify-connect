@@ -26,8 +26,13 @@ Ext.define('Personify.controller.profile.template.InfoTemplate', {
     },
     
     onTypeListChange: function(currentEditItem, newType, oldType) {
-        Ext.Array.remove(this.getTypeListToRemove(), oldType);
-        this.getTypeListToRemove().push(newType);
+        //Ext.Array.remove(this.getTypeListToRemove(),'ALTERNATECODE:AlternateDesc');
+        var itemDescOld =oldType? Personify.utils.ItemUtil.getDesc(this.getTypeList(),oldType): null;
+        var itemDescNew = newType ? Personify.utils.ItemUtil.getDesc(this.getTypeList(),newType): null;
+        Ext.Array.remove(this.getTypeListToRemove(), oldType + ':' + itemDescOld);
+           
+        //Ext.Array.remove(this.getTypeListToRemove(), oldType);
+        this.getTypeListToRemove().push(newType + ':' + itemDescNew);
         this.updateTypeListForAllEditItems();
     },
     

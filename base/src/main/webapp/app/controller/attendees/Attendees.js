@@ -1,10 +1,16 @@
 Ext.define('Personify.controller.attendees.Attendees', {
     extend: 'Personify.base.Controller',
     inject: ['currentUser'],
-
+    config: {
+        params: null,
+        totalAttendeesResult: 10000
+    },
     control: {
         attendeeslistpanel: {
-            selectattendeesitem: 'onSelectAtendeeItemTap'
+           selectattendeesitem: 'onSelectAtendeeItemTap',
+           nextbuttontap: 'onNextButtonTap',
+           searchkeyup: 'onSearchKeyUp',
+           tapbtnclearfilter: 'onTapBtnClearFilter'
         },
         attendeeInfo: {
             closeinfopanel: 'onCloseAttendessDetailsButtonTap'
@@ -17,16 +23,26 @@ Ext.define('Personify.controller.attendees.Attendees', {
     },
 
     showListAttendees: function() {
-        var record = this.getView().getRecord();
+        /*var record = this.getView().getRecord();
         if(record.MeetingRegistrantStore) {
-            if(window.plugins.app47) {
+            if(navigator.onLine && window.plugins.app47) {
                 window.plugins.app47.sendGenericEvent('Attendee List');
-            }
+            }   
             var attendeeslistpanel = this.getAttendeeslistpanel();
             attendeeslistpanel.getController().setStore(record.MeetingRegistrantStore);
         } else {
             this.onGetData(record);
         }
+         */
+           
+           if(navigator.onLine && window.plugins.app47) {
+                window.plugins.app47.sendGenericEvent('Attendee List');
+           }
+           var me = this;
+           Ext.callback(
+                me.onGetData,
+                me, [], 1
+            );
     },
 
     configComponentDetail: function() {
@@ -37,43 +53,44 @@ Ext.define('Personify.controller.attendees.Attendees', {
         contactInfo.getController().addButtonAddToMyAddressBook(Personify.utils.Configuration.getConfiguration().getAt(0).DirectoryStore.get('useAddToMyAddressBookButton'));
     },
 
-    onGetData: function(record) {
-        var currentUser = Personify.utils.Configuration.getCurrentUser(),
-            attendeeslistpanel = this.getAttendeeslistpanel();
+    onGetData: function() {
+        var me = this,
+        record = this.getView().getRecord(),
+        currentUser = Personify.utils.Configuration.getCurrentUser(),
+        attendeeslistpanel = me.getAttendeeslistpanel();
 
-        attendeeslistpanel.setMasked({xtype:'loadmask'});
-
+        //attendeeslistpanel.setMasked({xtype:'loadmask'});
+        Ext.callback(function() {
+        
+        var itemsPerPage = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageAttendeeList');
+        var searchTerm = '';
+        var phoneAttendeeSearch = Ext.ComponentQuery.query('#searchFieldAttendees');
+        if (phoneAttendeeSearch[0]) {
+                
+            var searchFieldAttendees = attendeeslistpanel.getController().getSearchFieldAttendees().getController().getSearchField();
+                     
+            if (searchFieldAttendees && searchFieldAttendees.getValue() != "") {
+                searchTerm = searchFieldAttendees.getValue();
+            }
+        }
         var attributes = {
                 IsStaffMember: currentUser? currentUser.isStaffMember().toString() : false,
-                ItemsPerPage: "10000",
+                ItemsPerPage: itemsPerPage,
                 MasterCustomerID: currentUser? currentUser.get('masterCustomerId'): '' ,
                 SubCustomerID: currentUser? currentUser.get('subCustomerId'): '',
                 ProductID: record.get('productID'),
-                StartIndex: "0"
-            },
-            storeManager = Personify.utils.ServiceManager.getStoreManager(),
-            attendeeName = storeManager.getAttendeeStore(),
-            attendeeStore = Ext.create(attendeeName),
-            registrantStore = Ext.create(attendeeName);
-
-        attendeeStore.setDataRequest(attributes);
-        attendeeStore.load({
-            callback: function(records, operation, sussess) {
-                attendeeslistpanel.setMasked(false);
-                if(sussess) {
-                    registrantStore.add(records);
-                    record.MeetingRegistrantStore = registrantStore;
-                    if(!attendeeslistpanel.isDestroyed) {
-                        attendeeslistpanel.getController().setStore(attendeeStore);
-                    }
-                }
-            },
-            scope: this
-        });
+                SearchTerm: searchTerm,
+                StartIndex: 1
+        };
+        me.setParams(attributes);
+        me.loadAttendeeModel();
+                        
+        //attendeeslistpanel.setMasked(false);
+        }, me, [], 1);
     },
 
     onSelectAtendeeItemTap: function(record) {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Attendee Detail');
         }
 
@@ -126,10 +143,99 @@ Ext.define('Personify.controller.attendees.Attendees', {
             me.getView().setActiveItem(1);
             contactInfo.getController().updateEnableEditToolBox(false);
         }
+           
+           Personify.utils.BackHandler.pushActionAndTarget('onCloseAttendessDetailsButtonTap', this);
     },
 
     onCloseAttendessDetailsButtonTap: function() {
         this.getView().setActiveItem(0);
         Ext.Viewport.setMasked(false);
+       Personify.utils.BackHandler.popActionAndTarget('onCloseAttendessDetailsButtonTap', this);
+    },
+    loadAttendeeModel: function() {
+        var me = this,
+        attendeeslistpanel = me.getAttendeeslistpanel();
+        attendeeslistpanel.setMasked({xtype:'loadmask'});
+         
+        var storeManager = Personify.utils.ServiceManager.getStoreManager(),
+        attendeeName = storeManager.getAttendeeStore(),
+        registrantStore = Ext.create(attendeeName),
+        attendeeStore = Ext.create(attendeeName, {
+            dataRequest: me.getParams()
+        });
+           
+        attendeeStore.load({
+            callback: function(records, operation, success) {
+                attendeeslistpanel.setMasked(false);
+                if (success) {
+                           
+                    var attendeeManagement = records[0];
+                    var currentStore = attendeeslistpanel.getController().getStore();
+                    if(me.getParams()['SearchTerm'] != '' && me.getParams()['StartIndex'] == 1)
+                           {
+                        currentStore.removeAll();
+                           currentStore = null;
+                           }
+                        if (currentStore) {
+                        currentStore.suspendEvents();
+                        attendeeManagement.AttendeeStore.each(function(attendeeRecord) {
+                            if(attendeeRecord) {
+                                currentStore.add(attendeeRecord);
+                            }
+                        }, me);
+                        currentStore.sync();
+                        currentStore.resumeEvents(true);
+                        attendeeslistpanel.getController().setStore(currentStore);
+                        attendeeslistpanel.getController().refresh();
+                    } else {
+                        attendeeslistpanel.getController().setStore(attendeeManagement.AttendeeStore);
+                        currentStore = attendeeManagement.AttendeeStore;
+                    }
+                
+                    if (attendeeManagement) {
+                           me.setTotalAttendeesResult(attendeeManagement.get('totalResults'));
+                    }
+                }
+            },
+            scope: me
+        });
+    },
+    onNextButtonTap: function(record) {
+        var me = this;
+        var attendeeStore = me.getAttendeeslistpanel().getController().getStore();
+        var currentAttendeeItem = 0;
+        if (attendeeStore) {
+           currentAttendeeItem = attendeeStore.getCount();
+        }
+           
+        if (currentAttendeeItem < me.getTotalAttendeesResult()) {
+           me.getParams()['StartIndex'] = me.getParams()['StartIndex'] + (Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageAttendeeList'));
+           me.loadAttendeeModel();
+        }
+    },
+    onSearchKeyUp: function(newText) {
+        var me = this,
+        attendeeslistpanel = me.getAttendeeslistpanel();
+        
+        if(navigator.onLine && window.plugins.app47) {
+           window.plugins.app47.sendGenericEvent('Attendee Search');
+        }
+        
+        me.getParams()['SearchTerm'] = newText;
+        me.getParams()['StartIndex'] = 1;
+        attendeeslistpanel.getController().removeAll();
+        me.loadAttendeeModel();
+        //attendeeslistpanel.getController().getBtnClearFilter().setDisabled(false);
+    },
+    onTapBtnClearFilter : function() {
+        var me = this,
+        attendeeslistpanel = me.getAttendeeslistpanel();
+        me.getParams()['SearchTerm'] = '';
+        me.getParams()['StartIndex'] = 1;
+        attendeeslistpanel.getController().removeAll();
+        me.loadAttendeeModel();
+        //attendeeslistpanel.getController().getBtnClearFilter().setDisabled(true);
+        attendeeslistpanel.getController().getSearchFieldAttendees().getController().clearSearchField();
+        attendeeslistpanel.getController().getAttendeesList().deselectAll();
     }
 })

@@ -17,7 +17,8 @@ Ext.define('Personify.controller.tablet.directory.Directory', {
         callSubjectList: null,
         callTypeList: null,
         selectedRecord: null,
-        countryListStore: null
+        countryListStore: null,
+      isBackEventAdded: false,
     },
     
     control: {
@@ -68,7 +69,7 @@ Ext.define('Personify.controller.tablet.directory.Directory', {
         },
         view: {
             painted: 'onPainted'
-        }
+        },
     },
     init: function() {
         this.callParent(arguments);
@@ -145,6 +146,8 @@ Ext.define('Personify.controller.tablet.directory.Directory', {
     },
     
     LoadContactInfo: function(record, contactInfoManagement) {
+       Personify.utils.BackHandler.popActionAndTarget('onContactInformationStaffButtonTap', this);
+       isBackEventAdded = false;
         this.callParent(arguments);
         this.toggleColorOfButtons(this.getContactInformationStaffButton());
     },
@@ -154,6 +157,8 @@ Ext.define('Personify.controller.tablet.directory.Directory', {
             Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
             return;
         }
+       Personify.utils.BackHandler.popActionAndTarget('backAction', this);
+        isBackEventAdded = false;
         var contactContainer = this.getContactContainer();
         
         var contactInfoManagement = contactContainer.getItems().items[0];
@@ -177,7 +182,9 @@ Ext.define('Personify.controller.tablet.directory.Directory', {
             Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
             return;
         }
-        if(window.plugins.app47) {
+           if(isBackEventAdded == false)
+               Personify.utils.BackHandler.pushActionAndTarget('onContactInformationStaffButtonTap', this);
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Directory Purchase History');
         }
         var contactInfoData = this.getContactInfoData();
@@ -204,7 +211,9 @@ Ext.define('Personify.controller.tablet.directory.Directory', {
             Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
             return;
         }
-        if(window.plugins.app47) {
+           if(isBackEventAdded == false)
+           Personify.utils.BackHandler.pushActionAndTarget('onContactInformationStaffButtonTap', this);
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Directory Participation History');
         }
         var contactInfoData = this.getContactInfoData();
@@ -237,7 +246,9 @@ Ext.define('Personify.controller.tablet.directory.Directory', {
             Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
             return;
         }
-        if(window.plugins.app47) {
+           if(isBackEventAdded == false)
+           Personify.utils.BackHandler.pushActionAndTarget('onContactInformationStaffButtonTap', this);
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Directory Relationships');
         }
         var contactInfoData = this.getContactInfoData();
@@ -268,6 +279,8 @@ Ext.define('Personify.controller.tablet.directory.Directory', {
             Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
             return;
         }
+           if(isBackEventAdded == false)
+           Personify.utils.BackHandler.pushActionAndTarget('onContactInformationStaffButtonTap', this);
         var contactInfoData = this.getContactInfoData();
         if(contactInfoData && contactInfoData.EntryProfile && contactInfoData.EntryProfile.getAt(0)) {
             var contactContainer = this.getContactContainer();
@@ -349,5 +362,11 @@ Ext.define('Personify.controller.tablet.directory.Directory', {
         if (isStaff) {
             this.getStaffButtonsPanel().show();
         }
-    }
+    },
+           
+   backAction:function()
+   {
+       this.onContactInformationStaffButtonTap();
+       this.toggleColorOfButtons(this.getContactInformationStaffButton());
+   }
 });

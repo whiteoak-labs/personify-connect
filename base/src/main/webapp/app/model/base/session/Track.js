@@ -6,7 +6,8 @@ Ext.define('Personify.model.base.session.Track', {
             {name: 'recordId', type: 'int'},
             {name: 'internalKey', type: 'string'},
             {name: 'navigationKey', type: 'string'},
-            {name: 'tracks', type: 'string'}
+            {name: 'tracks', type: 'string'},
+            {name: 'descr', type: 'string'}
         ],
         associations: [
             { 

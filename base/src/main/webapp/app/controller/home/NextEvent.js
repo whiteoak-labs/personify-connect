@@ -20,15 +20,28 @@ Ext.define('Personify.controller.home.NextEvent',{
     
     checkIsLoadEventList: function(){
         var nextThreeEvent = this.getNextThreeEvent();
-        var store = Ext.getStore('meetingListtingMain');
+           
+        ////var store = Ext.getStore('meetingListtingMain');
+        
+        //// Changed the store to get Filtered Data related to Upcoming Events
+        var store = Ext.getStore('iCalendarStoreMain');
+           
         if(store && !nextThreeEvent.isDestroyed){
             Ext.callback(function() {
                 var storeManager = Personify.utils.ServiceManager.getStoreManager();
                 var eventListStore = storeManager.getEventListStore();
                 var meetingStore = Ext.create(eventListStore);
+                
+                /*
                 store.each(function(record){
                     meetingStore.add(record);
-                });
+                }); */
+                         
+                //// Get only already filtered Upcoming Events on Rebinding
+                store.getAt(0).EventListStore.each(function(record){
+                                                           meetingStore.add(record);
+                                                          });
+                         
                 nextThreeEvent.getController().setStore(meetingStore);
                 nextThreeEvent.getController().getThreeNextEvent();
                 nextThreeEvent.refresh();

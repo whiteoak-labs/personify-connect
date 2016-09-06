@@ -14,7 +14,7 @@ Ext.define('Personify.controller.store.filter.FilterPanel',{
     },
 
     init: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Product Filter');
         }
 

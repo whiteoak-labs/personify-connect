@@ -33,7 +33,13 @@ Ext.define('Personify.controller.event.complexevent.TwitterPanel', {
             this.getSearchTwitter().setHidden(false);
             this.getTwitterTextField().setHidden(false);
             this.getRequireLoginPanel().setHidden(true);
-        } else {
+        }
+        else if (TMA.Twitter.isAppOnlyAuthorized()) {
+           this.getSearchTwitter().setHidden(false);
+           this.getTwitterTextField().setHidden(true);
+           this.getRequireLoginPanel().setHidden(true);
+        }
+        else {
             this.getRequireLoginPanel().setHidden(false);
             this.getSearchTwitter().setHidden(true);
             this.getTwitterTextField().setHidden(true);

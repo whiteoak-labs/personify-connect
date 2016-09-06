@@ -62,7 +62,8 @@ Ext.define('Personify.view.phone.event.ConferenceMenu', {
                 xtype: 'carousel',
                 itemId: 'sponsorCarousel',
                 cls: 'sponsor-carousel',
-                hidden: true
+                hidden: true,
+                indicator: false
             }
         ]
     }//end config

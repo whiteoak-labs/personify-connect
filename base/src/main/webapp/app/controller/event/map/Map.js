@@ -2,7 +2,7 @@
 var globalMapDataAll=null;
 
 Ext.define('Personify.controller.event.map.Map',{
-           extend: 'Personify.base.Controller',
+        extend: 'Personify.base.Controller',
            control:{
            agendaMap: {
            tap: 'getAgendaList'
@@ -37,7 +37,7 @@ Ext.define('Personify.controller.event.map.Map',{
            var me = this;
            allExhibitorList = me.getMyExhibitor();
            
-           if (window.plugins.app47) {
+           if (navigator.onLine && window.plugins.app47) {
            window.plugins.app47.sendGenericEvent('Map Detail');
            }
            
@@ -63,6 +63,7 @@ Ext.define('Personify.controller.event.map.Map',{
            
            //// To Get Product ID
            var productId = me.getView().getRecord() ? me.getView().getRecord().get('productID') : '0';
+           
            var mapData = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('mapData');
            
            if (productId!='0')
@@ -76,40 +77,47 @@ Ext.define('Personify.controller.event.map.Map',{
            
            if (globalMapDataAll===null)
            {
-           for (var i = 0; i < mapData.maps.length; i++) {
-           var map = mapData.maps[i];
-           arrAllMapData.push(map); //// Push all maps to array
+                for (var i = 0; i < mapData.maps.length; i++)
+                {
+                    var map = mapData.maps[i];
+                    arrAllMapData.push(map); //// Push all maps to array
+                }
+           
+                //// Added all maps to Global Variable
+                globalMapDataAll=arrAllMapData;
            }
-           //// Added all maps to Global Variable
-           globalMapDataAll=arrAllMapData;
+           else
+           {
+                arrAllMapData=globalMapDataAll;
            }
            
-           for (var i = 0; i < mapData.maps.length; i++) {
-           var map = mapData.maps[i];
-           //// Match Product ID
-           if (map.productId===productId)
+           for (var i = 0; i < arrAllMapData.length; i++)
            {
-           arrMapDataFiltered.push(map);
-           }
+                var map = arrAllMapData[i];
+                //// Match Product ID
+                if (map.productId===productId)
+                {
+                    arrMapDataFiltered.push(map);
+                }
            }
            
            
            if(arrMapDataFiltered!=null && arrMapDataFiltered.length>0)
            {
-           mapData.maps =arrMapDataFiltered;
-           me.setMapData(mapData);
-           me.initMap(mapData);
+                mapData.maps =arrMapDataFiltered;
+                me.setMapData(mapData);
+                me.initMap(mapData);
            }
            
            }
            }
            else
            {
-           if (globalMapDataAll!=null
+                if (globalMapDataAll!=null
                && globalMapDataAll.length>0)
-           {
-           mapData.maps=globalMapDataAll;
-           }
+                {
+                        mapData.maps=globalMapDataAll;
+                }
            }
            },
            
@@ -121,6 +129,9 @@ Ext.define('Personify.controller.event.map.Map',{
            if (mapData.maps.length <= 0) {
            mapSegmentedButton.hide();
            } else {
+           
+           me.getMapSegmentedButton().removeAll();
+           
            for (var i = 0; i < mapData.maps.length; i++) {
            var map = mapData.maps[i];
            map.mapIndex = i;
@@ -225,8 +236,8 @@ Ext.define('Personify.controller.event.map.Map',{
            var currentUser = Personify.utils.Configuration.getCurrentUser();
            var record = this.getView().getMeetingRecord();
            if(record.ExhibitorStore && record.ExhibitorStore.getCount() > 0){
-           me.getAllExhibitorFromSql(record, currentUser, record.ExhibitorStore);
-           }else {
+                me.getAllExhibitorFromSql(record, currentUser, record.ExhibitorStore);
+           }/*else {
            var attributes = {
            "ItemsPerPage": "100000",
            "XbtID": record.get('xbtProductID'),
@@ -243,7 +254,7 @@ Ext.define('Personify.controller.event.map.Map',{
            storeExhibitor.load({scope: me, callback: function(records, operation, success){
                                me.getAllExhibitorFromSql(record, currentUser, storeExhibitor);
                                }});
-           }
+           }*/
            },
            
            getAllExhibitorFromSql: function(record, currentUser, exhibitorStore) {

@@ -9,6 +9,7 @@ Ext.define('Personify.view.phone.session.MySessionList', {
         pressedCls: 'p-phone-common-list-selected',
         selectedCls: 'p-phone-common-list-selected',
         xtype: 'list',
+        scrollToTopOnRefresh:false,   
         grouped: true,
         deferEmptyText: false,
         onItemDisclosure: true,
@@ -46,7 +47,18 @@ Ext.define('Personify.view.phone.session.MySessionList', {
                     var startDateTime2 = record2.get('startDateTime');
                     var date1 = startDateTime1;
                     var date2 = startDateTime2;
-                    return date1 > date2 ? 1 : (date1 == date2 ? 0 : -1);
+                    ////return date1 > date2 ? 1 : (date1 == date2 ? 0 : -1);
+                    if (date1 > date2) {
+                         return 1;
+                     } else if (date1 < date2) {
+                         return -1;
+                     } else {
+                         var title1 = record1.get('title');
+                         var title2 = record2.get('title');
+                         return title1 > title2 ? 1 : (title1 == title2 ? 0 : -1);
+                     }
+     
+                         
                 },
                 direction: 'ASC'
             }

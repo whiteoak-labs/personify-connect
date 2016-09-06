@@ -14,13 +14,14 @@ Ext.define('Personify.view.presenter.PresenterListPanel', {
         items: [
             {
                 layout: 'hbox',
-                style: 'margin: 10px 0px;',
+                style: 'margin: 10px 0px',
                 items: [
                     {
                         xtype: 'searchEventPanel',
                         itemId: 'searchFieldPresenter',
                         flex: 1
-                    },
+                    }
+                    /*,
                     {
                         xtype: 'button',
                         cls: 'clearFilter',
@@ -30,7 +31,7 @@ Ext.define('Personify.view.presenter.PresenterListPanel', {
                         docked: 'right',
                         disabled: true,
                         disabledCls: 'p-button-disabled'
-                    }
+                    }*/
                 ]
             },
             {

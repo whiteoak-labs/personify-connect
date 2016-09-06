@@ -8,7 +8,9 @@ Ext.define('Personify.view.phone.event.FilterTopicList', {
         layout: 'vbox',
         items:[
             {
-                scrollable: null,
+                style: 'overflow:scroll;',
+                height: window.innerHeight/2,
+                width: window.innerWidth/1.1,
                 itemId: 'listFilterItems',
                 xtype: 'dataview',
                 itemCls: 'p-filterlist-phone-checkbox-item-event',
@@ -32,7 +34,7 @@ Ext.define('Personify.view.phone.event.FilterTopicList', {
                         flex: 1,
                         xtype: 'button',
                         cls: 'p-phone-button-clear',
-                        text: 'Clear checked',
+                        text: 'Clear',
                         itemId: 'clearButton',
                         docked: 'right',
                         pressedCls: 'p-phone-button-gray-pressing'

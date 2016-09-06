@@ -34,7 +34,7 @@ Ext.define('Personify.controller.phone.exhibitor.MyExhibitorPanelPhone', {
             var me = this,
                 storeAllExhibitor = record.ExhibitorStore,
                 storeManager = Personify.utils.ServiceManager.getStoreManager(),
-                storeExhibitorName = storeManager.getExhibitorStore(),
+                storeExhibitorName = storeManager.getExhibitorListStore(),
                 storeMyExhibitor = Ext.create(storeExhibitorName),
                 productId = record.get('productID') || null,
                 customerId = currentUser.get('masterCustomerId'),

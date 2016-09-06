@@ -14,7 +14,7 @@ Ext.define('Personify.controller.profile.PurchaseHistory', {
     },
 
     init: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Profile Purchase History');
         }
 

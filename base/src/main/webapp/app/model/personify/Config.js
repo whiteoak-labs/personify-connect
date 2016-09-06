@@ -6,7 +6,8 @@ Ext.define('Personify.model.personify.Config', {
         fields: [
             {name: 'currencySymbol', type: 'string'},
             {name: 'currency', type: 'string'},
-            {name: 'itemPerPage', type: 'int'}
+            {name: 'itemPerPage', type: 'int'},
+            {name: 'itemsPerPageProductList', type: 'int', defaultValue: '20'}
         ],
         associations: [
            {

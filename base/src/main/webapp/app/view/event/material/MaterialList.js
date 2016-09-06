@@ -6,6 +6,8 @@ Ext.define('Personify.view.event.material.MaterialList', {
     config: {
         baseCls: 'materialList',
         pressedCls: 'p-button-pressing-opacity',
+        scrollable: true,
+        scrollToTopOnRefresh: false,
         deferEmptyText: false,
         emptyText: '<p class="p-presenter-emptyText">There are no materials for this session/event</p>',
         itemTpl: null

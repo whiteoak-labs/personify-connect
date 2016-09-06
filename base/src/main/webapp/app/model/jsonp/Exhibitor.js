@@ -2,8 +2,8 @@ Ext.define('Personify.model.jsonp.Exhibitor', {
     extend: 'Personify.model.base.Exhibitor',
 
     requires: ['Personify.model.jsonp.Reference',
-               'Personify.model.jsonp.product.Product',
-               'Personify.model.jsonp.Contact'],
+               'Personify.model.jsonp.ProductExhibitor',
+               'Personify.model.jsonp.ContactExhibitor'],
 
     config: {
         fields: [
@@ -15,7 +15,7 @@ Ext.define('Personify.model.jsonp.Exhibitor', {
             {name: 'exhibitionParentCode', type: 'string', mapping: 'ExhibitionParentCode', allowNull: false},
             {name: 'exhibitionProductCode', type: 'string', mapping: 'ExhibitionProductCode', allowNull: false},
             {name: 'masterCustomerID', type: 'string', mapping: 'MasterCustomerID', allowNull: false},
-            {name: 'name', type: 'string', mapping: 'Name', allowNull: false},
+            {name: 'name', type: 'string', mapping: 'ExhibitorName', allowNull: false},
             {name: 'subCustomerID', type: 'string', mapping: 'SubCustomerID', allowNull: false},
             {name: 'status', type: 'string', mapping: 'Status', allowNull: false},
             {name: 'imageURL', type: 'string', mapping: 'ImageURL', allowNull: false},
@@ -29,36 +29,25 @@ Ext.define('Personify.model.jsonp.Exhibitor', {
 
         associations: [
             {
-                type: 'hasOne', 
-                model: 'Personify.model.jsonp.Reference',
-                associationKey: 'ExhibitorList',
-                name: 'ExhibitorList',
-                storeName: 'ReferenceExhibitorList',
-                reader: {
-                    type: 'json',
-                    rootProperty: 'ExhibitorList'
-                }
-            },
-            {
                 type: 'hasMany',
-                model: 'Personify.model.jsonp.product.Product',
-                associationKey: 'Products',
-                name: 'Products',
+                model: 'Personify.model.jsonp.ProductExhibitor',
+                associationKey: 'XBTProducts',
+                name: 'XBTProducts',
                 storeName: 'ProductsExhibitor',
                 reader: {
                     type: 'json',
-                    rootProperty: 'Products'
+                    rootProperty: 'XBTProducts'
                 }
             },
             {
                 type: 'hasMany',
-                model: 'Personify.model.jsonp.Contact',
-                associationKey: 'Contacts',
-                name: 'Contacts',
+                model: 'Personify.model.jsonp.ContactExhibitor',
+                associationKey: 'XBTContacts',
+                name: 'XBTContacts',
                 storeName: 'ContactsExhibitor',
                 reader: {
                     type: 'json',
-                    rootProperty: 'Contacts'
+                    rootProperty: 'XBTContacts'
                 }
             }
         ]

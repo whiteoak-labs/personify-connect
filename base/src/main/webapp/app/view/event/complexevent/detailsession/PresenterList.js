@@ -16,16 +16,20 @@ Ext.define('Personify.view.event.complexevent.detailsession.PresenterList', {
             {
                 flex: 1,
                 itemId: 'listSessionPresenter',
-                xtype: 'list',
-                cls: 'p-list-presentersession',
-                pressedCls: 'p-list-pressed-presentersession',
-                selectedCls: 'p-list-pressed-presentersession',
-                grouped: true,
-                indexBar: {
-                    direction: 'horizontal'
-                },
+                xtype: 'dataview',
+                baseCls: 'materialList',
+                pressedCls: 'allExhibitorListItemPressed',
+                selectedCls: '',
+                itemCls: 'allExhibitorListItem',
+                scrollable: true,
+                scrollToTopOnRefresh: false,
+                //grouped: true,
+                indexBar: false,//{
+                //    direction: 'horizontal'
+                //},
+                deferEmptyText: false,
                 emptyText: '<div class="p-presenter-emptyText">No Presenter</div>',
-                itemCls: 'listSessionPresenterItems',
+               // itemCls: 'listSessionPresenterItems',
                 itemTpl:  null
             }
         ]

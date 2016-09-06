@@ -26,6 +26,7 @@ Ext.define('Personify.model.jsonp.Agenda', {
                     return '';
                 } 
             }},
+            {name: 'locationDescription', type: 'string', mapping: 'LocationDescription', allowNull: false},
             {name: 'sessionID', type: 'string', mapping: 'SessionID'},
             {name: 'type', type: 'string', mapping: 'Type', allowNull: false},
             {name: 'startDateTimeString', type: 'string', mapping: 'StartDate', allowNull: false},

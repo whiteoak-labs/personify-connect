@@ -84,6 +84,14 @@ Ext.define('Personify.controller.event.simpleEvent.SimpleEventHeader',{
             me.getLocation().setHtml(record.get('location'));
             me.getFullAddress().setHtml(address);
             me.getTimeZone().setHtml(record.get('timeZoneCode'));
+            if(record.get('timeZoneCode') && record.get('timeZoneCode')!='')
+            {
+                this.getShareCalendar().show();
+            }
+            else
+            {
+                this.getShareCalendar().hide();           
+            }
         }
     },
 

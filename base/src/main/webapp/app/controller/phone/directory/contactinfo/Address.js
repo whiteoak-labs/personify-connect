@@ -56,7 +56,9 @@ Ext.define('Personify.controller.phone.directory.contactinfo.Address', {
 
             if(storeAddressList && storeAddressList.getCount() > 0) {
                 storeAddressList.each(function(record) {
-                    typeListToRemove.push(record.get('type'));
+                    //typeListToRemove.push(record.get('type'));
+                    //var itemDesc = Personify.utils.ItemUtil.getDesc(recordCopy.get('addressTypeList').split(','),record.get('type'));
+                    typeListToRemove.push(record.get('type').toUpperCase()+':'+record.get('typeDesc'));
                     if(record.get('canEdit') == true) {
                         addressStore.add(record);
                     } else {

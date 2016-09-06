@@ -3,7 +3,8 @@ Ext.define('Personify.controller.phone.event.ConfrerenceNavigation', {
     config: {
         menuStore: null,
         countLoad: 0,
-        maxCountLoad: 2
+        maxCountLoad: 2,
+        eventsItemsPerPage:1
     },
     control: {
         confrerenceNavigationView: true,
@@ -18,9 +19,12 @@ Ext.define('Personify.controller.phone.event.ConfrerenceNavigation', {
     },
 
     init: function(){
+           var me = this;
         this.getMenueventPanelPhone().getController().setRecord(this.getView().getRecord());
-        this.onLoadMenuStore();
-        this.onLoadSponsorEvents();
+           this.onLoadMenuStore(function() {
+                                me.onLoadSponsorEvents();
+                                });
+        
     },
 
     onLoadSponsorEvents: function() {
@@ -35,7 +39,7 @@ Ext.define('Personify.controller.phone.event.ConfrerenceNavigation', {
         );
     },
 
-    onLoadMenuStore: function(){
+    onLoadMenuStore: function(callback){
            
         var record = this.getView().getRecord();
         var me = this;
@@ -60,7 +64,11 @@ Ext.define('Personify.controller.phone.event.ConfrerenceNavigation', {
             }else{
                 me.getMenueventPanelPhone().getController().onUpdateValue(record, eventMenu, 'Event Home');
                 me.getMenueventPanelPhone().getController().updateMenu(record);
+                       if (typeof callback == 'function') {
+                       callback();
+                       }
             }
+                       
         }});
     },
 
@@ -160,14 +168,56 @@ Ext.define('Personify.controller.phone.event.ConfrerenceNavigation', {
 
         var mask = {xtype: 'loadmask',message: 'Loading..',fullscreen: true, centered: true, cls: clsLoadMask};
         Ext.Viewport.setMasked(mask);
-        this.onGetSesstionListData();
-        this.onGetExhibitorData();
+           
+           
+           if(!record.SessionStore)
+           {
+                this.onGetSesstionListData();
+           }
+           else
+           {
+                if(record.SessionStore.getCount()<=0)
+                {           
+                        this.onGetSesstionListData();
+                }
+                else
+                {
+                    if (currentUser && currentUser.isLogged())
+                    {
+                        ////Meeting Agenda
+                        this.onGetMeetingAgendaData();
+           
+                         //// Meeeting Registrant
+                         this.onGetMeetingRegistrantData();
+           
+                    }
+                    else
+                    {
+                            this.removeMask();
+                    }
+                }
+           }
+           
+           
+           if(!record.ExhibitorStore)
+           {
+                this.onGetExhibitorData();
+           }
+           else{
+                if(record.ExhibitorStore.getCount()<=0)
+                    this.onGetExhibitorData();
+                else
+                    this.removeMask();
+           }
+       
+      
     },
 
     removeMask: function(){
         var count = this.getMaxCountLoad();
         this.setCountLoad(this.getCountLoad() + 1);
         if(this.getCountLoad() >= count){
+           this.onLoadSponsorEvents();
             var record = this.getView().getRecord();
             var store = this.getMenuStore();
             this.getMenueventPanelPhone().getController().onUpdateValue(record, store, record.getData().shortName);
@@ -185,24 +235,40 @@ Ext.define('Personify.controller.phone.event.ConfrerenceNavigation', {
             "MeetingID": record.get('productID'),
             "IsStaffMember": currentUser? currentUser.isStaffMember().toString() : false,
             "IsMember": currentUser ? currentUser.isMember().toString() : false,
-            "ItemsPerPage": "100000",
-            "StartIndex": "0"
+             "ItemsPerPage": "100000",
+             "StartIndex": "1",
+             "SessionDate": "",
+           
+             //// Following Attributes were added on Tablet
+             "MasterCustomerID" : currentUser ? currentUser.get('masterCustomerId') : '',
+             "SubCustomerID" : currentUser ? currentUser.get('subCustomerId') : '0'
         };
         var storeManager = Personify.utils.ServiceManager.getStoreManager();
-        var storeSessionName = storeManager.getSessionStore();
-        var storeSession = Ext.create(storeSessionName);
-        storeSession.setDataRequest(attributes);
-        record.SessionStore = storeSession;
-        storeSession.load({ scope: me, callback: function() {
+        var storeSessionName = storeManager.getSessionListStore();
+        var storeListSession = Ext.create(storeSessionName);
+        
+           
+        storeListSession.setDataRequest(attributes);
+        storeListSession.load({ scope: me, callback: function(records, operation, success) {
             me.removeMask();
-
-            if (currentUser && currentUser.isLogged()) {
-                this.setMaxCountLoad(4);
-                this.onGetMeetingAgendaData();
-                this.onGetMeetingRegistrantData();
-            } else {
-                this.setMaxCountLoad(2);
-            }
+              if (records.length > 0)
+              {
+                    record.SessionStore = Ext.create(storeManager.getSessionStore());
+                              
+                    record.SessionStore= records[0].SessionsStore;
+                    record.SessionDatesStore = records[0].SessionDatesStore;
+                    if (currentUser && currentUser.isLogged()) {
+                        this.setMaxCountLoad(4);
+                        this.onGetMeetingAgendaData();
+                        this.onGetMeetingRegistrantData();
+                    } else {
+                        this.setMaxCountLoad(2);
+                    }
+              }
+              else
+              {
+                  Ext.Msg("Error during fetching Sessions");
+              }
         }});
     },
 
@@ -253,20 +319,32 @@ Ext.define('Personify.controller.phone.event.ConfrerenceNavigation', {
         var me = this;
         var record = this.getView().getRecord();
         var currentUser = Personify.utils.Configuration.getCurrentUser();
+        
         var attributes = {
             IsStaffMember: currentUser? currentUser.isStaffMember().toString() : false,
-            ItemsPerPage: "10000",
+            ItemsPerPage: this.getEventsItemsPerPage(),
             MasterCustomerID: currentUser? currentUser.get('masterCustomerId'): '' ,
             SubCustomerID: currentUser? currentUser.get('subCustomerId'): '',
             ProductID: record.get('productID'),
-            StartIndex: "0"
+            StartIndex: "1"
         };
         var storeManager = Personify.utils.ServiceManager.getStoreManager();
         var attendeeName = storeManager.getAttendeeStore();
         var attendeeStore = Ext.create(attendeeName);
         attendeeStore.setDataRequest(attributes);
-        record.MeetingRegistrantStore = attendeeStore;
-        attendeeStore.load({ scope: me, callback:  me.removeMask});
+          
+        //record.MeetingRegistrantStore = attendeeStore.getAt(0).AttendeeStore;
+                attendeeStore.load({ scope: me, callback:  function(records, operation, success) {
+                             
+                              if (success) {
+                              record.MeetingRegistrantStore = records[0].AttendeeStore;
+
+                              }
+                              me.removeMask();
+                                   
+
+                              }
+                              });
     },
 
     onGetExhibitorData: function() {
@@ -281,29 +359,31 @@ Ext.define('Personify.controller.phone.event.ConfrerenceNavigation', {
                 "XbtProductCode": record.get('xbtProductCode')
             };
         var storeManager = Personify.utils.ServiceManager.getStoreManager();
-        var exhibitorStore = storeManager.getExhibitorStore();
-        var storeExhibitor = Ext.create(exhibitorStore);
-        var storeMyExhibitor = Ext.create(exhibitorStore);
+        var exhibitorListStore = storeManager.getExhibitorListStore();
+        var storeExhibitorList = Ext.create(exhibitorListStore);
+        var storeMyExhibitor = Ext.create(exhibitorListStore);
 
-        storeExhibitor.setDataRequest(attributes);
-        record.ExhibitorStore = storeExhibitor;
-        storeExhibitor.load({scope: me, callback: function(records, operation, success){
-            me.getAllExhibitorFromSql(record, currentUser, storeExhibitor);
+        storeExhibitorList.setDataRequest(attributes);
+        
+        storeExhibitorList.load({scope: me, callback: function(records, operation, success){
+            record.ExhibitorStore = storeExhibitorList;
+            me.getAllExhibitorFromSql(record, currentUser, storeExhibitorList);
             me.removeMask();
         }});
     },
 
-    getAllExhibitorFromSql: function(record, currentUser, exhibitorStore) {
+    getAllExhibitorFromSql: function(record, currentUser, exhibitorListStore) {
         var me = this;
         var storeManager = Personify.utils.ServiceManager.getStoreManager();
-        var exhibitorStoreName = storeManager.getExhibitorStore();
-        var storeMyExhibitor = Ext.create(exhibitorStoreName);
+        var exhibitorListStoreName = storeManager.getExhibitorListStore();           
+        var storeMyExhibitor = Ext.create(exhibitorListStoreName);
+           
         var productId = record.get('productID') || null;
         var customerId = currentUser.get('masterCustomerId');
         var subCustomerId = currentUser.get('subCustomerId');
         Personify.utils.Sqlite.getMyExhibitor(productId, customerId, subCustomerId, function(result) {
             if(typeof result == 'object' && result.length > 0) {
-                 exhibitorStore.each(function(recordEx) {
+                 exhibitorListStore.each(function(recordEx) {
                     for (var i = 0; i < result.length; i++) {
                         if (result[i].exhibitorId == recordEx.get('recordId')) {
                             if (!recordEx.get('isAdded')) {

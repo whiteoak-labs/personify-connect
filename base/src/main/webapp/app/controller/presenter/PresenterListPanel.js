@@ -9,11 +9,13 @@ Ext.define('Personify.controller.presenter.PresenterListPanel',{
         presenterList: {
             itemtap: 'onItemPresenterTap',
             itemtouchstart: 'onItemTouchStartPresenter',
-            itemtouchend: 'onItemTouchEndPresenter'
-        },
+            itemtouchend: 'onItemTouchEndPresenter',
+           scrollend: 'onNextButtonTap'
+        }
+        /*,
         btnClearFilter: {
             tap: 'onSearchClearIconTap'
-        }
+        } */
     },
 
     init: function() {
@@ -21,11 +23,11 @@ Ext.define('Personify.controller.presenter.PresenterListPanel',{
     },
 
     setStore: function(store) {
-        store.setGrouper({
-            groupFn: function(record) {
-                return record.get('lastName')[0];
-            }
-        });
+        //store.setGrouper({
+        //    groupFn: function(record) {
+        //        return record.get('lastName')[0];
+        //    }
+        //});
         store.setSorters({
             sorterFn: function(record1, record2) {
                 var firstName1 = record1.get('lastName');
@@ -43,7 +45,10 @@ Ext.define('Personify.controller.presenter.PresenterListPanel',{
     setRecord: function(record) {
         this.setStore(record.SpeakersListEvent);
     },
-
+    refresh: function(){
+           
+           this.getPresenterList().refresh();
+    },
     onItemPresenterTap: function(dataView, index, target, record, event, eOpts) {
         this.getView().fireEvent('selectpresentersitem', record)
     },
@@ -56,8 +61,8 @@ Ext.define('Personify.controller.presenter.PresenterListPanel',{
         target.removeCls('x-item-pressed');
     },
 
-    onSearchKeyUp: function(value, keyCode) {
-        if(window.plugins.app47) {
+    onSearchKeyUp1: function(value, keyCode) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Presenter Search');
         }
 
@@ -67,7 +72,7 @@ Ext.define('Personify.controller.presenter.PresenterListPanel',{
             storePresenter.clearFilter();
             if(keyCode == 13 || keyCode == 10) {
                 if(value.trim() != '' || value.trim() != null) {
-                    this.getBtnClearFilter().setDisabled(false);
+                    //this.getBtnClearFilter().setDisabled(false);
                     storePresenter.filter(function(record) {
                         didMatch = (record.get('name').trim().toLowerCase() + " "
                                 + record.get('jobTitle').trim().toLowerCase() + " "
@@ -85,10 +90,23 @@ Ext.define('Personify.controller.presenter.PresenterListPanel',{
         }
     },
 
-    onSearchClearIconTap: function() {
+    onSearchClearIconTap1: function() {
         this.getPresenterList().getStore().clearFilter();
-        this.getBtnClearFilter().setDisabled(true);
+        //this.getBtnClearFilter().setDisabled(true);
         this.getSearchFieldPresenter().getController().clearSearchField();
         this.getPresenterList().deselectAll();
+    },
+    onNextButtonTap: function (dataView, index, target, record, event, eOpts) {
+        this.getView().fireEvent('nextbuttontap', record);
+    },
+    onSearchKeyUp: function (value, keyCode) {
+        if(keyCode == 13 || keyCode == 10) {
+           this.getView().fireEvent('searchkeyup',value);
+        }else{
+           return;
+        }
+    },
+    onSearchClearIconTap: function() {
+        this.getView().fireEvent('searchclearicontap');
     }
 });

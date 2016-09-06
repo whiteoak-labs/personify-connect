@@ -80,7 +80,7 @@ Ext.define('Personify.controller.profile.Relationship', {
         if (relationshipStore) {
             currentRelationshipItem = relationshipStore.getCount();
         }
-        console.log('load');
+        
         if (currentContact && currentRelationshipItem < this.getTotalRelationshipResult()) {
             this.getParams()['StartIndex'] = this.getParams()['StartIndex'] + (Personify.utils.Configuration.getConfiguration().getAt(0).DirectoryStore.get('itemPerPage'));
             this.loadContactData(currentContact);

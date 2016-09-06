@@ -40,7 +40,16 @@ Ext.define('Personify.view.phone.directory.contactinfo.ListInfoTemplate', {
                     }else{
                         return adress;
                     }
-                }
+                },
+                hasType: function(type) {
+                    if(type == null || type == "") {
+                        return '';
+                    }
+                    else
+                    {
+                        return type.toLowerCase()=='alternatecode'?'AlternateDESC':type;
+                    }
+                                          }
             }
         ));
 

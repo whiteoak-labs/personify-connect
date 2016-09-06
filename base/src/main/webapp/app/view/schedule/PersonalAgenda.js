@@ -32,7 +32,7 @@ Ext.define('Personify.view.schedule.PersonalAgenda', {
                         text: 'X',
                         listeners: {
                             tap: function() {
-                                this.parent.parent.destroy();
+                                this.parent.parent.hide();
                             }
                         }
                     }
@@ -107,8 +107,4 @@ Ext.define('Personify.view.schedule.PersonalAgenda', {
             }
         ]
     },//config
-    
-    hide: function() {
-        this.destroy();
-    }
 });

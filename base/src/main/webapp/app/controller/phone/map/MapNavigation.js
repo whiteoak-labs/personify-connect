@@ -29,13 +29,48 @@ Ext.define('Personify.controller.phone.map.MapNavigation', {
 
     initMap: function(mapData, locationData) {
         var myView = this.getView();
+        var mapIDMatched=false;
+           
+        var productId = myView.getRecord().get('productID');
+           
+        var arrMapDataFiltered=[];
+        if (productId && productId!='0')
+        {
+            if (mapData !=null && mapData.maps!=null  && mapData.maps.length>0)
+            {
+                for (var i = 0; i < mapData.maps.length; i++)
+                {
+                    var map = mapData.maps[i];
+                    //// Match Product ID
+                    if (map.productId===productId)
+                    {
+                        arrMapDataFiltered.push(map);
+                    }
+                }
+            }
+         }
+         else
+         {
+           if (mapData !=null && mapData.maps!=null  && mapData.maps.length>0)
+           {
+                arrMapDataFiltered=mapData.maps;
+           }
+           
+         }
+           
         var location = mapData.locations[locationData];
 
-        if (location) {
-            var mapId = location.mapId;
-
-            for (var i = 0; i < mapData.maps.length; i++) {
-                if (mapData.maps[i].mapId == mapId) {
+        if (location && arrMapDataFiltered) {
+           
+           var mapId = location.mapId;
+           
+           for (var i = 0; i < arrMapDataFiltered.length; i++)
+            {
+                if (arrMapDataFiltered[i].mapId == mapId)
+                {
+           
+                    mapIDMatched=true;
+           
                     myView.animateActiveItem(1, {
                         type : 'slide',
                         direction : 'left'
@@ -44,7 +79,7 @@ Ext.define('Personify.controller.phone.map.MapNavigation', {
                     myMap.removeAt(1);
                     var map = myMap.add({
                         xtype : 'pinchzoomimage',
-                        src : mapData.maps[i].image,
+                        src : arrMapDataFiltered[i].image,
                         width : '100%',
                         hight : '100%',
                         flex : 1
@@ -53,10 +88,34 @@ Ext.define('Personify.controller.phone.map.MapNavigation', {
                         x : location.coords[0],
                         y : location.coords[1]
                     });
-                    myMap.items.items[0].setTitle(mapData.maps[i].name);
+                    myMap.items.items[0].setTitle(arrMapDataFiltered[i].name);
                 }
+             }
+           
+            //// If MAP ID of Location not matched with Map Data and MAP data has values then we are displaying First Map as Default
+            if(arrMapDataFiltered.length>0 && mapIDMatched==false)
+            {
+                        myView.animateActiveItem(1, {
+                                    type : 'slide',
+                                    direction : 'left'
+                                    });
+                        var myMap = myView.getActiveItem();
+                        myMap.removeAt(1);
+                        var map = myMap.add({
+                               xtype : 'pinchzoomimage',
+                               src : arrMapDataFiltered[0].image,
+                               width : '100%',
+                               hight : '100%',
+                               flex : 1
+                               });
+           
+                        map.updateMarkerPosition();
+                        myMap.items.items[0].setTitle(arrMapDataFiltered[0].name);
+
             }
-        } else {
+           
+           }
+           else {
             myView.animateActiveItem(0, {
                 type : 'slide',
                 direction : 'left'

@@ -25,8 +25,9 @@ Ext.define('Personify.controller.phone.common.SearchFieldWithSearchKeyBoard', {
     clearSearchField: function() {
         this.getView().setValue('');
     },
-               focus: function(field, event, eOpts)
-               {
-               	window.plugins.androidHelper.setSofKeyBoardPan();
-               }
+    focus: function(field, event, eOpts) 
+    {
+        if (window.plugins.androidHelper)
+            window.plugins.androidHelper.setSofKeyBoardPan();
+    },
 });

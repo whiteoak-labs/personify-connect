@@ -20,7 +20,8 @@ Ext.define('Personify.controller.store.FeatureLabel', {
     init: function() {
         var me = this;
         me.callParent(arguments);
-        me.getSearchStorePanel().getController().setPlaceHolder('Search Titles, Topics, Keywords');
+        //Fixed:3246-8393048
+        //me.getSearchStorePanel().getController().setPlaceHolder('Search Titles, Topics, Keywords');
     },
     
     onFilterButtonStoreTap: function() {

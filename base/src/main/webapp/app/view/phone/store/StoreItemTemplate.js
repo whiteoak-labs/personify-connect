@@ -24,6 +24,7 @@ Ext.define('Personify.view.phone.store.StoreItemTemplate', {
             },
             outOfBoundRestrictFactor: 0
         },
+        scrollToTopOnRefresh: false,
         itemTpl: new Ext.XTemplate(
             '<table width="100%" style="margin: 0px;">' +
                 '<tr width="100%">' +

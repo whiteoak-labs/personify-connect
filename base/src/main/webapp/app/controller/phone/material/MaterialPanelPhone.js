@@ -1,5 +1,10 @@
 Ext.define('Personify.controller.phone.material.MaterialPanelPhone',{
     extend: 'Personify.base.Controller',
+    config:
+    {
+           totalMaterialResult: 1000,
+           startIndex:0
+     },
 
     control: {
         ptoolbarMaterialPanelPhone: {
@@ -7,6 +12,7 @@ Ext.define('Personify.controller.phone.material.MaterialPanelPhone',{
         },
         materialListPhone: {
             itemtap: 'onTapMaterialListPhone'
+            ,scrollend: 'onScrollEndMaterial'
         },
         materialTitleBar: true
     },
@@ -24,9 +30,11 @@ Ext.define('Personify.controller.phone.material.MaterialPanelPhone',{
                 title = record.get('title');
             }
         }
-
         this.getMaterialTitleBar().setHtml(Personify.utils.ItemUtil.getShortContent(title, 48));
-        this.setRecord(record);
+        ///this.setRecord(record);
+        
+        this.setStartIndex(0);
+        this.loadMaterials();
     },
 
     onTapNavigationButton: function() {
@@ -53,6 +61,9 @@ Ext.define('Personify.controller.phone.material.MaterialPanelPhone',{
                         }
                     });
                 }
+           
+           
+           
                 this.getMaterialListPhone().setStore(record.MaterialStore);
             }
         }
@@ -87,5 +98,89 @@ Ext.define('Personify.controller.phone.material.MaterialPanelPhone',{
         } else {
             Ext.Msg.alert('File download', 'We don\'t have information about file location.', Ext.emptyFn);
         }
-    }
+    },
+           
+    /* Performance related enhancements */
+           
+    onScrollEndMaterial:function(dataView, index, target, record, event, eOpts) {
+           var me = this;
+           var materialStore = me.getMaterialListPhone().getStore();
+           var currentMaterialItem = 0;
+           if (materialStore) {
+                currentMaterialItem = materialStore.getCount();
+           }
+           
+           if (currentMaterialItem < me.getTotalMaterialResult()) {
+                me.setStartIndex(me.getStartIndex()+(Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageMaterialsList')));
+                    me.loadMaterials();
+           }
+    },
+           
+loadMaterials: function() {
+    var me = this,
+    materialListPanel = me.getMaterialListPhone(),
+    record = me.getView().getRecord();
+    if(record)
+    {
+        var titleSession = null;
+        materialListPanel.setMasked({xtype:'loadmask'});
+        var task = new Ext.util.DelayedTask(function()
+        {
+            var storeMaterial = record.MaterialStore;
+            if (storeMaterial)
+            {
+                 storeMaterial.clearFilter();
+                 me.setTotalMaterialResult(storeMaterial.getCount());
+                 var endIndex = me.getStartIndex() + Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageMaterialsList');
+                  var currentStore = materialListPanel.getStore();
+                  if (!currentStore)
+                   {
+                       var modelManger = Personify.utils.ServiceManager.getModelManager();
+                       currentStore = Ext.create('Ext.data.Store', {
+                                                   model: modelManger.getEventMaterialModel()
+                                                });
+                    }
+                    currentStore.suspendEvents();
+                    titleSession = record.get('title');
+                    if(titleSession)
+                        {
+                            for (var i = me.getStartIndex(); i < endIndex; i++)
+                            {
+                              if (storeMaterial.getAt(i) != null)
+                              {
+                                 materialRecord = storeMaterial.getAt(i);
+                                 materialRecord.set('titleParent', 'Session: ' + titleSession);
+                                 currentStore.add(materialRecord);
+                              }
+                             }
+                         }
+                         else{
+                              titleSession = record.get('shortName');
+                              for (var i = me.getStartIndex(); i < endIndex; i++)
+                              {
+                               if (storeMaterial.getAt(i) != null)
+                                {
+                                    materialRecord = storeMaterial.getAt(i);
+                                    materialRecord.set('titleParent', 'Event: ' + titleSession);
+                                    currentStore.add(materialRecord);
+                                 }
+                              }
+                         }
+                                               
+                        currentStore.sync();
+                        currentStore.resumeEvents(true);
+                        materialListPanel.setStore(currentStore);
+                        materialListPanel.refresh();          
+           
+                    }
+                   materialListPanel.setMasked(false);
+                   materialListPanel=null;
+              }, me);
+              task.delay(100);
+           }
+           
+          
+        }
+           
+    /* End Performance related enhancements */
 });

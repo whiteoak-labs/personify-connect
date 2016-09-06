@@ -16,7 +16,7 @@ Ext.define('Personify.view.profile.contactinfo.Photo', {
                 itemId:'imageFrame',
                 minHeight: 130,
                 minWidth: 130,
-                style: 'background-size: 100% 100%; background-color: white;',
+                style: 'background-size: contain; background-color: transparent;',
                 xtype: 'image'
             },
             {//button Edit for Photo

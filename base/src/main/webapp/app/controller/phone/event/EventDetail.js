@@ -100,10 +100,25 @@ Ext.define('Personify.controller.phone.event.EventDetail', {
     setRecord: function(record) {
            
         if(record) {
-            this.onGetIsUserRegistered(record);
+           
+           var currentUser = Personify.utils.Configuration.getCurrentUser();
+           
+           if (navigator.onLine && currentUser != null && currentUser.isLogged())
+           {
+                this.onGetIsUserRegistered(record);
+           }
+           
             var start = Personify.utils.ItemUtil.convertStringToDate(record.get('startDateTimeString'));
             var end = Personify.utils.ItemUtil.convertStringToDate(record.get('endDateTimeString'));
             var timeZoneCode = record.get('timeZoneCode')
+            if(timeZoneCode && timeZoneCode!='')
+            {
+                this.getSaveToMyCalendar().show();
+            }
+            else
+            {
+                this.getSaveToMyCalendar().hide();
+            }
             var dateTime = Personify.utils.ItemUtil.getDisplayDateTimeEventDetailPhone(start, end, timeZoneCode);
             var address = record.get('locationFullAddress');
             this.setAddress(address);
@@ -123,7 +138,7 @@ Ext.define('Personify.controller.phone.event.EventDetail', {
                 var priceWidth = Personify.utils.ItemUtil.getWidthPrice(price, memberPrice, 7.5);
                 this.getPrice().setHtml(Personify.utils.ItemUtil.formatPurchaseAmount(price, 2));
            
-                var currentUser = Personify.utils.Configuration.getCurrentUser();
+           
                 if(currentUser != null && currentUser.isLogged()){
                     if(yourPriceRateStructure == 'list')
                     {
@@ -389,7 +404,14 @@ Ext.define('Personify.controller.phone.event.EventDetail', {
             };
             me.updateAddRemoveButton(record);
         }
-        me.onGetIsUserRegistered(record, callback);
+           
+           var currentUser = Personify.utils.Configuration.getCurrentUser();
+           
+           if (navigator.onLine && currentUser != null && currentUser.isLogged())
+           {
+                 me.onGetIsUserRegistered(record, callback);
+           }
+          
     },
 
     onRegisterNowTap: function() {

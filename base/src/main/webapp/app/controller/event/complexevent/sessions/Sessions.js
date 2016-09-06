@@ -34,7 +34,7 @@ Ext.define('Personify.controller.event.complexevent.sessions.Sessions',{
 
     init: function() {
            
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Session Detail');
         }
 

@@ -21,7 +21,7 @@ Ext.define('Personify.controller.profile.Photo', {
                 this.getImageFrame().setSrc(photoStore.getAt(0).get('value'));
             }
         } else {
-            this.getImageFrame().setSrc('img/directory/defaultAvatar.png');
+            this.getImageFrame().setSrc('resources/images/directory/defaultAvatar.png');
         }
         this.updateEditMode(false);
     },
@@ -30,7 +30,7 @@ Ext.define('Personify.controller.profile.Photo', {
         if(presenter && presenter.get('imageURL') && presenter.get('imageURL') != '') {
             this.getImageFrame().setSrc(presenter.get('imageURL'));
         } else {
-            this.getImageFrame().setSrc('img/directory/defaultAvatar.png');
+            this.getImageFrame().setSrc('resources/images/directory/defaultAvatar.png');
         }
     },
     
@@ -100,7 +100,7 @@ Ext.define('Personify.controller.profile.Photo', {
                     var photo = me.getRecord().EntryProfile.first().PhotosProfile.first();
 
                     if (photo) {
-                        me.getImageFrame().setSrc('img/directory/defaultAvatar.png');
+                        me.getImageFrame().setSrc('resources/images/directory/defaultAvatar.png');
                         var image = me.getImageFrame();
                         Personify.utils.Configuration.profilePictureTimestamp = Ext.Date.now();
                         Ext.callback(image.setSrc, image, [photo.get('value') + '?_dc=' + Personify.utils.Configuration.profilePictureTimestamp], 1000);

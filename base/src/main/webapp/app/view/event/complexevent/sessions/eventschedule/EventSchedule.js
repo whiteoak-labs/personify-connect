@@ -52,7 +52,16 @@ Ext.define('Personify.view.event.complexevent.sessions.eventschedule.EventSchedu
             {
                 itemId: 'eventList',
                 flex: 1,
-                xtype: 'eventlist'
+                xtype: 'eventlist'/*,
+                listeners: {
+                    initialize: function(c) {
+                        c.element.on({
+                            swipe: function(e, node, options) {
+                                c.fireEvent('onSwipeEventList',e.direction);
+                            }
+                        });
+                    }
+                }*/
             },
             {
                 itemId: 'filterListEventSchedule',

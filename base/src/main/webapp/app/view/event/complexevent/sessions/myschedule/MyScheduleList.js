@@ -9,7 +9,7 @@ Ext.define('Personify.view.event.complexevent.sessions.myschedule.MyScheduleList
 
     config: {
         baseCls: 'allSessionList',
-        itemCls: 'allSessionListItem',
+        itemCls: 'item-event-complex-list-wrap',////'allSessionListItem',
         deferEmptyText: false,
         emptyText: '<div class="p-presenter-emptyText">Currently, there are no sessions in your schedule.<br>You may add a session by selecting a session and choosing ‘Add to My Schedule’</div>',
         pressedCls: 'p-button-pressing-opacity',

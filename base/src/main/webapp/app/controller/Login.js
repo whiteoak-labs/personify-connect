@@ -1,14 +1,14 @@
 Ext.define('Personify.controller.Login', {
     extend: 'Personify.base.Controller',
            
-    inject: {
+    /*inject: {
         allProductStore: 'allProductStore'
     },
-           
+     
     config:{
         allProductStore:null
     },
-
+     */
     control: {
         loginForm: {
             loginsuccess: 'onLoginSuccess',
@@ -59,7 +59,7 @@ Ext.define('Personify.controller.Login', {
 
     onLoginSuccess: function(user) {
         var me =this;
-        me.getAllProductStore().removeAll();
+       // me.getAllProductStore().removeAll();
         Personify.utils.Configuration.setCurrentUser(user);
         me.getView().fireEvent('userlogin', user);
         var loginButton = me.getLoginButton(),
@@ -85,7 +85,7 @@ Ext.define('Personify.controller.Login', {
             }
             Ext.Viewport.setMasked(false);
 
-            if (window.plugins.app47) {
+            if (navigator.onLine && window.plugins.app47) {
                 window.plugins.app47.sendGenericEvent('Login');
             }
 

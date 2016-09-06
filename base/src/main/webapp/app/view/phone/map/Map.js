@@ -28,7 +28,7 @@ Ext.define('Personify.view.phone.map.Map', {
                         cls: 'prev-map-phone',
                         flex: 1,
                         itemId: 'prevMapPhone',
-                        src: 'img/home/next.png'
+                        src: 'resources/images/home/next.png'
                     },
                     {
                         xtype: 'container',
@@ -73,7 +73,7 @@ Ext.define('Personify.view.phone.map.Map', {
                         cls: 'next-map-phone',
                         flex: 1,
                         itemId: 'nextMapPhone',
-                        src: 'img/home/next.png'
+                        src: 'resources/images/home/next.png'
                     }
                 ]
             }

@@ -124,11 +124,16 @@ Ext.define('Personify.controller.phone.exhibitor.DetailItemListExhibitorPhone', 
         if ((url.indexOf('http://') !== 0) && (url.indexOf('https://') !== 0)) {
             url = "http://" + url;
         }
+           var ref = null;
         if (Ext.os.is.Android) {
-            window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
+            ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
         } else {
-            window.open(url, '_blank', 'location=no,enableViewportScale=yes');
+            ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
         }
+           Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+           ref.addEventListener('exit', function() {
+                Personify.utils.BackHandler.popActionAndTarget('close', ref);
+            });
     },
 
     onTapPhonePanel: function() {
@@ -156,15 +161,14 @@ Ext.define('Personify.controller.phone.exhibitor.DetailItemListExhibitorPhone', 
                         text: 'Call Phone',
                         handler: function() {
                             actionSheet.hide();
-                            window.plugins.phoneDialer.dial(phoneNumber);
+                            window.plugins.phoneDialer.dial(phoneNumber,'CALL');
                         }
                     },
                     {
                         text: 'SMS',
                         handler: function() {
                             actionSheet.hide();
-                            if (window.plugins['smsComposer'])
-                                window.plugins.smsComposer.showSMSComposer(phoneNumber, null);
+                            window.plugins.phoneDialer.dial(phoneNumber,'SMS');
                         }
                     },
                     {
@@ -201,22 +205,32 @@ Ext.define('Personify.controller.phone.exhibitor.DetailItemListExhibitorPhone', 
     },
 
     onAddToMyExhibitorTap: function(){
+           
         var record = this.getView().getRecord();
         var meetingRecord = this.getView().getMeetingRecord();
+                  
         var me = this;
         var currentUser = Personify.utils.Configuration.getCurrentUser();
         if(currentUser && currentUser.isLogged()) {
-            var store = meetingRecord.ExhibitorStore,
+            var store = record.ExhibitorStore,//// meetingRecord.ExhibitorStore,
                 exhibitorId = record.get('recordId') || null,
                 customerId = currentUser.get('masterCustomerId') || null,
                 subCustomerId = currentUser.get('subCustomerId') || null,
                 productId = meetingRecord.get('productID') || null;
 
-            if(record.get('isAdded') != true) {
+           //// It is Exhibitor List Record
+           var listRecord=this.getView().getExhibitorListRecord();
+           
+           if(record.get('isAdded') != true) {
                 Personify.utils.Sqlite.insertTableExhibitor(exhibitorId, productId, customerId, subCustomerId, function(success) {
                     if(success) {
-                        me.getView().fireEvent('updatemyexibitors');
+                        
+                        //// Set Details and List record
                         record.set('isAdded', true);
+                        listRecord.set('isAdded', true);
+                                                            
+                        me.getView().fireEvent('updatemyexibitors');
+                        
                         me.updateAddRemoveButton(record);
                         Ext.Msg.alert('', 'Exhibitor has been added to your exhibitors.', Ext.emptyFn);
                     } else {
@@ -225,9 +239,12 @@ Ext.define('Personify.controller.phone.exhibitor.DetailItemListExhibitorPhone', 
                 });
             } else {
                 Personify.utils.Sqlite.deleteMyExhibitor(exhibitorId, productId, customerId, subCustomerId, function(success) {
-                    if(success) {
-                        me.getView().fireEvent('updatemyexibitors');
+                    if(success) {                                               
+                        //// Set Details and List record
                         record.set('isAdded', false);
+                        listRecord.set('isAdded', false);
+                        me.getView().fireEvent('updatemyexibitors');
+                        
                         me.updateAddRemoveButton(record);
                         Ext.Msg.alert('', 'Exhibitor has been removed.', Ext.emptyFn);
                     } else {

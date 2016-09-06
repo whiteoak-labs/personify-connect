@@ -1,6 +1,6 @@
 Ext.define('Personify.controller.phone.login.LoginPhone', {
     extend: 'Personify.controller.login.LoginForm',
-           
+    /*
     inject: {
         allProductStore: 'allProductStore'
     },
@@ -8,7 +8,7 @@ Ext.define('Personify.controller.phone.login.LoginPhone', {
     config:{
         allProductStore:null
     },
-
+     */
     control: {
         ptoolbarLogin: {
             onNavigationButtonTap: 'onBack'
@@ -93,6 +93,12 @@ Ext.define('Personify.controller.phone.login.LoginPhone', {
 
         this.getUsernameTextfield().blur();
         this.getPasswordTextfield().blur();
+           
+       if (Ext.os.is('Android')) {
+           if (window.plugins.androidHelper) {
+               window.plugins.androidHelper.hideAndroidKeyBoard();
+           }
+       }
 
         Ext.Viewport.setMasked({xtype: 'loadmask'});
         me.callParent(arguments);
@@ -106,13 +112,14 @@ Ext.define('Personify.controller.phone.login.LoginPhone', {
             me.onLoginFailure();
             return;
         }
-        me.getAllProductStore().removeAll();
+        //me.getAllProductStore().removeAll();
         var username = me.getUsernameTextfield().getValue();
         var password = me.getPasswordTextfield().getValue();
 
         Personify.utils.Configuration.setCurrentUser(user);
         thisView.fireEvent('updatecurrentuser', user, function() {
             me.onBack();
+            Personify.utils.BackHandler.executeFunctionAtTop(false);
             Ext.Viewport.setMasked(false);
         });
 

@@ -11,7 +11,12 @@ Ext.define('Personify.controller.schedule.PersonalAgenda',{
         removeAgendaButton: {
             tap: 'onRemoveAgendaButtonTap'
         },
-        titlePersonalAgenda:{}
+        titlePersonalAgenda:{},
+       view:
+       {
+       show:'onShow',
+       hide:'onHide',
+       }
     },//control
     
     init: function(){
@@ -50,9 +55,18 @@ Ext.define('Personify.controller.schedule.PersonalAgenda',{
                 Ext.Msg.hide();
                 if (clickedButton == 'yes') {
                     me.getView().fireEvent('removeagenda', record, message.msgSuccess);
-                    me.getView().destroy();
+                    me.getView().hide();
                     Ext.Msg.alert('', message.msgSuccess);
                 }
             }
-    }
+    },
+           
+   onHide: function() {
+   Personify.utils.BackHandler.popActionAndTarget('hide', this.getView());
+   this.getView().destroy();
+   },
+   
+   onShow: function() {
+   Personify.utils.BackHandler.pushActionAndTarget('hide', this.getView());
+   },
 });

@@ -126,10 +126,22 @@ Ext.define('Personify.model.jsonp.calendar.Event', {
                     type: 'json',
                     rootProperty: 'TopicList'
                 }
+            },
+            {
+                type: 'hasMany',
+                model: 'Personify.model.jsonp.session.Track',
+                associationKey: 'ConferenceTrackList',
+                name: 'ConferenceTrackList',
+                storeName: 'ConferenceTrackListEvent',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'ConferenceTrackList'
+                }
             }
         ]
     },
-
+   
+   SessionDatesStore:null,
     SessionStore: null,
     MeetingAgendaStore: null,
     MeetingRegistrantStore: null,

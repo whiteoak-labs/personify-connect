@@ -10,7 +10,13 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
         dayJump: 1,
         sessionDates: null,
         currentUser: null,
-        btnFilterByTrack: null
+        btnFilterByTrack: null,
+        totalResultDateWise : 0,
+        startIndex: 0,
+        storeDateWise: null,
+        startPoint: 0,
+        endPoint:0,
+        scrollDown: true
     },
 
     control: {
@@ -31,7 +37,9 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
             deletesession: 'onDeleteSessionToAgenda'
         },
         filterListEventSchedule: {
-            filterbytrack: 'onFilterByTrack'
+            filterbytrack: 'onFilterByTrack',
+           show:'showPopupPanel',
+           hide:'hidePopupPanel',
         },
         backSegmentButton:{
             tap: 'onBackSegmentButton'
@@ -53,9 +61,21 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
            
         var me = this;
         var currentUser = Personify.utils.Configuration.getCurrentUser();
-        this.getEventList().setMasked({xtype: 'loadmask'});
-        this.setCurrentUser(currentUser);
+        me.getEventList().setMasked({xtype: 'loadmask'});
+        me.setCurrentUser(currentUser);
+           var scroller = this.getEventList().getScrollable().getScroller();
+           scroller.on('scrollend', this.onNnListScrollEnd, this);
+           scroller.on('scrollstart', this.onNnListScrollStart, this);
         if (record) {
+           if (record.SessionStore && record.SessionStore.getCount() > 0) {
+                record.SessionStore.clearFilter();
+                me.getArrayDate(record.SessionStore);
+           }
+           me.getView().setRecord(record);
+           me.getFilterListEventSchedule().setRecord(record);
+        }
+           
+        /*if (record) {
             if (record.SessionStore && record.SessionStore.getCount() > 0) {
                 var storeManager = Personify.utils.ServiceManager.getStoreManager();
                 var storeSessionName = storeManager.getSessionStore();
@@ -96,10 +116,9 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
             this.getView().setRecord(record);
             this.getFilterListEventSchedule().setRecord(record);
         }
-
-        this.getEventList().setMasked(false);
+*/
+        //this.getEventList().setMasked(false);
     },
-
     onGetData: function(record, arraySessionID) {
            
         var me = this;
@@ -118,7 +137,9 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
         storeSession.setDataRequest(attributes);
         storeSession.load({
             callback: function(records, operation, success) {
-                if(records.length > 0){
+                if(success)
+                {
+                    if(records.length > 0){
                     storeSession.each(function(recordSession){
                         if(arraySessionID){
                             if(Ext.Array.contains(arraySessionID, recordSession.get('sessionID'))){
@@ -132,7 +153,13 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
                     me.getEventList().setStore(storeSession);
                     me.getArrayDate(storeSession);
                     record.SessionStore = sessionStore;
-                }
+                          }
+                 }
+                 else
+                 {
+                          Ext.Viewport.setMasked(false);
+                          Personify.utils.ItemUtil.cantLoadEvent(operation,"Cannot load events.");
+                 }
             },
             scope: this
         });
@@ -193,11 +220,15 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
     },
 
     onFilterByDate: function(date){
-        var store = this.getEventList().getStore();
+        //var store = this.getEventList().getStore();
+        var me = this;
+        var record = this.getView().getRecord();
+        var store = record.SessionStore;
         if(store){
             store.clearFilter();
-            this.updateFilter(store);
-            this.setCurrentDate(date);
+           store.setRemoteFilter(false);
+            me.updateFilter(store);
+            me.setCurrentDate(date);
             store.filter(function(record) {
                 var startDate = Personify.utils.ItemUtil.convertStringToDateSession(record.get('startDateTimeString'));
                 var format = 'm/d/y';
@@ -205,6 +236,11 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
                     return record;
                 }
             });
+           me.setTotalResultDateWise(store.getCount());
+           me.setStoreDateWise(store);
+           if(store.getCount()>0)
+                me.setListStore(record);
+
         }
     },
 
@@ -230,7 +266,7 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
             store.filter( function(record){
                 var haveData = false;
                 record.TrackSession.each(function(trackRecord){
-                    if(trackRecord.get('tracks').trim().toLowerCase() == tracks.trim().toLowerCase()){
+                    if(trackRecord.get('descr').trim().toLowerCase() == tracks.trim().toLowerCase()){
                         haveData = true;
                     }
                 });
@@ -240,7 +276,67 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
             });
         }
     },
-
+    setListStore : function(record) {
+        var me = this;
+        me.getEventList().setMasked({xtype:'loadmask'});
+        var task = new Ext.util.DelayedTask(function() {
+        store = me.getStoreDateWise();
+        //var store = record.SessionStore;
+        var currentCount = 0;//this.getEventList().getStore().getCount();
+        if (me.getStartIndex() < me.getTotalResultDateWise()) {
+           var endIndex = me.getStartIndex() + parseInt(Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageSession'));
+           //var all = store.getRange(me.getStartIndex(), me.getStartIndex() + parseInt(Personify.utils.Configuration.getConfiguration().first().EventsStore.get('itemsPerPageSession')) - 1);
+           var currentStore = me.getEventList().getStore();
+           if(!currentStore)
+           {
+                var storeManager = Personify.utils.ServiceManager.getStoreManager();
+                var storeSessionName = storeManager.getSessionStore();
+                currentStore = Ext.create(storeSessionName);
+           }
+           currentStore.suspendEvents();
+                                            currentStore.removeAll();
+           for (var i = me.getStartIndex(); i < endIndex; i++) {
+                if (store.getAt(i) != null){
+                    var recordSession =store.getAt(i);
+                    var isAdded = false;
+                    if (record.MeetingAgendaStore) {
+                        for (var j = 0; j < record.MeetingAgendaStore.getCount(); j++) {
+                            var agenda = record.MeetingAgendaStore.getAt(j);
+           
+                            if (agenda.get('sessionID') == recordSession.get('sessionID')) {
+                                if (!recordSession.get('isAdded')) {
+                                    recordSession.set('isAdded', true);
+                                }
+           
+                                isAdded = true;
+                                break;
+                            }
+                        }
+                    }
+           
+                    if (!isAdded) {
+                        if (recordSession.get('isAdded')) {
+                            recordSession.set('isAdded', false);
+                        }
+                    }
+                    currentStore.add(recordSession);
+                }
+           }
+           //currentStore.add(all);
+           currentStore.sync();
+           currentStore.resumeEvents(true);
+           
+            me.getEventList().setStore(currentStore);
+           me.getEventList().refresh();
+            if(me.getScrollDown())
+                me.getEventList().getScrollable().getScroller().scrollTo(0,0);
+            else
+                me.getEventList().getScrollable().getScroller().scrollToEnd();
+        }
+        me.getEventList().setMasked(false);
+        }, me);
+        task.delay(200);
+    },
     onEventItemTap: function(list, index, target, record, event) {
         this.getView().getParent().fireEvent('onsessionitemtap',list,index,target, record);
     },
@@ -257,11 +353,19 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
     },
 
     onClearIconTap: function(){
-        var store = this.getEventList().getStore();
+        var me = this;
+        me.setStartIndex(0);
+        var curStore = me.getEventList().getStore();
+        if(curStore){
+           me.getEventList().getStore().removeAll();
+        }
+        var record = me.getView().getRecord();
+        var store = record.SessionStore;//this.getEventList().getStore();
         store.clearFilter();
-        this.setValueSearch(null);
-        this.getArrayDate(store);
-        this.updateFilter(store);
+        me.updateFilter(store);
+        me.setValueSearch(null);
+        me.getArrayDate(store);
+        
     },
 
     onSelectDefaultDate: function(record){
@@ -333,7 +437,7 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
     },
 
     getArrayDate: function(store){
-        store.clearFilter();
+       // store.clearFilter();
         store.sort({
             sorterFn: function(record1, record2) {
                 var date1 = Personify.utils.ItemUtil.convertStringToDateSession(record1.get('startDateTimeString'));
@@ -366,7 +470,30 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
         this.showCalendarSegment(record);
         this.onSelectDefaultDate(record);
     },
-
+    getDateArray : function() {
+        var record = this.getView().getRecord();
+        var store = record.SessionDatesStore;
+        if (store) {
+           var newDates = new Array();
+           var counts = new Array();
+           store.each(function(recordDate) {
+                if (recordDate) {
+                    var startDate = Personify.utils.ItemUtil.convertStringToDate(recordDate.get('StartDate'));
+                    if (!Personify.utils.ItemUtil.checkDateInDateArray(newDates, startDate)) {
+                      newDates.push(startDate);
+                      counts.push(-1);
+                    }
+                }
+            });
+           newDates.sort(function(date1, date2) {
+                return date1 > date2 ? 1 : (date1 == date2 ? 0 : -1);
+            });
+           
+           if (!this.getTotalResultDateWise())
+                this.setTotalResultDateWise(counts);
+            return newDates;
+        }
+    },
     onFilterByTrack: function(text){
         this.setTrackValue(text);
         if(text != null){
@@ -379,14 +506,26 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
     },
 
     onClickDateSegment: function(date){
-        this.setCurrentDate(date);
-        this.onFilterByDate(this.getCurrentDate());
+        var me = this;
+        me.setStartIndex(0);
+        var curStore = me.getEventList().getStore();
+        if(curStore){
+            me.getEventList().getStore().removeAll();
+        }
+        me.setCurrentDate(date);
+        me.onFilterByDate(me.getCurrentDate());
     },
 
     takeAwayDaysNoResults: function(){
-        var record = this.getView().getRecord();
-        var store = this.getEventList().getStore();
-        this.getArrayDate(store);
+        var me = this;
+        me.setStartIndex(0);
+        var curStore = me.getEventList().getStore();
+        if(curStore){
+           me.getEventList().getStore().removeAll();
+        }
+        var record = me.getView().getRecord();
+        var store = record.SessionStore;//this.getEventList().getStore();
+        /*this.getArrayDate(store);
         var arrayDate = this.getSessionDates();
         var arrayFilered = new Array();
         for(var i = 0; i< arrayDate.length; i++ ){
@@ -398,11 +537,15 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
         for( var j = 0; j < arrayFilered.length; j++){
             Ext.Array.remove(arrayDate,arrayFilered[j]);
         }
-        this.setSessionDates(arrayDate);
+        this.setSessionDates(arrayDate);*/
         this.setDateIndex(0);
-        this.showCalendarSegment(record);
-        this.onSelectDefaultDate(record);
+        store.clearFilter();
         this.updateFilter(store);
+        this.getArrayDate(store);
+        
+       // this.showCalendarSegment(record);
+       // this.onSelectDefaultDate(record);
+        
     },
 
     onAddSessionToAgenda: function(record){
@@ -416,19 +559,96 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
     updateSessionList: function(sessionID, isAdded){
         var store = this.getEventList().getStore();
         store.clearFilter();
+          
         store.each(function (record){
+                   
+                  
             if (record.get('sessionID') == sessionID) {
                 if (record.get('isAdded') != isAdded) {
                     record.set('isAdded', isAdded);
                 }
             }
         });
-        this.onFilterByDate(this.getCurrentDate());
-        this.updateFilter(store);
+        //this.onFilterByDate(this.getCurrentDate());
+        //this.updateFilter(store);
+           this.getEventList().refresh();
     },
 
     onAddPersonalTap: function(){
         var record = this.getView().getRecord();
         this.getView().fireEvent("openaddpersonal", record);
+    },
+           
+   showPopupPanel: function(obj) {
+   Personify.utils.BackHandler.pushActionAndTarget('forceHide', this, obj);
+   },
+   
+   hidePopupPanel: function(obj) {
+   Personify.utils.BackHandler.popActionAndTarget('forceHide', this, obj);
+   },
+   
+   forceHide: function(obj) {
+   obj.hide();
+   },
+    onNnListScrollEnd : function(scroller, x, y) {
+        var me = this;
+        me.setEndPoint(y);
+        var bottom = scroller.maxPosition.y;
+        var top = scroller.minPosition.y;
+        var isScrollDown = false;
+        if(me.getStartPoint() < me.getEndPoint())
+        {
+           isScrollDown = true;
+        }
+        else if(me.getStartPoint() > me.getEndPoint()){
+           isScrollDown = false;
+        }
+        else
+        {
+           if(me.getStartPoint() == 0 && me.getEndPoint() == 0)
+           {
+                isScrollDown = false;
+           }
+           else
+           {
+                isScrollDown = true;
+           }
+        }
+        me.setScrollDown(isScrollDown);
+        var sessionStore = me.getEventList().getStore();
+        var currentSessionItem = 0;
+        if (sessionStore) {
+           currentSessionItem = sessionStore.getCount();
+        }
+        //var isScrollUp = scroller.dragDirection.y === -1;
+        //var isScrollDown = scroller.dragDirection.y === 1;
+           
+        if (bottom === y && isScrollDown) {
+           var endIndex = me.getStartIndex()+ parseInt(Personify.utils.Configuration.getConfiguration().first().EventsStore.get('itemsPerPageSession'));
+           if(endIndex>me.getTotalResultDateWise())
+                endIndex =me.getTotalResultDateWise();
+           if (endIndex < me.getTotalResultDateWise()) {
+                me.setStartIndex(me.getStartIndex()+ parseInt(Personify.utils.Configuration.getConfiguration().first().EventsStore.get('itemsPerPageSession')));
+                var record = me.getView().getRecord();
+                //this.onFilterByDate(this.getCurrentDate());
+                me.setListStore(record);
+           }
+        }
+        else if (top === y && !isScrollDown) {
+           if (me.getStartIndex() >= parseInt(Personify.utils.Configuration.getConfiguration().first().EventsStore.get('itemsPerPageSession'))) {
+                //if(currentSessionItem < parseInt(Personify.utils.Configuration.getConfiguration().first().EventsStore.get('itemsPerPageSession')))
+                //me.setStartIndex(me.getStartIndex() - currentSessionItem);
+                //else
+                me.setStartIndex(me.getStartIndex() - parseInt(Personify.utils.Configuration.getConfiguration().first().EventsStore.get('itemsPerPageSession')));
+           
+                var record = me.getView().getRecord();
+                //this.onFilterByDate(this.getCurrentDate());
+                me.setListStore(record);
+           }
+        }
+    },
+    onNnListScrollStart : function(scroller, x, y) {
+        var me = this;
+        me.setStartPoint(y);
     }
 });

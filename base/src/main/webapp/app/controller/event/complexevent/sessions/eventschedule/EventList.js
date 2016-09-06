@@ -31,14 +31,15 @@ Ext.define('Personify.controller.event.complexevent.sessions.eventschedule.Event
             this.getView().fireEvent('oneventitemtap', item, index, target, record, e, eOpts);
         }
     },
-    
+    //Jag: scrolling issue : start
     onItemTouchStart: function(dataview, index, target, record, e, eOpts) {
-        if (e.target.className.indexOf('x-button') < 0) {
-            target.addCls('x-item-pressed');
-        }
+        //if (e.target.className.indexOf('x-button') < 0) {
+        //    target.addCls('x-item-pressed');
+        //}
     },
     
     onItemTouchEnd: function(dataview, index, target, record, e, eOpts) {
-        target.removeCls('x-item-pressed');
+        //target.removeCls('x-item-pressed');
     }
+    //Jag: scrolling issue : end
 });

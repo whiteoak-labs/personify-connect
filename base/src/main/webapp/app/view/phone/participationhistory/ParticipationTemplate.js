@@ -24,7 +24,7 @@ Ext.define('Personify.view.phone.participationhistory.ParticipationTemplate',{
                 flex:1,
                 align:'right',
                 xtype: 'label',
-                html: '{[Personify.utils.ItemUtil.formatJSONDate(values.startDate)]} - {[Personify.utils.ItemUtil.formatJSONDate(values.endDate)]}',
+                html: '{[Personify.utils.ItemUtil.formatJSONDateRange(values.startDate,values.endDate)]}',
                 cls : 'p-phone-directory-participant-history-date'
             }
         ]

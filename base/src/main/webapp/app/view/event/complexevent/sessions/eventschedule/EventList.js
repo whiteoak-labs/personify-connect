@@ -8,13 +8,28 @@ Ext.define('Personify.view.event.complexevent.sessions.eventschedule.EventList',
     ],
 
     config: {
-        itemCls: 'item-event-complex-list',
+        itemCls: 'item-event-complex-list-wrap',
         deferEmptyText: false,
-        emptyText: '<div class="p-presenter-emptyText">No Event</div>',
+        emptyText: '<div class="p-presenter-emptyText" style="text-align:center">No Session</div>',
         pressedCls: '',
         selectedCls: '',
         store: null,
-        itemTpl: null
+        scrollToTopOnRefresh: false,
+        itemTpl: null,
+        //Jag: scrolling issue : start
+        scrollable:{
+           direction: 'vertical',
+           directionLock: true,
+           momentumEasing:{
+                            bounce:{
+                                        acceleration:0.0001,
+                                        springTension:0.9999
+                            },
+                            minVelocity:5
+            },
+            outOfBoundRestrictFactor:0
+        }
+        //Jag: scrolling issue : end
     },
 
     initialize: function() {

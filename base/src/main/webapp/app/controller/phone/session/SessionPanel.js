@@ -20,6 +20,7 @@ Ext.define('Personify.controller.phone.session.SessionPanel', {
         }
     },
     init: function() {
+       
         this.getEventToolbar().getController().setActionText('View');
         this.getEventToolbar().getController().setActionCls('p-phone-button-viewmore');
         var record = this.getView().getRecord();
@@ -28,21 +29,24 @@ Ext.define('Personify.controller.phone.session.SessionPanel', {
 
     setRecord: function (record){
         this.getAllSessionPanel().setRecord(record);
-        this.getMySessionPanel().setRecord(record);
     },
 
     onBack: function() {
+        
         this.getView().fireEvent('back',this);
     },
 
     openMySessionView: function(){
+        
         if(this.getActiveindex() == 0){
             var currentUser = Personify.utils.Configuration.getCurrentUser();
             if(currentUser && currentUser.isLogged()){
+                var record = this.getView().getRecord();
+                this.getMySessionPanel().setRecord(record);
                 this.setActiveindex(1);
                 this.getCardSession().setActiveItem(1);
                 this.getEventToolbar().setTitle('My Sessions');
-            }else{
+           }else{
                 this.getView().fireEvent('requestopendetail','Personify.view.phone.login.LoginPhone', null);
             }
         }else{
@@ -53,18 +57,21 @@ Ext.define('Personify.controller.phone.session.SessionPanel', {
     },
 
     onOpenDetailView: function(record){
+       
         var me = this;
         var meetingRecord = this.getView().getRecord();
-        this.loadDetailSessionStore(record, function(sessionRecords) {
+           
+           record.set('productID',meetingRecord.get('productID'));
+           
             me.onUpdatePresenterSession(record);
             var view = Ext.create('Personify.view.phone.session.SessionDetail', {record: record, meetingRecord: meetingRecord, locationDescription: record.get('locationDescription')});
             view.addListener('updatelistagenda', me.onGetMeetingAgendaData, me);
             me.getView().fireEvent('requestopendetail', view, null );
-            view.getController().setSessionRecords(sessionRecords);
-        });
+            view.getController().setSessionRecords(record);     
     },
 
     loadDetailSessionStore: function(record, callback) {
+       
            Ext.Viewport.setMasked({xtype: 'loadmask'});
         var attributes = {
             "sessionID": record.get('sessionID')
@@ -99,6 +106,7 @@ Ext.define('Personify.controller.phone.session.SessionPanel', {
     },
 
     onUpdatePresenterSession: function(record){
+      
         var me = this;
         var meetingRecord = this.getView().getRecord();
         if(record.SpeakerSession){
@@ -118,6 +126,7 @@ Ext.define('Personify.controller.phone.session.SessionPanel', {
     },
 
     onGetMeetingAgendaData: function(){
+    
         var me = this;
         var record = this.getView().getRecord();
         var currentUser = Personify.utils.Configuration.getCurrentUser();

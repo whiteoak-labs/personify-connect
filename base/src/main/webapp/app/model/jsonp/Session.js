@@ -9,6 +9,7 @@ Ext.define('Personify.model.jsonp.Session', {
     ],
     config: {
         useCache: false,
+       belongsTo: 'Personify.model.jsonp.SessionList',
         fields : [
             {name: 'recordId', type: 'int', mapping: '$id', allowNull: false},
             {name: 'description', type: 'string', mapping: 'Description', allowNull: false},
@@ -26,7 +27,6 @@ Ext.define('Personify.model.jsonp.Session', {
             {name: 'appointmentId', type: 'string'},
             {name: 'title', type: 'string', mapping: 'Title', allowNull: false},
             {name: 'productStatus', type: 'string', mapping: 'ProductStatus', allowNull: false},
-            
             {name: 'internalKey', type: 'string', mapping: 'InternalKey', allowNull: false},
             {name: 'navigationKey', type: 'string', mapping: 'NavigationKey', allowNull: false},
             {name: 'entityKey', type: 'string', mapping: 'EntityKey', allowNull: false},
@@ -34,7 +34,8 @@ Ext.define('Personify.model.jsonp.Session', {
             {name: 'timeZoneCode', type: 'string'},
             {name: 'yourPrice', type: 'float', mapping: 'YourPrice', allowNull: false},
             {name: 'yourPriceRateStructure', type: 'string', mapping: 'YourPriceRateStructure', allowNull: false},
-            {name: 'yourPriceRateCode', type: 'string', mapping: 'YourPriceRateCode', allowNull: false}
+            {name: 'yourPriceRateCode', type: 'string', mapping: 'YourPriceRateCode', allowNull: false},
+            {name: 'productID', type: 'string'}
         ],
         associations: [
             { 
@@ -61,7 +62,7 @@ Ext.define('Personify.model.jsonp.Session', {
                     rootProperty: 'SessionList'
                 }
             },
-            { 
+           /* {
                 type: 'hasMany', 
                 model: 'Personify.model.jsonp.session.FloorPlan',
                 autoLoad: true,
@@ -72,7 +73,7 @@ Ext.define('Personify.model.jsonp.Session', {
                     type:'json',
                     rootProperty: 'FloorPlan'
                 }
-            },
+            },*/
             { 
                 type: 'hasMany', 
                 model: 'Personify.model.jsonp.calendar.eventList.SpeakersList',

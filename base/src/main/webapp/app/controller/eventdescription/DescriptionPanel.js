@@ -68,10 +68,15 @@ Ext.define('Personify.controller.eventdescription.DescriptionPanel',{
     },
     
     onItemTapQuickLink: function(dataview, index, target, record, e, eOpts) {
+           var ref = null;
         if (Ext.os.is.Android) {
-            window.open(record.get('url'), '_blank', 'location=yes,enableViewportScale=yes');
+            ref = window.open(record.get('url'), '_blank', 'location=yes,enableViewportScale=yes');
         } else {
-            window.open(record.get('url'), '_blank', 'location=no,enableViewportScale=yes');
+            ref = window.open(record.get('url'), '_blank', 'location=yes,enableViewportScale=yes');
         }
+           Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+           ref.addEventListener('exit', function() {
+                Personify.utils.BackHandler.popActionAndTarget('close', ref);
+            });
     }
 });

@@ -64,7 +64,13 @@ Ext.define('Personify.controller.phone.rate.Rate', {
             var me = this;
             var comments = me.getInputRatingComment().getValue();
             var starRating = me.getInputRating().getValue() + 1;
-            var productId = this.getView().getMeetingRecord() ? this.getView().getMeetingRecord().get('productID') : null;
+            ///var productId = this.getView().getMeetingRecord() ? this.getView().getMeetingRecord().get('productID') : null;
+           
+           var productId = this.getView().getRecord() ? this.getView().getRecord().get('sessionID') : null;
+           
+           if (!productId) {
+                productId = this.getView().getRecord() ? this.getView().getRecord().get('productID') : null;
+           }
 
             var storeManager = Personify.utils.ServiceManager.getStoreManager();
             var saveRatingStoreName = storeManager.getSaveRating();

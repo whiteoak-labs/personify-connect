@@ -60,7 +60,9 @@ Ext.define('Personify.controller.phone.directory.contactinfo.Email', {
                 emailEditForm.getController().setTypeList(me.getTypeList());
                 emailEditForm.setRecord(record);
                 me.getInfoContainer().add(emailEditForm);
-                typeListToRemove.push(record.get('type'));
+                //var itemDesc = Personify.utils.ItemUtil.getDesc(recordCopy.get('communicationLocationList').split(','),record.get('type'));
+                typeListToRemove.push(record.get('type').toUpperCase()+':'+record.get('typeDesc'));
+                //typeListToRemove.push(record.get('type'));
             });
             me.setTypeListToRemove(typeListToRemove);
             me.addEmptyItem();

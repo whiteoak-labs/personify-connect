@@ -4,6 +4,7 @@ Ext.define('Personify.model.base.EventMenu', {
     config: {
         fields: [
             {name: 'name', type: 'string'},
+            {name: 'title', type: 'string'},
             {name: 'view', type: 'string'},
             {name: 'css', type: 'string'},
             {name: 'needRegisterdOrStaff', type: 'boolean'},

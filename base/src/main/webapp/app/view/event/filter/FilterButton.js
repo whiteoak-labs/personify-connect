@@ -20,7 +20,7 @@ Ext.define('Personify.view.event.filter.FilterButton', {
                 cls: 'clearFilter',
                 pressedCls: 'red-button-pressing-background',
                 itemId: 'clearFilter',
-                text: 'Clear Filters',
+                text: 'Clear',
                 docked: 'right',
                 disabled: true,
                 disabledCls: 'p-button-disabled'

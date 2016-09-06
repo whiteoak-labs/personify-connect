@@ -305,7 +305,9 @@ Ext.define('Personify.controller.phone.Main', {
         if (window.plugins.applicationPreferences) {
             window.plugins.applicationPreferences.set('keepUserLogin', '', function() {}, function() {});
         }
-
+        
+        TMA.Twitter.unAuthorize();
+           
         if (window.plugins.pushNotification) {
             var urbanairship = window.plugins.pushNotification;
             urbanairship.setAlias('');
@@ -317,6 +319,14 @@ Ext.define('Personify.controller.phone.Main', {
 
         this.onUpdateCurrentUser(user);
         this.onBackToMainDelay();
+           
+        var scheduleListStore = Ext.getStore('scheduleListtingMain');
+        if(scheduleListStore)
+        {           
+        	 scheduleListStore.removeAll();
+             scheduleListStore.destroy();
+        }
+   
     },
 
     onBackToMain: function() {
@@ -343,15 +353,20 @@ Ext.define('Personify.controller.phone.Main', {
     onUpdateEventList: function(callback){
         var me = this;
         var currentUser = Personify.utils.Configuration.getCurrentUser();
+           var eventItemsPerPage = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageEventList');
+          
+           
         var attributes = {
             IsStaffMember: currentUser? currentUser.isStaffMember().toString() : false,
             IsMember: true,
-            FromMonth: '1',
+            FromMonth: '0',
             ToMonth: '12',
             OrgID: currentUser.get('organizationId'),
             OrgUnitID:  currentUser.get('organizationUnitId'),
             MasterCustomerID: (currentUser && currentUser.isLogged())? currentUser.get('masterCustomerId'): '' ,
-            SubCustomerID:(currentUser && currentUser.isLogged())? currentUser.get('subCustomerId'): '0'
+            SubCustomerID:(currentUser && currentUser.isLogged())? currentUser.get('subCustomerId'): '0',
+            StartIndex: 1,
+            ItemsPerPage: eventItemsPerPage
         };
 
         var storeManager = Personify.utils.ServiceManager.getStoreManager();
@@ -666,10 +681,12 @@ Ext.define('Personify.controller.phone.Main', {
                     if (Ext.os.is.Android) {
                         ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                     } else {
-                        ref = window.open(url, '_blank', 'location=no,enableViewportScale=yes');
+                        ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                     }
+                   Personify.utils.BackHandler.pushActionAndTarget('close', ref);
                     ref.addEventListener('exit', function() {
                         Ext.callback(me.setTotalItemCheckout, me);
+                         Personify.utils.BackHandler.popActionAndTarget('close', ref);
                     });
                 },
                 failure: function() {

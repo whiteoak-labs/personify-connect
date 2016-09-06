@@ -27,7 +27,7 @@ Ext.define('Personify.controller.home.Home', {
     }, // end control
 
     init: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Home');
         }
         this.onLoadMenu();
@@ -77,7 +77,7 @@ Ext.define('Personify.controller.home.Home', {
     },
     
     onEventItemTapped: function(record) {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Event Detail');
         }
         var main = this.getView().getParent().getParent();
@@ -128,11 +128,16 @@ Ext.define('Personify.controller.home.Home', {
         if (Personify.utils.Configuration.getDiscussionUrl()) {
             var url = Personify.utils.Configuration.getDiscussionUrl();
             Ext.Viewport.setMasked(false);
+           var ref = null;
             if (Ext.os.is.Android) {
-                window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
+                ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
             } else {
-                window.open(url, '_blank', 'location=no,enableViewportScale=yes');
+                ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
             }
+           Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+           ref.addEventListener('exit', function() {
+                Personify.utils.BackHandler.popActionAndTarget('close', ref);
+            });
         } else {
             var configStore = Personify.utils.Configuration.getConfiguration().getAt(0).DiscussionStore;
             var currentUser = Personify.utils.Configuration.getCurrentUser();
@@ -159,7 +164,7 @@ Ext.define('Personify.controller.home.Home', {
                     if (Ext.os.is.Android) {
                         window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                     } else {
-                        window.open(url, '_blank', 'location=no,enableViewportScale=yes');
+                        window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                     }
                 }
             }});

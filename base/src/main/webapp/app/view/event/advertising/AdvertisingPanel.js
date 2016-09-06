@@ -16,7 +16,7 @@ Ext.define('Personify.view.event.advertising.AdvertisingPanel', {
         itemTpl: new Ext.XTemplate('<img alt="{sponsorName}" src="{[this.checkImg(values.imageURL)]}" width="auto" height="90px"/>',
             {
                 checkImg: function(imageURL){
-                    return imageURL ? imageURL :'img/noAdv.png'
+                    return imageURL ? imageURL :'resources/images/noAdv.png'
                 }
             }
         )

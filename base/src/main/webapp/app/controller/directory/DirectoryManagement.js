@@ -12,7 +12,10 @@ Ext.define('Personify.controller.directory.DirectoryManagement', {
         params: null,
         flagNeedLoad: null,
         itemPerPage: null,
-        totalDirectoryResult: 0
+        totalDirectoryResult: 0,
+        /*Start-Fix-3246-8401343*/
+        filterSearchText:''
+        /*End-Fix-3246-8401343*/
     },
 
     control: {
@@ -24,7 +27,7 @@ Ext.define('Personify.controller.directory.DirectoryManagement', {
     },
 
     init: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Directory List');
         }
 
@@ -88,12 +91,20 @@ Ext.define('Personify.controller.directory.DirectoryManagement', {
     },
 
     onSearchTextChanged : function(newText) {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Directory Search');
         }
 
         var me = this;
-
+        
+        /*Start-Fix-3246-8401343*/
+        if(newText == me.getFilterSearchText())
+        {
+           return;
+        }
+        me.setFilterSearchText(newText);
+        /*End-Fix-3246-8401343*/
+        
         if (newText) {
             var minSearchCharacter = Personify.utils.Configuration.getConfiguration().getAt(0).DirectoryStore.get('minSearchCharacters');
 

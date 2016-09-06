@@ -10,12 +10,14 @@ Ext.define('Personify.controller.main.Notifications', {
             itemtap: 'onNotificationItemTap'
         },
         view: {
-            closenotification: 'onCloseNotification'
+            closenotification: 'onCloseNotification',
+           show:'onShow',
+           hide:'onHide',
         }
     }, // end control
 
     init: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Notifications');
         }
     },
@@ -95,5 +97,13 @@ Ext.define('Personify.controller.main.Notifications', {
         });
         this.setNotificationLabel(allCount - countRead, allCount);
         this.getNotification().refresh();
-    }
+    },
+           
+   onHide: function() {
+           Personify.utils.BackHandler.popActionAndTarget('hide', this.getView());
+   },
+   
+   onShow: function() {
+        Personify.utils.BackHandler.pushActionAndTarget('hide', this.getView());
+   },
 });

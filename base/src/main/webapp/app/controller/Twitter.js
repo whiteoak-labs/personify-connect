@@ -77,7 +77,8 @@ Ext.define('Personify.controller.Twitter', {
     
     reLoad: function(twitterHashTag) {
         var  me =this;
-        TMA.Twitter.userTimeline({ screen_name: twitterHashTag, count: me.getItemsToLoad(), success: me.onUserTimeLineSuccess, failure: me.onUserTimeFailure, scope: me });
+        if(twitterHashTag && twitterHashTag != '')
+           TMA.Twitter.userTimeline({ screen_name: twitterHashTag, count: me.getItemsToLoad(), success: me.onUserTimeLineSuccess, failure: me.onUserTimeFailure, scope: me });
     },
 
     onScrollEnd: function() {
@@ -86,10 +87,13 @@ Ext.define('Personify.controller.Twitter', {
 
         if (type == 'timeline') {
             var twitterHashTag = this.getView().getTwitterHashTag();
+           if(twitterHashTag && twitterHashTag != '')
+           {
             var page = this.getPage() + 1;
             this.setPage(page);
             this.getView().setMasked({ xtype: 'loadmask' });
             TMA.Twitter.userTimeline({ screen_name: twitterHashTag, count: me.getItemsToLoad(), page: page, success: me.onLoadMoreSuccess, failure: me.onUserTimeFailure, scope: me });
+           }
         }
     },
 
@@ -258,8 +262,8 @@ Ext.define('Personify.controller.Twitter', {
 
     },
 
-    onSearch: function(config) {
-        if (!TMA.Twitter.isAuthorized()) {
+    onSearch: function(config) {           
+        if (!TMA.Twitter.isAuthorized() && !TMA.Twitter.isAppOnlyAuthorized()) {
             return;
         }
         var me= this;

@@ -28,13 +28,14 @@ Ext.define('Personify.proxy.RestService', {
         batchActions: false,
 
         timeout: 30000,
-        
+           
         actionMethods: {
             create : 'POST',
             read   : 'POST',
             update : 'PUT',
             destroy: 'DELETE'
-        }
+        },
+        serverResponse: null
     },
 
     /**
@@ -85,10 +86,17 @@ Ext.define('Personify.proxy.RestService', {
             writer  = me.getWriter(),
             request = me.buildRequest(operation),
             jsonData = this.getJsonData();
-
+           
+        var reqTimeout = parseInt(Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('ServiceRequestTimeout'));
+        var reqURL = me.getUrl(request);
+        if(me.isHighLatencyRequest(reqURL))
+        {
+              reqTimeout = parseInt(Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('HighLatencyServiceRequestTimeout'));
+        }
+           
         request.setConfig({
             headers  : me.getHeaders(),
-            timeout  : me.getTimeout(),
+            timeout  : reqTimeout,
             method   : me.getMethod(request),
             callback : me.createRequestCallback(request, operation, callback, scope),
             scope    : me,
@@ -125,12 +133,14 @@ Ext.define('Personify.proxy.RestService', {
         var me = this,
             action = operation.getAction(),
             reader, resultSet;
-
+           
+           me.setServerResponse(response);
+           
         if (success === true) {
             reader = me.getReader();
             //var objImageUrl = me.browseImageUrlInObject([], Ext.decode(response.responseText));
             //Personify.utils.PhoneGapHelper.downloadQueue(objImageUrl.array);
-            me.executeSql(request, response);
+           // me.executeSql(request, response);
 
             try {
                 resultSet = reader.process(response);
@@ -168,7 +178,44 @@ Ext.define('Personify.proxy.RestService', {
 
         me.afterRequest(request, success);
     },
-    
+    afterRequest: function(request, success)
+    {
+        var me = this;
+        if(me.getServerResponse())
+        {
+           var response = me.getServerResponse();
+           var urlToBeRemoved = me.getUrl(request);
+           if(response.status === 0 || response.statusText === 'communication failure')
+           {
+           
+                var msgToAlert = ''
+                if(navigator.connection.type == 'wifi')
+                {
+                    msgToAlert = Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('WIFIServiceRequestTimeoutMessage');
+                }
+                else
+                {
+                    msgToAlert = Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('ServiceRequestTimeoutMessage');
+                }
+           
+                Ext.Msg.alert(Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('ServiceRequestTimeoutMsgTitle'),msgToAlert, Ext.emptyFn);
+                //Ext.Msg.alert('Network Connectivity Issue',Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('ServiceRequestTimeoutMessage') + ' <BR/> ' + urlToBeRemoved.substring(urlToBeRemoved.lastIndexOf('.svc'),100), Ext.emptyFn);
+           }
+        }
+    },
+    isHighLatencyRequest: function(url)
+    {
+           var endpoints = Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('HighLatencyServiceEndpoints');
+           var arrEndPoints = endpoints.split(",");
+           for (var urlIndex = 0; urlIndex < arrEndPoints.length; urlIndex++)
+           {
+                if(url.indexOf(arrEndPoints[urlIndex]) > 0)
+                {
+                    return true;
+                }
+           }
+           return false;
+    },
     executeSql: function(request, response) {
         var jsonData = JSON.stringify(request.getJsonData());
         var url = request.getUrl();

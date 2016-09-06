@@ -16,14 +16,14 @@ Ext.define('Personify.model.jsonp.product.ProductClass', {
                     }
                 }
             },
-            {name: 'text', type: 'string', mapping: 'ProductClassList', allowNull: false, 
-                convert: function(value) {
-                    if (value != null) {
-                        value = value.toLowerCase();
-                        return value.charAt(0).toUpperCase() + value.slice(1);
-                    }
-                }
-            },
+                 {name: 'text', type: 'string', mapping: 'Descr', allowNull: false},
+            //    convert: function(value) {
+            //        if (value != null) {
+            //            value = value.toLowerCase();
+            //            return value.charAt(0).toUpperCase() + value.slice(1);
+            //        }
+            //    }
+            //},
             {name: 'entityKey', type: 'string', mapping: 'EntityKey', allowNull: false},
             {name: 'checked',type: 'string'},
             {name: 'count', type: 'string'}

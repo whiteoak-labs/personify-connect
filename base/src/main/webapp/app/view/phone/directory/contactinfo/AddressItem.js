@@ -7,7 +7,7 @@ Ext.define('Personify.view.phone.directory.contactinfo.AddressItem', {
         items: [
             {
                 xtype: 'label',
-                html: '{type}',
+                html: '{typeDesc}',
                 cls: 'p-phone-label-text',
                 flex: 2
             },
@@ -39,7 +39,7 @@ Ext.define('Personify.view.phone.directory.contactinfo.AddressItem', {
                                 html: '{locality}, {region} {postalCode}'
                             },
                             {
-                                html: '{country}',
+                                html: '{countryDesc}',
                                 cls: 'p-phone-label-address'
                             }
                         ]

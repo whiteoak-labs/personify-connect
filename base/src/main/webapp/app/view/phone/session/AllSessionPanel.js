@@ -3,7 +3,11 @@ Ext.define('Personify.view.phone.session.AllSessionPanel', {
     xtype: 'allsessionpanelphone',
     requires: [
         'Personify.controller.phone.session.AllSessionPanel',
-        'Personify.view.phone.session.AllSessionList'
+        'Personify.view.phone.session.AllSessionList',
+        'Personify.view.SearchFieldWithSearchKeyBoard',
+        'Personify.view.phone.session.SearchHeader',
+        'Personify.view.phone.store.FilterStorePanel',
+        'Personify.view.event.complexevent.sessions.myschedule.FilterList'
     ],
     controller: 'Personify.controller.phone.session.AllSessionPanel',
     config: {
@@ -13,6 +17,21 @@ Ext.define('Personify.view.phone.session.AllSessionPanel', {
                 html: 'TMA Resources Annual Users Group Conference',
                 cls: 'p-phone-panel-sessiontmaresources',
                 itemId: 'allSessionTitleBar'
+            },
+            {
+                xtype: 'searchheadersessionphone',
+                itemId: 'searchWithFilter'
+            },
+            {
+                cls: 'p-text-viewing-sessionheader',
+                itemId: 'filterTextLabel'
+            },
+            {
+                xtype: 'searchfieldwithsearchkeyboard',
+                cls: 'p-phone-search-field',
+                itemId: 'searchFieldAllSessionPanelPhone',
+                placeHolder: 'Search Session and Presenter',
+                hidden:true
             },
             {
                 layout: {
@@ -27,22 +46,26 @@ Ext.define('Personify.view.phone.session.AllSessionPanel', {
                         itemId: 'previousButton',
                         docked: 'left',
                         cls: 'p-phone-button-sessionprevious',
-                        pressedCls: ''
+                        pressedCls: '',
+                        style: 'margin: 12px 0px 0px 0px'
                     },
                     {
                         itemId: 'dateTimeLabel',
-                        cls: 'p-phone-lable-sessiondatetime'
+                        cls: 'p-phone-lable-sessiondatetime',
+                        style: 'margin: 2px 0px 0px 0px'
                     },
                     {
                         itemId: 'totalEventLabel',
-                        cls: 'p-phone-lable-sessiontotalevent'
+                        cls: 'p-phone-lable-sessiontotalevent',
+                        hidden: true
                     },
                     {
                         xtype: 'button',
                         cls: 'p-phone-button-sessioncontinue',
                         pressedCls: '',
                         itemId: 'nextButton',
-                        docked: 'right'
+                        docked: 'right',
+                        style: 'margin: 12px 0px 0px 0px'
                     }
                 ]
             },
@@ -51,6 +74,14 @@ Ext.define('Personify.view.phone.session.AllSessionPanel', {
                 xtype: 'allsessionlistphone',
                 itemId: 'allSessionList',
                 style: 'margin-bottom: 51px'
+            },
+            {
+                style:'font-size: 12px;margin-top:0px;',
+                itemId: 'filterListEventSchedule',
+                xtype: 'filterlist',
+                hidden: true,
+                modal: true,
+                hideOnMaskTap: true
             }
         ]
     },

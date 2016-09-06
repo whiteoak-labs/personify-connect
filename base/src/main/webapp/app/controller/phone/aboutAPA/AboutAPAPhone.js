@@ -47,7 +47,8 @@ Ext.define('Personify.controller.phone.aboutAPA.AboutAPAPhone', {
         if(data != null) {
             me.setTempData(data);
             me.getImageFrame().setSrc(data.get('logoUrl'));
-            me.getVersionAPAPhone().setHtml('Version: ' + data.get('version'));
+            //VERSION INFO : TBD
+            me.getVersionAPAPhone().setHtml('Version: ' + '2.4.0');
             me.getTitlePanel().setHtml('<b>' + data.get('title') + '</b>');
 
             me.getDescriptionPanel().updateTitle(data.get('descriptionTitle'));
@@ -135,7 +136,7 @@ Ext.define('Personify.controller.phone.aboutAPA.AboutAPAPhone', {
         }
         myContact.urls = urls;
 
-        myContact.save(me.onSuccess, me.onError);
+        myContact.save(setTimeout(me.onSuccess,500), me.onError);
     },
 
     onSuccess: function() {

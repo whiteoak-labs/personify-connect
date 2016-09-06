@@ -6,7 +6,7 @@ Ext.define('Personify.view.phone.home.MenuList',{
     config:{
         itemId: 'menuList',
         scrollable: true,
-        itemTpl: '<div class="phone-menu-item menu-list-item-background-phone {css}">{name}</div>',
+        itemTpl: '<div class="phone-menu-item menu-list-item-background-phone {css}">{title}</div>',
         baseCls: 'p-phone-list-menu-item',
         store:null
     }

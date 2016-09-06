@@ -30,7 +30,7 @@ Ext.define('Personify.controller.store.OrderPanel', {
     },
 
     init: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Product Place Order');
         }
     },

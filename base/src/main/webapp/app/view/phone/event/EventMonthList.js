@@ -1,5 +1,5 @@
 Ext.define('Personify.view.phone.event.EventMonthList', {
-    extend: 'Ext.dataview.List',
+    extend: 'Ext.dataview.DataView',
     xtype: 'eventmonthlist',
 
     config: {

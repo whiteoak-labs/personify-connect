@@ -37,7 +37,12 @@ Ext.define('Personify.controller.event.addevent.AddEvent',{
         addEventTitle:{},
         addEventClose: {
             tap: 'onAddEventCloseTaped'
-        }
+        },
+       view:
+       {
+           show:'onShow',
+           hide:'onHide',
+       }
     }, // end control
 
     config: {
@@ -47,7 +52,7 @@ Ext.define('Personify.controller.event.addevent.AddEvent',{
     },
 
     init: function() {
-        if (window.plugins.app47) {
+        if (navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Session Add To Calendar');
         }
 
@@ -71,11 +76,15 @@ Ext.define('Personify.controller.event.addevent.AddEvent',{
         endDate = Personify.utils.ItemUtil.oneDateLater(startDate);
 
         this.getStartDatePicker().setValue(startDate);
+        this.getStartDatePicker().setDateTimeFormat(Personify.utils.ItemUtil.getDateDisplayFormat());
         this.getEndDatePicker().setValue(endDate);
+        this.getEndDatePicker().setDateTimeFormat(Personify.utils.ItemUtil.getDateDisplayFormat());
 
+        this.getBothDatePicker().setDateTimeFormat(Personify.utils.ItemUtil.getDateDisplayFormat());
         this.getSingleStartTime().setValue(startTime);
         this.getSingleEndTime().setValue(endTime);
         this.getBothDatePicker().setValue(startTime);
+        
 
         if (this.getIsSingleDate()) {
             this.setStartDate(startTime);
@@ -220,7 +229,7 @@ Ext.define('Personify.controller.event.addevent.AddEvent',{
             currentUser.addPersonalEvent(title, description, startDate, endDate, location, productId).then({
                 success: function() {
                     me.getView().fireEvent('refreshagenda');
-                    Ext.Msg.alert('', titleOfPanel + ' has been added to your schedule.');
+                    setTimeout(Ext.Msg.alert('', titleOfPanel + ' has been added to your schedule.'),1000);
                 },
                 failure: function() {
                     Ext.Msg.alert('', 'Error occurred while adding ' + titleOfPanel);
@@ -254,7 +263,16 @@ Ext.define('Personify.controller.event.addevent.AddEvent',{
         this.hideAndroidKeyBoard();
         var me = this.getView();
         Ext.callback(function() {
-            me.destroy();
+            me.hide();
         }, me, null, 200);
-    }
+    },
+           
+   onHide: function() {
+           Personify.utils.BackHandler.popActionAndTarget('hide', this.getView());
+           this.getView().destroy();
+   },
+   
+   onShow: function() {
+           Personify.utils.BackHandler.pushActionAndTarget('hide', this.getView());
+   },
 });

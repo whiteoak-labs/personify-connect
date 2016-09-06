@@ -5,7 +5,8 @@ Ext.define('Personify.controller.event.simpleEvent.SimpleEvent',{
         countLoad: 0,
         defaultView: 'simpleeventcontent',
         shoppingCartStore: null,
-        fromMain: false
+        fromMain: false,
+       stackTopForBack:0,
     },
 
     control: {
@@ -38,6 +39,8 @@ Ext.define('Personify.controller.event.simpleEvent.SimpleEvent',{
 
     init: function() {
         this.initView();
+       Personify.utils.BackHandler.pushActionAndTarget('onBackToEventTap', this);
+       stackTopForBack =Personify.utils.BackHandler.getTop();
     },
 
     onPainted: function(){
@@ -52,6 +55,12 @@ Ext.define('Personify.controller.event.simpleEvent.SimpleEvent',{
         }
 
         if (record) {
+           
+           /*if(TMA.Twitter.isAppOnlyAuthorized())
+           {
+                record.set('twitterHashTag',Personify.utils.Configuration.getConfiguration().first().NewsStore.get('twitterHashtag'));
+           }*/
+           
             this.getTwitterPanel().updateRecord(record);
             this.onHideRegisterButton(record);
             this.onLoadMenu(record);
@@ -83,6 +92,7 @@ Ext.define('Personify.controller.event.simpleEvent.SimpleEvent',{
     },
 
     onMenuItemTap: function(record) {
+       Personify.utils.BackHandler.popActions(stackTopForBack);
         var recordView = this.getView().getRecord();
         var me = this,
             subView = {xtype: record.get('view'), record : recordView, meetingRecord: recordView},
@@ -379,6 +389,8 @@ Ext.define('Personify.controller.event.simpleEvent.SimpleEvent',{
 
     onBackToEventTap: function() {
         var me = this;
+       Personify.utils.BackHandler.popActions(stackTopForBack);
+       Personify.utils.BackHandler.popActionAndTarget('onBackToEventTap', this);
         me.getView().setMasked({xtype: 'loadmask'});
         Ext.callback(function() {
             me.getView().setMasked(false);
@@ -533,7 +545,7 @@ Ext.define('Personify.controller.event.simpleEvent.SimpleEvent',{
 
     onRegisteredSuccess: function() {
         var me = this;
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Event List');
         }
         var parent = me.getView().getParent();

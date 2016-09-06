@@ -15,7 +15,7 @@ Ext.define('Personify.view.filter.FilterItem', {
                 items: [
                     {
                         xtype: 'button',
-                        text: 'Clear Filter',
+                        text: 'Clear',
                         itemId: 'clearButton',
                         docked: 'right',
                         cls: 'p-button-panelfilter-clear'

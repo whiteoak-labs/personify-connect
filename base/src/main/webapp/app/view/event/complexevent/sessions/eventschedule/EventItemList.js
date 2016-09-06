@@ -1,13 +1,13 @@
 Ext.define('Personify.view.event.complexevent.sessions.eventschedule.EventItemList', {
     extend:'Ext.Panel',
-
     config: {
         layout:'hbox',
+        pack:'left',
         items: [
             {
                 xtype: 'panel',
                 cls: 'dayInfoPanel',
-                height: '80px',
+                minHeight: '80px',
                 layout: 'vbox',
                 items: [
                     {
@@ -24,25 +24,25 @@ Ext.define('Personify.view.event.complexevent.sessions.eventschedule.EventItemLi
                 xtype: 'panel',
                 flex:1,
                 layout: 'vbox',
-                style: 'padding: 0px 0px 0px 10px',
+                style: 'padding: 0px 0px 0px 10px;overflow:auto;height:100%',
                 items: [
                     {
                         cls: 'title-event-complex',
                         html: '{title}',
-                        flex: 3
+                        style: 'height:90%'
                     },
                     {
-                        flex: 1,
                         cls: 'place-event-complex eventLocation',
-                        html: '{location}'
+                        style: 'height:10%;padding:2px 0px;margin-top:4%',
+                        html: '{locationDescription}'
                     }
                 ]
             },
             {
                 xtype: 'container',
                 layout: {
-                	type: 'vbox',
-                	pack: 'end'
+                    type: 'vbox',
+                    pack: 'end'
                 },
                 items: [
                     {

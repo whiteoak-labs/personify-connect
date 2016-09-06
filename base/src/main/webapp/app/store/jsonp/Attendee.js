@@ -6,10 +6,10 @@ Ext.define('Personify.store.jsonp.Attendee', {
     ],
     
     config: {
-        model: 'Personify.model.jsonp.Attendee',
-        haveData:false,
+        model: 'Personify.model.jsonp.AttendeeManagement',
+        ///haveData:false,
         autoLoad: true,
-        implicitIncludes: true,
+        /*implicitIncludes: true,
         grouper: {
            groupFn: function(record) {
                return record.get('lastName')[0];
@@ -21,7 +21,7 @@ Ext.define('Personify.store.jsonp.Attendee', {
                 return name1 > name2 ? 1 : (name1 == name2 ? 0 : -1);
            },
            direction: 'ASC'
-        },
+        },*/
         listeners: {
             beforeload: 'onBeforeLoad'
         }
@@ -35,8 +35,8 @@ Ext.define('Personify.store.jsonp.Attendee', {
             headers: Personify.utils.ServiceManager.getHeaders(),
             jsonData: data,
             reader: {
-                type: 'json',
-                rootProperty: 'MeetingRegistrantsList'
+                type: 'json'//,
+                ///rootProperty: 'MeetingRegistrantsList'
             }
         };
 

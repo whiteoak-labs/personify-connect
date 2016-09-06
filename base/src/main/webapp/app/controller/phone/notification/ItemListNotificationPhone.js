@@ -47,10 +47,15 @@ Ext.define('Personify.controller.phone.notification.ItemListNotificationPhone', 
     onGoToMyOrder: function() {
         var record = this.getView().getRecord();
         var link = record.get('hyperLink');
+           var ref = null;
         if (Ext.os.is.Android) {
-            window.open(link, '_blank', 'location=yes,enableViewportScale=yes')
+            ref = window.open(link, '_blank', 'location=yes,enableViewportScale=yes')
         } else {
-            window.open(link, '_blank', 'location=no,enableViewportScale=yes')
+            ref = window.open(link, '_blank', 'location=yes,enableViewportScale=yes')
         }
+           Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+           ref.addEventListener('exit', function() {
+            Personify.utils.BackHandler.popActionAndTarget('close', ref);
+            });
     }
 });

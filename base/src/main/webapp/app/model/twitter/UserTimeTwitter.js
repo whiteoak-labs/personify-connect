@@ -19,7 +19,20 @@ Ext.define('Personify.model.twitter.UserTimeTwitter',{
             {name: 'profile_image_url', type: 'string', allowNull:false},
             {name: 'profile_image_url_https', type: 'string', allowNull:false},
             {name: 'source', type: 'string', allowNull:false},
-            {name: 'text', type: 'string', allowNull:false},
+            /*Start-Fix-3246-8395325*/
+            
+            {name: 'text', type: 'string', allowNull:false,convert:function(value)
+            {
+                 var retText = value;
+                 retText = retText.replace(/(http:\/\/[^\s]*)/g, "<a target=\"_blank\" href=\"$1\">$1</a>");
+                 retText = retText.replace(/(https:\/\/[^\s]*)/g, "<a target=\"_blank\" href=\"$1\">$1</a>");
+                 retText = retText.replace(/(ftp:\/\/[^\s]*)/g, "<a target=\"_blank\" href=\"$1\">$1</a>");
+                 retText = retText.replace(/@(\w+)/g, "<a target=\"_blank\" href=\"https://www.twitter.com/$1\">@$1</a>");
+                 retText = retText.replace(/#(\w+)/g, "<a target=\"_blank\" href=\"https://www.twitter.com/hashtag/$1\">#$1</a>");
+                 return retText;
+            }},
+            
+            /*End-Fix-3246-8395325*/
             {name: 'to_user', type: 'string', allowNull:false},
             {name: 'to_user_id', type: 'string', allowNull:false},
             {name: 'to_user_id_str', type: 'int', allowNull:false},

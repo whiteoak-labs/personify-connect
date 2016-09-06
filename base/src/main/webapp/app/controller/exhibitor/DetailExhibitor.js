@@ -4,7 +4,9 @@ Ext.define('Personify.controller.exhibitor.DetailExhibitor', {
 
     config: {
         productExhibitorItem: null,
-        contactExhibitorItem: null
+        contactExhibitorItem: null,
+       isBackEventAdded:false,
+           exRecord: null
     },
 
     control: {
@@ -35,21 +37,20 @@ Ext.define('Personify.controller.exhibitor.DetailExhibitor', {
         segmentedButtonDetail: true
     },
 
-    setRecord: function(record) {
-        this.getDescExhibitorItem().setRecord(record);
-
-        if (record) {
+    setRecord: function(detailrecord) {
+        this.getDescExhibitorItem().setRecord(detailrecord);
+        if (detailrecord) {
             this.onTapSegBtnDetailAboutEx();
             this.getSegmentedButtonDetail().setPressedButtons(this.getSegmentButtonDetailAboutEx());
 
-            if (!record.get('boothNos') || record.get('boothNos') === '') {
+            if (!detailrecord.get('boothNos') || detailrecord.get('boothNos') === '') {
                 this.getBtnMapExhibitor().hide();
             } else {
                 this.getBtnMapExhibitor().show();
                 var mapData = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('mapData');
 
                 if (mapData) {
-                    var locationTemp = mapData.locations[record.get('boothNos')];
+                    var locationTemp = mapData.locations[detailrecord.get('boothNos')];
 
                     if (!locationTemp) {
                         this.getBtnMapExhibitor().hide();
@@ -57,7 +58,7 @@ Ext.define('Personify.controller.exhibitor.DetailExhibitor', {
                 }
             }
 
-            if (record.get('isAdded')) {
+            if (detailrecord.get('isAdded')) {
                 this.getInMySchedule().setCls('p-button-RemoveSchedule');
                 this.getInMySchedule().setHtml('Remove');
             } else {
@@ -69,25 +70,34 @@ Ext.define('Personify.controller.exhibitor.DetailExhibitor', {
 
     onBackToExhibitorList: function() {
         this.getView().getParent().setActiveItem(0);
+        Personify.utils.BackHandler.popActionAndTarget('setActiveItem', this.getView(), 0);
     },
 
     onTapBtnMapExhibitor: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Exhibitor View on Map');
         }
         var record = this.getView().getRecord();
         var boothNosPresent = record.get('boothNos') ? record.get('boothNos') : null;
         this.getView().fireEvent('onmapit', record, boothNosPresent);
     },
+           
+   selectAboutSection:function()
+   {
+           this.getSegmentButtonDetailAboutEx().fireEvent('tap', this.getSegmentButtonDetailAboutEx());
+   },
 
     onTapSegBtnDetailAboutEx: function() {
+        Personify.utils.BackHandler.popActionAndTarget('selectAboutSection', this);
+           isBackEventAdded = false;
+           
         this.getPanelContDetailDescExhibitorItem().removeAll(true);
         var aboutPanel = this.getPanelContDetailDescExhibitorItem().add({ xtype: 'aboutExhibitorPanel' });
         var storeExhibitor = allExhibitorList.getStore();
 
         if (!this.getView().getRecord()) {
             aboutPanel.setRecord(storeExhibitor.getAt(0));
-        } else {
+        } else {           
             aboutPanel.setRecord(this.getView().getRecord());
         }
     },
@@ -95,13 +105,17 @@ Ext.define('Personify.controller.exhibitor.DetailExhibitor', {
     onTapSegBtnDetailProductEx: function() {
         this.getPanelContDetailDescExhibitorItem().removeAll(false);
         var productsPanel = this.getPanelContDetailDescExhibitorItem().add({ xtype: 'productExhibitorItem' });
-        var storeExhibitor = allExhibitorList.getStore();
-
+        var storeExhibitor = allExhibitorList.getStore();           
         if (!this.getView().getRecord()) {
             productsPanel.setRecord(storeExhibitor.getAt(0));
         } else {
             productsPanel.setRecord(this.getView().getRecord());
         }
+           if(isBackEventAdded == false)
+           {
+               Personify.utils.BackHandler.pushActionAndTarget('selectAboutSection', this);
+               isBackEventAdded = true;
+           }
     },
 
     onTapSegBtnDetailContactEx: function() {
@@ -114,6 +128,11 @@ Ext.define('Personify.controller.exhibitor.DetailExhibitor', {
         } else {
             contactsPanel.setRecord(this.getView().getRecord());
         }
+           if(isBackEventAdded == false)
+           {
+           Personify.utils.BackHandler.pushActionAndTarget('selectAboutSection', this);
+           isBackEventAdded = true;
+           }
     },
 
     onTapSegBtnDetailNoteEx: function() {
@@ -123,10 +142,16 @@ Ext.define('Personify.controller.exhibitor.DetailExhibitor', {
         var sessionId = record.get('masterCustomerID');
         var eventId = meetingRecord.get('productID');
         this.getPanelContDetailDescExhibitorItem().add({ xtype: 'sessionnotes', record: record, meetingRecord: meetingRecord, sessionId : sessionId, eventId : eventId});
+           
+           if(isBackEventAdded == false)
+           {
+               Personify.utils.BackHandler.pushActionAndTarget('selectAboutSection', this);
+               isBackEventAdded = true;
+           }
     },
 
     onTapAddToMySchedule: function() {
-        var record = this.getView().getRecord();
+           var record = this.getView().getRecord();//this.getDescExhibitorItem().getRecord();
         if (Personify.utils.Configuration.getAllowChangeView()) {
             var currentUser = Personify.utils.Configuration.getCurrentUser();
             if (currentUser && currentUser.isLogged()) {

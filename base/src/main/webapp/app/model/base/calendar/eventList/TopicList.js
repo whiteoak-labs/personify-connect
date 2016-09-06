@@ -8,7 +8,7 @@ Ext.define('Personify.model.base.calendar.eventList.TopicList', {
             {name: 'navigationKey', type: 'string'},
             {name: 'code', type: 'string'},
             {name: 'description', type: 'string'},
-            {name: 'count', type: 'string'},
+            {name: 'count', type: 'int'},
             {name: 'topicListCount', type: 'string'},
             {name: 'topicList', type: 'string'}
         ]

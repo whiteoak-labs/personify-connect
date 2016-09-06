@@ -79,11 +79,16 @@ Ext.define('Personify.controller.main.MenuList',{
         if (Personify.utils.Configuration.getDiscussionUrl()) {
             var url = Personify.utils.Configuration.getDiscussionUrl();
             Ext.Viewport.setMasked(false);
+           var ref = null;
             if (Ext.os.is.Android) {
-                window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
+                ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
             } else {
-                window.open(url, '_blank', 'location=no,enableViewportScale=yes');
+                ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
             }
+           Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+           ref.addEventListener('exit', function() {
+            Personify.utils.BackHandler.popActionAndTarget('close', ref);
+            });
         } else {
             var configStore = Personify.utils.Configuration.getConfiguration().getAt(0).DiscussionStore;
             var storeManager = Personify.utils.ServiceManager.getStoreManager();
@@ -109,7 +114,7 @@ Ext.define('Personify.controller.main.MenuList',{
                     if (Ext.os.is.Android) {
                         window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                     } else {
-                        window.open(url, '_blank', 'location=no,enableViewportScale=yes');
+                        window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                     }
                 }
             }});

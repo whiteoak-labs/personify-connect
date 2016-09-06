@@ -65,10 +65,15 @@ Ext.define('Personify.controller.store.CartPanel', {
             return;
         }
         var link = this.getCheckOutUrl();
+           var ref = null;
         if (Ext.os.is.Android) {
-            window.open(link, '_blank', 'location=yes,enableViewportScale=yes');
+            ref = window.open(link, '_blank', 'location=yes,enableViewportScale=yes');
         } else {
-            window.open(link, '_blank', 'location=no,enableViewportScale=yes');
+            ref = window.open(link, '_blank', 'location=yes,enableViewportScale=yes');
         }
+           Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+           ref.addEventListener('exit', function() {
+            Personify.utils.BackHandler.popActionAndTarget('close', ref);
+            });
     }
 });

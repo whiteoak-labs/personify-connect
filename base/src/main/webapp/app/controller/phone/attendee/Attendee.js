@@ -1,25 +1,178 @@
 Ext.define('Personify.controller.phone.attendee.Attendee', {
     extend: 'Personify.base.Controller',
+    config: {
+           params: null,
+           itemsPerPage: 10,
+           totalAttendeesResult: 0,
+           startIndexForService:1,
+           searchTerm:''
+           },
 
     control: {
         ptoolbarAttendeesPhone: {
             onNavigationButtonTap: 'onTapNavigationButton'
         },
         attendeeslistpanelphone: {
-            selectattendeesitem: 'onSelectAtendeeItemTap'
+            selectattendeesitem: 'onSelectAtendeeItemTap',
+            onscrollendattendees:'onScrollEndAttendees'
         },
         attendeeInfo: true,
         attendeeContent: true
     },
-
     init: function(){
-        this.getPtoolbarAttendeesPhone().getController().setHiddenActionButton(true);
-        var record = this.getView().getRecord();
-        this.setRecord(record);
+          
+           this.getPtoolbarAttendeesPhone().getController().setHiddenActionButton(true);
+          
+           //// Show records which are fetched in : Personify.controller.phone.event.ConfrerenceNavigation
+           var record = this.getView().getRecord();
+           
+           //// Set Items Per Page
+           var itemperpage=Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageAttendeeList');
+           this.setItemsPerPage(itemperpage);
+           
+          
+           //// Set Parameter For Service for First time:
+           this.paramsForService(record,true);
+           this.resetAttendee(true,'',record);
+           this.loadAttendeeModel(record);
+           this.setRecord(record);
+          
     },
 
+    /* To enhance performance */
+    
+    //// To Set Parameter for Service
+    paramsForService:function(record,resetStartIndex)
+    {
+           var me=this;
+           var currentUser = Personify.utils.Configuration.getCurrentUser();
+           
+           me.setStartIndexForService(resetStartIndex=true? 1 : me.getItemsPerPage()+1);
+           
+           var attributes = {
+           IsStaffMember: currentUser? currentUser.isStaffMember().toString() : false,
+           ItemsPerPage: me.getItemsPerPage(),
+           MasterCustomerID: currentUser? currentUser.get('masterCustomerId'): '' ,
+           SubCustomerID: currentUser? currentUser.get('subCustomerId'): '',
+           ProductID: record.get('productID'),
+           SearchTerm: me.getSearchTerm(),
+           StartIndex: me.getStartIndexForService()
+           };
+           me.setParams(attributes);
+    },
+           
+    loadAttendeeModel: function(record) {
+           var me = this;
+           var attendeeslistpanelphone = this.getAttendeeslistpanelphone();
+           attendeeslistpanelphone.setMasked({xtype:'loadmask'});
+           
+           var storeManager = Personify.utils.ServiceManager.getStoreManager();
+           var attendeeName = storeManager.getAttendeeStore();
+           
+           var attendeeStore = Ext.create(attendeeName);
+          
+           attendeeStore.setDataRequest(me.getParams());
+           attendeeStore.load({
+                              callback: function(records, operation, success) {
+                             //attendeeslistpanelphone.setMasked({xtype:'loadmask'});
+                              if (success && records.length) {
+                              
+                                    var attendeeManagement = records[0];
+                               
+                                    var currentStore = attendeeslistpanelphone.getController().getStore();
+                                    if (currentStore) {
+                                            currentStore.suspendEvents();
+                                            attendeeManagement.AttendeeStore.each(function(attendeeRecord) {
+                                                      if(attendeeRecord) {
+                                                                    currentStore.add(attendeeRecord);
+                                                      }
+                                                      }, me);
+                               
+                                            currentStore.sync();
+                                            currentStore.resumeEvents(true);
+                              
+                                        record.MeetingRegistrantStore=currentStore;
+                              
+                                        attendeeslistpanelphone.getController().setStore(record);
+                                        attendeeslistpanelphone.getController().refresh();
+                                    } else {
+                                        attendeeslistpanelphone.getController().setStore(record);
+                                    }
+                               
+                                    if (attendeeManagement) {
+                                        me.setTotalAttendeesResult(attendeeManagement.get('totalResults'));
+                                    }
+                               
+                                    attendeeManagement=null;
+                                    currentStore=null;
+                               }
+                               
+                               attendeeslistpanelphone.setMasked(false);
+                               
+                               },
+                              scope: me
+                              });
+         //attendeeslistpanelphone.setMasked(false);
+     },
+           
+    resetAttendee:function(clearExistingData,searchText,record)
+    {
+           
+        var me=this;
+        var currentAttendeeItem = 0;
+        me.setSearchTerm(searchText);
+           
+           if (clearExistingData==true)
+           {
+                //// Clear the existing data
+                ///record.MeetingRegistrantStore.data.clear();
+                record.MeetingRegistrantStore.removeAll();
+                record.MeetingRegistrantStore.sync();
+           }
+           else if (record.MeetingRegistrantStore) {
+                currentAttendeeItem = record.MeetingRegistrantStore.getCount();
+           }
+           
+           return currentAttendeeItem;
+           
+    },
+
+
+    onScrollEndAttendees:function(clearExistingData,searchText)
+    {
+         var me=this;
+        var record = this.getView().getRecord();
+         var currentAttendeeItem = me.resetAttendee(clearExistingData,searchText,record);
+        if ((currentAttendeeItem==0 && me.getTotalAttendeesResult()==0))
+        {
+             me.getParams()['searchTerm']=me.getSearchTerm();
+             me.getParams()['StartIndex']= 1;
+             me.setStartIndexForService(me.getParams()['StartIndex']);
+             me.loadAttendeeModel(record);
+             
+         }
+         else if (currentAttendeeItem < me.getTotalAttendeesResult()) {
+        
+           me.getParams()['searchTerm']=me.getSearchTerm();
+           me.getParams()['StartIndex']=currentAttendeeItem + 1;
+           me.setStartIndexForService(me.getParams()['StartIndex']);
+           me.loadAttendeeModel(record);
+        }
+    },
+    /* End enhance performance */
+           
+           
     onTapNavigationButton: function() {
-        this.getView().fireEvent('back', this);
+           
+           var record =this.getView().getRecord();
+           if(record && record.MeetingRegistrantStore
+              && record.MeetingRegistrantStore.getCount()>0)
+           {
+                record.MeetingRegistrantStore.removeAll();
+                record.MeetingRegistrantStore.sync();
+                record=null;
+           }
+           this.getView().fireEvent('back', this);
     },
 
     setRecord: function(record){

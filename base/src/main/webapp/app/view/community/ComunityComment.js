@@ -27,19 +27,19 @@ Ext.define('Personify.view.community.ComunityComment', {
                         flex: 1,
                         cls: 'p-checkbox-comunitypanel',
                         itemId: 'checkBoxTiwtter',
-                        html: '<table><tr><td><input type="checkbox"></td><td><img src="img/comunity/twitter.png"></td></tr></table>'
+                        html: '<table><tr><td><input type="checkbox"></td><td><img src="resources/images/comunity/twitter.png"></td></tr></table>'
                     },
                     {
                         flex: 1,
                         cls: 'p-checkbox-comunitypanel',
                         itemId: 'checkBoxDiscusion',
-                        html: '<table><tr><td><input type="checkbox"></td><td><img src="img/comunity/discusion.png"></td></tr></table>'
+                        html: '<table><tr><td><input type="checkbox"></td><td><img src="resources/images/comunity/discusion.png"></td></tr></table>'
                     },
                     {
                         flex: 1,
                         cls: 'p-checkbox-comunitypanel',
                         itemId: 'checkBoxFacebook',
-                        html: '<table><tr><td><input type="checkbox"></td><td><img src="img/comunity/facebook.png"></td></tr></table>'
+                        html: '<table><tr><td><input type="checkbox"></td><td><img src="resources/images/comunity/facebook.png"></td></tr></table>'
                     },
                     {
                         itemId: 'checkBoxOnlyEvent',

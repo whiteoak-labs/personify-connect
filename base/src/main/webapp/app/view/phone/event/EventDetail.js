@@ -177,7 +177,8 @@ Ext.define('Personify.view.phone.event.EventDetail', {
                                 cls: 'p-phone-button-eventdetail-savetocalendar',
                                 text: 'Save to Calendar',
                                 pressedCls: 'p-phone-button-blue-pressing',
-                                itemId: 'saveToMyCalendar'
+                                itemId: 'saveToMyCalendar',
+                                 hidden:true
                             },
                             {
                                 xtype: 'button',

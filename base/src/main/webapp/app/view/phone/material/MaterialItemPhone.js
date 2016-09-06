@@ -23,6 +23,8 @@ Ext.define('Personify.view.phone.material.MaterialItemPhone', {
             {
                 xtype: 'panel',
                 cls: 'panel-contain-button-material-phone',
+                scrollend:true,
+                scrollToTopOnRefresh:false,
                 items: [
                     {
                         xtype: 'button',

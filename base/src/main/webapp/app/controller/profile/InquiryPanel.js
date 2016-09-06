@@ -12,7 +12,12 @@ Ext.define('Personify.controller.profile.InquiryPanel', {
         buttonSubmit: {
             tap: 'onTapButtonSubmit'
         },
-        addNewPanelHeaderText: {}
+        addNewPanelHeaderText: {},
+           view:
+           {
+               show:'onShow',
+               hide:'onHide',
+           }
     },
     
     config: {
@@ -84,7 +89,7 @@ Ext.define('Personify.controller.profile.InquiryPanel', {
                     Ext.Msg.alert('Inquiry', 'Failed.', Ext.emptyFn);
                 }
                 
-                me.getView().destroy();
+                me.getView().hide();
             }});
         } else {
             Ext.Msg.alert('Inquiry', 'Please input activity text.', Ext.emptyFn);
@@ -222,5 +227,14 @@ Ext.define('Personify.controller.profile.InquiryPanel', {
     setUIForEditFollowUpRecord: function() {
         this.setHeaderText("Edit Follow-up Record");
         this.setSubmitButtonText("Save");
-    }
+    },
+    
+   onHide: function() {
+       Personify.utils.BackHandler.popActionAndTarget('hide', this.getView());
+       this.getView().destroy();
+   },
+   
+   onShow: function() {
+       Personify.utils.BackHandler.pushActionAndTarget('hide', this.getView());
+   },
 });

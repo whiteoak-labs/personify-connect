@@ -5,7 +5,9 @@ Ext.define('Personify.utils.StoreManager', {
         staffStore: 'Personify.store.base.Staff',
 
         sessionStore: 'Personify.store.base.Session',
-
+           
+           sessionListStore: 'Personify.store.base.SessionList',
+           
         scheduleStore: 'Personify.store.base.Schedule',
 
         purchaseHistoryStore: 'Personify.store.base.PurchaseHistory',
@@ -35,6 +37,9 @@ Ext.define('Personify.utils.StoreManager', {
         iCalendarStore: 'Personify.store.base.ICalendar',
 
         exhibitorStore: 'Personify.store.base.Exhibitor',
+           
+        exhibitorListStore: 'Personify.store.jsonp.ExhibitorList',
+        
 
         eventMenuStore: 'Personify.store.base.EventMenu',
 

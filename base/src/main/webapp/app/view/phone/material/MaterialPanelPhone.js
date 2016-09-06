@@ -26,7 +26,7 @@ Ext.define('Personify.view.phone.material.MaterialPanelPhone', {
             {
                 flex: 1,
                 cls: 'p-phone-materiallistphone-container',
-                xtype: 'materialListPhone',
+                xtype: 'materialListPhone',                
                 itemId: 'materialListPhone'
             }
         ]

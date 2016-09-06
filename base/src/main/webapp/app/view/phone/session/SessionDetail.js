@@ -103,6 +103,8 @@ Ext.define('Personify.view.phone.session.SessionDetail', {
                     },
                     {
                        itemId: 'descriptionLabel',
+                       scrollable :true,
+					   height: window.innerHeight/6,
                        cls: 'p-panel-phone-same-component-top'
                     },
                     {
@@ -240,26 +242,30 @@ Ext.define('Personify.view.phone.session.SessionDetail', {
                     {
                         layout: 'vbox',
                         cls:'p-phone-button-actioneventdetails',
+                        itemId: 'pnlActionButtons',
                         items:[
                             {
                                 xtype: 'button',
                                 cls: 'p-phone-button-eventdetail-savetocalendar',
                                 text: 'Add to My Schedule',
-                                itemId: 'addToMySchedule'
+                                itemId: 'addToMySchedule',
+                                hidden:true
                             },
                             {
                                 xtype: 'button',
                                 cls: 'p-phone-button-eventdetail-savetocalendar',
                                 text: 'Save to Calendar',
                                 pressedCls: 'p-phone-button-blue-pressing',
-                                itemId: 'addToCalendar'
+                                itemId: 'addToCalendar',
+                                hidden:true
                             },
                             {
                                 xtype: 'button',
                                 cls: 'p-phone-button-eventdetail-savetocalendar',
                                 text: 'Share',
                                 pressedCls: 'p-phone-button-blue-pressing',
-                                itemId: 'shareButton'
+                                itemId: 'shareButton',
+                                hidden:true
                             }
                         ]
                     }

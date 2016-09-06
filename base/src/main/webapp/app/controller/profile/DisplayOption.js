@@ -28,9 +28,21 @@ Ext.define('Personify.controller.profile.DisplayOption', {
     },
 
     onListItemTapped: function(view,index,target, record,e) {
+       Personify.utils.BackHandler.popActions(1);
+        if(index != 0)
+           Personify.utils.BackHandler.pushActionAndTarget('backAction', this);
+        else
+           Personify.utils.BackHandler.popActionAndTarget('backAction', this);
         this.getView().fireEvent('tapOnDisplayOptionItem', record);
     },
-
+           
+   backAction:function()
+   {
+           this.getOptionList().select(0);
+           var record =  this.getOptionList().getStore().getAt(0);
+           this.getView().fireEvent('tapOnDisplayOptionItem', record);
+   },
+        
     onListSelected: function(view, record, e){
         this.getView().fireEvent('tapOnDisplayOptionItem', record);
     },
@@ -44,11 +56,16 @@ Ext.define('Personify.controller.profile.DisplayOption', {
         Ext.Viewport.setMasked({ xtype: 'loadmask' });
         this.getCurrentUser().loadProfileUrl().then({
             success: function(url) {
+                var ref = null;
                 if (Ext.os.is.Android) {
-                    window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
+                    ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                 } else {
-                    window.open(url, '_blank', 'location=no,enableViewportScale=yes');
+                    ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                 }
+                Personify.utils.BackHandler.pushActionAndTarget('close', ref);
+                ref.addEventListener('exit', function() {
+                 Personify.utils.BackHandler.popActionAndTarget('close', ref);
+                 });
             },
             failure: function() {
                 Ext.Msg.alert('', 'Cannot load online profile URL, please try again later.');

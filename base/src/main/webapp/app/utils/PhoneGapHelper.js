@@ -56,15 +56,18 @@ Ext.define('Personify.utils.PhoneGapHelper', {
             console.log("Download file error: " +  error);
         };
         var onFileSystemSuccess = function(fileSystem) {
-            var extendFile = url.substring(url.lastIndexOf('.'));
-
-            var reader = new FileReader();
-            reader.onloadend = function(evt) {
-                if (evt.target.result == null) {
+           // alert("hererer");
+			var extendFile = url.substring(url.lastIndexOf('.'));
+		//	alert("hererer222");
+          //  var reader = new FileReader();
+          //  reader.onloadend = function(evt) {
+		//	alert("333333");
+               // if (evt.target.result == null) {
                     fileSystem.root.getFile(fileName, {create : true, exclusive: false},
                 function(fileEntry) {
+				//alert("4444444");
                     //var msgAlert = Ext.Msg.alert('File download', 'Downloading ...', Ext.emptyFn);
-                    var path = fileEntry.fullPath.replace(fileName, "");
+                    var path = fileEntry.toURL().replace(fileName, "");
                     fileEntry.remove();
                     path = path + fileName;// + extendFile;
                     var fileTransfer = new FileTransfer();
@@ -84,11 +87,11 @@ Ext.define('Personify.utils.PhoneGapHelper', {
                         }
                     );
                 }, onFail);
-                } else {
-                    callback(fileSystem.root.fullPath + "/" + fileName);
-                }
-            };
-            reader.readAsDataURL(fileSystem.root.fullPath + "/" + fileName);
+                //} else {
+                    callback(fileSystem.root.toURL() + "/" + fileName);
+                //}
+            //};
+           // reader.readAsDataURL(fileSystem.root.toURL() + "/" + fileName);
         };
 
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail);

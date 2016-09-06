@@ -54,7 +54,7 @@ Ext.define('Personify.view.phone.event.EventPanel', {
                         cls: 'p-phone-button-clearfilterevent',
                         pressedCls: 'p-phone-button-red-pressing',
                         itemId: 'clearLocationButton',
-                        text: 'Clear filter by location',
+                        text: 'Clear',
                         docked: 'bottom'
                     }
                 ]

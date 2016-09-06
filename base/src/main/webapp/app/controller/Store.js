@@ -1,11 +1,10 @@
 Ext.define('Personify.controller.Store', {
     extend : 'Personify.base.Controller',
-    inject: ['allProductStore', 'shoppingCartStore'],
+    inject: ['shoppingCartStore'],
 
     requires: 'Personify.store.base.FilterProductStore',
 
     config : {
-        allProductStore: null,
         storeProduct: null,
         productClassFilter: null,
         textFilter: null,
@@ -13,16 +12,27 @@ Ext.define('Personify.controller.Store', {
         orientation: null,
         productClassStore: null,
         shoppingCartStore: null ,
-        allItemsPerPage: null
+        allItemsPerPage: null,
+        //Store Enhancement
+        totalProducts: null,
+        params: null,
+        lastPageItemCount:0
+        //Store Enhancement
     },
 
     control : {
         filterList: {
-            filterbytrack: 'onFilterStore'
+           filterbytrack: 'onFilterStore',
+           show : 'showPopupPanel',
+           hide : 'hidePopupPanel',
         },
         featuredProductsStore: true,
+        //Store Enhancement
         featuredItemCarousel: true,
-        storeDetails: true,
+        storeDetails: {
+           activeitemchange: 'onActiveItemChange'
+        },
+        //Store Enhancement
         totalItemStore: true,
         featuredTotalItem: true,
         searchStorePanel: {
@@ -46,162 +56,184 @@ Ext.define('Personify.controller.Store', {
 
     init: function() {
         if (!Personify.utils.PhoneGapHelper.checkConnection()) {
-            Ext.Viewport.setMasked(false);
             Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
             return;
         }
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Product List');
         }
         var me = this;
-        me.loadData();
+        me.onGetData();
         Ext.Viewport.setListeners({
             orientationchange: {
                 fn: me.onOrientationChange,
                 scope: me
             }
         });
+        Ext.Viewport.bodyElement.on('resize', Ext.emptyFn, me, { buffer: 1});
         me.setOrientation(Ext.Viewport.getOrientation());
-        this.getView().setMasked(false);
+        //this.getView().setMasked(false);
     },
     
     onOrientationChange: function(viewport, orientation) {
-        this.setOrientation(orientation);
-        this.updateOrientationCarousel();
+        var me = this;
+        me.setOrientation(orientation);
+        me.getParams()['StartIndex'] = 1;
+        me.updateFilters();
+        //this.updateOrientationCarousel(true);
     },
     
     onPainted: function () {
-        this.updateOrientationCarousel();
-        Ext.Viewport.setMasked(false);
+        //this.updateOrientationCarousel(false);
+        //Ext.Viewport.setMasked(false);
     },
-
-    loadData: function() {
+    onGetData: function(){
         var me = this;
+        me.setParams(null);
+        var currentUser = Personify.utils.Configuration.getCurrentUser();
+        var config = Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.DefaultListingParamsStore.getAt(0);
+        var attributes = {
+           IsMember: true,
+           IsStaffmember: currentUser ? currentUser.isStaffMember(): 'false',
+           ItemsPerPage: 10000,
+           OrgID: currentUser? currentUser.get('organizationId') : config.get('orgId'),
+           OrgUnitID: currentUser? currentUser.get('organizationUnitId') : config.get('orgUnitId'),
+           ProductClassCode: 'ALL',
+           StartIndex: 1,
+           MasterCustomerID: currentUser? currentUser.get('masterCustomerId'): '' ,
+           SubCustomerID: currentUser? currentUser.get('subCustomerId'): '0',
+           SearchTerm:'',
+           FeaturedProductsOnly:true
+        };
+        me.setParams(attributes);
+           
         var carousel = me.getFeaturedItemCarousel();
         var carouselStoreDetails = me.getStoreDetails();
-        carousel.setMasked({xtype: 'loadmask'});
-        carouselStoreDetails.setMasked({xtype: 'loadmask'});
         var storeManager = Personify.utils.ServiceManager.getStoreManager();
+        
+        //carousel.setMasked({xtype: 'loadmask'});
+        //carouselStoreDetails.setMasked({xtype: 'loadmask'});
+        me.getView().setMasked({xtype: 'loadmask'});
         var store = null;
-        if (this.getAllProductStore().getAllCount() > 0) {
-            store = this.getAllProductStore();
-            me.displayData(carousel, store);
-        } else {
-            store = Ext.create(storeManager.getProductListStore());
-            var currentUser = Personify.utils.Configuration.getCurrentUser();
-            var config = Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.DefaultListingParamsStore.getAt(0);
-            var attributes = {
-                    IsMember: true,
-                    IsStaffmember: currentUser ? currentUser.isStaffMember(): 'false',
-                    ItemsPerPage: '10',
-                    OrgID: currentUser? currentUser.get('organizationId') : config.get('orgId'),
-                    OrgUnitID: currentUser? currentUser.get('organizationUnitId') : config.get('orgUnitId'),
-                    ProductClassCode: 'ALL',
-                    StartIndex: '1',
-                    MasterCustomerID: currentUser? currentUser.get('masterCustomerId'): '' ,
-                    SubCustomerID: currentUser? currentUser.get('subCustomerId'): '0'
-                };
-                
-            store.setDataRequest(attributes);
+        me.loadFeatureProductData(carousel,storeManager);
+    },
+    loadFeatureProductData: function(carousel,storeManager) {
+        var me = this;
+        var carouselStoreDetails = me.getStoreDetails();
+        var store = Ext.create(storeManager.getProductListStore());
+        store.setDataRequest(me.getParams());
+        store.load({
+            callback: function(data, operation, success) {
+                if(success) {
+                    store.load({callback: function(records, operation, success) {
+                        if(success) {
+                            me.displayData(carousel, store,true,true);
+                        } else {
+                            me.displayNoData(true);
+                        }
+                    }});
+                } else {
+                   me.displayNoData(true);
+                }
+                me.loadData(carouselStoreDetails,storeManager,true);
+            }
+        });
+           
+    },
+    loadData: function(carousel,storeManager,removeAll) {
+        //if(carousel.getMasked().getHidden()){
+        //   carousel.setMasked({xtype: 'loadmask'});
+        //}
+        var me = this;
+        var store = Ext.create(storeManager.getProductListStore());
+           me.getParams()['ItemsPerPage'] = Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('itemsPerPageProductList');
+           me.getParams()['FeaturedProductsOnly'] = false;
+            store.setDataRequest(me.getParams());
             store.load({
                 callback: function(data, operation, success) {
                     if(success) {
                         store.load({callback: function(records, operation, success) {
                             if(success) {
-                                Deft.Injector.configure({
-                                    allProductStore: {
-                                        value: store
-                                    }
-                                });
-                                me.displayData(carousel, store);
+                                if(!me.getStoreProduct())
+                                {
+                                   me.setStoreProduct(store.getProductItemStore());
+                                }
+                                else
+                                {
+                                   store.getProductItemStore().each(function(productItemRecord) {
+                                        if(productItemRecord) {
+                                            me.getStoreProduct().add(productItemRecord);
+                                        }
+                                    }, me);
+                                }
+                                me.displayData(carousel, store,false,removeAll);                                
                             } else {
-                                me.displayNoData();
+                                me.displayNoData(false);
                             }
                         }});
                     } else {
-                        me.displayNoData();
+                        me.displayNoData(false);
                     }
                 }
             });
-        }
+        
     },
-    displayData: function(carousel, store) {
+    displayData: function(carousel, store,featuredProduct,removeAll) {
         var me = this;
-        var productStore = store.getProductItemStore();
-        productStore.clearFilter();
-        me.setStoreProduct(productStore);
-
-        if (store.getAt(0) != null) {
-            me.setProductClassStore(store.getAt(0).ProductClassItem);
-            me.onUpdateListFilter();
-        }
-
-        if (store.getProductItemStore() != null) {
-            var totalItem = store.getProductItemStore().getCount();
-           
-            //feature product
-            var featureProduct =  store.getProductItemStore();
-            var arrayFeatureProduct = [];
-            for (var i = 0; i < totalItem; i++) {
-                var item = featureProduct.getAt(i);
-                if (item.get('featuredProduct') == true) {
-                    arrayFeatureProduct.push(item);
-                }
-            }
-            var modelManger = Personify.utils.ServiceManager.getModelManager();
-            var tempFeatureStore = Ext.create('Ext.data.Store', {
-                model: modelManger.getProductModel(),
-                sorters: [
-                    {
-                        property : 'featuredProductSortOrder',
-                        direction: 'ASC'
-                    },
-                    {
-                        property : 'productID',
-                        direction: 'ASC'
-                    }
-                ]
-            });
-            tempFeatureStore.add(arrayFeatureProduct);
-            var totalItemCarousel = me.setDataCarousel(tempFeatureStore, carousel, 2, tempFeatureStore.getCount());
-
-            if (parseInt(totalItemCarousel) > 0) {
+        if(featuredProduct)
+        {
+           var totalItemCarousel = me.setDataCarousel(store.getProductItemStore(), carousel, 2, store.getProductItemStore().getCount(),removeAll,0,featuredProduct);
+           if (parseInt(totalItemCarousel) > 0) {
                 me.getFeaturedProductsStore().setHidden(false);
-            } else {
+           } else {
                 me.getFeaturedProductsStore().setHidden(true);
-            }
+           }
+           me.getFeaturedTotalItem().setHtml(totalItemCarousel);
+        }
+        else
+        {
+           me.setTotalProducts(store.getAt(0).get('totalResults'));
+           if (store.getAt(0) != null && me.getParams()['StartIndex']==1) {
+                me.setProductClassStore(store.getAt(0).ProductClassItem);
+                me.onUpdateListFilter();
+           }
 
-            me.getFeaturedTotalItem().setHtml(totalItemCarousel);
-            //total item
-            me.updateOrientationCarousel();
+           if (me.getStoreProduct() != null) {
+                //total item
+                me.updateOrientationCarousel(removeAll);
+           }
         }
     },
     
-    updateOrientationCarousel: function() {
+    updateOrientationCarousel: function(removeAll) {
         var me = this;
         var store = me.getStoreProduct();
 
         if (store != null) {
-            var totalItem = store.getCount();
             var carouselStoreDetails = me.getStoreDetails();
             this.onUpdateAllItemsPerPage();
-            var productItemRecords = me.setDataCarousel(store, carouselStoreDetails, this.getAllItemsPerPage(), totalItem);
-            me.getTotalItemStore().setHtml(productItemRecords);
+            var productItemRecords = me.setDataCarousel(store, carouselStoreDetails, this.getAllItemsPerPage(), me.getTotalProducts(),removeAll,(me.getParams()['StartIndex']-1)-me.getLastPageItemCount(),false);
            
+            //me.getTotalItemStore().setHtml(productItemRecords);
+            me.getTotalItemStore().setHtml(me.getTotalProducts());
         }
     },
     
-    setDataCarousel: function(store, carousel, itemPerPage, totalItem) {
+    setDataCarousel: function(store, carousel, itemPerPage, totalItem,removeAll,startCtr,featuredProduct) {
         var me = this;
-        var dataStoreDetails = [], countStoreDetails = 0;
+        var dataStoreDetails = [], countStoreDetails = startCtr;
         var arrayItemStoreDetails = [];
         var modelManger = Personify.utils.ServiceManager.getModelManager();
         var tempStore = Ext.create('Ext.data.Store', {
             model: modelManger.getProductModel()
         });
-
-        for (var i = 0; i < totalItem; i++) {
-            if (store.getAt(i) != null) {
+        if(store.getCount()!= 0 && !featuredProduct)
+        {
+           me.setLastPageItemCount(store.getCount() % itemPerPage);
+        }
+        for (var i = startCtr; i < store.getCount(); i++) {
+           
+           if (store.getAt(i) != null) {
                 dataStoreDetails.push(store.getAt(i));
             }
             countStoreDetails++;
@@ -226,11 +258,22 @@ Ext.define('Personify.controller.Store', {
                     model: modelManger.getProductModel()
                 });
             }
+           
         }
-        carousel.setMasked(false);
-        carousel.removeAll(true);
+        if(removeAll)
+        {
+           carousel.removeAll(true);
+        }
         carousel.add(arrayItemStoreDetails);
-        carousel.setActiveItem(0);
+        if(removeAll)
+        {
+           carousel.setActiveItem(0);
+        }
+        //carousel.setMasked(false);
+        if(!featuredProduct)
+        {
+           me.getView().setMasked(false);
+        }
         return countStoreDetails;
     },
     
@@ -254,24 +297,28 @@ Ext.define('Personify.controller.Store', {
     },
     
     onSearchStore: function(value) {
+           
+        var me = this;
         var searchTerm = (value != null) ? value.toLowerCase() : "";
-        
-        if (searchTerm == '') {
-            this.setTextFilter(null);
-        } else {
-            this.setTextFilter({
-                filterFn: function(record) {
-                    if (record.get('name').toLowerCase().indexOf(searchTerm) > -1)
-                        return record;
-                }
-            });
-        }
+        if(searchTerm != me.getParams()['SearchTerm'])
+           {
+        me.getParams()['SearchTerm'] = searchTerm;
+        me.getParams()['StartIndex'] = 1;
            
         this.updateFilters();
+           }
     },
            
     refreshData: function(user) {
-        this.loadData();
+        var me = this;
+        carousel = me.getStoreDetails();
+        carousel.removeAll(true);
+        me.getStoreProduct().removeAll();
+        me.setLastPageItemCount(0);
+        me.getParams()['ProductClassCode'] = 'ALL';
+        me.getFilterTextLabel().setHtml("");
+        me.getSearchField().setValue("");
+        me.onGetData();
     },
     
     onCartItemCheckoutStore: function() {
@@ -286,17 +333,11 @@ Ext.define('Personify.controller.Store', {
     
     onUpdateListFilter: function() {
         var filterlist = this.getFilterList();
-        filterlist.getController().setButtonText("Clear Filter");
+        filterlist.getController().setButtonText("Clear");
+        filterlist.getController().setFilterType("store");
         var productClassStore = this.getProductClassStore();
         productClassStore.sort('name', 'DESC');
         filterlist.getController().getUpdateList().setStore(productClassStore);
-        /*var productStore = Ext.create('Personify.store.base.FilterProductStore');
-        productStore.load({
-            callback: function(records, operation, success) {
-                productStore.sort('name', 'DESC');
-                filterlist.getController().getUpdateList().setStore(productStore);
-            }
-        });*/
     },
     
     onOpenFilterPanel: function(button) {
@@ -305,64 +346,63 @@ Ext.define('Personify.controller.Store', {
         button.setZIndex(8);
     }, 
     
-    onFilterStore: function(text){
+    onFilterStore: function(text,displayText){
+        var me = this;
         if (text == null) {
-            this.setProductClassFilter(null);
             this.getFilterTextLabel().setHtml("");
         } else {
-            this.setProductClassFilter({
-                filterFn: function(record) {
-                    if (record.get('productClass').trim().toLowerCase() == text.trim().toLowerCase())
-                        return record;
-                }
-            });
            //changed the text VIEWING to FILTER
-            this.getFilterTextLabel().setHtml("FILTER: " + text.toUpperCase());
+           this.getFilterTextLabel().setHtml("FILTER: " + displayText.toUpperCase());
         }
-
-        this.setProductClass(text);
-        this.updateFilters();
+        var filterText = (text != null) ? text.toLowerCase() : "ALL";
+        me.getParams()['ProductClassCode'] = filterText;
+        me.getParams()['StartIndex'] = 1;
+        me.updateFilters();
     },
     
     updateFilters: function() {
-        var store = this.getStoreProduct();
-        var carousel = this.getStoreDetails();
-        if(store) {
-            store.clearFilter();
-        
-            var filters = [];
-            
-            if (this.getProductClassFilter())
-                filters.push(this.getProductClassFilter());
-            
-            if (this.getTextFilter())
-                filters.push(this.getTextFilter());
-            
-            if (filters.length > 0) {
-                this.getClearFilter().setDisabled(false);
-            } else {
+        var me=this;
+        var carousel = me.getStoreDetails();
+        //carousel.setMasked({xtype: 'loadmask'});
+        me.getView().setMasked({xtype: 'loadmask'});
+        var storeManager = Personify.utils.ServiceManager.getStoreManager();
+        me.getStoreProduct().removeAll();
+        carousel.removeAll(true);
+        me.getTotalItemStore().setHtml("");
+        me.setLastPageItemCount(0);
+        me.loadData(carousel,storeManager,true);
+           
+        if(me.getParams()['ProductClassCode'] == 'ALL' && me.getParams()['SearchTerm'] == '') {
                 this.getClearFilter().setDisabled(true);
-            }
-            store.filter(filters);
-            this.setDataCarousel(store, carousel, this.getAllItemsPerPage(), store.getCount());
-            this.getTotalItemStore().setHtml(store.getCount());
+        } else {
+            this.getClearFilter().setDisabled(false);
         }
+        
     },
     
     onClearFilter: function() {
-        this.setProductClassFilter(null);
-        this.setTextFilter(null);
-        this.updateFilters();
-        this.getFilterTextLabel().setHtml("");
-        this.getSearchField().setValue("");
+        var me = this;
+        me.getParams()['ProductClassCode'] = 'ALL';
+        me.getParams()['StartIndex'] = 1;
+        me.getParams()['SearchTerm'] = '';
+        me.getFilterTextLabel().setHtml("");
+        me.getSearchField().setValue("");
+        me.updateFilters();
     },
     
-    displayNoData: function() {
-        var carouselStoreDetails = this.getStoreDetails();
-        this.getFeaturedProductsStore().setHidden(true);
-        carouselStoreDetails.setHtml('No data');
-        carouselStoreDetails.setCls('newsFeedItem-emptytext');
-        carouselStoreDetails.setMasked(false);
+    displayNoData: function(featuredProduct) {
+        var me = this;
+        if(!featuredProduct)
+        {
+           var carouselStoreDetails = this.getStoreDetails();
+           carouselStoreDetails.setHtml('No data');
+           carouselStoreDetails.setCls('newsFeedItem-emptytext');
+           me.getView().setMasked(false);
+        }
+        else
+        {
+           me.getFeaturedProductsStore().setHidden(true);
+        }
     },
 
     destroy: function() {
@@ -384,7 +424,7 @@ Ext.define('Personify.controller.Store', {
             return;
         }
 
-        if (window.plugins.app47) {
+        if (navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('View Shopping Cart');
         }
 
@@ -402,10 +442,12 @@ Ext.define('Personify.controller.Store', {
             if (Ext.os.is.Android) {
                 ref = window.open(checkoutUrl, '_blank', 'location=yes,enableViewportScale=yes');
             } else {
-                ref = window.open(checkoutUrl, '_blank', 'location=no,enableViewportScale=yes');
+                ref = window.open(checkoutUrl, '_blank', 'location=yes,enableViewportScale=yes');
             }
+           Personify.utils.BackHandler.pushActionAndTarget('close', ref);
             ref.addEventListener('exit', function() {
                 Ext.callback(me.setTotalItemCheckout, me);
+                 Personify.utils.BackHandler.popActionAndTarget('close', ref);
             });
         } else {
             Personify.utils.ItemUtil.needToLogin();
@@ -443,5 +485,33 @@ Ext.define('Personify.controller.Store', {
         var height = this.getStoreDetails().element.getHeight();
         var itemPerColumn = parseInt(height / 101);
         this.setAllItemsPerPage((itemPerColumn > 1) ? itemPerColumn * 2 : 2 );
+    },
+    
+    onActiveItemChange: function( field, value, oldValue ){
+        var me = this;
+        var store = me.getStoreProduct();
+        var carouselStoreDetails = me.getStoreDetails();
+        if(carouselStoreDetails.getActiveIndex() == carouselStoreDetails.getMaxItemIndex() && me.getTotalProducts() > store.getCount())
+        {
+           //carouselStoreDetails.setMasked({xtype: 'loadmask'});
+           me.getView().setMasked({xtype: 'loadmask'});
+           me.getParams()['StartIndex'] = me.getParams()['StartIndex'] + Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('itemsPerPageProductList');
+           //var carousel = me.getFeaturedItemCarousel();
+           var storeManager = Personify.utils.ServiceManager.getStoreManager();
+           me.loadData(carouselStoreDetails,storeManager,false);
+        }
+    },
+           
+    showPopupPanel : function(obj) {
+        Personify.utils.BackHandler.pushActionAndTarget('forceHide', this, obj);
+    },
+        
+    hidePopupPanel : function(obj) {
+        Personify.utils.BackHandler.popActionAndTarget('forceHide', this, obj);
+    },
+        
+    forceHide : function(obj) {
+        obj.hide();
+        //this.updateFilters();
     }
 });

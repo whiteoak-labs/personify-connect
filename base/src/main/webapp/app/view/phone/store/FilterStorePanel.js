@@ -21,7 +21,7 @@ Ext.define('Personify.view.phone.store.FilterStorePanel', {
             {
                 docked: 'right',
                 xtype: 'button',
-                text: 'Clear Filters',
+                text: 'Clear',
                 cls: 'p-phone-button-storeclearfilter',
                 pressedCls: 'p-phone-button-red-pressing',
                 itemId: 'clearFilter',

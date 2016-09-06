@@ -73,16 +73,34 @@ Ext.define('Personify.utils.ItemUtil', {
             }
             return date;
         },
-
-        formatJSONDate: function(jsonDate,format) {
-           var date = '',
-               formatTime = format || 'm/d/Y';
-           if(jsonDate) {
-               date = Ext.Date.format(new Date(jsonDate), formatTime);
+        formatJSONDateRange: function(jsonStartDate,jsonEndDate,format) {
+           var dateRange = '',
+           formatTime = format || this.getDateDisplayFormat();
+           if(jsonStartDate) {
+                dateRange = Ext.Date.format(new Date(jsonStartDate), formatTime);
            }
-            return date;
+           if(jsonEndDate) {
+                dateRange = dateRange + ' - ' + Ext.Date.format(new Date(jsonEndDate), formatTime);
+           }
+           return dateRange;
         },
-
+        formatJSONDate: function(jsonDate,format) {
+           var dtReturn = new Date(jsonDate);
+           if(isNaN(dtReturn))
+           {
+                dtReturn = this.convertStringToDateSession(jsonDate);
+           }
+           var date = '',
+           formatTime = format || this.getDateDisplayFormat();
+           if(jsonDate) {
+                date = Ext.Date.format(dtReturn, formatTime);
+           }
+           return date;
+        },
+        getDateDisplayFormat: function()
+        {
+           return Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('DateDisplayFormat');
+        },
         formatPurchaseHistoryDate: function(jsonDate) {
             var arrayJsonDate = jsonDate.substring(0, 10).split('-');
             var date = new Date(arrayJsonDate[0], arrayJsonDate[1], arrayJsonDate[2]);
@@ -91,7 +109,7 @@ Ext.define('Personify.utils.ItemUtil', {
 
         formatParticipationDate: function(jsonDate,format) {
             var date = 'unknow',
-            formatTime = format || 'm/d/Y';
+            formatTime = format || this.getDateDisplayFormat();
             if(jsonDate) {
                 var arrayJsonDate = jsonDate.substring(0, 10).split('-');
                 date = Ext.Date.format(new Date(arrayJsonDate[0], arrayJsonDate[1], arrayJsonDate[2]), formatTime);
@@ -107,6 +125,7 @@ Ext.define('Personify.utils.ItemUtil', {
                 var month = activityDate.substring(4,6);
                 var day = activityDate.substring(6,8);
                 formattedDate = month + '/' + day + '/' + year;
+                formattedDate = Ext.Date.format(new Date(formattedDate), this.getDateDisplayFormat());
             }
             return formattedDate;
         },
@@ -213,9 +232,18 @@ Ext.define('Personify.utils.ItemUtil', {
         getHourEventView: function(icalStr) {
             return Ext.Date.format(icalStr, 'g:i A');
         },
-
+        getFormattedHourEventView: function(icalStr) {
+           if(icalStr) {
+                var timeformated = Ext.Date.format(icalStr, 'g:i A'),
+                arrTime = timeformated.split(' ');
+                if(arrTime.length > 0)
+                    str = '<div class="detail-time-p-headerdetailevent">'+ arrTime[0] +'</div><div class="type-time-p-headerdetailevent">'+ arrTime[1].toUpperCase() +'</div>';
+                return str;
+           }
+           return icalStr;
+        },
         getDateEventView: function(icalStr) {
-            return Ext.Date.format(icalStr, 'm/d/y');
+            return Ext.Date.format(icalStr, this.getDateDisplayFormat());
         },
 
         formatXMLDate: function(xmlDate) {
@@ -254,7 +282,7 @@ Ext.define('Personify.utils.ItemUtil', {
                     str = String(Math.ceil(diff / (60 * 60 * 24 * 30)));
                     return str + (str == "1" ? ' month' : ' months') + ' ago';
                 }else {
-                    return Ext.Date.format(new Date(date), "m/d/Y");
+                    return Ext.Date.format(new Date(date), this.getDateDisplayFormat());
                 }
             } catch (e) {
                 return '';
@@ -352,7 +380,7 @@ Ext.define('Personify.utils.ItemUtil', {
                 return this.getDateEventView(start) + ' - ' + this.getDateEventView(end);
             }
         },
-        
+
         getDisplayDateTimeEventDetailPhone: function (start, end, timeZoneCode) {
             var timeStart = '';
             var timeEnd = '';
@@ -515,8 +543,25 @@ Ext.define('Personify.utils.ItemUtil', {
             }
         },
 
-        cantLoadEvent: function() {
-             Ext.Msg.alert('', 'Cannot load events.');
+        cantLoadEvent: function(operation,msgToAlert) {
+
+            if(operation.error != null && (operation.error.status === 0 || operation.error.statusText === 'communication failure'))
+             {
+                    if(navigator.connection.type == 'wifi')
+                    {
+                          msgToAlert = Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('WIFIServiceRequestTimeoutMessage');
+                    }
+                    else
+                    {
+                          msgToAlert = Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('ServiceRequestTimeoutMessage');
+                    }
+
+                    Ext.Msg.alert(Personify.utils.Configuration.getConfiguration().getAt(0).ConfigStore.get('ServiceRequestTimeoutMsgTitle'),msgToAlert, Ext.emptyFn);
+            }
+            else
+            {
+                   Ext.Msg.alert('', msgToAlert);
+            }
         },
 
         formatDateTimeSession: function(date) {
@@ -642,8 +687,27 @@ Ext.define('Personify.utils.ItemUtil', {
         },
 
         convertStringToDateSession: function(value) {
-            if (value) {
-                return new Date(value);
+        if (value) {
+            var dtReturn = null;
+            var dtPart = value.split(' ');
+            var day = value.substring(0,2);
+            var month = value.substring(3,5);
+            var year = value.substring(6,10);
+            var formattedDate = year + '-' + month + '-' + day;
+            if(dtPart.length > 1)
+            {
+                  var tmPart = dtPart[1].split(':');
+                  dtReturn = new Date(year,month -1, day,tmPart[0],tmPart[1],tmPart[2],0);
+            }
+            else
+            {
+                  dtReturn = new Date(year,month-1,day,0,0,0,0);
+            }
+            if(isNaN(dtReturn))
+            {
+                  dtReturn = new Date(value);
+            }
+            return dtReturn;
             }
         },
 
@@ -726,10 +790,12 @@ Ext.define('Personify.utils.ItemUtil', {
             return address
         },
 
+        isLoadSuccess: function() {},
+
         showAddressOnMaps: function(address) {
             var me = this;
 
-            var isLoadSuccess = function() {
+            isLoadSuccess = function() {
                 var message = 'Currently the google maps can not be loaded. Please check your connection and try again after few minutes';
 
                 if (!window.google) {
@@ -743,7 +809,7 @@ Ext.define('Personify.utils.ItemUtil', {
             };
 
             if (!window.google) {
-                me.loadScript('https://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=isLoadSuccess');
+                me.loadScript('https://maps.googleapis.com/maps/api/js?v=3&callback=isLoadSuccess');
                 window.setTimeout(isLoadSuccess, 2500);
             } else {
                 var geoCoder = new google.maps.Geocoder();
@@ -769,8 +835,8 @@ Ext.define('Personify.utils.ItemUtil', {
                         }
                     }
 
-                    latitude = results[0].geometry.location[keys[0]];
-                    longitude = results[0].geometry.location[keys[1]];
+                    latitude = location[keys[0]]();
+                    longitude = location[keys[1]]();
 
                     if (Ext.os.is.Android) {
                         var dataPlugin = {};
@@ -783,7 +849,7 @@ Ext.define('Personify.utils.ItemUtil', {
                         }
                     } else {
                         var url = 'http://maps.google.com/?q=loc:' + latitude + ',' + longitude +'';
-                        window.open(url, '_blank', 'location=no,enableviewportscale=yes');
+                        window.open(url, '_blank', 'location=yes,enableviewportscale=yes');
                     }
                 }
             });
@@ -849,7 +915,22 @@ Ext.define('Personify.utils.ItemUtil', {
                 });
             }
         },
+        getDesc: function(listType, Typecode){
+            for( var i=0; i<listType.length; i++) {
+                var listItem = listType[i];
+                if(listType[i].indexOf(':') >-1)
+                {
+                    if(listType[i].split(':')[0].toLowerCase() == Typecode.toLowerCase())
+                    {
+                        return listType[i].split(':')[1];
+                        break;
+                    }
+                }
 
+
+            }
+            return Typecode;
+        },
         onShareSessionDetail: function(data) {
             if (window.plugins.social && window.plugins.social['available']) {
                 window.plugins.social.available(function(result) {

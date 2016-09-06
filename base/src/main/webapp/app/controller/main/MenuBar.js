@@ -65,7 +65,7 @@ Ext.define('Personify.controller.main.MenuBar',{
 
     openMainPage: function() {
         var main = this.getView().getParent();
-        main.getController().openView('Personify.view.Home', null, 'Main', 'homemenuitem');
+        main.getController().onConnectButtonTap();
         main.getController().updateViewModules();
         this.resetSelectedButton();
         this.getMenubarListItems().getController().selectBtn('main');

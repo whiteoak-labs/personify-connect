@@ -30,6 +30,16 @@ Ext.define('Personify.controller.eventdescription.DescriptionHeader',{
             var start = Ext.Date.format(Personify.utils.ItemUtil.convertStringToDate(record.get('startDateTimeString')),'F d');
             var end = Ext.Date.format(Personify.utils.ItemUtil.convertStringToDate(record.get('endDateTimeString')),'F d');
             var timeZone = record.get('timeZoneCode');
+            if(timeZone && timeZone!='')
+            {
+                this.getShareCalendar().show();
+            }
+            else
+            {
+                this.getShareCalendar().hide();           
+            }
+           
+           
             this.getTimeLabel().setHtml(start + " - " + end + ' ' + timeZone);
             this.getTitleOfEvent().setHtml(record.get('shortName'));
 

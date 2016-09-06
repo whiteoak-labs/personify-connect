@@ -52,10 +52,13 @@ Ext.define('Personify.controller.phone.common.Toolbar', {
                 }
             }
         }
+           
+        Personify.utils.BackHandler.pushActionAndTarget('onNavigationButtonTap', this);
     },
 
     onNavigationButtonTap: function() {
         this.getView().fireEvent('onNavigationButtonTap', null);
+       Personify.utils.BackHandler.popActionAndTarget('onNavigationButtonTap', this);
     },
 
     onActionButtonTap: function() {

@@ -1,16 +1,20 @@
 Ext.define('Personify.view.attendee.AttendeesList', {
-    extend: 'Ext.dataview.List',
-    xtype: 'attendeeslist',
-
-    config: {
-        baseCls: 'allExhibitorList',
-        pressedCls: 'allExhibitorListItemPressed',
-        selectedCls: '',
-        grouped: true,
-        itemCls: 'allExhibitorListItem',
-        indexBar: {
-            direction: 'horizontal'
-        },
+           extend: 'Ext.dataview.DataView',
+           xtype: 'attendeeslist',
+           
+           config: {
+           baseCls: 'materialList',
+           emptyText: '<div class = "p-emptyText-phone">No Attendee</div>',
+           deferEmptyText: false,
+           pressedCls: 'allExhibitorListItemPressed',
+           selectedCls: '',
+           scrollable: true,
+           itemCls: 'allExhibitorListItem',
+           //grouped: true,
+           scrollToTopOnRefresh: false,
+           indexBar: false,//{
+           //direction: 'horizontal'
+        //},
         deferEmptyText: false,
         emptyText: '<div class="p-presenter-emptyText">No Attendee</div>',
         itemTpl: new Ext.XTemplate(

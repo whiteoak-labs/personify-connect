@@ -37,7 +37,7 @@ Ext.define('Personify.controller.directory.Directory', {
     
     
     init : function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Directory');
         }
         this.callParent(arguments);
@@ -46,6 +46,7 @@ Ext.define('Personify.controller.directory.Directory', {
     
     // handler event for list directory
     onSelectContactRow : function(arg1, record, arg3, arg4) {
+       Personify.utils.BackHandler.popActions(1);
         this.getStaffButtonsPanel().setHidden(false);
         var contactInfo = this.getContactInfoManagementPanel();
         if(record.get('details')) {
@@ -118,7 +119,7 @@ Ext.define('Personify.controller.directory.Directory', {
     },
     
     onEditRecord: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Directory Edit Contact Detail');
         }
     },

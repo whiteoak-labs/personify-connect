@@ -8,7 +8,7 @@ Ext.define('Personify.view.phone.directory.contactinfo.ListInfoItemTemplate', {
             {
                 flex: 2,
                 xtype: 'label',
-                html: '{type}',
+                html: '{typeDesc}',
                 cls: 'p-phone-label-text'
             },
             {

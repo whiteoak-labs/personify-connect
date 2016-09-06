@@ -30,17 +30,23 @@ Ext.define('Personify.controller.phone.session.MySessionPanel', {
             this.getMySessionTitleBar().setHtml(Personify.utils.ItemUtil.getShortContent(record.get('shortName'), 48));
 
             if(record.MeetingAgendaStore && record.SessionStore.getCount() > 0){
+           
+                record.SessionStore.clearFilter();
+                record.SessionStore.setRemoteFilter(false);
+           
                 var storeManager = Personify.utils.ServiceManager.getStoreManager();
                 var agendaStoreName = storeManager.getAgendaStore();
                 var agendaStore = Ext.create(agendaStoreName);
 
                 record.MeetingAgendaStore.each(function(agendaRecord) {
                     for (var i = 0; i < record.SessionStore.getCount(); i++) {
-                        var sessionRecord = record.SessionStore.getAt(i);
+                        var sessionRecord = record.SessionStore.getAt(i);                              
+                        
 
                         if (sessionRecord.get('sessionID') == agendaRecord.get('sessionID')) {
                             agendaRecord.MaterialStore = sessionRecord.MaterialStore;
                             agendaRecord.SpeakerSession = sessionRecord.SpeakerSession;
+                            agendaRecord.set('location', sessionRecord.get('location'));
                             agendaRecord.set('locationDescription', sessionRecord.get('locationDescription'));
                             agendaRecord.set('isAdded', true);
                             agendaStore.add(agendaRecord);
@@ -60,7 +66,7 @@ Ext.define('Personify.controller.phone.session.MySessionPanel', {
 
     onGetData: function(record){
            
-        this.getView().setMasked({xtype: 'loadmask'});
+        /*this.getView().setMasked({xtype: 'loadmask'});
         var me = this;
         var currentUser = Personify.utils.Configuration.getCurrentUser();
         if(currentUser && currentUser.isLogged()){
@@ -103,12 +109,15 @@ Ext.define('Personify.controller.phone.session.MySessionPanel', {
                 },
                 scope: this
             });
-        }
+        }*/
     },
 
     getArrayDates: function(){
         var store = this.getMySessionList().getStore();
         if(store){
+           store.clearFilter();
+           store.setRemoteFilter(false);
+           
             var newDates = new Array();
             store.each(function(recordSession){
                 if(recordSession){
@@ -157,6 +166,8 @@ Ext.define('Personify.controller.phone.session.MySessionPanel', {
 
     onFilterByDate: function(date){
         var me = this;
+        me.getMySessionList().setMasked({xtype:'loadmask'});
+           var task = new Ext.util.DelayedTask(function() {
         var store = this.getMySessionList().getStore();
         if(store){
             store.clearFilter();
@@ -187,8 +198,15 @@ Ext.define('Personify.controller.phone.session.MySessionPanel', {
                 direction: 'ASC'
             });
         }
-        this.getDateTimeLabel().setHtml(Ext.Date.format(date, 'F d, Y'));
-        this.getTotalEventLabel().setHtml(store.getCount() + ' Events');
+         this.getDateTimeLabel().setHtml(Ext.Date.format(date, 'F d, Y'));
+           me.getMySessionList().setMasked(false);
+                                               }, me);
+           task.delay(100);
+         /* Commented as per the requirement on 10 April 2014
+   
+          this.getTotalEventLabel().setHtml(store.getCount() + ' Events');
+          
+          */
     },
 
     onBackSegmentButton: function(){

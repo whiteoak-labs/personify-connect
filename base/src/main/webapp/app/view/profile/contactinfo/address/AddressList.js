@@ -34,7 +34,17 @@ Ext.define('Personify.view.profile.contactinfo.address.AddressList', {
                     } else {
                         return adress;
                     }
-                }
+                },
+                hasType: function(type) {
+                var rec = this.getRecord();                                          
+                    if(type == null || type == "") {
+                        return '';
+                    }
+                    else
+                    {
+                        return type.toLowerCase()=='alternatecode'?'AlternateDESC':type;
+                    }
+                                          }
             }
         ));
         this.callParent(arguments);

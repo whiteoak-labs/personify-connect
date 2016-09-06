@@ -16,7 +16,7 @@ Ext.define('Personify.controller.profile.ParticipationHistory', {
     },
 
     init: function() {
-        if (window.plugins.app47) {
+        if (navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Profile Participation History');
         }
     },

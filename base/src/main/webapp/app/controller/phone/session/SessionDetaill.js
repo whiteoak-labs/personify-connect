@@ -20,6 +20,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
         sessionPresentersLabel: true,
         sessionNotesLabel: true,
         sessionMaterialsLabel: true,
+        pnlActionButtons:true,
         addToMySchedule: {
             tap: 'onInMyScheduleTap'
         },
@@ -49,6 +50,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
         }
     },
     init: function() {
+        
         this.getEventToolbar().getController().setHiddenActionButton(true);
         var config = this.getView().config;
         var record = config.record;
@@ -69,12 +71,14 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onPainted: function() {
+      
         this.onUpdateData(this.getSessionRecords());
     },
 
     setRecord: function(record) {
+        
         var me = this;
-        Ext.Viewport.setMasked({xtype: 'loadmask'});
+        /*Ext.Viewport.setMasked({xtype: 'loadmask'});
         var attributes = {
             "sessionID": record.get('sessionID')
         };
@@ -101,15 +105,18 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
                 Ext.Viewport.setMasked(false);
             },
             scope: this
-        });
+        });*/
+           
+      me.onUpdateData(null);
     },
 
     onUpdateData: function(sessionDetailStore) {
+        
         var record = this.getView().getRecord();;
         var meetingRecord = this.getView().getMeetingRecord();
         var isAdded = record.get('isAdded');
 
-        if(sessionDetailStore.length > 0) {
+        if(sessionDetailStore && sessionDetailStore.length > 0) {
             record = sessionDetailStore[0];
 
             if (record.get('isAdded') != isAdded) {
@@ -124,6 +131,14 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
             }
         }
         record.set('timeZoneCode', meetingRecord.get('timeZoneCode'));
+        if(meetingRecord.get('timeZoneCode') && meetingRecord.get('timeZoneCode')!='')
+        {
+           this.getAddToCalendar().show();
+        }
+        else
+        {
+           this.getAddToCalendar().hide();
+        }
         this.updateAddRemoveButton(record);
         var recordView = this.getView().getRecord();
         var storeMaterial = recordView.MaterialStore;
@@ -147,7 +162,17 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
             endTime = Personify.utils.ItemUtil.convertStringToDateSession(record.get('endDateTimeString'));
         }
         this.getDateLabel().setHtml(Ext.Date.format(dateTime, 'F j, Y'));
-        this.getTimeLabel().setHtml(Ext.Date.format(dateTime, 'g:i A') + ' - ' + Ext.Date.format(endTime, 'g:i A') + ' ' + meetingRecord.get('timeZoneCode'));
+        var dateTime1 = Personify.utils.ItemUtil.getHourEventView(Personify.utils.ItemUtil.convertStringToDate(record.get('startDateTimeString')));
+        var endTime1 = Personify.utils.ItemUtil.getHourEventView(Personify.utils.ItemUtil.convertStringToDate(record.get('endDateTimeString')));
+        if(record.get('startDateTimeString').indexOf('T')>=0)
+        {
+            this.getTimeLabel().setHtml(dateTime1 + ' - ' + endTime1 + ' ' + meetingRecord.get('timeZoneCode'));
+        }
+        else
+        {
+            this.getTimeLabel().setHtml(Ext.Date.format(dateTime, 'g:i A') + ' - ' + Ext.Date.format(endTime, 'g:i A') + ' ' + meetingRecord.get('timeZoneCode'));
+        }
+        
         var speakerStore = recordView.SpeakerSession;
         var location = record.get('location');
         
@@ -171,11 +196,16 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
         }else{
             this.getPresenterPanel().hide();
         }
+        
+        this.getAddToMySchedule().show();
+        this.getShareButton().show();
+        
         var noteNumber = this.getNoteNumber();
         this.getSessionNotesLabel().setHtml(noteNumber);
     },
 
     getDataStringFromStore: function(store, name) {
+      
         var value = '';
 
         store.each(function (item, index, length) {
@@ -190,7 +220,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     updateAddRemoveButton: function(record) {
-        if(record.get('isAdded')) {
+       if(record.get('isAdded')) {
             this.getAddToMySchedule().setCls('p-phone-button-eventdetail-regiter');
             this.getAddToMySchedule().setHtml('Delete from My Schedule');
         } else {
@@ -200,6 +230,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onBack: function() {
+         
         this.getView().fireEvent('back',this);
     },
 
@@ -223,6 +254,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onGotoNotePanel: function(){
+        
         var meetingRecord = this.getView().getMeetingRecord();
         var record = this.getView().getRecord();
         var eventId = meetingRecord.get('productID');
@@ -234,6 +266,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onGotoRate: function() {
+         
         var meetingRecord = this.getView().getMeetingRecord();
         var record = this.getView().getRecord();
         var productId = meetingRecord.get('productID');
@@ -246,6 +279,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onGotoPresenterPanel: function(){
+         
         var sessionRecord = this.getView().getRecord();
         var speakerStore = sessionRecord.SpeakerSession;
         if(speakerStore && speakerStore.getCount() > 0){
@@ -258,6 +292,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onGotoMapPanel: function(){
+         
        var mapData = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('mapData');
        var sessionRecord = this.getView().getRecord();
        if (mapData) {
@@ -274,6 +309,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onInMyScheduleTap: function() {
+       
         var me = this;
         var record = this.getView().getRecord();
         var meetingRecord = this.getView().getMeetingRecord();
@@ -316,6 +352,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onAddToCalendar: function() {
+      
         var me = this;
         if (window.plugins.calendarPlugin && window.plugins.calendarPlugin['createEvent']) {
             var event = {};
@@ -346,10 +383,11 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onShareButton: function() {
-        Personify.utils.ItemUtil.onShareSessionDetail(this.getView().getRecord());
+         Personify.utils.ItemUtil.onShareSessionDetail(this.getView().getRecord());
     },
 
     onSelectPresenter: function(record) {
+           
         if(record) {
             var storeManager = Personify.utils.ServiceManager.getStoreManager();
             var storeName = storeManager.getCustomerBiographyStore();
@@ -375,6 +413,7 @@ Ext.define('Personify.controller.phone.session.SessionDetaill', {
     },
 
     onGotoMaterialPanel: function(){
+        
         var sessionRecord = this.getView().getRecord();
         this.getView().fireEvent('requestopendetail', 'Personify.view.phone.material.MaterialPanelPhone', {record: sessionRecord});
     }

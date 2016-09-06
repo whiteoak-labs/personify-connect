@@ -165,12 +165,13 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionDetail'
 
     onCloseSubPanel: function() {
         this.getView().setActiveItem(0);
+       Personify.utils.BackHandler.popActionAndTarget('onCloseSubPanel', this);
     },
 
     setRecord: function(record) {
            
         var me = this;
-           var currentUser = Personify.utils.Configuration.getCurrentUser();
+        /*   var currentUser = Personify.utils.Configuration.getCurrentUser();
         var attributes = {
            "sessionID": record.get('sessionID'),
            "MasterCustomerID": currentUser? currentUser.get('masterCustomerId'): '' ,
@@ -190,10 +191,25 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionDetail'
                 }
             },
             scope: this
-        });
+        });*/
+        me.onUpdateData();
     },
-    
-    onUpdateData: function(sessionDetailStore) {
+    onUpdateData: function() {
+        
+        var record = this.getView().getRecord();
+        if (!record) {
+           return;
+        }
+        var meetingRecord = this.getView().getMeetingRecord();
+        record.set('timeZoneCode', meetingRecord.get('timeZoneCode'));
+        this.getHeaderDetailEvent().getController().setRecord(record);
+        this.getSessionMenuList().select(0);
+        var subView = {xtype: 'sessionDetailDescription', record: record};
+        var cardMainDetailContainer = this.getCardMainDetailContainer();
+        cardMainDetailContainer.removeAll(true, true);
+        cardMainDetailContainer.add(subView);
+    },
+    onUpdateData1: function(sessionDetailStore) {
           
         var record = this.getView().getRecord();
         if (!record) {
@@ -231,6 +247,13 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionDetail'
             var xtypeString = (record['component']) ? record['component'] : record.get('component');
             var subView = {xtype: xtypeString, record: recordView, meetingRecord: meetingRecord, sessionId: recordView.get('sessionID'), eventId: meetingRecord.get('productID')};
             var cardMainDetailContainer = this.getCardMainDetailContainer();
+           
+           if(index != 0)
+           {
+               Personify.utils.BackHandler.pushActionAndTarget('selectDescriptionSection', this, dataview);
+           }
+           else
+                Personify.utils.BackHandler.popActionAndTarget('selectDescriptionSection', this, dataview);
 
             if (xtypeString == 'presenterlistdetail') {
                 if(recordView.SpeakerSession && recordView.SpeakerSession.getCount() == 1){
@@ -241,11 +264,7 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionDetail'
                     cardMainDetailContainer.add(subView);
                 }
             } else if (xtypeString == 'sessionrate') {
-                this.getSessionMenuList().select(0);
-                this.onSessionMenuListTap(dataview, 0, null, {
-                    title: 'Description',
-                    component: 'sessionDetailDescription'
-                });
+                       this.selectDescriptionSection(dataview);
 
                 /*
                 Ext.apply(subView, { itemId: 'ratePanel', showCloseButton: true });
@@ -257,18 +276,15 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionDetail'
                     Ext.apply(subView, { itemId: 'ratePanel', showCloseButton: true });
                     me.getView().add(subView);
                     me.getView().setActiveItem(1);
-                              
+                      Personify.utils.BackHandler.pushActionAndTarget('onCloseSubPanel', me);
                 }, 400);
             } else if (xtypeString == 'sessionnotes') {
-                this.getSessionMenuList().select(0);
-                this.onSessionMenuListTap(dataview, 0, null, {
-                    title: 'Description',
-                    component: 'sessionDetailDescription'
-                });
+               this.selectDescriptionSection(dataview);
 
                 Ext.apply(subView, { itemId: 'notePanel', showCloseButton: true });
                 this.getView().add(subView);
                 this.getView().setActiveItem(1);
+               Personify.utils.BackHandler.pushActionAndTarget('onCloseSubPanel', this);
             } else {
                 cardMainDetailContainer.removeAll(true, true);
                 cardMainDetailContainer.add(subView);
@@ -277,6 +293,15 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionDetail'
             Ext.Msg.alert('', 'Please enter the note title.', Ext.emptyFn);
         }
     },
+           
+       selectDescriptionSection:function(dataview)
+       {
+           this.getSessionMenuList().select(0);
+           this.onSessionMenuListTap(dataview, 0, null, {
+                                     title: 'Description',
+                                     component: 'sessionDetailDescription'
+                                     });
+       },
     
     onMapButtonTap: function() {
         var record = this.getView().getRecord();
@@ -291,7 +316,7 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionDetail'
             var isAdded = view.getRecord().get('isAdded');
             if(isAdded){
                 view.fireEvent('deletesession', record, view);
-            }else{
+            }else{           
                 this.getView().fireEvent('addsessiontoagenda', record, view);
             }
         }else {
@@ -312,7 +337,7 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionDetail'
             store.load({
                 callback: function(records, operation, success) {
                     var cardMainDetailContainer = me.getCardMainDetailContainer();
-                    if(success) {
+                    //if(success) {
                         //create presenter profile
                         var presenterDetailsPanel = Ext.create('Personify.view.profile.ContactInfo', {
                             itemId: 'presenterSessionInfo'
@@ -335,7 +360,11 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionDetail'
                         //remove presenter list
                         cardMainDetailContainer.removeAll(true, true);
                         cardMainDetailContainer.add(presenterDetailsPanel);
-                    }
+                    //}
+                     //  else
+                     //  {
+                     //  Ext.Msg.alert('', 'This presenter has no information.', Ext.emptyFn);
+                    //   }
 
                     this.getView().setMasked(false);
                 },

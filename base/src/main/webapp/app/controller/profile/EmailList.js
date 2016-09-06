@@ -5,9 +5,9 @@ Ext.define('Personify.controller.profile.EmailList', {
             itemtap: 'onItemTapEmailList'
         }
     }, //end config
-    
+
     onItemTapEmailList: function(list, index, target, record, e, eOpts) {
-        if (window.plugins['emailComposer'])
-            window.plugins.emailComposer.showEmailComposer(null, null, null, [record.get('value')], null, null);
+        if (window.plugins['EmailComposer'])
+            window.plugins.EmailComposer.showEmailComposer(null, null, null, [record.get('value')], null, null);
     }
 });

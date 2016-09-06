@@ -2,16 +2,17 @@ Ext.define('Personify.controller.exhibitor.ExhibitorPanel', {
     extend: 'Personify.base.Controller',
 
     control: {
-        btnClearFilter: {
+        /*btnClearFilter: {
             tap: 'onClearicontapEx'
-        },
+        },*/
         searchFieldExhibitor: {
             seachclearicontap: 'onClearicontapEx',
             onsearchtextchange: 'onSearchExhibitorItem'
         },
         exhibitorList: {
             tapAllExhibitorItem: 'ontapAllExhibitorItem',
-            onTapBtnDelProductAllExhibitor: 'onTapBtnDelProductAllExhibitor'
+            onTapBtnDelProductAllExhibitor: 'onTapBtnDelProductAllExhibitor'//,
+          // scrollend: 'onNextButtonTap'
         }
     },
 
@@ -36,9 +37,9 @@ Ext.define('Personify.controller.exhibitor.ExhibitorPanel', {
 
         this.getExhibitorList().setStore(store);
     },
-
-    onSearchExhibitorItem: function(valueFieldSearch) {
-        if(window.plugins.app47) {
+/*
+    onSearchExhibitorItem1: function(valueFieldSearch) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Exhibitor Search');
         }
 
@@ -68,7 +69,7 @@ Ext.define('Personify.controller.exhibitor.ExhibitorPanel', {
         }
     },
 
-    onClearicontapEx: function() {
+    onClearicontapEx1: function() {
         this.getExhibitorList().getStore().clearFilter();
         var defaultFilter = this.getView().getDefaultFilter();
         if (defaultFilter) {
@@ -78,9 +79,9 @@ Ext.define('Personify.controller.exhibitor.ExhibitorPanel', {
         this.getSearchFieldExhibitor().getController().clearSearchField();
         this.getExhibitorList().deselectAll();
     },
-
+*/
     ontapAllExhibitorItem: function(me, index, target, record, e, eOpts) {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Exhibitor Detail');
         }
         this.getView().getParent().fireEvent('onexhibitortap', record);
@@ -95,13 +96,29 @@ Ext.define('Personify.controller.exhibitor.ExhibitorPanel', {
                 exhibitorId = record.get('recordId') || null,
                 customerId = currentUser.get('masterCustomerId') || null,
                 subCustomerId = currentUser.get('subCustomerId') || null,
-                productId = me.getView().getRecord().get('productID') || null;
-
+                productId = me.getView().getRecord().get('productID') || null;           
+           
             if(!record.get('isAdded')) {
                 Personify.utils.Sqlite.insertTableExhibitor(exhibitorId, productId, customerId, subCustomerId, function(success) {
                     if(success) {
                         record.set('isAdded', true);
-                        Ext.Msg.alert('', 'Exhibitor has been added to your exhibitors.', Ext.emptyFn);
+                                                            
+                                                            
+                        for (var i = 0; i < store.getCount(); i++) {
+                            if (store.getAt(i) != null){
+                                var recordEx =store.getAt(i);
+                                                            
+                                if (exhibitorId == recordEx.get('recordId')) {
+                                    if (!recordEx.get('isAdded')) {
+                                        recordEx.set('isAdded', true);
+                                    }
+                                                            
+                                                            
+                                }
+                            }
+                        }
+                                                            
+                        Ext.Msg.alert('', 'Exhibitor has been added to your exhibitors.', Ext.emptyFn);                         
                         me.getView().fireEvent('updateAddMyScheduleButton', record);
                     } else {
                         Ext.Msg.alert('', 'Add Exhibitor Failed.', Ext.emptyFn);
@@ -111,6 +128,19 @@ Ext.define('Personify.controller.exhibitor.ExhibitorPanel', {
                 Personify.utils.Sqlite.deleteMyExhibitor(exhibitorId, productId, customerId, subCustomerId, function(success) {
                     if(success) {
                         record.set('isAdded', false);
+                                                         
+                        for (var i = 0; i < store.getCount(); i++) {
+                            if (store.getAt(i) != null){
+                                var recordEx =store.getAt(i);
+                                            
+                                if (exhibitorId == recordEx.get('recordId')) {
+                                    if (recordEx.get('isAdded')) {
+                                        recordEx.set('isAdded', false);
+                                    }
+                                                        
+                                }
+                            }
+                        }
                         Ext.Msg.alert('', 'Exhibitor has been removed.', Ext.emptyFn);
                         me.getView().fireEvent('updateAddMyScheduleButton', record);
                     } else {
@@ -121,5 +151,17 @@ Ext.define('Personify.controller.exhibitor.ExhibitorPanel', {
         } else {
             Personify.utils.ItemUtil.needToLogin();
         }
+    },
+    onNextButtonTap: function (dataView, index, target, record, event, eOpts) {
+        this.getView().fireEvent('nextbuttontap', record);
+    },
+    onSearchExhibitorItem: function(value, keyCode) {
+        if(navigator.onLine && window.plugins.app47) {
+           window.plugins.app47.sendGenericEvent('Exhibitor Search');
+        }
+        this.getView().fireEvent('onsearchexhibitoritem',value);
+    },
+    onClearicontapEx: function() {
+        this.getView().fireEvent('onclearicontapex');
     }
 });

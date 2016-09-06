@@ -49,7 +49,7 @@ Ext.define('Personify.controller.event.complexevent.sessions.myschedule.MySchedu
 
                 record.MeetingAgendaStore.each(function(agenda) {
                     var sessionID = agenda.get('sessionID');
-
+                                               
                     if (agenda.get('type') != 'PERSONAL' && (!sessionID || sessionID == '' || sessionID == '0')) {
                         meetingAgendas.push(agenda);
                     }
@@ -59,7 +59,14 @@ Ext.define('Personify.controller.event.complexevent.sessions.myschedule.MySchedu
                     record.MeetingAgendaStore.remove(agenda);
                 });
 
-                record.MeetingAgendaStore.each(function(recordAgenda){
+                record.MeetingAgendaStore.each(function(recordAgenda){                    
+                    for (var i = 0; i < record.SessionStore.getCount(); i++) {
+                        var sessionRecord = record.SessionStore.getAt(i);
+                        if (sessionRecord.get('sessionID') == recordAgenda.get('sessionID')) {
+                            recordAgenda.set('locationDescription', sessionRecord.get('locationDescription'));
+                            break;
+                        }
+                    }
                     agendaStore.add(recordAgenda);
                 });
 
@@ -109,8 +116,20 @@ Ext.define('Personify.controller.event.complexevent.sessions.myschedule.MySchedu
                         Ext.Array.each(meetingAgendas, function(agenda) {
                             record.MeetingAgendaStore.remove(agenda);
                         });
-
+                        
+                        /*Start-Fix-3246-8397817*/
+                        record.SessionStore.clearFilter();
+                        me.getArrayDate(record.SessionStore);
+                        /*End-Fix-3246-8397817*/
+                             
                         agendaStore.each(function(recordAgenda){
+                                         for (var i = 0; i < record.SessionStore.getCount(); i++) {
+                                         var sessionRecord = record.SessionStore.getAt(i);
+                                         if (sessionRecord.get('sessionID') == recordAgenda.get('sessionID')) {
+                                         recordAgenda.set('locationDescription', sessionRecord.get('locationDescription'));
+                                         break;
+                                         }
+                                         }
                             meetingAgendaStore.add(recordAgenda);
                         });
 

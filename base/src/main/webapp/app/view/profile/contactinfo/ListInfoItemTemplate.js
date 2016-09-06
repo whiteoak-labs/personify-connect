@@ -8,7 +8,7 @@ Ext.define('Personify.view.profile.contactinfo.ListInfoItemTemplate', {
         flex: 1,
         items: [
             {
-                html: '{[this.hasType(values.type)]}',
+                html: '{[this.hasType(values.typeDesc)]}',
                 cls: 'type',
                 flex:2
             },

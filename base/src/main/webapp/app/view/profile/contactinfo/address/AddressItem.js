@@ -7,7 +7,7 @@ Ext.define('Personify.view.profile.contactinfo.address.AddressItem', {
         items: [
             {
                 xtype: 'label',
-                html: '{type}',
+                html: '{typeDesc}',
                 cls: 'type',
                 flex:2
             },
@@ -32,7 +32,7 @@ Ext.define('Personify.view.profile.contactinfo.address.AddressItem', {
                         html: '{locality}, {region} {postalCode}'
                     },
                     {
-                        html: '{country}'
+                        html: '{countryDesc}'
                     }
                 ]
             },

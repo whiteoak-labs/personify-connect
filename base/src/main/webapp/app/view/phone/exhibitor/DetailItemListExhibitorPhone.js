@@ -15,6 +15,7 @@ Ext.define('Personify.view.phone.exhibitor.DetailItemListExhibitorPhone', {
         layout: 'vbox',
         flex: 1,
         meetingRecord: null,
+        exhibitorListRecord:null,
         items: [
             {
                 xtype: 'ptoolbar',

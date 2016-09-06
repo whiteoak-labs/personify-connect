@@ -7,6 +7,7 @@ Ext.define('Personify.model.jsonp.profile.Urls', {
             {name: 'recordId', type: 'int', mapping: '$id', allowNull: false},
             {name: 'primary', type: 'boolean', mapping: 'Primary', allowNull: false},
             {name: 'type', type: 'string', mapping: 'Type', allowNull: false},
+            {name: 'typeDesc', type: 'string', mapping: 'TypeDesc', allowNull: false},
             {name: 'value', type: 'string', mapping: 'Value', allowNull: false},
             {name: 'internalKey', type: 'string', mapping: 'InternalKey', allowNull: false},
             {name: 'navigationKey', type: 'string', mapping: 'NavigationKey', allowNull: false},

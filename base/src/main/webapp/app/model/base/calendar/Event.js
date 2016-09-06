@@ -1,3 +1,4 @@
+
 Ext.define('Personify.model.base.calendar.Event', {
     extend: 'Personify.base.Model',
 

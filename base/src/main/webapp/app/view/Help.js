@@ -1,6 +1,7 @@
 Ext.define('Personify.view.Help', {
     extend: 'Ext.Container',
     xtype: 'helppanel',
+   controller: 'Personify.controller.Help',
     requires: 'Personify.view.help.AboutAPA',
 
     config: {
@@ -29,7 +30,7 @@ Ext.define('Personify.view.Help', {
                         docked: 'right',
                         listeners: {
                             tap: function() {
-                                this.parent.parent.destroy();
+                                this.parent.parent.hide();
                             }
                         }
                     }
@@ -42,8 +43,8 @@ Ext.define('Personify.view.Help', {
             }
         ]
     },
-
-    hide: function() {
-        this.destroy();
-    }
+           
+   hide: function() {
+           this.destroy();
+   },
 });

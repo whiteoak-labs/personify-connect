@@ -20,7 +20,8 @@ Ext.define('Personify.view.attendee.AttendeesListPanel', {
                         flex: 1,
                         xtype: 'searchEventPanel',
                         itemId: 'searchFieldAttendees'
-                    },
+                    }
+                    /*,
                     {
                         xtype: 'button',
                         cls: 'clearFilter',
@@ -30,13 +31,13 @@ Ext.define('Personify.view.attendee.AttendeesListPanel', {
                         docked: 'right',
                         disabled: true,
                         disabledCls: 'p-button-disabled'
-                    }
+                    }*/
                 ]
             },
             {
                 flex: 1,
                 xtype: 'attendeeslist',
-                itemId: 'attendeesList'
+                itemId: 'attendeesList'                
             }
         ]
     }

@@ -4,7 +4,11 @@ Ext.define('Personify.controller.help.Settings', {
         applysetting: {
             tap: 'onTapApply'
         },
-        settingOption: true
+        settingOption: true,
+       view: {
+           show:'onShow',
+           hide:'onHide',
+       }
     },
 
     init: function(){
@@ -40,5 +44,13 @@ Ext.define('Personify.controller.help.Settings', {
                 Ext.Msg.alert('', 'There was an error configuring App47 agent, please check your App47 ID.', Ext.emptyFn);
             });
         }
-    }
+    },
+           
+   onHide: function() {
+           Personify.utils.BackHandler.popActionAndTarget('hide', this.getView());
+   },
+   
+   onShow: function() {
+           Personify.utils.BackHandler.pushActionAndTarget('hide', this.getView());
+   },
 });

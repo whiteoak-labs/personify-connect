@@ -19,15 +19,14 @@ Ext.define('Personify.controller.profile.PhoneList', {
                         text: 'Call Phone',
                         handler: function() {
                             actionSheet.hide();
-                            window.plugins.phoneDialer.dial(record.get('value'));
+                            window.plugins.phoneDialer.dial(record.get('value'), 'CALL');
                         }
                     },
                     {
                         text: 'SMS',
                         handler: function() {
                             actionSheet.hide();
-                            if (window.plugins['smsComposer'])
-                                window.plugins.smsComposer.showSMSComposer(record.get('value'), null);
+                            window.plugins.phoneDialer.dial(record.get('value'), 'SMS');
                         }
                     },
                     {

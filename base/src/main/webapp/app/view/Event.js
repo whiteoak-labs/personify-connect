@@ -72,5 +72,9 @@ Ext.define('Personify.view.Event', {
     
     refresh: function(user) {
         this.getController().refreshData(user);
-    }
+    },
+           onGetUpcomingEvents: function() {           
+                this.getController().onGetUpcomingEventListData();
+           }
+           
 });

@@ -27,7 +27,7 @@ Ext.define('Personify.view.profile.participationhistory.ParticipationTemplate',{
                 cls:'date-item-participation',
                 align:'right',
                 xtype: 'label',
-                html: '{[Personify.utils.ItemUtil.formatJSONDate(values.startDate)]} - {[Personify.utils.ItemUtil.formatJSONDate(values.endDate)]}'
+                html: '{[Personify.utils.ItemUtil.formatJSONDateRange(values.startDate,values.endDate)]}'
             }
         ]
     }

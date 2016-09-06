@@ -94,6 +94,16 @@ Ext.define('Personify.view.News', {
     }, // end config
     
     initialize: function() {
+        var me = this;
+        var twitterHashTag = Personify.utils.Configuration.getConfiguration().first().NewsStore.get('twitterHashtag');
+        if(twitterHashTag && twitterHashTag != '')
+        {
+           var initialCharacter = twitterHashTag.charAt(0);           
+           if(initialCharacter != '@')
+                me.down('#twitterNewsPanel').setType('search');
+           else
+                me.down('#twitterNewsPanel').setType('timeline');
+        }
         this.down('#twitterNewsPanel').setHashtag(Personify.utils.Configuration.getConfiguration().first().NewsStore.get('twitterHashtag'));
     },
 

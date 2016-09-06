@@ -6,13 +6,14 @@ Ext.define('Personify.controller.attendees.AttendeesListPanel',{
             seachclearicontap: 'onTapBtnClearFilter',
             seachkeyup: 'onSearchKeyUp'
         },
-        btnClearFilter: {
+        /*btnClearFilter: {
             tap: 'onTapBtnClearFilter'
-        },
+        },*/
         attendeesList: {
             itemtap: 'onSelectAtendeeItemTap',
             itemtouchstart: 'onItemTouchStartAttendee',
-            itemtouchend: 'onItemTouchEndAttendee'
+            itemtouchend: 'onItemTouchEndAttendee',
+           scrollend: 'onNextButtonTap'
         }
     },
 
@@ -24,7 +25,17 @@ Ext.define('Personify.controller.attendees.AttendeesListPanel',{
         store.clearFilter();
         this.getAttendeesList().setStore(store);
     },
-
+    getStore: function(){
+        return this.getAttendeesList().getStore();
+    },
+    refresh: function(){
+           
+        this.getAttendeesList().refresh();
+    },
+    removeAll: function(){
+           
+           this.getAttendeesList().getStore().removeAll(true);
+    },
     onSelectAtendeeItemTap: function (dataView, index, target, record, event, eOpts) {
         if (!Personify.utils.PhoneGapHelper.checkConnection()) {
             Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
@@ -41,8 +52,8 @@ Ext.define('Personify.controller.attendees.AttendeesListPanel',{
         target.removeCls('x-item-pressed');
     },
 
-    onSearchKeyUp: function(value, keyCode) {
-        if(window.plugins.app47) {
+    onSearchKeyUp1: function(value, keyCode) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Attendee Search');
         }
 
@@ -52,7 +63,7 @@ Ext.define('Personify.controller.attendees.AttendeesListPanel',{
             storeAttendee.clearFilter();
             if(keyCode == 13 || keyCode == 10) {
                 if(value.trim() != '' || value.trim() != null) {
-                    this.getBtnClearFilter().setDisabled(false);
+                    //this.getBtnClearFilter().setDisabled(false);
                     storeAttendee.filter(function(record) {
                         didMatch = (record.get('firstName').trim().toLowerCase() + " "
                                 + record.get('lastName').trim().toLowerCase() + " "
@@ -70,11 +81,36 @@ Ext.define('Personify.controller.attendees.AttendeesListPanel',{
             }
         }
     },
-
-    onTapBtnClearFilter: function() {
+    /*
+    onTapBtnClearFilter1: function() {
         this.getAttendeesList().getStore().clearFilter();
         this.getBtnClearFilter().setDisabled(true);
         this.getSearchFieldAttendees().getController().clearSearchField();
         this.getAttendeesList().deselectAll();
+    },*/
+    onNextButtonTap: function (dataView, index, target, record, event, eOpts) {
+        if (!Personify.utils.PhoneGapHelper.checkConnection()) {
+           Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
+           return;
+        }
+        this.getView().fireEvent('nextbuttontap', record);
+    },
+    onSearchKeyUp: function (value, keyCode) {
+        if(keyCode == 13 || keyCode == 10) {
+           if (!Personify.utils.PhoneGapHelper.checkConnection()) {
+                Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
+                return;
+           }
+           this.getView().fireEvent('searchkeyup',value);
+        }else{
+           return;
+        }
+    },
+    onTapBtnClearFilter: function() {
+        if (!Personify.utils.PhoneGapHelper.checkConnection()) {
+           Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
+           return;
+        }
+        this.getView().fireEvent('tapbtnclearfilter');
     }
 });

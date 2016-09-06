@@ -37,7 +37,7 @@ Ext.define('Personify.view.store.FeatureLabel', {
                                 cls: 'clearFilter',
                                 pressedCls: 'red-button-pressing-background',
                                 itemId: 'clearFilter',
-                                text: 'Clear Filters',
+                                text: 'Clear',
                                 disabled: true,
                                 disabledCls: 'p-button-disabled'
                             }

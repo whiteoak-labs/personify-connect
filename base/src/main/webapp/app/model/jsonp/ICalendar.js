@@ -15,7 +15,10 @@ Ext.define('Personify.model.jsonp.ICalendar', {
             {name: 'recordId', type: 'int', mapping: '$id', allowNull: false},
             {name: 'internalKey', type: 'string', mapping: 'InternalKey', allowNull: false},
             {name: 'navigationKey', type: 'string', mapping: 'NavigationKey', allowNull: false},
-            {name: 'productID', type: 'string', mapping: 'ProductID', allowNull: false}
+            {name: 'productID', type: 'string', mapping: 'ProductID', allowNull: false},
+            
+            //// To Get & Set Total Count for Event Enhancements */
+            {name: 'totalCount', type: 'int', mapping: 'TotalCount', allowNull: false}
         ],
 
         associations: [

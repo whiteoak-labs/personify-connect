@@ -11,13 +11,13 @@ Ext.define('Personify.utils.modelmanager.ModelJsonpManager', {
         
         staffModel: 'Personify.model.jsonp.Staff',
         
-        sessionModel: 'Personify.model.jsonp.Session',
+        sessionModel: 'Personify.model.jsonp.SessionList',
         sessionCoordModel: 'Personify.model.jsonp.session.Coord',
         sessionFloorPlanModel: 'Personify.model.jsonp.session.FloorPlan',
         sessionSpeakerModel: 'Personify.model.jsonp.session.Speaker',
         sessionTrackModel: 'Personify.model.jsonp.session.Track',
-        
-        
+        eventSpeakerModel: 'Personify.model.jsonp.calendar.eventList.SpeakersList',
+        eventMaterialModel: 'Personify.model.jsonp.calendar.eventList.MaterialList',
         relationshipModel: 'Personify.model.jsonp.relationship.Relationship',
         relationshipManagementModel: 'Personify.model.jsonp.relationship.RelationshipManagement',
         
@@ -74,10 +74,14 @@ Ext.define('Personify.utils.modelmanager.ModelJsonpManager', {
         filterLocationModel: 'Personify.model.jsonp.FilterLocation',
         
         exhibitorModel: 'Personify.model.jsonp.Exhibitor',
+        
+        exhibitorListModel: 'Personify.model.jsonp.ExhibitorList',
 
         directoryModel: 'Personify.model.jsonp.Directory',
         
         directoryManagementModel: 'Personify.model.jsonp.DirectoryManagement',
+           
+        attendeeManagementModel: 'Personify.model.jsonp.AttendeeManagement',
         
         eventMenuModel:'Personify.model.jsonp.EventMenu',
          

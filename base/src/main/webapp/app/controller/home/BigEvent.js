@@ -115,17 +115,18 @@ Ext.define('Personify.controller.home.BigEvent',{
     onShowImage: function() {
         var rotation = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('featuredEventsRotation');
         var carousel = this.getCarouselImg();
-
+        //Start-Fix-3246-8398082
         if (!carousel.pageTurner) {
             carousel.pageTurner = new Ext.util.DelayedTask(function() {
                 if (carousel.getActiveIndex() == carousel.items.length - 1) {
                     carousel.setActiveItem(0, { type: "slide", direction: "right", duration: rotation * 1000 });
+                    setTimeout(function(){carousel.next();},rotation * 1000);
                 } else {
                     carousel.next();
                 }
             }, carousel);
         }
-
+        //End-Fix-3246-8398082
         carousel.pageTurner.delay(rotation * 1000);
     },
     

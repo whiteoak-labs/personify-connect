@@ -43,7 +43,6 @@ Ext.define('Personify.profile.AppProfile', {
             urbanairship.setProdSecret(config.get('UrbanAirship-Prod-Secret'));
            
             urbanairship.takeOff();
-        }
 
         document.addEventListener("resume", function() {
           urbanairship.resetBadge();
@@ -68,6 +67,7 @@ Ext.define('Personify.profile.AppProfile', {
         urbanairship.registerForNotificationTypes(urbanairship.notificationType.badge |
                                                   urbanairship.notificationType.sound |
                                                   urbanairship.notificationType.alert);
+        }
     },
 
     loadPreferences: function() {
@@ -136,7 +136,25 @@ Ext.define('Personify.profile.AppProfile', {
                     });
                 }
             });
-
+           
+            window.plugins.applicationPreferences.get('appOnlyTwitterToken', function(token) {
+                    if (token) {
+                        TMA.Twitter.setAppOnlyToken(Ext.JSON.decode(token));
+                        params = {
+                            consumerKey:'6AqyEYuQnznxau9uYns17w',
+                            consumerSecret :'eRZZMxdC2gAx5PnMbtcetAqRYPSv6FnA3J21rOAo74',
+                            base64KeySecret:'NkFxeUVZdVFuem54YXU5dVluczE3dzplUlpaTXhkQzJnQXg1UG5NYnRjZXRBcVJZUFN2NkZuQTNKMjFyT0FvNzQ='
+                        };
+                        TMA.Twitter.setConsumer(params);
+                    }
+                    else
+                    {
+                        me.loadTwitterAccessToken();
+                    }
+                },function(error) {                    
+                    me.loadTwitterAccessToken();
+                }
+            );
         } else {
             Personify.utils.Configuration.loadCountryAndState();
             me.initViews();
@@ -208,18 +226,21 @@ Ext.define('Personify.profile.AppProfile', {
             session: storeManager.getSessionStore(),
             mySessionStore: storeManager.getAgendaStore(),
             storeProfile: storeManager.getProfileStore(),
-            storeExhibitor: storeManager.getExhibitorStore(),
+            ///storeExhibitor: storeManager.getExhibitorStore(),
+                                
+            exhibitorListStore: storeManager.getExhibitorListStore(),
+                                
             shoppingCartStore: storeManager.getShoppingCartStore(),
             notificationStore: {
                 value: Ext.create(storeManager.getNotificationStore())
             },
             mapStore: "Personify.store.base.Map",
             //countryListStore: storeManager.getCountryStore(),
-            iCalendarStore: storeManager.getICalendarStore(),
+            iCalendarStore: storeManager.getICalendarStore()/*,
 
             allProductStore: {
                 value: Ext.create(storeManager.getProductListStore())
-            }
+            }*/
         });
 
         var configurationChecking = function() {
@@ -232,5 +253,27 @@ Ext.define('Personify.profile.AppProfile', {
             });
         };
         Ext.callback(configurationChecking, me, [], 5 * 1000);
+    },
+    loadTwitterAccessToken: function()
+    {
+        var me = this,
+        params = {
+           success: me.onAccessTokenGetTwitter,
+           failure: me.onAccessTokenFailTwitter,
+           scope: me
+        },
+        paramInit = {
+            consumerKey:'6AqyEYuQnznxau9uYns17w',
+            consumerSecret :'eRZZMxdC2gAx5PnMbtcetAqRYPSv6FnA3J21rOAo74',
+            base64KeySecret:'NkFxeUVZdVFuem54YXU5dVluczE3dzplUlpaTXhkQzJnQXg1UG5NYnRjZXRBcVJZUFN2NkZuQTNKMjFyT0FvNzQ='
+        };
+        TMA.Twitter.init(paramInit);
+        TMA.Twitter.apponlyauthorize(params);
+    },
+    onAccessTokenGetTwitter: function(oauthAccessToken, oauthTokenType, twitter) {
+        console.log('Twitter Authorization Type: ' + oauthTokenType + 'and Authorization Token: ' +oauthAccessToken);
+    },
+    onAccessTokenFailTwitter: function(errorCode, errorMessage, twitter) {
+        console.log('Twitter error: ' + errorCode + ' - ' + errorMessage);
     }
 });

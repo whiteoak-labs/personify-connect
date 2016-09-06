@@ -23,10 +23,16 @@ Ext.define('Personify.view.event.complexevent.sessions.myschedule.FilterList', {
             {
                 itemId: 'clearFilterByTrack',
                 xtype: 'button',
-                text: 'Clear filter by Track',
+                text: 'Clear',
                 cls: 'p-button-clearFilterBytrack',
                 height: '35px'
             }
+                ,
+                {
+                itemId: 'filterType',
+                html: '',
+                hidden: true
+                }
         ]
     },
 

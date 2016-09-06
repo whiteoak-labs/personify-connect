@@ -11,14 +11,24 @@ Ext.define('Personify.controller.profile.template.EditItem', {
         Ext.Array.sort(listType);
         var modelList= new Array();
         for( var i=0; i<listType.length; i++) {
-           modelList.push({text: listType[i], value: listType[i]});
+           //modelList.push({text: listType[i], value: listType[i]});
+           var listItem = listType[i];
+           if(listType[i].indexOf(':') >-1)
+           {
+                modelList.push({value: listType[i].split(':')[0], text: listType[i].split(':')[1]});
+           }
+           else
+           {
+                modelList.push({text: listType[i], value: listType[i]});
+           }
         }
         this.getTypeList().setOptions(modelList);
     },
 
     removeTypeList: function(typeListToRemove, originalTypeList) {
         var typeList = Ext.Array.difference(originalTypeList, typeListToRemove);
-        typeList.push(this.getTypeList().getValue());
+        //typeList.push(this.getTypeList().getValue());
+        typeList.push(this.getTypeList().getValue()+':'+ Personify.utils.ItemUtil.getDesc(originalTypeList,this.getTypeList().getValue()));
         this.setTypeList(typeList);
     },
     

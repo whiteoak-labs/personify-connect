@@ -10,7 +10,8 @@ Ext.define('Personify.controller.event.calendar.CalendarButton',{
     },
     
     init: function(){
-        this.onShowSelectYear(2012, 2014);
+        var today = new Date();
+        this.onShowSelectYear(today.getFullYear() - 1, today.getFullYear() + 1);
         this.onShowCurrentDate();
     },
     

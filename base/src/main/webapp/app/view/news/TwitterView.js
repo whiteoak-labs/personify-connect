@@ -22,6 +22,8 @@ Ext.define('Personify.view.news.TwitterView', {
         me.callParent(arguments);
         if(TMA.Twitter.isAuthorized())
             subView = {xtype: 'twitternewspanel'};
+        else if(TMA.Twitter.isAppOnlyAuthorized())
+           subView = {xtype: 'twitternewspanel'};
         else
             subView = {xtype: 'connecttwitter'};
         

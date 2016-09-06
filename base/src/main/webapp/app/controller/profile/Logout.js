@@ -2,12 +2,12 @@ Ext.define('Personify.controller.profile.Logout', {
     extend: 'Personify.base.Controller', 
     
     inject: {
-        currentUser: 'currentUser', allProductStore: 'allProductStore'
+        currentUser: 'currentUser'//, allProductStore: 'allProductStore'
     },
     
     config:{
-           currentUser:null,
-           allProductStore:null
+           currentUser:null//,
+           //allProductStore:null
     },
     
     control: {
@@ -23,7 +23,7 @@ Ext.define('Personify.controller.profile.Logout', {
     },
 
     init: function() {
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Logout');
         }
     },
@@ -32,7 +32,7 @@ Ext.define('Personify.controller.profile.Logout', {
         this.getView().destroy();
         var mainView = Ext.ComponentQuery.query('#mainView')[0];
         mainView.getController().logout();
-           this.getAllProductStore().removeAll();
+           //this.getAllProductStore().removeAll();
     },
     
     onCancel: function() {

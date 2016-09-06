@@ -34,9 +34,9 @@ Ext.define('Personify.store.jsonp.ProductList', {
     
     loadData: function(store, data) {
         if (data.length > 0) {
-            if (store.getDataRequest().ItemsPerPage < data[0].getData().totalResults) {
-                store.getDataRequest().ItemsPerPage = data[0].getData().totalResults;
-            } else {
+            //if (store.getDataRequest().ItemsPerPage < data[0].getData().totalResults) {
+            //    store.getDataRequest().ItemsPerPage = data[0].getData().totalResults;
+            //} else {
                 store.setProductItemStore(
                     Ext.create('Personify.store.jsonp.Product')
                 );
@@ -44,7 +44,7 @@ Ext.define('Personify.store.jsonp.ProductList', {
                 if (store.getData().items[0] != null) {
                     store.getProductItemStore().add(store.getData().items[0].ProductItem.getData().items);
                 }
-            }
+            //}
        }
     }
 });

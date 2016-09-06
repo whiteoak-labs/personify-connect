@@ -27,20 +27,15 @@ Ext.define('Personify.view.main.MenuList',{
                 hidden:true
             },
             {
-            	xtype: 'panel',
-            	layout: 'fit',
-            	centered: true,
-            	baseCls: 'p-baseclass-clearstyle',
-            	items:[
-            	    {
-            	    	flex: 1,
-            	    	itemId: 'menuItemList',
-                        xtype: 'dataview',
-                        inline: { wrap: false },
-                        scrollable: null,
-                        itemTpl: '<div class="menuItem {css}">{name}</div>'
-            		}
-            	]
+            	flex: 1,
+                itemId: 'menuItemList',
+                xtype: 'dataview',
+                centered:true,
+                inline: { wrap: false },
+                scrollable: {direction: 'horizontal', directionLock: true},
+                height: window.innerHeight/10,
+                width: window.innerWidth/3 * 2.3,
+                itemTpl: '<div class="menuItem {css}">{name}</div>'
             },
             {
             	xtype: 'button',

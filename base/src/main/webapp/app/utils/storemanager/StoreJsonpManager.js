@@ -15,6 +15,9 @@ Ext.define('Personify.utils.storemanager.StoreJsonpManager', {
 
         sessionStore: 'Personify.store.jsonp.Session',
 
+           sessionListStore: 'Personify.store.jsonp.SessionList',
+
+           
         purchaseHistoryStore: 'Personify.store.jsonp.PurchaseHistory',
 
         profileStore: 'Personify.store.jsonp.Profile',
@@ -72,6 +75,8 @@ Ext.define('Personify.utils.storemanager.StoreJsonpManager', {
         eventMonthStore: 'Personify.store.jsonp.calendar.EventMonth',
 
         exhibitorStore: 'Personify.store.jsonp.Exhibitor',
+           
+        exhibitorListStore: 'Personify.store.jsonp.ExhibitorList',
 
         directoryStore: 'Personify.store.jsonp.Directory',
 

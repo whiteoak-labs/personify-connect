@@ -42,6 +42,7 @@ Ext.define('Personify.utils.ModelManager', {
         iCalendarModel: 'Personify.model.base.ICalendar',
         calendarEventModel: 'Personify.model.base.calendar.Event',
         exhibitorModel: 'Personify.model.base.Exhibitor',
+        exhibitorListModel: 'Personify.model.base.ExhibitorList',
         directoryModel: 'Personify.model.base.Directory',
         directoryManagementModel: 'Personify.model.base.DirectoryManagement',
         eventMenuModel:'Personify.model.base.EventMenu',

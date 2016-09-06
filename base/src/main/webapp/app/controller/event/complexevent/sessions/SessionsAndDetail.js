@@ -57,13 +57,15 @@ Ext.define('Personify.controller.event.complexevent.sessions.SessionsAndDetail',
     },
 
     onOpenDetailPage: function(record) {
-          
         var me = this;
         this.getSessionDetail().setRecord(record);
-        this.loadSessionDetail(record, function(sessionDetailStore) {
-            me.getSessionDetail().getController().onUpdateData(sessionDetailStore);
+        //this.loadSessionDetail(record, function(sessionDetailStore) {
+            //me.getSessionDetail().getController().onUpdateData(sessionDetailStore);
+           me.getSessionDetail().getController().onUpdateData();
             me.getView().setActiveItem(1);
-        });
+        //});
+        
+        Personify.utils.BackHandler.pushActionAndTarget('backToSessionList', this);
     },
 
     loadSessionDetail: function(record, callback) {
@@ -97,6 +99,7 @@ Ext.define('Personify.controller.event.complexevent.sessions.SessionsAndDetail',
 
     backToSessionList: function() {
         this.getView().setActiveItem(0);
+        Personify.utils.BackHandler.popActionAndTarget('backToSessionList', this);
     },
 
     onOpenSessionPage: function(){
@@ -126,6 +129,8 @@ Ext.define('Personify.controller.event.complexevent.sessions.SessionsAndDetail',
         this.getMapSessionPanel().getController().showMarker();
         this.getMapSessionPanel().getController().selectItemMyAgenda(record);
         this.getView().setActiveItem(2);
+           
+       Personify.utils.BackHandler.pushActionAndTarget('setActiveItem', this.getView(), 1);
     },
 
     onDeleteSession: function(record, view){

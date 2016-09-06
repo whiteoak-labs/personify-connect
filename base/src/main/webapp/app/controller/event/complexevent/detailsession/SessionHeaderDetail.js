@@ -43,8 +43,9 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionHeaderD
         }
         this.getView().setRecord(record);
         var me = this;
-        var startTime = Personify.utils.ItemUtil.changeTimeSession(Personify.utils.ItemUtil.convertStringToDateSession(record.get('startDateTimeString')));
-        var endTime = Personify.utils.ItemUtil.changeTimeSession(Personify.utils.ItemUtil.convertStringToDateSession(record.get('endDateTimeString')));
+        var startTime = record.get('startDateTimeString').indexOf('T')>=0 ? Personify.utils.ItemUtil.getFormattedHourEventView(Personify.utils.ItemUtil.convertStringToDate(record.get('startDateTimeString'))) : Personify.utils.ItemUtil.changeTimeSession(Personify.utils.ItemUtil.convertStringToDateSession(record.get('startDateTimeString')));
+           var endTime = record.get('endDateTimeString').indexOf('T')>=0 ? Personify.utils.ItemUtil.getFormattedHourEventView(Personify.utils.ItemUtil.convertStringToDate(record.get('endDateTimeString'))) : Personify.utils.ItemUtil.changeTimeSession(Personify.utils.ItemUtil.convertStringToDateSession(record.get('endDateTimeString')));
+           
         var priceValue = record.get('price')? record.get('price'): 0;
         var mbpriceValue = record.get('memberPrice')? record.get('memberPrice'): 0;
         var yrpriceValue = record.get('yourPrice')? record.get('yourPrice'): 0;
@@ -56,7 +57,8 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionHeaderD
 
         me.setData(record);
         me.getDaySession().setHtml(Personify.utils.ItemUtil.formatJSONDate(Personify.utils.ItemUtil.convertStringToDateSession(record.get('startDateTimeString'))));
-        me.getTimeSession().setHtml(startTime + '<div class="type-time-p-headerdetailevent">to</div>' + endTime);
+           me.getTimeSession().setHtml(startTime + '<div class="type-time-p-headerdetailevent">to</div>' + endTime);
+           
         me.getStatusSession().setHtml(htmlStatusSession);
         me.getTitleHeaderDetail().setHtml(record.get('title'));
         me.getPrice().setHtml(price );
@@ -79,10 +81,18 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionHeaderD
         }else{
            me.getMemberPrice().setHtml(memberPrice);
         }
-        
+           
         me.getLocation().setHtml(record.get('locationDescription'));
         me.getTimeZone().setHtml(record.get('timeZoneCode'));
-
+        if(record.get('timeZoneCode') && record.get('timeZoneCode')!='')
+        {
+           this.getShareCalendar().show();
+        }
+        else
+        {
+           this.getShareCalendar().hide();         
+           
+        }
         if(record){
             if (!record.get('location') || record.get('location') === '') {
                 this.getMapItDetailComplex().hide();
@@ -105,7 +115,7 @@ Ext.define('Personify.controller.event.complexevent.detailsession.SessionHeaderD
         if (!Personify.utils.Configuration.getAllowChangeView()) {
             Ext.Msg.alert('', 'Please enter the note title.', Ext.emptyFn);
             return;
-        }
+        }          
         this.getView().getParent().getParent().getParent().setActiveItem(0);
     },
 

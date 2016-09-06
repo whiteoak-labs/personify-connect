@@ -1,5 +1,7 @@
 Ext.define('Personify.view.phone.attendee.AttendeesListPanel', {
     extend: 'Ext.Panel',
+    ////extend: 'Ext.dataview.DataView',
+       
     xtype: 'attendeeslistpanelphone',
     controller: 'Personify.controller.phone.attendee.AttendeesListPanel',
     requires: [
@@ -25,7 +27,7 @@ Ext.define('Personify.view.phone.attendee.AttendeesListPanel', {
             {
                 flex: 1,
                 itemId: 'attendeesList',
-                xtype: 'list',
+                xtype: 'dataview',////'list',
                 baseCls: 'listNotificationPhone',
                 emptyText: '<div class = "p-emptyText-phone">No Attendee</div>',
                 deferEmptyText: false,
@@ -33,6 +35,7 @@ Ext.define('Personify.view.phone.attendee.AttendeesListPanel', {
                 selectedCls: 'listNotificationPhone-selected',
                 scrollable: true,
                 grouped: true,
+                scrollToTopOnRefresh:false,
                 itemCls: 'presenterlistitem',
                 itemTpl: new Ext.XTemplate(
                     '<table width="100%">' +

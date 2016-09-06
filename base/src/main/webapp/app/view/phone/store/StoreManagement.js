@@ -23,7 +23,9 @@ Ext.define('Personify.view.phone.store.StoreManagement', {
             },
             {
                 xtype: 'featureproductstorephone',
-                cls: 'p-phone-storemanagementfeatureproductes'
+                cls: 'p-phone-storemanagementfeatureproductes',
+                itemId: 'featureproductPhoneArea',
+                hidden: true
             },
             {
                 xtype: 'detailpanelproductphone',

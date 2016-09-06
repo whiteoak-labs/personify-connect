@@ -11,7 +11,7 @@ Ext.define('Personify.model.jsonp.calendar.eventList.TopicList', {
             {name: 'navigationKey', type: 'string', mapping: 'NavigationKey', allowNull: false},
             {name: 'code', type: 'string', mapping: 'Code', allowNull: false},
             {name: 'description', type: 'string', mapping: 'Description', allowNull: false},
-            {name: 'count', type: 'string', mapping: 'Count', allowNull: false},
+            {name: 'count', type: 'int', mapping: 'Count', allowNull: false},
             {name: 'topicListCount', type: 'string', mapping: 'TopicListCount', allowNull: false},
             {name: 'topicList', type: 'string', mapping: 'TopicList', allowNull: false},
             {name: 'checked', type: 'string'}

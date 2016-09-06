@@ -10,25 +10,28 @@ Ext.define('Personify.view.phone.presenter.PresenterListPanel', {
     config: {
         layout: 'vbox',
         flex: 1,
+        style:'background:#eeeff3',
         items: [
             {
                 itemId: 'searchFieldPresenterPhone',
                 cls: 'p-phone-search-field',
                 xtype: 'searchfieldwithsearchkeyboard',
                 placeHolder: 'Search Presenters'
+                
             },
             {
                 flex: 1,
                 itemId: 'presenterList',
-                xtype: 'list',
+                xtype: 'dataview',///'list',
                 baseCls: 'listNotificationPhone',
                 emptyText: '<div class = "p-emptyText-phone">No Presenter</div>',
                 deferEmptyText: false,
                 pressedCls: 'listNotificationPhone-selected',
                 selectedCls: 'listNotificationPhone-selected',
                 scrollable: true,
-                itemCls: 'presenterlistitem',
+                scrollToTopOnRefresh:false,
                 grouped: true,
+                itemCls: 'presenterlistitem',
                 itemTpl: new Ext.XTemplate(
                     '<table width="100%">' +
                         '<tr width="100%">' +

@@ -16,7 +16,13 @@ Ext.define('Personify.controller.Main', {
         personify: null,
         shoppingCartStore: null,
         agendaListStore: null,
-        notificationStore: null
+        notificationStore: null,
+        //// To Hold Total Count of Events
+        totalEvents:0,
+        //// To Hold start index to get next event data
+        startIndex:0,
+        //// To Hold to get next data of total number of event
+        itemsPerPage:0
     },
 
     control: {
@@ -51,6 +57,13 @@ Ext.define('Personify.controller.Main', {
     init: function() {
         console.log('Main.init: start');
         var me = this;
+
+        //// To be reset from App Config Settings
+        var eventItemsPerPage = Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageEventList');
+        me.setStartIndex(1);
+        me.setItemsPerPage(eventItemsPerPage);
+
+           
         me.updateViewModules();
 
         var user = Personify.utils.Configuration.getCurrentUser();
@@ -204,6 +217,12 @@ Ext.define('Personify.controller.Main', {
         this.getLabelTitle().setHtml(title);
         this.getIconHeader().setCls('p-image-iconheaderurl' + ' ' + css);
         this.getIconHeader().setHidden(false);
+           
+       if (view.$className != "Personify.view.Home")
+       {
+           Personify.utils.BackHandler.clearAllActions();
+           Personify.utils.BackHandler.pushActionAndTarget('onConnectButtonTap', this);
+       }
     },
 
     updateViewModules: function() {
@@ -236,7 +255,7 @@ Ext.define('Personify.controller.Main', {
 
         this.updateViewModules();
         this.onChangeNotificationLabel('0');
-        this.openView('Personify.view.Home', null, 'Main', 'homemenuitem');
+        this.onConnectButtonTap();
         this.getLoginPanel().getController().resetViews();
 
         //set number item shopping cart
@@ -248,7 +267,12 @@ Ext.define('Personify.controller.Main', {
             var urbanAirship = window.plugins.pushNotification;
             urbanAirship.setAlias('');
         }
-
+        var storeSchedule = Ext.getStore('scheduleListtingMain');
+        if (storeSchedule) {
+           storeSchedule.removeAll();
+           storeSchedule.destroy();
+        }
+           
         var me = this;
         me.getView().setMasked({xtype: 'loadmask'});
         me.onUpdateEventList(function(calendarStore) {
@@ -343,7 +367,11 @@ Ext.define('Personify.controller.Main', {
         }
 
         var agendaStore = this.getAgendaListStore();
-
+        var storeSchedule = Ext.getStore('scheduleListtingMain');
+           var scheduleRecord = null;
+        if (storeSchedule && storeSchedule.getAt(0)) {
+           scheduleRecord = storeSchedule.getAt(0);
+        }
         store.each(function(record) {
             if (agendaStore) {
                 for (var i = 0; i < agendaStore.getCount(); i++) {
@@ -366,6 +394,21 @@ Ext.define('Personify.controller.Main', {
                 };
             }
 
+            if(scheduleRecord && scheduleRecord.get('productID') == record.get('productID'))
+            {
+                if(scheduleRecord.SessionStore)
+                {
+                   record.SessionStore =scheduleRecord.SessionStore;
+                }
+                   
+                if(scheduleRecord.ExhibitorStore)
+                {
+                   record.ExhibitorStore =scheduleRecord.ExhibitorStore;
+                }
+                storeSchedule.removeAll();
+                storeSchedule.destroy();
+            }
+                   
             meetingStore.add(record);
         });
 
@@ -435,7 +478,7 @@ Ext.define('Personify.controller.Main', {
             return;
         }
 
-        if (window.plugins.app47) {
+        if (navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('View Shopping Cart');
         }
 
@@ -453,10 +496,12 @@ Ext.define('Personify.controller.Main', {
                     if (Ext.os.is.Android) {
                         ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                     } else {
-                        ref = window.open(url, '_blank', 'location=no,enableViewportScale=yes');
+                        ref = window.open(url, '_blank', 'location=yes,enableViewportScale=yes');
                     }
+                   Personify.utils.BackHandler.pushActionAndTarget('close', ref);
                     ref.addEventListener('exit', function() {
                         Ext.callback(me.setTotalItemCheckout, me);
+                         Personify.utils.BackHandler.popActionAndTarget('close', ref);
                     });
                 },
                 failure: function() {
@@ -472,19 +517,21 @@ Ext.define('Personify.controller.Main', {
 
     onUpdateEventList: function(callback, scope) {
         var me = this;
-
         Ext.callback(function() {
             var currentUser = Personify.utils.Configuration.getCurrentUser();
             var config = me.getPersonify().first().ConfigStore.DefaultListingParamsStore.getAt(0);
             var attributes = {
                 IsStaffMember: currentUser? currentUser.isStaffMember().toString() : false,
                 IsMember: true,
-                FromMonth: '1',
+                FromMonth: '0',
                 ToMonth: '12',
                 OrgID: (currentUser && currentUser.isLogged())? currentUser.get('organizationId') : config.get('orgId'),
                 OrgUnitID: (currentUser && currentUser.isLogged())? currentUser.get('organizationUnitId') : config.get('orgUnitId'),
                 MasterCustomerID: (currentUser && currentUser.isLogged())? currentUser.get('masterCustomerId'): '' ,
-                SubCustomerID:(currentUser && currentUser.isLogged())? currentUser.get('subCustomerId'): '0'
+                SubCustomerID:(currentUser && currentUser.isLogged())? currentUser.get('subCustomerId'): '0',
+                //// To Get Events list records
+                StartIndex:me.getStartIndex(),
+                ItemsPerPage:me.getItemsPerPage()
             };
             var storeManager = Personify.utils.ServiceManager.getStoreManager();
             var iCalendarStoreName = storeManager.getICalendarStore();
@@ -495,10 +542,10 @@ Ext.define('Personify.controller.Main', {
                 callback: function(records, operation, success) {
                     if (success) {
                         me.onCopyMeetingList(store.getAt(0).EventListStore, store);
-                    } else {
-                        Personify.utils.ItemUtil.cantLoadEvent();
+            } else {
+                       Ext.Viewport.setMasked(false);
+                       Personify.utils.ItemUtil.cantLoadEvent(operation,"Cannot load events.");
                     }
-
                     if (callback) {
                         Ext.callback(callback, scope, [store]);
                     }
@@ -513,7 +560,7 @@ Ext.define('Personify.controller.Main', {
     onUpdateMySchedule: function(isLogin){
         var currentUser = Personify.utils.Configuration.getCurrentUser();
         if(currentUser && currentUser.isLogged()){
-            if(window.plugins.app47) {
+            if(navigator.onLine && window.plugins.app47) {
                 window.plugins.app47.sendGenericEvent('Agenda List');
             }
             var me = this;
@@ -543,7 +590,7 @@ Ext.define('Personify.controller.Main', {
     onConnectButtonTap: function() {
         if (Personify.utils.Configuration.getAllowChangeView()) {
             var me = this;
-
+           Personify.utils.BackHandler.clearAllActions();
             Ext.callback(function(){
                 me.openView('Personify.view.Home', null, 'Main', 'homemenuitem');
             }, me, [], 1);

@@ -160,8 +160,16 @@ Ext.define('Personify.utils.Configuration', {
                 if (configuration['endpoint-event-session-rating'])
                     endpoints['eventSessionRating'] = configuration['endpoint-event-session-rating'];
 
-                if (configuration['endpoint-event-exhibitors'])
-                    endpoints['eventExhibitors'] = configuration['endpoint-event-exhibitors'];
+                /*if (configuration['endpoint-event-exhibitors'])
+                    endpoints['eventExhibitors'] = configuration['endpoint-event-exhibitors'];*/
+                                                  
+                if (configuration['endpoint-event-exhibitors-list'])
+                    endpoints['eventExhibitorsList'] = configuration['endpoint-event-exhibitors-list'];
+                                                  
+                if (configuration['endpoint-event-exhibitors-details'])
+                    endpoints['eventExhibitorsDetails'] = configuration['endpoint-event-exhibitors-details'];
+                                                  
+                                                  
 
                 if (configuration['endpoint-event-registrants'])
                     endpoints['eventRegistrants'] = configuration['endpoint-event-registrants'];
@@ -600,6 +608,74 @@ Ext.define('Personify.utils.Configuration', {
 
                 if (configuration['DefaultConfigurations']['orgunitid'])
                     personify.ConfigStore.DefaultListingParamsStore.first().set('orgUnitId', configuration['DefaultConfigurations']['orgunitid']);
+           
+                if (configuration['DefaultConfigurations']['store-itemperpage'])
+                    personify.ConfigStore.set('itemsPerPageProductList', configuration['DefaultConfigurations']['store-itemperpage']);
+                    
+                if (configuration['DefaultConfigurations']['Date-Display-Format'])
+                {
+                    personify.ConfigStore.set('DateDisplayFormat', configuration['DefaultConfigurations']['Date-Display-Format']);
+                }
+                else
+                {
+                    personify.ConfigStore.set('DateDisplayFormat',"m/d/Y");
+                }
+                      
+                if (configuration['DefaultConfigurations']['WS-Timeout-Interval'])
+                {
+                    personify.ConfigStore.set('ServiceRequestTimeout', configuration['DefaultConfigurations']['WS-Timeout-Interval']);
+                }
+                else
+                {
+                    personify.ConfigStore.set('ServiceRequestTimeout',"30000");
+                }
+           
+           
+                if (configuration['DefaultConfigurations']['WS-Timeout-Message'])
+                {
+                    personify.ConfigStore.set('ServiceRequestTimeoutMessage', configuration['DefaultConfigurations']['WS-Timeout-Message']);
+                }
+                else
+                {
+                    personify.ConfigStore.set('ServiceRequestTimeoutMessage',"Oops! Please check the network connectivity of your device.");
+                }
+           
+                if (configuration['DefaultConfigurations']['WS-Timeout-MessageTitle'])
+                {
+                    personify.ConfigStore.set('ServiceRequestTimeoutMsgTitle', configuration['DefaultConfigurations']['WS-Timeout-MessageTitle']);
+                }
+                else
+                {
+                    personify.ConfigStore.set('ServiceRequestTimeoutMsgTitle', "Network Connectivity Issue");
+                }
+           
+                if (configuration['DefaultConfigurations']['WS-HighLatency-Timeout-Interval'])
+                {
+                    personify.ConfigStore.set('HighLatencyServiceRequestTimeout', configuration['DefaultConfigurations']['WS-HighLatency-Timeout-Interval']);
+                }
+                else
+                {
+                    personify.ConfigStore.set('HighLatencyServiceRequestTimeout', "60000");
+                }
+           
+                if (configuration['DefaultConfigurations']['WS-Timeout-WIFIMessage'])
+                {
+                    personify.ConfigStore.set('WIFIServiceRequestTimeoutMessage', configuration['DefaultConfigurations']['WS-Timeout-WIFIMessage']);
+                }
+                else
+                {
+                    personify.ConfigStore.set('WIFIServiceRequestTimeoutMessage',"Oops! Please check the WIFI connectivity of your device.");
+                }
+           
+                if (configuration['DefaultConfigurations']['WS-HighLatency-Endpoints'])
+                {
+                    personify.ConfigStore.set('HighLatencyServiceEndpoints', configuration['DefaultConfigurations']['WS-HighLatency-Endpoints']);
+                }
+                else
+                {
+                    personify.ConfigStore.set('HighLatencyServiceEndpoints', "MobileGetMeetingListing1,MobileGetMeetingSessionList1,MobileGetMeetingAgenda,MobileGetSessionDetail,MobileGetExhibitorData1,MobileSearchMeetingRegistrants,MobileGetExhibitorListing,MobileGetExhibitorDetail");
+                }
+           
             }
 
             if (configuration['DiscussionsModule']) {
@@ -732,6 +808,25 @@ Ext.define('Personify.utils.Configuration', {
                     }
                     personify.EventsStore.set('mobileRegistration', mobileRegistration);
                 }
+           
+           if (configuration['EventsModule']['sessions-listing-itemperpage'])
+                personify.EventsStore.set('itemsPerPageSession', configuration['EventsModule']['sessions-listing-itemperpage']);
+           
+                    if (configuration['EventsModule']['events-listing-itemperpage'])
+                        personify.EventsStore.set('itemsPerPageEventList', configuration['EventsModule']['events-listing-itemperpage']);
+           
+                    if (configuration['EventsModule']['attendees-listing-itemperpage'])
+                        personify.EventsStore.set('itemsPerPageAttendeeList', configuration['EventsModule']['attendees-listing-itemperpage']);
+           
+                    if (configuration['EventsModule']['presenters-listing-itemperpage'])
+                        personify.EventsStore.set('itemsPerPagePresentersList', configuration['EventsModule']['presenters-listing-itemperpage']);
+           
+                    if (configuration['EventsModule']['materials-listing-itemperpage'])
+                        personify.EventsStore.set('itemsPerPageMaterialsList', configuration['EventsModule']['materials-listing-itemperpage']);
+           
+                    if (configuration['EventsModule']['exhibitors-listing-itemperpage'])
+                    personify.EventsStore.set('itemsPerPageExhibitorsList', configuration['EventsModule']['exhibitors-listing-itemperpage']);
+           
             }
 
             if (configuration['ProfileModule']) {

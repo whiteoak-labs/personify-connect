@@ -9,7 +9,9 @@ Ext.define('Personify.model.jsonp.session.Track', {
             {name: 'recordId', type: 'int', mapping: '$id', allowNull: false},
             {name: 'internalKey', type: 'string', mapping: 'InternalKey'},
             {name: 'navigationKey', type: 'string', mapping: 'NavigationKey'},
-            {name: 'tracks', type: 'string', mapping: 'Tracks'}
+            {name: 'tracks', type: 'string', mapping: 'Tracks'},
+            {name: 'descr', type: 'string', mapping: 'Descr'},
+            {name: 'text', type: 'string', mapping: 'Descr', allowNull: false}
         ],
         associations: [
             { 

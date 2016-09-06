@@ -36,7 +36,7 @@ Ext.define('Personify.controller.Profile', {
 	},
 
 	init : function() {
-		if (window.plugins.app47) {
+		if (navigator.onLine && window.plugins.app47) {
 			window.plugins.app47.sendGenericEvent('My Profile');
 		}
 		var me = this;
@@ -189,7 +189,7 @@ Ext.define('Personify.controller.Profile', {
 	},
 
 	onEditRecord : function() {
-		if (window.plugins.app47) {
+		if (navigator.onLine && window.plugins.app47) {
 			window.plugins.app47.sendGenericEvent('Profile Edit');
 		}
 	},

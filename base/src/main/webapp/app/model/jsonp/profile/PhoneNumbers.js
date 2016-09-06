@@ -10,9 +10,11 @@ Ext.define('Personify.model.jsonp.profile.PhoneNumbers', {
             {name: 'phoneNumbersId', type: 'string', mapping: 'Id', allowNull: false},
             {name: 'value', type: 'string', mapping: 'Value', allowNull: false},
             {name: 'type', type: 'string', mapping: 'Type', allowNull: false},
+            {name: 'typeDesc', type: 'string', mapping: 'TypeDesc', allowNull: false},
             {name: 'primary', type: 'boolean', mapping: 'Primary', allowNull: false},
             {name: 'markForDelete', type: 'boolean', mapping: 'MarkForDelete'},
             {name: 'country', type: 'string', mapping: 'Country', allowNull: false},
+            {name: 'countryDesc', type: 'string', mapping: 'CountryDesc', allowNull: false},
             {name: 'entityKey', type: 'string', mapping: 'EntityKey', allowNull: false}
         ],
 

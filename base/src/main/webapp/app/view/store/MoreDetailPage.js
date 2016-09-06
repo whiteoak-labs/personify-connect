@@ -35,7 +35,7 @@ Ext.define('Personify.view.store.MoreDetailPage', {
                         text: 'X',
                         listeners: {
                             tap: function() {
-                                this.parent.parent.destroy();
+                                this.parent.parent.hide();
                             }
                         }
                     }
@@ -105,11 +105,22 @@ Ext.define('Personify.view.store.MoreDetailPage', {
                 hidden: true
             },
             {
-                xtype: 'label',
-                itemId: 'descriptionMoredetailPage',
-                cls: 'description-moredetail-page'
-            },
-            {
+                xtype: 'panel',
+                layout: 'vbox',
+                scrollable:{
+                    direction: 'vertical',
+                    directionLock: true
+                    },
+                height: '10%',
+                items: [
+                            {
+                                xtype: 'label',
+                                itemId: 'descriptionMoredetailPage',
+                                cls: 'list-price-moredetail-page',
+                            }
+                ]
+           },
+           {
                 xtype: 'formpanel',
                 scrollable: null,
                 cls: 'quantity-panel-moredetail-page',

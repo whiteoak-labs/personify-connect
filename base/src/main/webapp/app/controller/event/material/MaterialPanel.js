@@ -1,17 +1,93 @@
 Ext.define('Personify.controller.event.material.MaterialPanel',{
     extend: 'Personify.base.Controller',
-
+    config: {
+        startIndex: 0,
+        totalMaterialResult: 0
+    },
     control: {
         listMaterial: {
-            itemtap: 'onTapListMaterial'
+           itemtap: 'onTapListMaterial',
+           scrollend: 'onNextButtonTap'
         }
     },
 
     init: function() {
-        var record = this.getView().getRecord();
-        this.setRecord(record);
+        //var record = this.getView().getRecord();
+        //this.setRecord(record);
+        var me = this;
+        me.showListMaterial();
     },
-
+    showListMaterial: function() {
+        var me = this;
+        Ext.callback(function() {
+            me.setStartIndex(0);
+            me.loadMaterialModel();
+        }, me, [], 1);
+    },
+    loadMaterialModel: function() {
+        var me = this,
+        materialListPanel = me.getListMaterial(),
+        record = me.getView().getRecord();
+        if(record)
+        {
+            var titleSession = null;
+            materialListPanel.setMasked({xtype:'loadmask'});
+            var task = new Ext.util.DelayedTask(function() {
+                var storeMaterial = record.MaterialStore;
+                                    
+                if (storeMaterial) {
+                    storeMaterial.clearFilter();
+                    me.setTotalMaterialResult(storeMaterial.getCount());
+                    var endIndex = me.getStartIndex() + Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageMaterialsList');
+                    var currentStore = materialListPanel.getStore();
+                    if (!currentStore) {
+                        var modelManger = Personify.utils.ServiceManager.getModelManager();
+                        currentStore = Ext.create('Ext.data.Store', {
+                            model: modelManger.getEventMaterialModel()
+                        });
+                    }
+                    currentStore.suspendEvents();
+                    titleSession = record.get('title');
+                    if(titleSession) {
+                                            
+                        for (var i = me.getStartIndex(); i < endIndex; i++) {
+                            if (storeMaterial.getAt(i) != null) {
+                                materialRecord = storeMaterial.getAt(i);
+                                materialRecord.set('titleParent', 'Session: ' + titleSession);
+                                currentStore.add(materialRecord);
+                            }
+                        }
+                    }
+                    else{
+                        titleSession = record.get('shortName');
+                        for (var i = me.getStartIndex(); i < endIndex; i++) {
+                            if (storeMaterial.getAt(i) != null) {
+                                materialRecord = storeMaterial.getAt(i);
+                                materialRecord.set('titleParent', 'Event: ' + titleSession);
+                                currentStore.add(materialRecord);
+                            }
+                        }
+                    }
+                                               
+                    currentStore.sync();
+                    currentStore.resumeEvents(true);
+                    me.getListMaterial().setStore(currentStore);
+                    me.getListMaterial().refresh();
+                                               
+                }
+                else{
+                    var modelManger = Personify.utils.ServiceManager.getModelManager();
+                    var currentStore = Ext.create('Ext.data.Store', {
+                        model: modelManger.getEventMaterialModel()
+                    });
+                    me.getListMaterial().setStore(currentStore);
+                    me.getListMaterial().refresh();
+                }
+                materialListPanel.setMasked(false);
+            }, me);
+            task.delay(500);
+        }
+    },
     setRecord: function(record) {
         if(record) {
             var storeMaterial = record.MaterialStore,
@@ -65,6 +141,19 @@ Ext.define('Personify.controller.event.material.MaterialPanel',{
             }
         } else {
             Ext.Msg.alert('File download', 'We don\'t have information about file location.', Ext.emptyFn);
+        }
+    },
+    onNextButtonTap: function (dataView, index, target, record, event, eOpts) {
+        var me = this;
+        var materialStore = me.getListMaterial().getStore();
+        var currentMaterialItem = 0;
+        if (materialStore) {
+           currentMaterialItem = materialStore.getCount();
+        }
+           
+        if (currentMaterialItem < me.getTotalMaterialResult()) {
+           me.setStartIndex(me.getStartIndex()+(Personify.utils.Configuration.getConfiguration().getAt(0).EventsStore.get('itemsPerPageMaterialsList')));
+           me.loadMaterialModel();
         }
     }
 });

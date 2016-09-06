@@ -1,5 +1,5 @@
 Ext.define('Personify.view.phone.material.MaterialListPhone', {
-    extend: 'Ext.dataview.DataView',
+    extend: 'Ext.dataview.List',
     xtype: 'materialListPhone',
     requires: 'Personify.view.phone.material.MaterialItemPhone',
 
@@ -7,7 +7,9 @@ Ext.define('Personify.view.phone.material.MaterialListPhone', {
         baseCls: 'p-phone-event-material',
         emptyText: '<div class = "p-emptyText-phone">There are no materials for this session/event</div>',
         deferEmptyText: false,
-        itemTpl: null
+        itemTpl: null,
+        scrollToTopOnRefresh:false,
+        itemCls: 'p-phone-event-material-item'
     },
 
     initialize: function() {

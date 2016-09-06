@@ -22,7 +22,8 @@ Ext.define('Personify.model.base.Session', {
             {name: 'entityKey', type: 'string'},
             {name: 'yourPrice', type: 'float'},
             {name: 'yourPriceRateStructure', type: 'string'},
-            {name: 'yourPriceRateCode', type: 'string'}
+            {name: 'yourPriceRateCode', type: 'string'},
+            {name: 'productID', type: 'string'}
         ]/*,
         associations: [
             { 

@@ -35,7 +35,7 @@ Ext.define('Personify.view.event.map.PinchZoomImage', {
                    left: 0,
                    width: 20,
                    height: 70,
-                   style: 'background-image: url("img/event/map/checkpoint.png"); background-repeat:no-repeat; background-size:100%;background-position: center center;'
+                   style: 'background-image: url("resources/images/event/map/checkpoint.png"); background-repeat:no-repeat; background-size:100%;background-position: center center;'
                }
            ],
         listeners: {

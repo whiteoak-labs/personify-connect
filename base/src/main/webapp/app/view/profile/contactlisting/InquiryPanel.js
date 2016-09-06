@@ -43,7 +43,7 @@ Ext.define('Personify.view.profile.contactlisting.InquiryPanel', {
                         text: 'X',
                         listeners: {
                             tap: function() {
-                                this.parent.parent.destroy();
+                                this.parent.parent.hide();
                             }
                         }
                     }

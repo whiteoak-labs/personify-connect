@@ -120,7 +120,7 @@ Ext.define('Personify.controller.tablet.schedule.Schedule', {
     },
 
     onGetData: function() {
-        if (window.plugins.app47) {
+        if (navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Agenda List');
         }
 
@@ -150,7 +150,7 @@ Ext.define('Personify.controller.tablet.schedule.Schedule', {
                         me.updateRecordForSelectItems(store, storeManager);
                     }
                 } else {
-                    Personify.utils.ItemUtil.cantLoadEvent();
+                    Personify.utils.ItemUtil.cantLoadEvent(operation,"Error fetching records.");
                 }
 
                 buttonSelectScheduleItem.setMasked(false);
@@ -271,7 +271,7 @@ Ext.define('Personify.controller.tablet.schedule.Schedule', {
     },
 
     onTapSearchButton: function(value) {
-        if (window.plugins.app47) {
+        if (navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Event Search');
         }
         this.setValueSearch(null);
@@ -326,7 +326,7 @@ Ext.define('Personify.controller.tablet.schedule.Schedule', {
     onButtonPersonalTap: function() {
         var me = this;
 
-        if(window.plugins.app47) {
+        if(navigator.onLine && window.plugins.app47) {
             window.plugins.app47.sendGenericEvent('Event Add To Calendar');
         }
 

@@ -10,7 +10,7 @@ Ext.define('Personify.view.store.CartPanelTemplate', {
         itemTpl: new Ext.XTemplate(
             '<table width="100%" class="tableCartItem">',
                 '<tr>',
-                    '<td width="65px" class="thumb-cart-item"><img src="img/store/image_cart.png"/></td>',
+                    '<td width="65px" class="thumb-cart-item"><img src="resources/images/store/image_cart.png"/></td>',
                     '<td colspan="2" class="cart-item-name">{shortName}</td>',
                 '</tr>',
                 '<tr>',
