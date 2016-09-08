@@ -40,6 +40,13 @@
     			</feature>
         </config-file>
 
+        <config-file target="AndroidManifest.xml" parent="/manifest" mode="merge">
+          <uses-permission android:name="android.permission.CALL_PHONE" />
+          <uses-permission android:name="android.permission.SEND_SMS" />
+          <uses-permission android:name="android.permission.RECEIVE_SMS" />
+          <uses-feature android:name="android.hardware.telephony" android:required="false" />
+        </config-file>
+
 		    <source-file src="src/android/PhoneDialer.java" target-dir="src/net/dynagility/personify/plugin" />
     </platform>
 </plugin>

@@ -1,39 +1,47 @@
-cordova.define("net.dynagility.personify.calendar", function(require, exports, module) { //
-// Cordova Calendar Plugin
-// Author: Felix Montanez 
-// Created: 01-17-2012
-//
-// Contributors:
-// Michael Brooks
+var exec = require("cordova/exec");
 
-
-function calendarPlugin()
-{
-}
-
-
+calendarPlugin = function () {};
 
 calendarPlugin.prototype.createEvent = function(event, success, error) {
-    cordova.exec(success, error,"calendarPlugin","createEvent", [event]);
+  var timeZone = true;
+  var data = {};
+    if (event.startDate.toUpperCase().indexOf('Z') > 0 || event.endDate.toUpperCase().indexOf('Z') > 0) {
+        var temp = new Date(event.startDate);
+        var startDate = temp.getTime();
+        temp = new Date(event.endDate);
+        var endDate = temp.getTime();
+
+        data.title = event.title;
+        data.body = event.body;
+        data.location = event.location;
+        data.startDate = startDate;
+        data.endDate = endDate;
+    } else {
+        timeZone = false;
+        data = event;
+    }
+
+  exec(successCallback, errorCallback, 'CalendarPlugin', 'addToCalendar', [data, {"timeZone":timeZone}]);
 };
 
 calendarPlugin.prototype.getCalendarList = function(response, err) {
-    cordova.exec(response, err, "calendarPlugin", "getCalendarList",[]);
+    exec(response, err, "calendarPlugin", "getCalendarList",[]);
 };
 
-// More methods will need to be added like fetch events, delete event, edit event
-
-calendarPlugin.install = function()
-{
-    if(!window.plugins)
-    {
-        window.plugins = {};
-    }
-    
-    window.plugins.calendarPlugin = new calendarPlugin();
-    return window.plugins.calendarPlugin;
+calendarPlugin.prototype.deleteEvent = function(title, location, notes,
+		startDate, endDate, deleteAll, successCallback, errorCallback) {
+	throw "NotImplemented";
 };
 
-cordova.addConstructor(calendarPlugin.install);
+calendarPlugin.prototype.findEvent = function(title, location, notes,
+		startDate, endDate, successCallback, errorCallback) {
+	throw "NotImplemented";
+};
 
-});
+calendarPlugin.prototype.modifyEvent = function(title, location, notes,
+		startDate, endDate, newTitle, newLocation, newNotes, newStartDate,
+		newEndDate, successCallback, errorCallback) {
+	throw "NotImplemented";
+};
+
+module.exports = new calendarPlugin();

@@ -1,30 +1,13 @@
-cordova.define("net.dynagility.personify.social", function(require, exports, module) { //
-//  social.js
-//
-//  Cameron Lerch
-//  Sponsored by Brightflock: http://brightflock.com
-//
+var exec = require("cordova/exec");
 
-function Social() {
-};
+Social = function () {};
 
 Social.prototype.available = function(callback) {
-    cordova.exec(callback, null, "Social", "available", []);
-};
+  exec(callback, null, "Social", "available", []);
+}
 
 Social.prototype.share = function(message, url, image) {
-    cordova.exec(null, null, "Social", "share", [message, image, url]);
-};
-    
-Social.install = function() {
-    if (!window.plugins) {
-        window.plugins = {};	
-    }
-
-    window.plugins.social = new Social();
-    return window.plugins.social;
+  exec(null, null, "Social", "share", [message, image, url]);
 };
 
-cordova.addConstructor(Social.install);
-
-});
+module.exports = new Social();

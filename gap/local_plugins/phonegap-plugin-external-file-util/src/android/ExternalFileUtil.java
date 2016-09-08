@@ -2,8 +2,6 @@ package net.dynagility.personify.plugin;
 
 import java.io.File;
 
-import net.dynagility.personify.ApplicationCtx;
-
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
@@ -11,6 +9,7 @@ import org.apache.cordova.PluginResult.Status;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -22,8 +21,9 @@ public class ExternalFileUtil extends CordovaPlugin {
 	PluginResult result = new PluginResult(Status.OK);
 
 	public boolean execute(String action, JSONArray data, CallbackContext callbackContext) {
+		Activity activity = this.cordova.getActivity();
 		Log.d("ExternalFileUtil", "openWith " + data);
-		
+
 		if (action.equals(ACTION_OPEN_WITH)) {
 			try {
 				String path = data.getString(0);
@@ -36,11 +36,11 @@ public class ExternalFileUtil extends CordovaPlugin {
 					String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
 					intent.setDataAndType(Uri.fromFile(file), mimeType);
 					intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-					ApplicationCtx.context.startActivity(intent);
+					activity.startActivity(intent);
 				}else{
 					result = new PluginResult(Status.ERROR, "File is not found");
 				}
-				
+
 			} catch (JSONException ex) {
 				result = new PluginResult(Status.ERROR, ex.getMessage());
 			}
