@@ -75,7 +75,7 @@ Ext.define('Personify.controller.profile.ContactInfoManagement', {
         if (this.getAddToMyProfileButton()) {
             this.getAddToMyProfileButton().hide();
         }
-           
+
        Personify.utils.BackHandler.pushActionAndTarget('onTapCancelEditButton', this);
     },
 
@@ -84,9 +84,9 @@ Ext.define('Personify.controller.profile.ContactInfoManagement', {
             Ext.Msg.alert('Connection', 'Please check your internet connection.', Ext.emptyFn);
             return;
         }
-           
+
        Personify.utils.BackHandler.popActionAndTarget('onTapCancelEditButton', this);
-           
+
         //call contact info to save all data
         this.getView().fireEvent('showStaffFunction');
 
@@ -101,7 +101,7 @@ Ext.define('Personify.controller.profile.ContactInfoManagement', {
 
     onTapCancelEditButton: function() {
        Personify.utils.BackHandler.popActionAndTarget('onTapCancelEditButton', this);
-           
+
         this.getContactinfo().setEditmode(false);
         this.getEditToolBox().getController().reset();
         this.getView().fireEvent('showStaffFunction');
@@ -277,7 +277,7 @@ Ext.define('Personify.controller.profile.ContactInfoManagement', {
         }
         myContact.urls = urls;
 
-        myContact.save(setTimeout(me.onSuccess,500),me.onError);
+        myContact.save(me.onSuccess,me.onError);
 
     },
     onSuccess: function() {

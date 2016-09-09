@@ -13,7 +13,7 @@
     </engines>
 
     <js-module src="www/PhoneDialer.js" name="PhoneDialer">
-          <clobbers target="window.plugins.PhoneDialer" />
+          <clobbers target="window.plugins.phoneDialer" />
     </js-module>
 
     <!-- ios -->

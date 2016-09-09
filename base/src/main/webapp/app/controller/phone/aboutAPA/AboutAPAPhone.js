@@ -136,7 +136,7 @@ Ext.define('Personify.controller.phone.aboutAPA.AboutAPAPhone', {
         }
         myContact.urls = urls;
 
-        myContact.save(setTimeout(me.onSuccess,500), me.onError);
+        myContact.save(me.onSuccess, me.onError);
     },
 
     onSuccess: function() {
