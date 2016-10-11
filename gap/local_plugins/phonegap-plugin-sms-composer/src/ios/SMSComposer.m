@@ -11,7 +11,7 @@
 
 - (CDVPlugin *)initWithWebView:(UIWebView *)theWebView
 {
-	self = (SMSComposer *)[super initWithWebView:theWebView];
+    self = [self init];
 	return self;
 }
 
@@ -24,14 +24,12 @@
 			UIAlertView *alert = [[UIAlertView alloc]	initWithTitle	:@"SMS Composer" message:@"Your device doesn't support this feature."
 														delegate		:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 			[alert show];
-			[alert release];
 			return;
 		}
 	} else {
 		UIAlertView *alert = [[UIAlertView alloc]	initWithTitle	:@"SMS Composer" message:@"Your device doesn't support this feature."
 													delegate		:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
-		[alert release];
 		return;
 	}
 
@@ -51,7 +49,6 @@
 	}
 
 	[self.viewController presentViewController:picker animated:YES completion:nil];
-	[picker release];
 }
 
 // Dismisses the composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
@@ -81,8 +78,6 @@
 	[self.viewController dismissViewControllerAnimated:YES completion:nil];
 
 	NSString *jsString = [[NSString alloc] initWithFormat:@"window.plugins.smsComposer._didFinishWithResult(%d);", webviewResult];
-	[self writeJavascript:jsString];
-	[jsString release];
 }
 
 @end

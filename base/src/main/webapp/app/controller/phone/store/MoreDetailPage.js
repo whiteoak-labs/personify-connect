@@ -364,23 +364,23 @@ Ext.define('Personify.controller.phone.store.MoreDetailPage', {
 
         me.getQuantityMoredetailPage().blur();
 
-        if (window.plugins.social && window.plugins.social['available']) {
-            window.plugins.social.available(function(result) {
-                if (result == 1) {
-                    var body = '';
-                    if (me.getView().getRecord()) {
-                        var data = me.getView().getRecord();
-                        var title = data.get('name');
-                        var description = data.get('descr');
-                        var price = data.get('price');
-                        var memberPrice = data.get('memberPrice');
-                        body = "Title: " + title + "\n" + "Desctiption: " + description + "\n" + "Price: $" + price + "\n" + "Member Price: $" + memberPrice;
-                    }
-                    window.plugins.social.share(body, '', '');
-                } else {
-                    Ext.Msg.alert('', 'Social network plugins is not supported.', Ext.emptyFn);
-                }
-            });
+        if (window.plugins.socialsharing && window.plugins.socialsharing['shareWithOptions']) {
+            var body = '';
+            
+            if (me.getView().getRecord()) {
+            	var data = me.getView().getRecord();
+            	var title = data.get('name');
+            	var description = data.get('descr');
+            	var price = data.get('price');
+            	var memberPrice = data.get('memberPrice');
+            	body = "Title: " + title + "\n" + "Desctiption: " + description + "\n" + "Price: $" + price + "\n" + "Member Price: $" + memberPrice;
+            }
+            
+            var opts = {
+            	message: body
+            };
+            
+            window.plugins.socialsharing.shareWithOptions(opts, Ext.emptyFn, Ext.emptyFn);            
         }
     },
 

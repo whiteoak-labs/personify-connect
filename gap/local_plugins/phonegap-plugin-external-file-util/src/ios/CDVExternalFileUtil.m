@@ -25,22 +25,15 @@
 {
     NSString* callbackID = command.callbackId;
     NSArray *arguments = command.arguments;
-    NSDictionary *options = [arguments objectAtIndex:0];
     CDVPluginResult* pluginResult;
     //NSString* callbackID = [arguments pop];
-    [callbackID retain];
-    
     NSString *path = [arguments objectAtIndex:0];
-    [path retain];
-    
     NSString *uti = [arguments objectAtIndex:1];
-    [uti retain];    
     
     // Get file again from Documents directory
     NSURL *fileURL = [NSURL fileURLWithPath:path];
     
     UIDocumentInteractionController *controller = [UIDocumentInteractionController  interactionControllerWithURL:fileURL];
-    [controller retain];
     controller.delegate = self;
     controller.UTI = uti;
     
@@ -59,11 +52,7 @@
     }
 
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: @""];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:callbackID]];
-    
-    [callbackID release];
-    [path release];
-    [uti release];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)controller {
@@ -95,8 +84,6 @@
         BOOL success = [fileManager removeItemAtPath:localFile error:&error];
         if (!success) NSLog(@"Error: %@", [error localizedDescription]);
     }
-    [localFile release];
-    [controller release];
 }
 
 @end

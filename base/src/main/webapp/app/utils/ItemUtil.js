@@ -894,25 +894,26 @@ Ext.define('Personify.utils.ItemUtil', {
         },
 
         onShareEvent: function(data) {
-            if (window.plugins.social && window.plugins.social['available']) {
-                window.plugins.social.available(function(result) {
-                    if (result == 1) {
-                        var body = '';
-                        var title = '';
-                        if (data) {
-                            title = data.get('shortName');
-                            var date = Personify.utils.ItemUtil.formatJSONDate(Personify.utils.ItemUtil.convertStringToDate(data.get('startDateTimeString')));
-                            var startTime = Personify.utils.ItemUtil.formatJSONDate(Personify.utils.ItemUtil.convertStringToDate(data.get('startDateTimeString')), "g:i a");
-                            var endTime = Personify.utils.ItemUtil.formatJSONDate(Personify.utils.ItemUtil.convertStringToDate(data.get('endDateTimeString')), "g:i a");
-                            var time = startTime + " - " + endTime;
-                            var location = data.get('locationFullAddress').replace('\r\n', ' ');
-                            body = "Title: " + title + "\n" + "Date: " + date + "\n" + "Time: " + time + "\n" + "Location: " + location;
-                        }
-                        window.plugins.social.share(body, '', '');
-                    } else {
-                        Ext.Msg.alert('', 'Social network plugins is not supported.', Ext.emptyFn);
-                    }
-                });
+            if (window.plugins.socialsharing && window.plugins.socialsharing['shareWithOptions']) {
+                var body = '';
+                var title = '';
+                
+                if (data) {
+                	title = data.get('shortName');
+                	var date = Personify.utils.ItemUtil.formatJSONDate(Personify.utils.ItemUtil.convertStringToDate(data.get('startDateTimeString')));
+                	var startTime = Personify.utils.ItemUtil.formatJSONDate(Personify.utils.ItemUtil.convertStringToDate(data.get('startDateTimeString')), "g:i a");
+                	var endTime = Personify.utils.ItemUtil.formatJSONDate(Personify.utils.ItemUtil.convertStringToDate(data.get('endDateTimeString')), "g:i a");
+                	var time = startTime + " - " + endTime;
+                	var location = data.get('locationFullAddress').replace('\r\n', ' ');
+                	body = "Title: " + title + "\n" + "Date: " + date + "\n" + "Time: " + time + "\n" + "Location: " + location;
+                }
+                
+                var opts = {
+                	message: body,
+                	subject: title
+                };
+                
+                window.plugins.socialsharing.shareWithOptions(opts, Ext.emptyFn, Ext.emptyFn);                
             }
         },
         getDesc: function(listType, Typecode){
@@ -932,29 +933,30 @@ Ext.define('Personify.utils.ItemUtil', {
             return Typecode;
         },
         onShareSessionDetail: function(data) {
-            if (window.plugins.social && window.plugins.social['available']) {
-                window.plugins.social.available(function(result) {
-                    if (result == 1) {
-                        var body = '';
-                        var title = '';
-                        if (data) {
-                            title = data.get('title');
-                            var startDate = new Date(data.get('startDateTimeString'));
-                            var endDate = new Date(data.get('endDateTimeString'));
-                            var location = data.get('locationDescription');
-                            var time = Personify.utils.ItemUtil.formatJSONDate(data.get('startDateTimeString'), "g:i a") + " - " + Personify.utils.ItemUtil.formatJSONDate(data.get('endDateTimeString'), "g:i a");
-                            var date = Personify.utils.ItemUtil.formatJSONDate(startDate) + " - " + Personify.utils.ItemUtil.formatJSONDate(endDate);
-                            body = "Title: " + title + "\n" + "Date: " + date + "\n" + "Time: " + time + "\n";
+            if (window.plugins.socialsharing && window.plugins.socialsharing['shareWithOptions']) {
+                var body = '';
+                var title = '';
+                
+                if (data) {
+                	title = data.get('title');
+                	var startDate = new Date(data.get('startDateTimeString'));
+                	var endDate = new Date(data.get('endDateTimeString'));
+                	var location = data.get('locationDescription');
+                	var time = Personify.utils.ItemUtil.formatJSONDate(data.get('startDateTimeString'), "g:i a") + " - " + Personify.utils.ItemUtil.formatJSONDate(data.get('endDateTimeString'), "g:i a");
+                	var date = Personify.utils.ItemUtil.formatJSONDate(startDate) + " - " + Personify.utils.ItemUtil.formatJSONDate(endDate);
+                	body = "Title: " + title + "\n" + "Date: " + date + "\n" + "Time: " + time + "\n";
 
-                            if (location && location != "") {
-                                body += "Location: " + location;
-                            }
-                        }
-                        window.plugins.social.share(body, '', '');
-                    } else {
-                        Ext.Msg.alert('', 'Social network plugins is not supported.', Ext.emptyFn);
-                    }
-                });
+                	if (location && location != "") {
+                		body += "Location: " + location;
+                	}
+                }
+                
+                var opts = {
+                	message: body,
+                	subject: title
+                };
+                
+                window.plugins.socialsharing.shareWithOptions(opts, Ext.emptyFn, Ext.emptyFn);                
             }
         }
     }

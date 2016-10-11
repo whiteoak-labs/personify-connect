@@ -94,23 +94,22 @@ Ext.define('Personify.controller.phone.note.NoteListPanel', {
 
     onTapShareAllNote: function() {
         var me = this;
-        if (window.plugins.social && window.plugins.social['available']) {
-            window.plugins.social.available(function(result) {
-                if (result == 1) {
-                    var noteListStore = me.getNoteList().getStore();
-                    var content = "";
-                    for (var i = 0; i < noteListStore.getAllCount(); i++) {
-                        var record = noteListStore.getAt(i);
-                        var title = record.get('title');
-                        var description = record.get('description');
-                        content += "Title: " + title + "\n" + "Note: " + description + "\n\n";
-                    }
-                    window.plugins.social.share(content, '', '');
-                } else {
-                    target.addCls('x-item-pressed');
-                    Ext.Msg.alert('', 'Social network plugins is not supported.', Ext.emptyFn);
-                }
-            });
+        if (window.plugins.socialsharing && window.plugins.socialsharing['shareWithOptions']) {
+	        var noteListStore = me.getNoteList().getStore();
+	        var content = "";
+	            
+	        for (var i = 0; i < noteListStore.getAllCount(); i++) {
+	        	var record = noteListStore.getAt(i);
+	        	var title = record.get('title');
+	        	var description = record.get('description');
+	        	content += "Title: " + title + "\n" + "Note: " + description + "\n\n";
+	        }
+	        
+	        var opts = {
+	        	message: content	
+	        };
+	            
+	        window.plugins.socialsharing.shareWithOptions(opts, Ext.emptyFn, Ext.emptyFn);                
         }
     },
 

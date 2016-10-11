@@ -43,17 +43,16 @@ Ext.define('Personify.controller.phone.note.ViewNote', {
     onShareCurrentNote: function() {
         if (Personify.utils.Configuration.getAllowChangeView()) {
             var me = this;
-            if (window.plugins.social && window.plugins.social['available']) {
-                window.plugins.social.available(function(result) {
-                    if (result == 1) {
-                        var title = me.getInputTitleNote().getValue() || '';
-                        var description = me.getInputDescriptionNote().getValue() || '';
-                        var content = "Title: " + title + "\n" + "Note: " + description + "\n";
-                        window.plugins.social.share(content, '', '');
-                    } else {
-                        Ext.Msg.alert('', 'Social network plugins is not supported.', Ext.emptyFn);
-                    }
-                });
+            if (window.plugins.socialsharing && window.plugins.socialsharing['shareWithOptions']) {
+                var title = me.getInputTitleNote().getValue() || '';
+                var description = me.getInputDescriptionNote().getValue() || '';
+                var content = "Title: " + title + "\n" + "Note: " + description + "\n";
+                var opts = {
+                	subject: title,
+                	message: content
+                };
+                
+                window.plugins.socialsharing.shareWithOptions(opts, Ext.emptyFn, Ext.emptyFn);                
             }
         } else {
             Ext.Msg.alert('', 'Please enter the note title.', Ext.emptyFn);

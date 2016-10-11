@@ -33,21 +33,22 @@ Ext.define('Personify.controller.phone.news.DetailPanel', {
     
     onTapShareNewsButton: function() {
         var me = this;
-        if (window.plugins.social && window.plugins.social['available']) {
-            window.plugins.social.available(function(result) {
-                if (result == 1) {
-                    var body = '';
-                    var url = '';
-                    var data = me.getRecord();
-                    if (data) {
-                        body = data.get('title') + " " + data.get('description');
-                        url = data.get('link');
-                    }
-                    window.plugins.social.share(body, url, '');
-                } else {
-                    Ext.Msg.alert('', 'Social network plugins is not supported.', Ext.emptyFn);
-                }
-            });
+        if (window.plugins.socialsharing && window.plugins.socialsharing['shareWithOptions']) {
+        	var body = '';
+        	var url = '';
+        	var data = me.getRecord();
+                
+        	if (data) {
+        		body = data.get('title') + " " + data.get('description');
+        		url = data.get('link');
+        	}
+                
+        	var opts = {
+        		message: body,
+               	url: url
+        	};
+                
+        	window.plugins.socialsharing.shareWithOptions(opts, Ext.emptyFn, Ext.emptyFn);               
         }
     }
 });

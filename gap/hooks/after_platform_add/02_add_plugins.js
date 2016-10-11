@@ -12,10 +12,10 @@ if(fs.existsSync(projectDir)){
 		    platforms: {
 		    	ios: [
 			    'https://github.com/EddyVerbruggen/LaunchMyApp-PhoneGap-Plugin.git --variable URL_SCHEME=personify',
-					'https://github.com/apache/cordova-plugin-battery-status.git',
+				'https://github.com/apache/cordova-plugin-battery-status.git',
 			    'https://github.com/apache/cordova-plugin-camera.git',
 			    'https://github.com/apache/cordova-plugin-console.git',
-					'https://github.com/apache/cordova-plugin-contacts.git',
+				'https://github.com/apache/cordova-plugin-contacts.git',
 				'https://github.com/apache/cordova-plugin-device.git',
 				'https://github.com/apache/cordova-plugin-device-motion.git',
 				'https://github.com/apache/cordova-plugin-device-orientation.git',
@@ -23,7 +23,7 @@ if(fs.existsSync(projectDir)){
 			    'https://github.com/apache/cordova-plugin-file.git',
 		        'https://github.com/apache/cordova-plugin-file-transfer.git',
 			    'https://github.com/apache/cordova-plugin-geolocation.git',
-					'https://github.com/apache/cordova-plugin-globalization.git',
+				'https://github.com/apache/cordova-plugin-globalization.git',
 			    'https://github.com/apache/cordova-plugin-inappbrowser.git',
 			    'https://github.com/apache/cordova-plugin-media.git',
 			    'https://github.com/apache/cordova-plugin-media-capture.git',
@@ -31,33 +31,33 @@ if(fs.existsSync(projectDir)){
 			    'https://github.com/apache/cordova-plugin-splashscreen.git',
 			    'https://github.com/apache/cordova-plugin-statusbar.git',
 			    'https://github.com/apache/cordova-plugin-vibration.git',
-			    'https://github.com/litehelpers/Cordova-sqlite-storage.git'
-//			    ,'https://github.com/urbanairship/phonegap-ua-push.git'
+			    'https://github.com/litehelpers/Cordova-sqlite-storage.git',
+			    'https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin'
 			],
 			android: [
 				'https://github.com/phonegap/phonegap-plugin-barcodescanner.git',
 				'https://github.com/apache/cordova-plugin-battery-status.git',
-			  'https://github.com/apache/cordova-plugin-camera.git',
-			  'https://github.com/apache/cordova-plugin-console.git',
+			    'https://github.com/apache/cordova-plugin-camera.git',
+			    'https://github.com/apache/cordova-plugin-console.git',
 				'https://github.com/apache/cordova-plugin-contacts.git',
 				'https://github.com/apache/cordova-plugin-device.git',
 				'https://github.com/apache/cordova-plugin-device-motion.git',
 				'https://github.com/apache/cordova-plugin-device-orientation.git',
 				'https://github.com/apache/cordova-plugin-dialogs.git',
-			  'https://github.com/apache/cordova-plugin-file.git',
-		    'https://github.com/apache/cordova-plugin-file-transfer.git',
-			  'https://github.com/apache/cordova-plugin-geolocation.git',
+			    'https://github.com/apache/cordova-plugin-file.git',
+		        'https://github.com/apache/cordova-plugin-file-transfer.git',
+			    'https://github.com/apache/cordova-plugin-geolocation.git',
 				'https://github.com/apache/cordova-plugin-globalization.git',
-			  'https://github.com/apache/cordova-plugin-inappbrowser.git',
-			  'https://github.com/apache/cordova-plugin-media.git',
-			  'https://github.com/apache/cordova-plugin-media-capture.git',
-		    'https://github.com/apache/cordova-plugin-network-information.git',
-			  'https://github.com/apache/cordova-plugin-splashscreen.git',
-			  'https://github.com/apache/cordova-plugin-statusbar.git',
-			  'https://github.com/apache/cordova-plugin-vibration.git',
-			  'https://github.com/apache/cordova-plugin-legacy-whitelist.git',
-			  'https://github.com/litehelpers/Cordova-sqlite-storage.git'
-//			    ,'https://github.com/urbanairship/phonegap-ua-push.git'
+			    'https://github.com/apache/cordova-plugin-inappbrowser.git',
+			    'https://github.com/apache/cordova-plugin-media.git',
+			    'https://github.com/apache/cordova-plugin-media-capture.git',
+		        'https://github.com/apache/cordova-plugin-network-information.git',
+			    'https://github.com/apache/cordova-plugin-splashscreen.git',
+			    'https://github.com/apache/cordova-plugin-statusbar.git',
+			    'https://github.com/apache/cordova-plugin-vibration.git',
+			    'https://github.com/apache/cordova-plugin-legacy-whitelist.git',
+			    'https://github.com/litehelpers/Cordova-sqlite-storage.git',
+			    'https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin'
 		        ]
 		    }
 		},
@@ -67,22 +67,20 @@ if(fs.existsSync(projectDir)){
 		    	   'phonegap-plugin-app47 --variable PROJECT_NAME=PersonifyConnect',
 		    	   'phonegap-plugin-app-preferences',
 		    	   'phonegap-plugin-calendar',
-		    	   'phonegap-plugin-social',
-						 'phonegap-plugin-email-composer',
-						 'phonegap-plugin-external-file-util',
-						 'phonegap-plugin-phone-dialer',
-						 'phonegap-plugin-sms-composer'
+				   'phonegap-plugin-email-composer',
+				   'phonegap-plugin-external-file-util',
+			 	   'phonegap-plugin-phone-dialer',
+				   'phonegap-plugin-sms-composer'
 		    	],
 			android: [
 			      'phonegap-plugin-app47',
 			      'phonegap-plugin-app-preferences',
 			      'phonegap-plugin-android-helper',
 			      'phonegap-plugin-calendar',
-			      'phonegap-plugin-social',
-						'phonegap-plugin-email-composer',
-				 		'phonegap-plugin-external-file-util',
-						'phonegap-plugin-phone-dialer',
-						'phonegap-plugin-sms-composer'
+				  'phonegap-plugin-email-composer',
+				  'phonegap-plugin-external-file-util',
+				  'phonegap-plugin-phone-dialer',
+				  'phonegap-plugin-sms-composer'
 			]
 		   }
 	    };

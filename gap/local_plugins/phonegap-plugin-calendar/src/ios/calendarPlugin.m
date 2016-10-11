@@ -19,16 +19,6 @@
 @synthesize eventStore;
 @synthesize defaultCalendar;
 
-
-- (CDVPlugin*) initWithWebView:(UIWebView*)theWebView
-{
-    self = (calendarPlugin*)[super initWithWebView:theWebView];
-    if (self) {
-		//[self setup];
-    }
-    return self;
-}
-
 -(void)createEvent:(CDVInvokedUrlCommand*)command
 {
     //NSArray *arguments = command.arguments;
@@ -36,7 +26,6 @@
 	if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] == NSOrderedAscending) {
         EKEventStore *store = [[EKEventStore alloc] init];
         [self createEventInStore:store command:command];
-		[store release];
 	} else {
         if ([EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent] == EKAuthorizationStatusNotDetermined) {
             EKEventStore *store = [[EKEventStore alloc] init];
@@ -47,13 +36,10 @@
                 } else {
                     [self createEventInStore:nil command:command];
                 }
-                
-                [store release];
             }];
         } else if ([EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent] == EKAuthorizationStatusAuthorized) {
             EKEventStore *store = [[EKEventStore alloc] init];
             [self createEventInStore:store command:command];
-            [store release];
         } else {
             [self createEventInStore:nil command:command];        }
 	}
@@ -69,8 +55,7 @@
 
 	if (!store) {
 		result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ILLEGAL_ACCESS_EXCEPTION];
-        jsString = [result toErrorCallbackString:callbackID];
-        [self performSelectorOnMainThread:@selector(writeJavascript:) withObject:jsString waitUntilDone:NO];
+        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         return;
 	}
 	
@@ -105,9 +90,9 @@
     }
     
     //creating the dateformatter object
-    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
-    NSDateFormatter *dateFormatterWithTimeZone = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter *dateFormatterWithTimeZone = [[NSDateFormatter alloc] init];
     [dateFormatterWithTimeZone setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
     
     NSDate *myStartDate = [dateFormatterWithTimeZone dateFromString:startDate];
@@ -145,8 +130,7 @@
 		result = [CDVPluginResult resultWithStatus:CDVCommandStatus_IO_EXCEPTION];
 	}
 	
-	jsString = [result toSuccessCallbackString:callbackID];
-	[self performSelectorOnMainThread:@selector(writeJavascript:) withObject:jsString waitUntilDone:NO];
+	[self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
 /***** NOT YET IMPLEMENTED BELOW ************/
@@ -195,21 +179,20 @@
    // NSString *callback = [arguments objectAtIndex:0];
     EKEventStore* store = [[EKEventStore alloc] init];
     NSString* js = nil;
+    CDVPluginResult* pluginResult;
     
     NSArray *calendars = [store calendarsForEntityType:EKEntityTypeEvent];
 	
     if (store != nil && calendars.count > 0) {
         NSMutableArray *titles = [[calendars valueForKey:@"title"] mutableCopy];
-        CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:titles];
-        js = [result toSuccessCallbackString:callbackID];
-		[titles release];
-    } else {
-        CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"no calendars found"];
-        js = [result toErrorCallbackString:callbackID];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:titles];
+        
+    }
+    else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"no calendars found"];
     }
 	
-	[self performSelectorOnMainThread:@selector(writeJavascript:) withObject:js waitUntilDone:NO];
-	[store release];
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
  
  
@@ -227,6 +210,5 @@
 //delegate method for EKEventEditViewDelegate
 -(void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action {
     [(UIViewController*)self dismissViewControllerAnimated:YES completion:nil];
-    [self release];
 }
 @end

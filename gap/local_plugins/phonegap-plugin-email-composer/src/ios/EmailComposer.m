@@ -129,7 +129,6 @@
     } else {
         [self returnWithCode:RETURN_CODE_EMAIL_NOTSENT];
     }
-    [mailComposer release];
 }
 
 
@@ -163,7 +162,7 @@
 
 // Call the callback with the specified code
 -(void) returnWithCode:(int)code {
-    [self writeJavascript:[NSString stringWithFormat:@"window.plugins.emailComposer._didFinishWithResult(%d);", code]];
+    [self.webViewEngine evaluateJavaScript:[NSString stringWithFormat:@"window.plugins.emailComposer._didFinishWithResult(%d);", code] completionHandler:nil];
 }
 
 // Retrieve the mime type from the file extension
@@ -172,11 +171,11 @@
         return nil;
     CFStringRef pathExtension, type;
     // Get the UTI from the file's extension
-    pathExtension = (CFStringRef)extension;
+    pathExtension = (CFStringRef)CFBridgingRetain(extension);
     type = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension, NULL);
     
     // Converting UTI to a mime type
-    return (NSString *)UTTypeCopyPreferredTagWithClass(type, kUTTagClassMIMEType);
+    return (NSString *)CFBridgingRelease(UTTypeCopyPreferredTagWithClass(type, kUTTagClassMIMEType));
 }
 
 @end

@@ -31,7 +31,6 @@
         NSLog(@"openURL failed, %@, %@", [[UIDevice currentDevice] model], url);
         UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Phone" message:@"Your device doesn't support this feature." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [Notpermitted show];
-        [Notpermitted release];
     }
 }
 
