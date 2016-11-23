@@ -21,11 +21,11 @@ calendarPlugin.prototype.createEvent = function(event, success, error) {
         data = event;
     }
 
-  exec(successCallback, errorCallback, 'CalendarPlugin', 'addToCalendar', [data, {"timeZone":timeZone}]);
+  exec(success, error, 'CalendarPlugin', 'addToCalendar', [data, {"timeZone":timeZone}]);
 };
 
 calendarPlugin.prototype.getCalendarList = function(response, err) {
-    exec(response, err, "calendarPlugin", "getCalendarList",[]);
+    exec(response, err, "CalendarPlugin", "getCalendarList",[]);
 };
 
 calendarPlugin.prototype.deleteEvent = function(title, location, notes,

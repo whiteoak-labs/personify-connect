@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "name": "phonegap-plugin-calendar",
-    "cordova_name": "Calendar",
+    "cordova_name": "CalendarPlugin",
     "description": "Phonegap plugin allowing access to device calendar.",
     "license": "MIT",
     "platforms": [
