@@ -37,7 +37,7 @@
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:(NSString *)returnVar];
     }
     @catch (NSException * e) {
-        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_NO_RESULT messageAsString:[e reason]];
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[e reason]];
     }
     @finally {
         [self.commandDelegate sendPluginResult:result callbackId:callbackID];
@@ -61,7 +61,7 @@
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     }
     @catch (NSException * e) {
-        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_NO_RESULT messageAsString:[e reason]];
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[e reason]];
     }
     @finally {
         [self.commandDelegate sendPluginResult:result callbackId:callbackID];
@@ -93,7 +93,7 @@
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:returnVar];
     }
     @catch (NSException * e) {
-        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_NO_RESULT messageAsString:[e reason]];
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[e reason]];
     }
     @finally {
         [self.commandDelegate sendPluginResult:result callbackId:callbackID];
@@ -116,7 +116,7 @@
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     }
     @catch (NSException * e) {
-        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_NO_RESULT messageAsString:[e reason]];
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[e reason]];
     }
     @finally {
         [self.commandDelegate sendPluginResult:result callbackId:callbackID];

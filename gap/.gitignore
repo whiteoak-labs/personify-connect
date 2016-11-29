@@ -6,9 +6,12 @@
 .project
 .settings/
 
-# Phonegap
+# Project
+node_modules/
 platforms/
 plugins/
+www/
+
 
 # Build
 target/
