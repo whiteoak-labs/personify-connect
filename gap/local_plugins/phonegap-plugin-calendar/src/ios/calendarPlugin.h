@@ -11,15 +11,15 @@
 #import <EventKit/EventKit.h>
 
 
-@interface calendarPlugin : CDVPlugin <EKEventEditViewDelegate> {
-    
+@interface CalendarPlugin : CDVPlugin <EKEventEditViewDelegate> {
+
 	EKEventStore *eventStore;
     EKCalendar *defaultCalendar;
     //NSArray *events;
-    
+
     //future plan to have global type variables
-    
-    
+
+
 }
 
 @property (nonatomic,retain) EKEventStore *eventStore;
@@ -28,7 +28,7 @@
 //-(NSArray *)fetchEvents;
 
 // Calendar Instance methods
-- (void)createEvent:(CDVInvokedUrlCommand*)command;
+- (void)addToCalendar:(CDVInvokedUrlCommand*)command;
 - (void)getCalendarList:(CDVInvokedUrlCommand*)command;
 //- (void)modifyEvent:(CDVInvokedUrlCommand*)command;
 
