@@ -19,14 +19,14 @@
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="Calendar">
-                <param name="ios-package" value="Calendar" />
+            <feature name="CalendarPlugin">
+                <param name="ios-package" value="CalendarPlugin" />
                 <param name="onload" value="true" />
             </feature>
         </config-file>
 
-        <header-file src="src/ios/calendarPlugin.h" />
-        <source-file src="src/ios/calendarPlugin.m" />
+        <header-file src="src/ios/CalendarPlugin.h" />
+        <source-file src="src/ios/CalendarPlugin.m" />
     </platform>
 
     <!-- android -->
