@@ -38,7 +38,7 @@
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="KeyboardShrinksView" value="false" />
-    <preference name="android-minSdkVersion" value="8" />
+    <preference name="android-minSdkVersion" value="18" />
     <preference name="android-maxSdkVersion" value="23" />
     <preference name="android-targetSdkVersion" value="22" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
@@ -86,6 +86,6 @@
     <splash height="2008" platform="ios" src="resources/ios/splash/default-portrait@2x~ipad.png" width="1536" />
     <splash height="768" platform="ios" src="resources/ios/splash/default-landscape~ipad.png" width="1024" />
     <splash height="1496" platform="ios" src="resources/ios/splash/default-landscape@2x~ipad.png" width="2046" />
-    <engine name="android" spec="~5.1.1" />
-    <engine name="ios" spec="~4.2.1" />
+    <engine name="ios" spec="&gt;4.2.1" />
+    <engine name="android" spec="~6.1.0" />
 </widget>

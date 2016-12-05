@@ -70,7 +70,8 @@ if(fs.existsSync(projectDir)){
 				   'phonegap-plugin-email-composer',
 				   'phonegap-plugin-external-file-util',
 			 	   'phonegap-plugin-phone-dialer',
-				   'phonegap-plugin-sms-composer'
+				   'phonegap-plugin-sms-composer',
+				   'phonegap-plugin-push-notification'
 		    	],
 			android: [
 			      'phonegap-plugin-app47',
@@ -80,7 +81,8 @@ if(fs.existsSync(projectDir)){
 				  'phonegap-plugin-email-composer',
 				  'phonegap-plugin-external-file-util',
 				  'phonegap-plugin-phone-dialer',
-				  'phonegap-plugin-sms-composer'
+				  'phonegap-plugin-sms-composer',
+				  'phonegap-plugin-push-notification'
 			]
 		   }
 	    };

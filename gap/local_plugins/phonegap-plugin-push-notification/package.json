@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "name": "phonegap-plugin-push-notification",
+    "cordova_name": "PushNotification",
+    "description": "Phonegap plugin.",
+    "license": "MIT",
+    "platforms": [
+        "ios",
+        "android"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}
