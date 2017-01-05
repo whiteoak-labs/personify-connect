@@ -1,5 +1,5 @@
 #import "AppDelegate+notification.h"
-#import "LocalDevice.h"
+#import "PushNotification.h"
 #import <objc/runtime.h>
 #import <Security/Security.h>
 #import <CoreFoundation/CoreFoundation.h>
@@ -44,8 +44,8 @@ static const int blurViewTag = 8675309;
 }
 
 - (BOOL)customApplication:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {	
-	LocalDevice *localDevice = [self getCommandInstance:@"LocalDevice"];
-	localDevice.hostUrl = [launchOptions objectForKey:@"UIApplicationLaunchOptionsURLKey"];
+	PushNotification* push = [self getCommandInstance:@"PushNotification"];
+	push.hostUrl = [launchOptions objectForKey:@"UIApplicationLaunchOptionsURLKey"];
     
 	[self customApplication:application didFinishLaunchingWithOptions:launchOptions];
 	return YES;
@@ -53,20 +53,20 @@ static const int blurViewTag = 8675309;
 
 -(void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-	LocalDevice *localDevice = [self getCommandInstance:@"LocalDevice"];
-	[localDevice didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+	PushNotification* push = [self getCommandInstance:@"PushNotification"];
+	[push didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
-	LocalDevice *localDevice = [self getCommandInstance:@"LocalDevice"];
-	[localDevice didFailToRegisterForRemoteNotificationsWithError:error];
+	PushNotification* push = [self getCommandInstance:@"PushNotification"];
+	[push didFailToRegisterForRemoteNotificationsWithError:error];
 }
 
 -(void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-	LocalDevice *localDevice = [self getCommandInstance:@"LocalDevice"];
-	[localDevice didReceiveRemoteNotification:userInfo];
+	PushNotification *push = [self getCommandInstance:@"PushNotification"];
+	[push didReceiveRemoteNotification:userInfo];
 }
 
 // repost the localnotification using the default NSNotificationCenter so multiple plugins may respond
